@@ -1,0 +1,48 @@
+<!--
+  Generated template for the ShowRisk1Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>ตรวจสุขภาพทางการเงินเร่งด่วน</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-card>
+      <ion-item color="listHead">
+        <b>ผลการคำนวณ</b>
+      </ion-item>
+    </ion-card>
+    
+      <ion-card-content *ngFor = "let item of risk">
+        <p>สุขภาพทางการเงินของคุณอยู่ในระดับ<b>{{item.name}}</b></p>
+      </ion-card-content>
+      <ion-card-content>
+        <p> มีอัตราส่วนหนี้สินต่อรายได้ = <b>{{DTI | number:'.1-2'}} % </b></p>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card>
+    <ion-card>
+      <ion-item color="listHead">
+        <b>คำแนะนำ</b>
+      </ion-item>
+    </ion-card>
+
+    <ion-card-content *ngFor = "let item of risk">
+      <p>{{item.direction}}</p>
+    </ion-card-content>
+        
+  </ion-card>
+  <br>
+  <button ion-button nevPush="FhcInstantPage">คำนวณอีกครั้ง</button>
+
+</ion-content>
