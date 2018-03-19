@@ -31,6 +31,7 @@ import { IncomeProvider } from '../providers/income-services/income';
 import { DailyExpensesProvider } from '../providers/daily-expenses-services/daily-expenses';
 import { FixedExpensesProvider } from '../providers/fixed-expenses-services/fixed-expenses';
 import { Risk1Provider } from '../providers/risk-services/risk1';
+import { MaxExpensesProvider } from '../providers/summary-services/max-expenses';
 
 
 
@@ -72,7 +73,8 @@ import { Risk1Provider } from '../providers/risk-services/risk1';
     IncomeProvider,
     DailyExpensesProvider,
     FixedExpensesProvider,
-    Risk1Provider
+    Risk1Provider,
+    MaxExpensesProvider
   ]
 })
 export class AppModule {}

@@ -21,7 +21,8 @@ export class MyApp {
 
   username: string;     
   
-  host: string = "http://172.20.10.2";
+  // host: string = "http://172.20.10.2";
+  host: string = "http://localhost";
 
   constructor(public platform: Platform, 
               public statusBar: StatusBar,
@@ -46,6 +47,7 @@ export class MyApp {
       { title: 'รายจ่ายคงที่', component: 'FixedExpensesPage'},
       { title: 'สรุปรายจ่ายที่ไม่จำเป็น', component: 'DispensableExpensesPage'},
       { title: 'สรุปรายจ่ายแต่ละช่องทาง', component: 'ChannelExpensesPage'},
+      { title: 'อันดับรายจ่ายสูงสุด', component: 'MaxExpensesPage'},
       { title: 'สรุปรายจ่ายที่ก่อให้เกิดหนี้สิน', component: 'ExpensesDebtPage'},
       { title: 'สรุปรายรับที่ก่อให้เกิดหนี้สิน', component: 'IncomeDebtPage'}
     ];
