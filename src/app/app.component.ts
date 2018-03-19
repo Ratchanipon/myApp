@@ -21,7 +21,7 @@ export class MyApp {
 
   username: string;     
   
-  host: string = "http://localhost";
+  host: string = "http://172.19.100.251";
 
   constructor(public platform: Platform, 
               public statusBar: StatusBar,
