@@ -18,7 +18,7 @@ import { Storage } from '@ionic/storage';
 })
 export class LoginPage {
 
-  user:User = {username:'', password:'',id:"" ,name:"", email:"", age:"", career:"", sex:"", permission:""};
+  user:User = {surname:'', password:'',id:"" ,name:"", email:"", age:"", career:"", sex:"", permission:""};
   userList: any;
   
   constructor(
@@ -41,7 +41,7 @@ export class LoginPage {
       if(this.user!=null){
         console.error(this.user);
         localStorage.setItem("user_id",this.user.id);
-        localStorage.setItem("username",this.user.username);
+        localStorage.setItem("email",this.user.email);
          //this.navCtrl.push("TPage",{'u':user});
 
         this.navCtrl.setRoot('HomePage',{'user':user});    

@@ -19,7 +19,7 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  username: string;     
+  email: string;     
   
   // host: string = "http://172.20.10.2";
   host: string = "http://localhost";
@@ -34,7 +34,7 @@ export class MyApp {
     this.user_id = localStorage.getItem("user_id");
     this.user_id != null?this.rootPage = "HomePage":this.rootPage = "IndexPage";
 
-    this.username = localStorage.getItem("username");
+    this.email = localStorage.getItem("email");
 
     this.initializeApp();
 
@@ -60,7 +60,7 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      this.username = localStorage.getItem("username");
+      this.email = localStorage.getItem("email");
 
       
     });

@@ -29,7 +29,7 @@ export class UserServiceProvider {
       let host = sessionStorage.getItem("host");
 
       return new Promise<User>(resolve=>{
-        this.http.get(host+'/AppManagement/services/users/getUserById?username='+user.username+'&password='+user.password)
+        this.http.get(host+'/AppManagement/services/users/getUserById?email='+user.email+'&password='+user.password)
         .subscribe(user=>{
           
           let data = this.extacObject(user);
