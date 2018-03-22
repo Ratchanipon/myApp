@@ -18,7 +18,7 @@ import { Storage } from '@ionic/storage';
 })
 export class LoginPage {
 
-  user:User = {surname:'', password:'',id:"" ,name:"", email:"", age:"", career:"", sex:"", permission:""};
+  user:User = {surname:'', password:'notanusit1234',id:"" ,name:"", email:"anusit@hotmail.com", age:"", career:"", sex:"", permission:""};
   userList: any;
   
   constructor(

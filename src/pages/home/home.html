@@ -31,35 +31,53 @@
 
   <ion-card>
     <ion-item *ngFor="let item of totalIncome" color="list">
-        <h2>รายรับ: {{item.totalIncome}} บาท</h2>        
+        <h2>รายรับ:</h2>
+        <div item-content>
+            <ion-badge class="badge-light">{{item.totalIncome}} ฿</ion-badge>
+        </div>         
     </ion-item>
   </ion-card>
   <ion-card>
     <ion-item *ngFor="let item of totalFixedExp" color="list">
-      <h2>รายจ่ายคงที่: {{item.totalFixedExp}} บาท</h2>        
+      <h2>รายจ่ายคงที่:</h2>
+      <div item-content>
+          <ion-badge class="badge-light">{{item.totalFixedExp}} ฿</ion-badge>
+      </div>         
     </ion-item>
   </ion-card>
   <ion-card>
     <ion-item *ngFor="let item of totalDailyExp" color="list">
-      <h2>รายจ่ายรายววัน: {{item.totalDailyExp}} บาท</h2>        
+      <h2>รายจ่ายรายววัน:</h2>
+      <div item-content>
+          <ion-badge class="badge-light">{{item.totalDailyExp}} ฿</ion-badge>
+      </div>          
     </ion-item>
   </ion-card>
   <ion-card>
     <ion-item *ngFor="let item of balance" color="list">
-      <h2>ยอดคงเหลือ: {{item.balance}} บาท</h2>        
+      <h2>ยอดคงเหลือ:</h2>
+      <div item-content>
+          <ion-badge class="badge-light">{{item.balance}} ฿</ion-badge>
+      </div>        
     </ion-item>
   </ion-card>
   <ion-card>
     <ion-item *ngFor="let item of moneyPerDay" color="list">
-      <h2>เงินที่ใช้ได้ต่อวัน: {{item.moneyPerDay}} บาท</h2>        
+      <h2>เงินที่ใช้ได้ต่อวัน:</h2> 
+      <div item-content>
+          <ion-badge class="badge-light">{{item.moneyPerDay}} ฿</ion-badge>
+      </div>       
     </ion-item>
   </ion-card>
     
-  <!-- <ion-list>
+  <ion-card>
     <ion-item *ngFor="let item of balance" color="list">
-        <h1> {{item.balance}}</h1>        
+        <h1>ยอดคงเหลือ:</h1>
+        <div item-content>
+            <ion-badge class="badge-light">{{item.balance}} ฿</ion-badge>
+        </div>         
     </ion-item>
     
-  </ion-list> -->
+  </ion-card>
 
 </ion-content>

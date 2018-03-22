@@ -17,13 +17,28 @@
 
 
 <ion-content>
-    <ion-list>
+    <!-- <ion-list>
         <ion-item *ngFor="let item of dispensableExpList">
             <h2> {{item.categoryExp}}</h2>
             <p> {{item.amount}} บาท &nbsp;{{item.create_date}}</p>    
              
         </ion-item>
         
-    </ion-list>
+    </ion-list> -->
+        <ion-list>
+            <!-- Header Top -->
+            <ion-list-header color="listHead"><h2><b>รายการรายจ่ายที่ไม่จำเป็น</b></h2></ion-list-header>
+            <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of dispensableExpList let i = index;">
+              
+              <h2 item-title text-wrap>{{item.categoryExp}}</h2>
+              <!-- Subtitle -->
+              <p item-subtitle text-wrap>{{item.create_date}}</p>
+              <!-- Badge -->
+              <div item-content>
+                <ion-badge class="badge-light">{{item.amount}} ฿</ion-badge>
+              </div>
+
+            </ion-item>
+        </ion-list>
 
 </ion-content>

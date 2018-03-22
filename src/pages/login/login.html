@@ -16,25 +16,24 @@
 <ion-content padding >
     <div align="center">
         <img class="" width="150" height="150" [src]="chosenPicture || placeholder" onerror="this.src='assets/img/login/login.png'"/>
-    </div><br><br>
+    </div>
 
-    <ion-list>
-
-        <ion-item>
-            <ion-label floating>อีเมล</ion-label>
-          <ion-input type="text" [(ngModel)] = "user.email" ></ion-input>
+      <ion-col align-self-start col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+        <ion-item no-padding margin-top>
+            <ion-label floating>อีเมล (email)</ion-label>
+          <ion-input required type="text" [(ngModel)] = "user.email" ></ion-input>
         </ion-item>
       
-        <ion-item>
-            <ion-label floating>รหัสผ่าน</ion-label>
-          <ion-input type="password" [(ngModel)] = "user.password"></ion-input>
+        <ion-item no-padding margin-top>
+          <ion-label floating>รหัสผ่าน (password)</ion-label>
+          <ion-input required type="password" [(ngModel)] = "user.password"></ion-input>
         </ion-item>
+      </ion-col>
 
-      </ion-list>
-      <button ion-button round full (click) = "login(user)">ลงชื่อเข้าใช้</button>
+      <button ion-button default-button full text-capitalize (click) = "login(user)">ลงชื่อเข้าใช้</button>
     <div align="center">
-        <button ion-button color="grayy" clear>ลืมรหัสผ่าน?</button><br>
+        <button ion-button button-clear text-capitalize clear float-center color="grayy" clear>ลืมรหัสผ่าน?</button><br>
         <font color="#BEBEBE">________________________________________________</font><br><br>
-        <button ion-button color="secondary" round full navPush="RegisterPage">สร้างบัญชีผู้ใช้ใหม่</button>
+        <button ion-button default-button full text-capitalize color="secondary" round full navPush="RegisterPage">สร้างบัญชีผู้ใช้ใหม่</button>
     </div>
 </ion-content>

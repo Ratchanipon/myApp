@@ -17,13 +17,28 @@
 
 
 <ion-content>
-  <ion-list>
+  <!-- <ion-list>
       <ion-item *ngFor="let item of maxExpenses">
           <h2> {{item.cateName}}</h2>
           <p> {{item.amount}} บาท &nbsp;{{item.createDate}}</p>    
            
       </ion-item>
       
+  </ion-list> -->
+  <ion-list>
+      <!-- Header Top -->
+      <ion-list-header color="listHead"><h2><b>รายการรายจ่ายสูงสุด</b></h2></ion-list-header>
+      <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of maxExpenses let i = index;">
+        
+        <h2 item-title text-wrap>{{item.cateName}}</h2>
+        <!-- Subtitle -->
+        <p item-subtitle text-wrap>{{item.createDate}}</p>
+        <!-- Badge -->
+        <div item-content>
+          <ion-badge class="badge-light">{{item.amount}} ฿</ion-badge>
+        </div>
+
+      </ion-item>
   </ion-list>
 
 </ion-content>

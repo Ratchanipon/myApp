@@ -19,21 +19,31 @@
 <ion-content>
     <ion-card>
         <ion-item *ngFor="let item of sumFixedExpenses" color="list">
-            <h2>รายจ่ายคงที่ทั้งหมด: {{item.totalFixedExp}} บาท </h2>   
+        <h2>รายจ่ายคงที่ทั้งหมด:</h2>
+            <div item-content>
+                <ion-badge class="badge-light">{{item.totalFixedExp}} ฿</ion-badge>
+            </div>  
         </ion-item>
     </ion-card>
     
 
-          
-      <ion-list>
-          <ion-list-header color="listHead"><h2><b>รายการรายจ่ายคงที่</b></h2></ion-list-header>
-        <ion-item *ngFor="let item of fixedExpensesList" color="list">
-            <h2>{{item.category}} บาท </h2>    
-            <p> {{item.amount}} บาท &nbsp;{{item.create_date}}</p>
-            <button ion-button clear item-end>
-                <ion-icon name="create"></ion-icon>
-            </button>
-        </ion-item>
-      </ion-list>
+         <ion-list>
+            <!-- Header Top -->
+            <ion-list-header color="listHead"><h2><b>รายการรายจ่ายคงที่</b></h2></ion-list-header>
+            <ion-item *ngFor="let item of fixedExpensesList" border no-lines>
+              <!-- Avatar -->
+              <!-- <ion-avatar item-start>
+                <img [src]="element.image" alt="{{element.title}}" />
+              </ion-avatar> -->
+              <!-- Title -->
+              <h2 item-title text-wrap>{{item.category}}</h2>
+              <!-- Subtitle -->
+              <p item-subtitle text-wrap>{{item.create_date}}</p>
+              <!-- Badge -->
+              <div item-content>
+                <ion-badge class="badge-light">{{item.amount}} ฿</ion-badge>
+              </div>
+            </ion-item>
+          </ion-list>
 
 </ion-content>
