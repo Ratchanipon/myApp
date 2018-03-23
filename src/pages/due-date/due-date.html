@@ -14,22 +14,37 @@
 
 
 <ion-content padding>
-    <ion-list>
-        <ion-item-group>
+  <!-- <h1  *ngIf="user">{{user.id}}</h1> -->
+  <form [formGroup]="dueDate" (ngSubmit)="addDueDate(dueDate)">
+    <div>
+
         <ion-item>
-          <ion-input type="number" placeholder="วันที่ครบกำหนดชำระค่าน้ำ" ></ion-input>
+          <ion-input type="number" placeholder="วันที่ครบกำหนดชำระค่าน้ำ" formControlName="water"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="number" placeholder="วันที่ครบกำหนดชำระค่าไฟฟ้า"></ion-input>
+          <ion-input type="number" placeholder="วันที่ครบกำหนดชำระค่าไฟฟ้า" formControlName="electricity"></ion-input>
         </ion-item>
         <ion-item>
-            <ion-input type="number" placeholder="วันที่ครบกำหนดชำระค่าบริการอินเทอร์เน็ต"></ion-input>
+            <ion-input type="number" placeholder="วันที่ครบกำหนดชำระค่าบริการอินเทอร์เน็ต" formControlName="internet"></ion-input>
           </ion-item>
         <ion-item>
-            <ion-input type="number" placeholder="วันที่ครบกำหนดชำระค่าบริการโทรศัพท์"></ion-input>
+            <ion-input type="number" placeholder="วันที่ครบกำหนดชำระค่าบริการโทรศัพท์" formControlName="telephone"></ion-input>
         </ion-item>
-      </ion-item-group>
-      </ion-list>
+        <ion-item>
+            <!-- <ion-label floating>บัตรเครดิต</ion-label> -->
+            <ion-select  placeholder formControlName="credit_card"  >
+              <ion-option value="1">กรุงศรี</ion-option>
+              <ion-option value="2">กรุงเทพ</ion-option>
+            </ion-select>
+        </ion-item>
+        <!-- <ion-list>
+            <ion-item-divider *ngFor="let item of creditList"></ion-item-divider>
+            <select-layout-2 >{{item.name}}</select-layout-2>
+        </ion-list> -->
+
+    </div>
       <button ion-button full navPush="">บันทึก</button>
       <button ion-button full navPush="">ยกเลิก</button>
+  </form>
+
 </ion-content>

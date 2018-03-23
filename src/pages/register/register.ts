@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, App } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PasswordValidator } from '../../validators/password.validator';
 import { User } from '../../model/user';
@@ -22,11 +22,14 @@ export class RegisterPage {
 
   user:FormGroup;
   // user1:User = {surname:'สิงห์นิกร', password:'anusit1234',id:"" ,name:"อนุศิษฐ์", email:"anusit@hotmail.com", age:"22", career:"นักศึกษา", sex:"ชาย", permission:""};
+  user1:User;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
+              public app: App,
               public formBuilder: FormBuilder,
-              public addUser: AddUserProvider) {
+              public addUser: AddUserProvider,
+              public toastCtrl: ToastController) {
                 
                 this.form();
                 
@@ -51,12 +54,57 @@ export class RegisterPage {
     })
 
   }
-  register(user){
+  register(user:User){
     // ทดสอบดูค่าต่างๆ ที่ส่งมาจากฟอร์ม 
-    console.log(user);
+    // console.log(this.user);
+    this.addUser.AddUserProvider(this.user.value).then(user => {
+      console.error(user);
 
-    this.addUser.AddUserProvider(user);
+      if(user != null){
+        this.addUserSuccess();
+        // this.navCtrl.push('RegisterPage');
+        localStorage.setItem("user_id",user.id);
+        localStorage.setItem("email",user.email);
+        // this.navCtrl.push('DueDatePage');
+
+        this.navCtrl.setRoot('DueDatePage',{'user':user});    
+        const root = this.app.getRootNav();
+        root.popToRoot();
+      }
+      if(user == null){
+        this.Duplicate();
+      }
+    })
     // console.log(user.value);
     // console.log(user.valid);
+  }
+  
+
+  addUserSuccess() {
+    let toast = this.toastCtrl.create({
+      message: 'สร้างบัญชีผู้ใช้งานสำเร็จ',
+      duration: 3000,
+      position: 'top'
+    });
+  
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+  
+    toast.present();
+  }
+
+  Duplicate() {
+    let toast = this.toastCtrl.create({
+      message: 'มีอีเมลนี้อยู่ในระบบแล้ว กรุณากรอกอีเมลอีกครั้ง',
+      duration: 3000,
+      position: 'top'
+    });
+  
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+  
+    toast.present();
   }
 }

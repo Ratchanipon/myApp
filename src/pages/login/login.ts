@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App, ToastController } from 'ionic-angular';
 import { User } from '../../model/user';
 import { UserServiceProvider } from '../../providers/user-service/user-service';
 import { Storage } from '@ionic/storage';
@@ -29,7 +29,8 @@ export class LoginPage {
         private userService:UserServiceProvider,
         private storage: Storage,
         public app: App,
-        public formBuilder: FormBuilder){
+        public formBuilder: FormBuilder,
+        public toastCtrl: ToastController){
 
           // this.user = this.formBuilder.group({
           //   email: ['', Validators.required],
@@ -45,11 +46,12 @@ export class LoginPage {
   }
 
   login(user:User){
-    
+
     this.userService.loginProvider(user).then(user=>{
       console.error(user);
       this.user = user;
       if(this.user!=null){
+        this.loginSuccess()
         console.error(this.user);
         localStorage.setItem("user_id",this.user.id);
         localStorage.setItem("email",this.user.email);
@@ -60,25 +62,41 @@ export class LoginPage {
         root.popToRoot();
       }
       else{
-        alert('ข้อมูลไม่ถูกต้อง');
+        this.invalid();
         this.navCtrl.setRoot('LoginPage');    
         const root = this.app.getRootNav();
         root.popToRoot();
-        
-        
       }
-    }).catch(e=>{
-      console.error(e);
-      
+
+    })
+
+  }
+  loginSuccess() {
+    let toast = this.toastCtrl.create({
+      message: 'ลงชื่อเข้าใช้สำเร็จ',
+      duration: 3000,
+      position: 'top'
     });
-
-      // this.storage.set('user', this.user);
-      // this.storage.get('user').then((val) => {
-      // console.log('Your user is', val);
-      // });
-      
   
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+  
+    toast.present();
+  }
 
-    }
+  invalid() {
+    let toast = this.toastCtrl.create({
+      message: 'ข้อมูลผู้ใช้ไม่ถูกต้อง',
+      duration: 3000,
+      position: 'top'
+    });
+  
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+  
+    toast.present();
+  }
   
 }

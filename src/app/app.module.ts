@@ -45,7 +45,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
-    //FormsModule,
+    // FormsModule,
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],

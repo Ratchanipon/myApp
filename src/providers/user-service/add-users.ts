@@ -12,7 +12,7 @@ import { User } from '../../model/user';
 @Injectable()
 export class AddUserProvider {
 
-  user:User;
+  // user:User;
 
   constructor(public http: HttpClient) {
     console.log('Hello AddUserProvider Provider');
