@@ -1,3 +1,70 @@
 page-register {
+    ion-grid,
+    ion-row {
+      height: 100%;
+    }
+    // Avatar
+    ion-thumbnail {
+      display: block;
+      clear: both;
+      filter: none;
+      opacity: 1;
+  
+      img {
+        max-width: 50px;
+        max-height: 50px;
+      }
+    }
+    // Title
+    [title] {
+      margin-right: 20%;
+      font-size: font-size-text('h1') !important;
+      font-weight: bold;
+      line-height: 34px;
+    }
+  
+    [stacked] {
+      font-size: 10px !important;
+    }
 
+
+    //2
+    
+
+}
+
+egister-layout-1 {
+    
+  }
+  
+
+  register-layout-2 {
+    .scroll-content {
+      margin-top: 0 !important;
+    }
+    .back-button,
+    .toolbar-title {
+      color: theme-colors('textColors', 'secondaryBase') !important;
+    }
+    ion-grid,
+    ion-row {
+        height: 100%;
+    }
+    [stacked] {
+        font-size: 10px !important;
+    }
+
+    // Settings Background Size
+    [background-size] {
+        height: 40%;
+        position: relative;
+        @include darkening-blend-mode;
+    }
+
+    // Header Title
+    [header-title] {
+        position: absolute;
+        bottom: 10px;
+        left: 25px;
+    }
 }

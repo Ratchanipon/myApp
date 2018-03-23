@@ -15,3 +15,32 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+[header-background-image] {
+    height: 160px;
+    background-size: cover;
+    background-position: center;
+    background-color: #00b9f1;
+    // @include darkening-blend-mode;
+    [header-title] {
+        padding-right: 10%;
+    }
+    img {
+        position: relative;
+        display: block;
+        padding-top: 24px;
+        max-width: 60px;
+    }
+    p {
+        font-size: 18px !important;
+        color: theme-colors('textColors', 'secondaryBase');
+    }
+    h2 {
+        font-size: 18px !important;
+        color: theme-colors('textColors', 'secondaryBase');
+    }
+}
+
+// Settings Style distance icon text
+[main-menu] .item-inner {
+    margin-left: 6px !important;
+}

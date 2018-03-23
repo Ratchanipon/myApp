@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { User } from '../../model/user';
 import { UserServiceProvider } from '../../providers/user-service/user-service';
 import { Storage } from '@ionic/storage';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 /**
  * Generated class for the LoginPage page.
@@ -17,8 +18,9 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
-  user:User = {surname:'', password:'notanusit1234',id:"" ,name:"", email:"anusit@hotmail.com", age:"", career:"", sex:"", permission:""};
+  // public user:FormGroup;
+  public user:User;
+  
   userList: any;
   
   constructor(
@@ -26,7 +28,16 @@ export class LoginPage {
         public navParams: NavParams, 
         private userService:UserServiceProvider,
         private storage: Storage,
-        public app: App){
+        public app: App,
+        public formBuilder: FormBuilder){
+
+          // this.user = this.formBuilder.group({
+          //   email: ['', Validators.required],
+          //   password: ['',Validators.required]
+          // });
+          // console.log(this.user);
+          
+          this.user = {surname:'', password:'anusit1234',id:"" ,name:"", email:"anusit@hotmail.com", age:"", career:"", sex:"", permission:""};
     }
 
   ionViewDidLoad() {

@@ -32,6 +32,8 @@ import { DailyExpensesProvider } from '../providers/daily-expenses-services/dail
 import { FixedExpensesProvider } from '../providers/fixed-expenses-services/fixed-expenses';
 import { Risk1Provider } from '../providers/risk-services/risk1';
 import { MaxExpensesProvider } from '../providers/summary-services/max-expenses';
+import { AddUserProvider } from '../providers/user-service/add-users';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -43,6 +45,7 @@ import { MaxExpensesProvider } from '../providers/summary-services/max-expenses'
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
+    //FormsModule,
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
@@ -74,7 +77,8 @@ import { MaxExpensesProvider } from '../providers/summary-services/max-expenses'
     DailyExpensesProvider,
     FixedExpensesProvider,
     Risk1Provider,
-    MaxExpensesProvider
+    MaxExpensesProvider,
+    AddUserProvider
   ]
 })
 export class AppModule {}

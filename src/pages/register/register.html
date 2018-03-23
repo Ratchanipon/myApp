@@ -14,28 +14,51 @@
 
 
 <ion-content padding>
-    <ion-list>
-        <ion-item-group>
-        <ion-item>
-          <ion-input type="number" placeholder="ชื่อ - สกุล" ></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input type="number" placeholder="ชื่อผู้ใช้"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-input type="number" placeholder="รหัสผ่าน"></ion-input>
-          </ion-item>
-        <ion-item>
-            <ion-input type="number" placeholder="อายุ"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-input type="number" placeholder="อาขีพ"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-input type="number" placeholder="E-mail"></ion-input>
-        </ion-item>
-      </ion-item-group>
-      </ion-list>
-      <button ion-button full navPush="DueDatePage">สร้างบัญชี</button>
-      <button ion-button full navPush="">ยกเลิก</button>
+  <!-- <from [formGroup]="user" (ngSubmit)="register()">
+    
+
+  </from> -->
+      <!-- <button ion-button full navPush="DueDatePage">สร้างบัญชี</button> -->
+      <!-- <button ion-button full navPush="">ยกเลิก</button> -->
+
+
+      <form [formGroup]="user" (ngSubmit)="register(user)">
+          <div>
+              <!-- <ion-item-group> -->
+              <ion-item>
+                  <ion-label floating >กรอกชื่อจริง</ion-label>
+                <ion-input type="text"   formControlName="name" ></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label floating >กรอกนามสกุล</ion-label>
+                <ion-input type="text"  formControlName="surname"  ></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label floating >กรอกอีเมล</ion-label>
+                  <ion-input type="email"  formControlName="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" ></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label floating >กรอกรหัสผ่าน</ion-label>
+                  <ion-input type="password"  formControlName="password"  ></ion-input>
+                </ion-item>
+              <ion-item>
+                  <ion-label floating >อายุ</ion-label>
+                  <ion-input type="number"  formControlName="age" ></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label floating>เลือกเพศ</ion-label>
+                  <ion-select  formControlName="sex"  >
+                    <ion-option value="ชาย">ชาย</ion-option>
+                    <ion-option value="หญิง">หญิง</ion-option>
+                  </ion-select>
+              </ion-item>
+              <ion-item>
+                  <ion-label floating >กรอกอาขีพ</ion-label>
+                  <ion-input type="text" formControlName="career" ></ion-input>
+              </ion-item>
+          </div>
+          <br>
+            <button ion-button default-button full text-capitalize color="secondary" type="submit" [disabled]="!user.valid" >สร้างบัญชี</button>
+        </form>
+
 </ion-content>
