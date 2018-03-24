@@ -23,7 +23,7 @@ export class AddUserProvider {
       let host = sessionStorage.getItem("host");
 
       return new Promise<User>(resolve=>{
-        this.http.post(host+'/AppManagement/services/register/getAddUser',JSON.stringify({data:user}),
+        this.http.post(host+'/AppManagement/services/users/getAddUser',JSON.stringify({data:user}),
         {headers: new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded')}
     )
         .subscribe(user=>{

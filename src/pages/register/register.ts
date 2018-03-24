@@ -23,7 +23,7 @@ export class RegisterPage {
   user:FormGroup;
   // user1:User = {surname:'สิงห์นิกร', password:'anusit1234',id:"" ,name:"อนุศิษฐ์", email:"anusit@hotmail.com", age:"22", career:"นักศึกษา", sex:"ชาย", permission:""};
   user1:User;
-
+  animateClass:any;
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public app: App,
@@ -38,6 +38,8 @@ export class RegisterPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
     this.form();
+
+      this.animateClass = { 'fade-in-item': true };
     
   }
 
@@ -65,11 +67,14 @@ export class RegisterPage {
         // this.navCtrl.push('RegisterPage');
         localStorage.setItem("user_id",user.id);
         localStorage.setItem("email",user.email);
-        // this.navCtrl.push('DueDatePage');
-
-        this.navCtrl.setRoot('DueDatePage',{'user':user});    
+        this.navCtrl.setRoot('DueDatePage',{'user':user});   
         const root = this.app.getRootNav();
         root.popToRoot();
+        
+        // this.navCtrl.push('DueDatePage');
+
+         
+        
       }
       if(user == null){
         this.Duplicate();

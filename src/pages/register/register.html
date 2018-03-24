@@ -23,42 +23,44 @@
 
 
       <form [formGroup]="user" (ngSubmit)="register(user)">
-          <div>
+          <div border no-lines [ngClass]="animateClass">
               <!-- <ion-item-group> -->
               <ion-item>
-                  <ion-label floating >กรอกชื่อจริง</ion-label>
-                <ion-input type="text"   formControlName="name" ></ion-input>
+                  <ion-label floating ></ion-label>
+                <ion-input type="text" placeholder="กรอกชื่อจริง" formControlName="name" ></ion-input>
               </ion-item>
               <ion-item>
-                  <ion-label floating >กรอกนามสกุล</ion-label>
-                <ion-input type="text"  formControlName="surname"  ></ion-input>
+                  <ion-label floating ></ion-label>
+                <ion-input type="text" placeholder="กรอกนามสกุล" formControlName="surname"  ></ion-input>
               </ion-item>
               <ion-item>
-                  <ion-label floating >กรอกอีเมล</ion-label>
-                  <ion-input type="email"  formControlName="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" ></ion-input>
+                  <ion-label floating ></ion-label>
+                  <ion-input type="email" placeholder="กรอกอีเมล" formControlName="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" ></ion-input>
               </ion-item>
               <ion-item>
-                  <ion-label floating >กรอกรหัสผ่าน</ion-label>
-                  <ion-input type="password"  formControlName="password"  ></ion-input>
+                  <ion-label floating ></ion-label>
+                  <ion-input type="password" placeholder="กรอกรหัสผ่าน" formControlName="password"  ></ion-input>
                 </ion-item>
               <ion-item>
-                  <ion-label floating >อายุ</ion-label>
-                  <ion-input type="number"  formControlName="age" ></ion-input>
+                  <ion-label floating ></ion-label>
+                  <ion-input type="number" placeholder="อายุ" formControlName="age" ></ion-input>
               </ion-item>
               <ion-item>
-                  <ion-label floating>เลือกเพศ</ion-label>
-                  <ion-select  formControlName="sex"  >
+                  <ion-label floating></ion-label>
+                  <ion-select placeholder="เลือกเพศ" formControlName="sex" multiple="false" interface="popover">
                     <ion-option value="ชาย">ชาย</ion-option>
                     <ion-option value="หญิง">หญิง</ion-option>
                   </ion-select>
               </ion-item>
               <ion-item>
-                  <ion-label floating >กรอกอาขีพ</ion-label>
-                  <ion-input type="text" formControlName="career" ></ion-input>
+                  <ion-label floating ></ion-label>
+                  <ion-input type="text" placeholder="กรอกอาขีพ" formControlName="career" ></ion-input>
               </ion-item>
           </div>
           <br>
+          <div border no-lines [ngClass]="animateClass">
             <button ion-button default-button full text-capitalize color="secondary" type="submit" [disabled]="!user.valid" >สร้างบัญชี</button>
-        </form>
+          </div>
+      </form>
 
 </ion-content>

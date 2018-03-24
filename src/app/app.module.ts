@@ -34,6 +34,7 @@ import { Risk1Provider } from '../providers/risk-services/risk1';
 import { MaxExpensesProvider } from '../providers/summary-services/max-expenses';
 import { AddUserProvider } from '../providers/user-service/add-users';
 import { FormsModule } from '@angular/forms';
+import { DueDateProvider } from '../providers/due-date-services/add-due-date-services';
 
 
 
@@ -78,7 +79,8 @@ import { FormsModule } from '@angular/forms';
     FixedExpensesProvider,
     Risk1Provider,
     MaxExpensesProvider,
-    AddUserProvider
+    AddUserProvider,
+    DueDateProvider
   ]
 })
 export class AppModule {}

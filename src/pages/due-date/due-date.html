@@ -7,16 +7,20 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>วันที่ครบกำหนดชำระค่าใช้จ่ายเดือน</ion-title>
+    <ion-title>วันที่ครบกำหนดชำระค่าใช้จ่ายรายเดือน</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <!-- <h1  *ngIf="user">{{user.id}}</h1> -->
+  
   <form [formGroup]="dueDate" (ngSubmit)="addDueDate(dueDate)">
-    <div>
+    <div border no-lines [ngClass]="animateClass">
+
+
+            <ion-input type="hidden" formControlName="user_id"></ion-input>
+
 
         <ion-item>
           <ion-input type="number" placeholder="วันที่ครบกำหนดชำระค่าน้ำ" formControlName="water"></ion-input>
@@ -30,21 +34,28 @@
         <ion-item>
             <ion-input type="number" placeholder="วันที่ครบกำหนดชำระค่าบริการโทรศัพท์" formControlName="telephone"></ion-input>
         </ion-item>
+
         <ion-item>
             <!-- <ion-label floating>บัตรเครดิต</ion-label> -->
-            <ion-select  placeholder formControlName="credit_card"  >
-              <ion-option value="1">กรุงศรี</ion-option>
-              <ion-option value="2">กรุงเทพ</ion-option>
+            <ion-label floating></ion-label>
+            <ion-select  placeholder="เลือกบัตรเครดิต" formControlName="credit_card" multiple="false" interface="popover" >
+              <!-- <ion-option *ngFor="let item of creditList"> -->
+                <ion-option *ngFor="let item of creditList" [value]="item.id">{{item.name}}</ion-option>
+              <!-- </ion-option> -->
+              <!-- <ion-option value="2">กรุงเทพ</ion-option> -->
             </ion-select>
         </ion-item>
         <!-- <ion-list>
             <ion-item-divider *ngFor="let item of creditList"></ion-item-divider>
             <select-layout-2 >{{item.name}}</select-layout-2>
         </ion-list> -->
-
     </div>
-      <button ion-button full navPush="">บันทึก</button>
-      <button ion-button full navPush="">ยกเลิก</button>
+    <div no-lines [ngClass]="animateClass">
+      <button ion-button default-button full text-capitalize color="secondary" [disabled]="!dueDate.valid">บันทึก</button>
+      <!-- <button ion-button full navPush="">ยกเลิก</button> -->
+    </div>
   </form>
+
+  
 
 </ion-content>

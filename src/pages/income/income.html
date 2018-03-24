@@ -16,7 +16,7 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content >
     <ion-card>
         <ion-item *ngFor="let item of sumIncome" color="list">
             <h2>รายรับทั้งหมด:</h2>
@@ -26,10 +26,13 @@
         </ion-item>
     </ion-card>
 
-                    <ion-list>
+  <!-- <ion-grid no-padding *ngIf="data != null"> -->
+    <ion-row>
+      <ion-col col-12>
+          <ion-list no-margin>
                       <!-- Header Top -->
                       <ion-list-header color="listHead"><h2><b>รายการรายรับ</b></h2></ion-list-header>
-                      <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of incomeList">
+                      <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of incomeList; let i = index;">
                         
                         <h2 item-title text-wrap>{{item.category}}</h2>
                         <!-- Subtitle -->
@@ -40,5 +43,8 @@
                         </div>
 
                       </ion-item>
-                    </ion-list>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    <!-- </ion-grid> -->
 </ion-content>
