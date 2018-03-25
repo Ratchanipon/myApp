@@ -17,6 +17,8 @@ import { ExpensesDebtProvider } from '../../providers/summary-services/expenses-
 export class ExpensesDebtPage {
   expensesDebtList:any;
 
+  animateClass:any;
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public expensesDebt: ExpensesDebtProvider) {
@@ -26,6 +28,8 @@ export class ExpensesDebtPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ExpensesDebtPage');
+    this.animateClass = { 'fade-in-right-item': true };
+
 
     this.expensesDebt.getExpensesDebt().then(data => {
       this.expensesDebtList = data;

@@ -43,7 +43,7 @@ export class IncomePage {
 
     this.income.getIncome().then(data => {
       this.incomeList = data;
-      this.animateClass = { 'fade-in-left-item': true };
+      this.animateClass = { 'fade-in-right-item': true };
     })
   }
 

@@ -19,6 +19,8 @@ export class DailyExpensesPage {
   sumDailyExpenses:any;
   dailyExpensesList:any;
 
+  animateClass:any;
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public sumDailyExpenses_: SumDailyExpensesProvider,
@@ -29,6 +31,7 @@ export class DailyExpensesPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DailyExpensesPage');
+    this.animateClass = { 'fade-in-right-item': true };
 
     this.sumDailyExpenses_.getSumDailyExpenses().then(data => {
       this.sumDailyExpenses = data;

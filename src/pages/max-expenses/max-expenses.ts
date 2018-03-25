@@ -17,6 +17,8 @@ import { MaxExpensesProvider } from '../../providers/summary-services/max-expens
 export class MaxExpensesPage {
   maxExpenses:any;
 
+  animateClass:any;
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public maxExp: MaxExpensesProvider) {
@@ -24,6 +26,8 @@ export class MaxExpensesPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MaxExpensesPage');
+    this.animateClass = { 'fade-in-right-item': true };
+
 
     let date = new Date;
     let datenow = date.getDate();

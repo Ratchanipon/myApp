@@ -20,6 +20,8 @@ export class DispensableExpensesPage {
 
   dispensableExpList: any;
 
+  animateClass:any;
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public dispensableExpenses: DispensableExpensesProvider,
@@ -29,6 +31,7 @@ export class DispensableExpensesPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
+    this.animateClass = { 'fade-in-right-item': true };
 
     this.dispensableExpenses.getDispensableExpenses()
                 .then((data: any) => {

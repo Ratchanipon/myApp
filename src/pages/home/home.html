@@ -30,7 +30,7 @@
   </ion-fab>
 
   <ion-card>
-    <ion-item *ngFor="let item of totalIncome" color="list">
+    <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of totalIncome" color="list">
         <h2>รายรับ:</h2>
         <div item-content>
             <ion-badge class="badge-light">{{item.totalIncome}} ฿</ion-badge>
@@ -38,7 +38,7 @@
     </ion-item>
   </ion-card>
   <ion-card>
-    <ion-item *ngFor="let item of totalFixedExp" color="list">
+    <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of totalFixedExp" color="list">
       <h2>รายจ่ายคงที่:</h2>
       <div item-content>
           <ion-badge class="badge-light">{{item.totalFixedExp}} ฿</ion-badge>
@@ -46,23 +46,23 @@
     </ion-item>
   </ion-card>
   <ion-card>
-    <ion-item *ngFor="let item of totalDailyExp" color="list">
+    <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of totalDailyExp" color="list">
       <h2>รายจ่ายรายววัน:</h2>
       <div item-content>
           <ion-badge class="badge-light">{{item.totalDailyExp}} ฿</ion-badge>
       </div>          
     </ion-item>
   </ion-card>
-  <ion-card>
-    <ion-item *ngFor="let item of balance" color="list">
+  <!-- <ion-card>
+    <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of balance" color="list">
       <h2>ยอดคงเหลือ:</h2>
       <div item-content>
           <ion-badge class="badge-light">{{item.balance}} ฿</ion-badge>
       </div>        
     </ion-item>
-  </ion-card>
+  </ion-card> -->
   <ion-card>
-    <ion-item *ngFor="let item of moneyPerDay" color="list">
+    <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of moneyPerDay" color="list">
       <h2>เงินที่ใช้ได้ต่อวัน:</h2> 
       <div item-content>
           <ion-badge class="badge-light">{{item.moneyPerDay}} ฿</ion-badge>
@@ -71,7 +71,7 @@
   </ion-card>
     
   <ion-card>
-    <ion-item *ngFor="let item of balance" color="list">
+    <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of balance" color="list">
         <h1>ยอดคงเหลือ:</h1>
         <div item-content>
             <ion-badge class="badge-light">{{item.balance}} ฿</ion-badge>

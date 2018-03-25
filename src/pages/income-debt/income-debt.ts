@@ -17,6 +17,8 @@ import { IncomeDebtProvider } from '../../providers/summary-services/income-debt
 export class IncomeDebtPage {
   incomeDebtList:any;
 
+  animateClass:any;
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public incomeDebt: IncomeDebtProvider) {
@@ -25,6 +27,8 @@ export class IncomeDebtPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad IncomeDebtPage');
+    this.animateClass = { 'fade-in-right-item': true };
+
 
     this.incomeDebt.getIncomeDebt().then(data => {
       this.incomeDebtList = data;

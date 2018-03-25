@@ -17,6 +17,8 @@ import { ChannelExpensesProvider } from '../../providers/summary-services/channe
 export class ChannelExpensesPage {
   channelExpenses:any;
 
+  animateClass:any;
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public channelExp: ChannelExpensesProvider) {
@@ -26,6 +28,8 @@ export class ChannelExpensesPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChannelExpensesPage');
+    this.animateClass = { 'fade-in-right-item': true };
+
     
     this.channelExp.getChannelExpenses().then(data => {
       this.channelExpenses = data;

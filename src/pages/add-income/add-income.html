@@ -1,0 +1,51 @@
+<!--
+  Generated template for the AddIncomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>add-income</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <form [formGroup]="income" (ngSubmit)="addDueDate(income)">
+        <div border no-lines [ngClass]="animateClass">
+    
+    
+            <ion-input type="hidden" formControlName="user_id"></ion-input>
+    
+            <ion-item>
+              <ion-input type="number" placeholder="วันที่ครบกำหนดชำระค่าน้ำ" formControlName="water"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="number" placeholder="วันที่ครบกำหนดชำระค่าไฟฟ้า" formControlName="electricity"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-input type="number" placeholder="วันที่ครบกำหนดชำระค่าบริการอินเทอร์เน็ต" formControlName="internet"></ion-input>
+              </ion-item>
+            <ion-item>
+                <ion-input type="number" placeholder="วันที่ครบกำหนดชำระค่าบริการโทรศัพท์" formControlName="telephone"></ion-input>
+            </ion-item>
+    
+            <ion-item>
+                <ion-label floating></ion-label>
+                <ion-select  placeholder="เลือกบัตรเครดิต" formControlName="credit_card" multiple="false" interface="popover" >
+                    <ion-option *ngFor="let item of creditList" [value]="item.id">{{item.name}}</ion-option>
+                </ion-select>
+            </ion-item>
+
+        </div>
+        <div no-lines [ngClass]="animateClass">
+          <button ion-button default-button full text-capitalize color="secondary" [disabled]="!income.valid">บันทึก</button>
+          <!-- <button ion-button full navPush="">ยกเลิก</button> -->
+        </div>
+    </form>
+
+</ion-content>

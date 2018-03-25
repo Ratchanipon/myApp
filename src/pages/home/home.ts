@@ -26,6 +26,8 @@ export class HomePage {
   totalFixedExp:any;
   totalDailyExp:any;
   moneyPerDay:any;
+
+  animateClass:any;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public balanced: BalancedProvider,
@@ -41,6 +43,8 @@ export class HomePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
+    this.animateClass = { 'fade-in-right-item': true };
+
     
     this.user = this.navParams.get('user');
                 console.log(this.user);

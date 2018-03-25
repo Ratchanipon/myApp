@@ -19,6 +19,8 @@ export class FixedExpensesPage {
   sumFixedExpenses:any;
   fixedExpensesList:any;
 
+  animateClass:any;
+
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public sumFixedExpenses_: SumFixedExpensesProvider,
@@ -28,6 +30,7 @@ export class FixedExpensesPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FixedExpensesPage');
+    this.animateClass = { 'fade-in-right-item': true };
 
     this.sumFixedExpenses_.getSumFixedExpenses().then(data => {
       this.sumFixedExpenses = data;

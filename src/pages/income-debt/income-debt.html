@@ -26,21 +26,25 @@
         </ion-item>
       </ion-card>
 
-      <ion-list>
+<ion-row>
+    <ion-col col-12>
+        <ion-list no-margin>
         <ion-list-header color="listHead"><h2><b>รายการรายรับที่ก่อให้เกิดหนี้สิน</b></h2></ion-list-header>
-        <ion-item *ngFor = "let item of incomeDebtList" color = "list">
+        <ion-item border no-lines [ngClass]="animateClass" *ngFor = "let item of incomeDebtList" color = "list">
           <h2>บัตรเครดิต:</h2>
           <div item-content>
               <ion-badge class="badge-light">{{item.creditCard}} ฿</ion-badge>
           </div> 
         </ion-item>
-        <ion-item *ngFor = "let item of incomeDebtList" color = "list">
+        <ion-item border no-lines [ngClass]="animateClass" *ngFor = "let item of incomeDebtList" color = "list">
             <h2>บัตรกดเงินสด:</h2>
             <div item-content>
                 <ion-badge class="badge-light">{{item.cashCard}} ฿</ion-badge>
             </div> 
         </ion-item>
       </ion-list>
+    </ion-col>
+</ion-row>
       
 
 </ion-content>
