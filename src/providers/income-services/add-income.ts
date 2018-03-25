@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../../model/user';
 import { DueDate } from '../../model/due-date';
+import { Income } from '../../model/income';
 
 /*
   Generated class for the DueDateServicesProvider provider.
@@ -10,23 +11,23 @@ import { DueDate } from '../../model/due-date';
   and Angular DI.
 */
 @Injectable()
-export class AddDueDateProvider {
+export class AddIncomeProvider {
 
   constructor(public http: HttpClient) {
     console.log('Hello DueDateServicesProvider Provider');
   }
 
-  AddDueDate(dueDate:DueDate){
+  AddIncome(income:Income){
 
     let host = sessionStorage.getItem("host");
 
     return new Promise<User>(resolve=>{
-      this.http.post(host+'/AppManagement/services/dueDate/addDueDate',JSON.stringify({data:dueDate}),
+      this.http.post(host+'/AppManagement/services/income/addIncome',JSON.stringify({data:income}),
       {headers: new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded')}
   )
-      .subscribe(dueDate=>{
+      .subscribe(income=>{
         
-        let data = this.extacObject(dueDate);
+        let data = this.extacObject(income);
         resolve(data);
       })
     });

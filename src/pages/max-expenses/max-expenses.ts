@@ -29,9 +29,7 @@ export class MaxExpensesPage {
     this.animateClass = { 'fade-in-right-item': true };
 
 
-    let date = new Date;
-    let datenow = date.getDate();
-    console.log(datenow);
+    
     
     
     this.maxExp.getMaxExpenses().then(data => {

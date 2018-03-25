@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, App } from 'ionic-angular';
 import { CateCreditCardProvider } from '../../providers/category-services/cate-cradit-card';
 import { DueDate } from '../../model/due-date';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DueDateProvider } from '../../providers/due-date-services/add-due-date-services';
+import { AddDueDateProvider } from '../../providers/due-date-services/add-due-date-services';
 
 /**
  * Generated class for the DueDatePage page.
@@ -19,15 +19,7 @@ import { DueDateProvider } from '../../providers/due-date-services/add-due-date-
 })
 export class DueDatePage {
 
-  // day = (): Array<any> => {
-  //   return [
-  //     {"day" : 1},{"day" : 2},{"day" : 3},{"day" : 4},{"day" : 5},{"day" : 6},{"day" : 7},{"day" : 8},
-  //     {"day" : 9},{"day" : 10},{"day" : 11},{"day" : 12},{"day" : 13},{"day" : 14},{"day" : 15},{"day" : 16},
-  //     {"day" : 17},{"day" : 18},{"day" : 19},{"day" : 20},{"day" : 21},{"day" : 22},{"day" : 23},{"day" : 24},
-  //     {"day" : 25},{"day" : 26},{"day" : 27},{"day" : 28},{"day" : 29},{"day" : 30},{"day" : 31}
-  //   ];
-  // };
-  // user_id:any;
+  [x: string]: any;
 
   creditList:any;
   dueDate:FormGroup;
@@ -35,9 +27,10 @@ export class DueDatePage {
   animateClass:any;
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
+              public app: App,
               public formBuilder: FormBuilder,
               public credit: CateCreditCardProvider,
-              public dueDate_: DueDateProvider,
+              public addDueDate_: AddDueDateProvider,
               public toastCtrl: ToastController) {
 
                 this.form();
@@ -67,17 +60,20 @@ export class DueDatePage {
       electricity:[null,Validators.compose([Validators.required])],
       internet:[null,Validators.compose([Validators.required])],
       telephone:[null,Validators.compose([Validators.required])],
-      credit_card:[null,Validators.compose([Validators.required])]
+      credit_card_id:[null,Validators.compose([Validators.required])]
     })
 
   }
 
   addDueDate(dueDate:DueDate){
     console.log(dueDate);
-    this.dueDate_.AddDueDate(this.dueDate.value);
+    this.addDueDate_.AddDueDate(this.dueDate.value);
 
     if(dueDate != null){
-      this.addDueDateSuccess()
+      this.addDueDateSuccess();
+      this.navCtrl.setRoot('AddIncomePage');   
+      const root = this.app.getRootNav();
+      root.popToRoot();
     }
   }
 

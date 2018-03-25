@@ -34,7 +34,8 @@ import { Risk1Provider } from '../providers/risk-services/risk1';
 import { MaxExpensesProvider } from '../providers/summary-services/max-expenses';
 import { AddUserProvider } from '../providers/user-service/add-users';
 import { FormsModule } from '@angular/forms';
-import { DueDateProvider } from '../providers/due-date-services/add-due-date-services';
+import { AddDueDateProvider } from '../providers/due-date-services/add-due-date-services';
+import { AddIncomeProvider } from '../providers/income-services/add-income';
 
 
 
@@ -80,7 +81,8 @@ import { DueDateProvider } from '../providers/due-date-services/add-due-date-ser
     Risk1Provider,
     MaxExpensesProvider,
     AddUserProvider,
-    DueDateProvider
+    AddDueDateProvider,
+    AddIncomeProvider
   ]
 })
 export class AppModule {}

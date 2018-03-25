@@ -6,8 +6,8 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>add-income</ion-title>
+  <ion-navbar color="secondary">
+    <ion-title>รายรับใหม่</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,33 +15,31 @@
 
 <ion-content padding>
 
-    <form [formGroup]="income" (ngSubmit)="addDueDate(income)">
+    <form [formGroup]="income" (ngSubmit)="addIncome(income)">
         <div border no-lines [ngClass]="animateClass">
     
     
             <ion-input type="hidden" formControlName="user_id"></ion-input>
     
             <ion-item>
-              <ion-input type="number" placeholder="วันที่ครบกำหนดชำระค่าน้ำ" formControlName="water"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-input type="number" placeholder="วันที่ครบกำหนดชำระค่าไฟฟ้า" formControlName="electricity"></ion-input>
-            </ion-item>
-            <ion-item>
-                <ion-input type="number" placeholder="วันที่ครบกำหนดชำระค่าบริการอินเทอร์เน็ต" formControlName="internet"></ion-input>
-              </ion-item>
-            <ion-item>
-                <ion-input type="number" placeholder="วันที่ครบกำหนดชำระค่าบริการโทรศัพท์" formControlName="telephone"></ion-input>
-            </ion-item>
-    
-            <ion-item>
                 <ion-label floating></ion-label>
-                <ion-select  placeholder="เลือกบัตรเครดิต" formControlName="credit_card" multiple="false" interface="popover" >
-                    <ion-option *ngFor="let item of creditList" [value]="item.id">{{item.name}}</ion-option>
+                <ion-select  placeholder="หมวดหมู่" formControlName="income_cate_id" multiple="false" interface="popover" >
+                    <ion-option *ngFor="let item of incomeCateList" [value]="item.id">{{item.name}}</ion-option>
                 </ion-select>
             </ion-item>
+            <ion-item>
+              <ion-input type="number" placeholder="จำนวนเงิน" formControlName="amount"></ion-input>
+            </ion-item>
+            <ion-item>
+                    <ion-label>วัน/เดือน/ปี</ion-label>
+                    <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MM YYYY" formControlName="created"></ion-datetime>
+            </ion-item>
+
+                <img name="images" (tap)="openGallery()" [hidden]="!imgSelected" [src]="imageSrc" style="width:60px; height:60px;"/>
+
 
         </div>
+        <br>
         <div no-lines [ngClass]="animateClass">
           <button ion-button default-button full text-capitalize color="secondary" [disabled]="!income.valid">บันทึก</button>
           <!-- <button ion-button full navPush="">ยกเลิก</button> -->

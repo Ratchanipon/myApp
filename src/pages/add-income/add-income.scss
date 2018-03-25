@@ -1,3 +1,9 @@
 page-add-income {
+    .fade-in-item {
+        -webkit-animation: fadeInDownBig 800ms;
+        -moz-animation: fadeInDownBig 800ms;
+        -o-animation: fadeInDownBig 800ms;
+        animation: fadeInDownBig 800ms;
+      }
 
 }
