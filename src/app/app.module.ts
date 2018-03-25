@@ -36,6 +36,7 @@ import { AddUserProvider } from '../providers/user-service/add-users';
 import { FormsModule } from '@angular/forms';
 import { AddDueDateProvider } from '../providers/due-date-services/add-due-date-services';
 import { AddIncomeProvider } from '../providers/income-services/add-income';
+import { AddFixedExpensesProvider } from '../providers/fixed-expenses-services/add-fixed_expenses';
 
 
 
@@ -82,7 +83,8 @@ import { AddIncomeProvider } from '../providers/income-services/add-income';
     MaxExpensesProvider,
     AddUserProvider,
     AddDueDateProvider,
-    AddIncomeProvider
+    AddIncomeProvider,
+    AddFixedExpensesProvider
   ]
 })
 export class AppModule {}

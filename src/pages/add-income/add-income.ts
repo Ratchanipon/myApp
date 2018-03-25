@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, App } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Income } from '../../model/income';
 import { AddIncomeProvider } from '../../providers/income-services/add-income';
@@ -28,6 +28,7 @@ export class AddIncomePage {
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
+              public app: App,
               public formBuilder: FormBuilder,
               public addIncom_: AddIncomeProvider,
               public incomeCate: CateIncomeProvider,
@@ -58,7 +59,7 @@ export class AddIncomePage {
       user_id:[user_id,Validators.compose([Validators.required])],
       income_cate_id:[null,Validators.compose([Validators.required])],
       amount:[null,Validators.compose([Validators.required])],
-      created:[d,Validators.compose([Validators.required])],
+      created:[null,Validators.compose([Validators.required])],
 
     })
 
@@ -71,9 +72,9 @@ export class AddIncomePage {
     if(income != null){
       this.addIncomeSuccess();
 
-      // this.navCtrl.setRoot('AddIncomePage');   
-      // const root = this.app.getRootNav();
-      // root.popToRoot();
+      this.navCtrl.setRoot('AddFixedExpensesPage');   
+      const root = this.app.getRootNav();
+      root.popToRoot();
     }
   }
 

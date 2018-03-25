@@ -22,9 +22,9 @@ import { MoneyPerDayProvider } from '../../providers/calculate-services/sum-mone
 export class HomePage {
   user:User;
   balance:any;
-  totalIncome:any;
-  totalFixedExp:any;
-  totalDailyExp:any;
+  totalIncome:number;
+  totalFixedExp:number;
+  totalDailyExp:number;
   moneyPerDay:any;
 
   animateClass:any;
@@ -54,15 +54,15 @@ export class HomePage {
       this.balance = data;
     })
 
-    this.sumIncome.getSumIncome().then(data => {
+    this.sumIncome.getSumIncome().then((data:number) => {
       this.totalIncome = data;
     })
 
-    this.sumFixedExpenses.getSumFixedExpenses().then(data => {
+    this.sumFixedExpenses.getSumFixedExpenses().then((data:number) => {
       this.totalFixedExp = data;
     })
 
-    this.sumDailyExpenses.getSumDailyExpenses().then(data => {
+    this.sumDailyExpenses.getSumDailyExpenses().then((data:number) => {
       this.totalDailyExp = data;
     })
 
