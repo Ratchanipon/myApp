@@ -1,4 +1,11 @@
 page-register {
+
+  .fade-in-item {
+    -webkit-animation: fadeInDownBig 800ms;
+    -moz-animation: fadeInDownBig 800ms;
+    -o-animation: fadeInDownBig 800ms;
+    animation: fadeInDownBig 800ms;
+  }
     ion-grid,
     ion-row {
       height: 100%;
@@ -27,12 +34,7 @@ page-register {
       font-size: 10px !important;
     }
 
-    .fade-in-item {
-      -webkit-animation: fadeInDownBig 800ms;
-      -moz-animation: fadeInDownBig 800ms;
-      -o-animation: fadeInDownBig 800ms;
-      animation: fadeInDownBig 800ms;
-    }
+    
 
     //2
     

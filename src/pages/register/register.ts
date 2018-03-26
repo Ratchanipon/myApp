@@ -46,8 +46,10 @@ export class RegisterPage {
   form(){
 
     this.user = this.formBuilder.group({
-      name:['อนุศิษฐ์',Validators.compose([Validators.required])],
-      surname:['สิงห์นิกร',Validators.compose([Validators.required])],
+      name:['อนุศิษฐ์',Validators.compose([Validators.required,
+                                         Validators.minLength(3)])],
+      surname:['สิงห์นิกร',Validators.compose([Validators.required,
+                                            Validators.minLength(3)])],
       password:['not12345678',Validators.compose([Validators.required,
                                                   Validators.minLength(8),
                                                   Validators.pattern("[a-zA-Z0-9.-_*#@$%&!]{1,}")])],
