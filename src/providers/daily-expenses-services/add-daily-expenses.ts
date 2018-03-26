@@ -19,7 +19,7 @@ export class AddDailyExpensesProvider {
     console.log('Hello AddDailyExpensesProvider Provider');
   }
 
-  AddFixedExpenses(dailyExpenses:DailyExpenses){
+  AddDailyExpenses(dailyExpenses:DailyExpenses){
 
     let host = sessionStorage.getItem("host");
 

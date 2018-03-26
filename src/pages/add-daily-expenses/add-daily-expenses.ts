@@ -69,7 +69,7 @@ export class AddDailyExpensesPage {
   addDailyExpenses(dailyExpenses:DailyExpenses){
     console.log(dailyExpenses);
     
-    this.addDailyExp.AddFixedExpenses(this.dailyExpenses.value);
+    this.addDailyExp.AddDailyExpenses(this.dailyExpenses.value);
 
     if(dailyExpenses != null){
       this.addDailyExpensesSuccess();
