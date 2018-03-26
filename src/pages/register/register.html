@@ -25,6 +25,11 @@
       <form [formGroup]="user" (ngSubmit)="register(user)">
           <div border no-lines [ngClass]="animateClass">
               <!-- <ion-item-group> -->
+              
+              <div align="center">
+                  <img class="" width="170" height="100" [src]="chosenPicture || placeholder" onerror="this.src='assets/images/logo/logoApp.png'"/>
+              </div>
+              <br>
               <ion-item>
                   <ion-label floating ></ion-label>
                 <ion-input type="text" placeholder="กรอกชื่อจริง" formControlName="name" ></ion-input>
@@ -35,11 +40,11 @@
               </ion-item>
               <ion-item>
                   <ion-label floating ></ion-label>
-                  <ion-input type="email" placeholder="กรอกอีเมล" formControlName="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" ></ion-input>
+                  <ion-input type="email" placeholder="กรอกอีเมล" formControlName="email" ></ion-input>
               </ion-item>
               <ion-item>
                   <ion-label floating ></ion-label>
-                  <ion-input type="password" placeholder="กรอกรหัสผ่าน" formControlName="password"  ></ion-input>
+                  <ion-input type="password" placeholder="กรอกรหัสผ่าน" formControlName="password" ></ion-input>
                 </ion-item>
               <ion-item>
                   <ion-label floating ></ion-label>

@@ -48,8 +48,11 @@ export class RegisterPage {
     this.user = this.formBuilder.group({
       name:['อนุศิษฐ์',Validators.compose([Validators.required])],
       surname:['สิงห์นิกร',Validators.compose([Validators.required])],
-      password:['not12345678',Validators.compose([Validators.required])],
-      email:['',Validators.compose([Validators.required])],
+      password:['not12345678',Validators.compose([Validators.required,
+                                                  Validators.minLength(8),
+                                                  Validators.pattern("[a-zA-Z0-9.-_*#@$%&!]{1,}")])],
+      email:['',Validators.compose([Validators.required,
+                                                  Validators.email])],
       age:['22',Validators.compose([Validators.required])],
       sex:['ชาย',Validators.compose([Validators.required])],
       career:['นศ',Validators.compose([Validators.required])]
