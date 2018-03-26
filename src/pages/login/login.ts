@@ -19,10 +19,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginPage {
   // public user:FormGroup;
-  public user:User;
+  user1:User;
   
   userList: any;
-  
+  user:FormGroup
   constructor(
         public navCtrl: NavController,
         public navParams: NavParams, 
@@ -32,32 +32,47 @@ export class LoginPage {
         public formBuilder: FormBuilder,
         public toastCtrl: ToastController){
 
+          this.form();
           // this.user = this.formBuilder.group({
           //   email: ['', Validators.required],
           //   password: ['',Validators.required]
           // });
           // console.log(this.user);
           
-          this.user = {surname:'', password:'anusit1234',id:"" ,name:"", email:"anusit@hotmail.com", age:"", career:"", sex:"", permission:""};
+          // this.user = {surname:'', password:'anusit1234',id:"" ,name:"", email:"anusit@hotmail.com", age:"", career:"", sex:"", permission:""};
     }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+    this.form();
+  }
+
+  form(){
+
+    this.user = this.formBuilder.group({
+
+      password:['anusit1234',Validators.compose([Validators.required,
+                                                  Validators.minLength(8),
+                                                  Validators.pattern("[a-zA-Z0-9.-_*#@$%&!]{1,}")])],
+      email:['anusit@hotmail.com',Validators.compose([Validators.required,
+                                                  Validators.email])]
+    })
+
   }
 
   login(user:User){
 
-    this.userService.loginProvider(user).then(user=>{
+    this.userService.loginProvider(this.user.value).then(user=>{
       console.error(user);
-      this.user = user;
-      if(this.user!=null){
+      this.user1 = user;
+      if(this.user1!=null){
         this.loginSuccess()
-        console.error(this.user);
-        localStorage.setItem("user_id",this.user.id);
-        localStorage.setItem("email",this.user.email);
+        console.error(this.user1);
+        localStorage.setItem("user_id",this.user1.id);
+        localStorage.setItem("email",this.user1.email);
          //this.navCtrl.push("TPage",{'u':user});
 
-        this.navCtrl.setRoot('HomePage',{'user':user});    
+        this.navCtrl.setRoot('HomePage',{'user':this.user1});    
         const root = this.app.getRootNav();
         root.popToRoot();
       }
