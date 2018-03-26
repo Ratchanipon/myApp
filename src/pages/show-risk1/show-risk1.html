@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar color="primary">
+  <ion-navbar color="indexB">
     <ion-title>ตรวจสุขภาพทางการเงินเร่งด่วน</ion-title>
   </ion-navbar>
 
@@ -48,7 +48,7 @@
         <ion-card text-left>
           <!--Card Image-->
           <div card-image>
-              <img class="" width="170" height="150" [src]="chosenPicture || placeholder" onerror="this.src='assets/images/logo/logoApp.png'"/>
+              <img class="" height="170" [src]="chosenPicture || placeholder" onerror="this.src='assets/images/background/119.jpg'"/>
             <!-- <button ion-fixed ion-button color="primary" button-action-shit (click)="onEvent('onShare', '', $event)">
                <ion-icon name="{{item.shareIcon}}"></ion-icon>
             </button> -->
@@ -69,8 +69,8 @@
       
 
     <div padding>
-    <button ion-button default-button full text-capitalize navPush="FhcInstantPage">คำนวณอีกครั้ง</button>
-    <button ion-button default-button full text-capitalize navPush="IndexPage">กลับ</button>
+    <button ion-button default-button full text-capitalize color="indexB" navPush="FhcInstantPage">คำนวณอีกครั้ง</button>
+    <button ion-button default-button full text-capitalize color="indexB" navPush="IndexPage">กลับ</button>
     </div>
   </ion-col>
   </ion-row>
