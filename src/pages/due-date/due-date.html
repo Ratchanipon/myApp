@@ -28,15 +28,15 @@
         </ion-item>
         <ion-item>
             <ion-label floating >วันที่ครบกำหนดชำระค่าไฟฟ้า</ion-label>
-            <ion-datetime displayFormat="D" pickerFormat="D" formControlName="water"></ion-datetime>
+            <ion-datetime displayFormat="D" pickerFormat="D" formControlName="electricity"></ion-datetime>
         </ion-item>
         <ion-item>
             <ion-label floating >วันที่ครบกำหนดชำระค่าบริการอินเทอร์เน็ต</ion-label>
-            <ion-datetime displayFormat="D" pickerFormat="D" formControlName="water"></ion-datetime>
+            <ion-datetime displayFormat="D" pickerFormat="D" formControlName="internet"></ion-datetime>
           </ion-item>
         <ion-item>
             <ion-label floating >วันที่ครบกำหนดชำระค่าบริการโทรศัพท์</ion-label>
-            <ion-datetime displayFormat="D" pickerFormat="D" formControlName="water"></ion-datetime>
+            <ion-datetime displayFormat="D" pickerFormat="D" formControlName="telephone"></ion-datetime>
         </ion-item>
 
         <ion-item>
@@ -56,6 +56,7 @@
         </ion-list> -->
     </div>
     <div no-lines [ngClass]="animateClass">
+      <br>
       <button ion-button default-button full text-capitalize color="secondary" [disabled]="!dueDate.valid">บันทึก</button>
       <!-- <button ion-button full navPush="">ยกเลิก</button> -->
     </div>
