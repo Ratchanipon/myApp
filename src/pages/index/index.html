@@ -14,16 +14,20 @@
 
 
 <ion-content padding>
-  <br><br><br><br><br><br><br>
-  <button button ion-button color="indexB" full navPush="FhcInstantPage">
+    <br><br>
+    <div align="center">
+        <img class="" width="200" height="120" [src]="chosenPicture || placeholder" onerror="this.src='assets/images/logo/logoApp.png'"/>
+    </div>
+  <br><br><br><br><br>
+  <button ion-button default-button full text-capitalize  full navPush="FhcInstantPage">
       ตรวจสุขภาพทางการเงินเร่งด่วน
   </button>
     <br>
-  <button button ion-button color="indexB" full navPush="LoginPage">
+  <button ion-button default-button full text-capitalize  full navPush="LoginPage">
       ตรวจสุขภาพทางการเงินละเอียด
   </button>
   <div align="right">
-      <br><br><br><br><br>
+      <br><br>
     <button ion-button color="grayy" clear ><b>คู่มือการใช้งาน</b></button>
 </div>
 

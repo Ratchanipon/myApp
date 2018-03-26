@@ -6,14 +6,14 @@
 -->
 <ion-header>
 
-  <ion-navbar color="primary">
+  <ion-navbar color="indexB">
     <ion-title>ตรวจสุขภาพทางการเงินเร่งด่วน</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
 
   <!-- <ion-list-header color="listHead"><h2><b>รายรับ</b></h2></ion-list-header> -->
   
@@ -22,9 +22,11 @@
       รายรับ
     </ion-item>
   </ion-card> -->
-      
+<ion-row background-color>
+  <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4>
+    <ion-card text-left>
 
-<ion-card>
+
       <ion-card >
         <ion-item color="listHead">
           รายรับประจำต่อเดือน
@@ -42,10 +44,10 @@
         <ion-input type="number" placeholder="อื่นๆ (เช่น ค่าเดินทาง ค่าครองชีพ)" [(ngModel)] = "fhcInstant.income13"></ion-input>
     </ion-item>
   </ion-item-group>
-</ion-card>
 
 
-  <ion-card>
+
+
     <ion-card>
       <ion-item color="listHead">
           รายรับไม่ประจำต่อปี
@@ -68,9 +70,9 @@
         <ion-input type="number" placeholder="กำไรจากการขายหลักทรัพย์" [(ngModel)] = "fhcInstant.income25"></ion-input>
     </ion-item>
   </ion-item-group>
-  </ion-card>
 
-  <ion-card>
+
+
       <ion-card>
         <ion-item color="listHead">
             รายจ่ายประจำต่อเดือน
@@ -102,9 +104,8 @@
           <ion-input type="number" placeholder="ค่าใช้จ่ายคงที่อื่นๆ" [(ngModel)] = "fhcInstant.exp18"></ion-input>
       </ion-item>
     </ion-item-group>
-    </ion-card>
 
-    <ion-card>
+
         <ion-card>
           <ion-item color="listHead">
               รายจ่ายไม่ประจำต่อปี
@@ -136,10 +137,13 @@
             <ion-input type="number" placeholder="ค่าใช้จ่ายอื่นๆ" [(ngModel)] = "fhcInstant.exp28"></ion-input>
         </ion-item>
       </ion-item-group>
-      </ion-card>
 
-      <br>
+    </ion-card>
       <!-- {{DTI | number:'.1-2'}} -->
-      <button ion-button full  (click) = "doFhcInstant(fhcInstant)">ประมวลผล</button>
+      <div padding>
+      <button ion-button default-button full text-capitalize  (click) = "doFhcInstant(fhcInstant)" color="indexB">ประมวลผล</button>
+      </div>
+  </ion-col>
+</ion-row>
 
 </ion-content>

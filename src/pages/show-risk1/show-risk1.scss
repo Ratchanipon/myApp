@@ -1,3 +1,31 @@
 page-show-risk1 {
+    [background-color] {
+        background-color: #EFEFF4;
+      }
+      // Settings Card
+      ion-card {
+        box-shadow: none !important;
+        border-radius: $border-radius !important;
+    
+        [card-image] {
+          position: relative;
+    
+          ion-badge {
+            right: 65px;
+            bottom: 10px;
+            z-index: 3;
+            padding: 6px 15px !important;
+          }
+    
+          [button-action-shit] {
+            bottom: 6px;
+            right: 16px;
+          }
+        }
+        // Card Description
+        [card-subtitle] {
+          margin-bottom: 20px;
+        }
+      }
 
 }

@@ -13,8 +13,8 @@
 </ion-header>
 
 
-<ion-content padding>
-  <ion-card>
+<ion-content>
+  <!-- <ion-card>
     <ion-card>
       <ion-item color="listHead">
         <b>ผลการคำนวณ</b>
@@ -41,8 +41,37 @@
       <p>{{item.direction}}</p>
     </ion-card-content>
         
-  </ion-card>
-  <br>
-  <button ion-button navPush="FhcInstantPage">คำนวณอีกครั้ง</button>
+  </ion-card> -->
 
+  <ion-row background-color>
+      <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4>
+        <ion-card text-left>
+          <!--Card Image-->
+          <div card-image>
+              <img class="" width="170" height="150" [src]="chosenPicture || placeholder" onerror="this.src='assets/images/logo/logoApp.png'"/>
+            <!-- <button ion-fixed ion-button color="primary" button-action-shit (click)="onEvent('onShare', '', $event)">
+               <ion-icon name="{{item.shareIcon}}"></ion-icon>
+            </button> -->
+          </div>
+          <!--Card descriptiom-->
+          <ion-card-content *ngFor = "let item of risk">
+            <ion-card-title>
+              <!--Card Title-->
+              <h2 card-title>ผลการคำนวณ </h2>
+              <!--Card Subtitle-->
+              <h1 card-subtitle>สุขภาพทางการเงินอยู่ในระดับ <b><font color="#000000">{{item.name}}</font></b><br>
+              <br>มีอัตราส่วนหนี้สินต่อรายได้ = <ion-badge class="badge-light">{{DTI | number:'.1-2'}} %</ion-badge></h1>
+              <!--Card Body Text-->
+              <p card-body-text>{{item.direction}}</p>
+            </ion-card-title>
+          </ion-card-content>
+        </ion-card>
+      
+
+    <div padding>
+    <button ion-button default-button full text-capitalize navPush="FhcInstantPage">คำนวณอีกครั้ง</button>
+    <button ion-button default-button full text-capitalize navPush="IndexPage">กลับ</button>
+    </div>
+  </ion-col>
+  </ion-row>
 </ion-content>
