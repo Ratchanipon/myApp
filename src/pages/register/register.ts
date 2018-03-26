@@ -55,7 +55,7 @@ export class RegisterPage {
                                                   Validators.email])],
       age:['22',Validators.compose([Validators.required])],
       sex:['ชาย',Validators.compose([Validators.required])],
-      career:['นศ',Validators.compose([Validators.required])]
+      career:['',Validators.compose([Validators.required])]
     })
 
   }

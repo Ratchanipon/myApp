@@ -21,23 +21,26 @@
             <ion-input type="hidden" formControlName="user_id"></ion-input>
     
             <ion-item>
-                <ion-label floating></ion-label>
+                <!-- <ion-label floating></ion-label> -->
+                <ion-label floating >หมวดหมู่</ion-label>
                 <ion-select  placeholder="หมวดหมู่" formControlName="fix_expenses_cate_id" multiple="false" interface="popover" >
                     <ion-option *ngFor="let item of fixedExpensesCate" [value]="item.id">{{item.name}}</ion-option>
                 </ion-select>
             </ion-item>
             <ion-item>
-                <ion-label floating></ion-label>
-                <ion-select  placeholder="จ่ายผ่าน" formControlName="payment_channel_id" multiple="false" interface="popover" >
+                <!-- <ion-label floating></ion-label> -->
+                <ion-label floating >จ่ายผ่าน</ion-label>
+                <ion-select formControlName="payment_channel_id" multiple="false" interface="popover" >
                     <ion-option *ngFor="let item of paymentCate" [value]="item.id">{{item.name}}</ion-option>
                 </ion-select>
             </ion-item>
             <ion-item>
-              <ion-input type="number" placeholder="จำนวนเงิน" formControlName="amount"></ion-input>
+                <ion-label floating >จำนวนเงิน</ion-label>
+              <ion-input type="number" formControlName="amount"></ion-input>
             </ion-item>
             <ion-item>
-                    <ion-label>วัน/เดือน/ปี</ion-label>
-                    <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MM YYYY" formControlName="created"></ion-datetime>
+                    <ion-label floating >วัน/เดือน/ปี</ion-label>
+                    <ion-datetime displayFormat="D/MM/YYYY" pickerFormat="D MM YYYY" formControlName="created"></ion-datetime>
             </ion-item>
 
             <!-- <ion-button (click)="upload()" ion-button >รูปภาพ</ion-button> -->
