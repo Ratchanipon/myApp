@@ -55,12 +55,12 @@ export class DueDatePage {
     let user_id = localStorage.getItem("user_id");
     
     this.dueDate = this.formBuilder.group({
-      user_id:[user_id,Validators.compose([Validators.required])],
-      water:[null,Validators.compose([Validators.required])],
-      electricity:[null,Validators.compose([Validators.required])],
-      internet:[null,Validators.compose([Validators.required])],
-      telephone:[null,Validators.compose([Validators.required])],
-      credit_card_id:[null,Validators.compose([Validators.required])]
+      user_id:[user_id,Validators.compose([])],
+      water:['',Validators.compose([])],
+      electricity:['',Validators.compose([])],
+      internet:['',Validators.compose([])],
+      telephone:['',Validators.compose([])],
+      credit_card_id:['',Validators.compose([])]
     })
 
   }
@@ -75,6 +75,7 @@ export class DueDatePage {
       const root = this.app.getRootNav();
       root.popToRoot();
     }
+    
   }
 
   addDueDateSuccess() {
