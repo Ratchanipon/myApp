@@ -23,7 +23,8 @@ export class MyApp {
   email: string;     
   
   // host: string = "http://172.20.10.2";
-  host: string = "http://localhost";
+  host: string = "http://172.20.10.2";
+  // host: string = "http://localhost";
 
   constructor(public platform: Platform, 
               public statusBar: StatusBar,
