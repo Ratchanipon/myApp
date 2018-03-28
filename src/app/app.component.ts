@@ -22,9 +22,9 @@ export class MyApp {
 
   email: string;     
   
-  // host: string = "http://172.20.10.2";
-  host: string = "http://172.20.10.2";
-  // host: string = "http://localhost";
+
+  // host: string = "http://anusit-not.esy.es";
+  host: string = "http://localhost/AppManagement";
 
   constructor(public platform: Platform, 
               public statusBar: StatusBar,

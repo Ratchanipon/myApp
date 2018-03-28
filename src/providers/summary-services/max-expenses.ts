@@ -20,7 +20,7 @@ export class MaxExpensesProvider {
     let host = sessionStorage.getItem("host");                         
 
     return new Promise(resolve=>{
-        this.http.get(host+'/AppManagement/services/summary/getMaxExpenses?user_id='+user_id)
+        this.http.get(host+'/services/summary/getMaxExpenses?user_id='+user_id)
         .subscribe(data=>{
         resolve(data);      
         console.log('MaxExpenses++++++'+data);

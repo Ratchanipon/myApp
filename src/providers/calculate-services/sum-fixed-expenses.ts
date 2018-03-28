@@ -19,7 +19,7 @@ export class SumFixedExpensesProvider {
     let user_id = localStorage.getItem("user_id"); 
     let host = sessionStorage.getItem("host"); 
     return new Promise(resolve=>{
-        this.http.get(host+'/AppManagement/services/calculate/getSumFixedExpenses?user_id='+user_id)
+        this.http.get(host+'/services/calculate/getSumFixedExpenses?user_id='+user_id)
         .subscribe(data=>{
         resolve(data);      
         console.log('SumFixedExpenses++++++'+data);

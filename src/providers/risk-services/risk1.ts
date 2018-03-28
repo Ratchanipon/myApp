@@ -63,7 +63,7 @@ export class Risk1Provider {
     let host = sessionStorage.getItem("host");
 
     return new Promise(resolve=>{
-        this.http.get(host+'/AppManagement/services/risk/getRisk4')
+        this.http.get(host+'/services/risk/getRisk4')
         .subscribe(data=>{
         resolve(data);      
         console.log('getRisk4++++++'+data);

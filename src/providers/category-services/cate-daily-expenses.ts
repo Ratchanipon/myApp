@@ -19,7 +19,7 @@ export class CateDailyExpensesProvider {
     let host = sessionStorage.getItem("host");
 
     return new Promise(resolve=>{
-        this.http.get(host+'/AppManagement/services/category/getCateDailyExpensesAll')
+        this.http.get(host+'/services/category/getCateDailyExpensesAll')
         .subscribe(data=>{
         resolve(data);      
         console.log('CateDailyExpenses++++++'+data);

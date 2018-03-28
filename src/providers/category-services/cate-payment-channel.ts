@@ -19,7 +19,7 @@ export class CatePaymentChannelProvider {
     let host = sessionStorage.getItem("host");
 
     return new Promise(resolve=>{
-        this.http.get(host+'/AppManagement/services/category/getCatePaymentChannel')
+        this.http.get(host+'/services/category/getCatePaymentChannel')
         .subscribe(data=>{
         resolve(data);      
         console.log('CatePaymentChannel++++++'+data);

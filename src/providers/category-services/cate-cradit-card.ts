@@ -19,7 +19,7 @@ export class CateCreditCardProvider {
     let host = sessionStorage.getItem("host");
 
     return new Promise(resolve=>{
-        this.http.get(host+'/AppManagement/services/category/getCateCraditCard')
+        this.http.get(host+'/services/category/getCateCraditCard')
         .subscribe(data=>{
         resolve(data);      
         console.log('creditCard++++++'+data);

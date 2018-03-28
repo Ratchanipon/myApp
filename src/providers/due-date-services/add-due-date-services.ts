@@ -21,7 +21,7 @@ export class AddDueDateProvider {
     let host = sessionStorage.getItem("host");
 
     return new Promise<User>(resolve=>{
-      this.http.post(host+'/AppManagement/services/dueDate/addDueDate',JSON.stringify({data:dueDate}),
+      this.http.post(host+'/services/dueDate/addDueDate',JSON.stringify({data:dueDate}),
       {headers: new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded')}
   )
       .subscribe(dueDate=>{

@@ -23,7 +23,7 @@ export class AddFixedExpensesProvider {
     let host = sessionStorage.getItem("host");
 
     return new Promise<User>(resolve=>{
-      this.http.post(host+'/AppManagement/services/fixedExpenses/addFixedExpenses',JSON.stringify({data:fixedExpenses}),
+      this.http.post(host+'/services/fixedExpenses/addFixedExpenses',JSON.stringify({data:fixedExpenses}),
       {headers: new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded')}
   )
       .subscribe(fixedExpenses=>{

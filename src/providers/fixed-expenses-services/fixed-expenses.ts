@@ -19,7 +19,7 @@ export class FixedExpensesProvider {
     let host = sessionStorage.getItem("host");                            
 
     return new Promise(resolve=>{
-        this.http.get(host+'/AppManagement/services/fixedExpenses/getFixedExpenses?user_id='+user_id)
+        this.http.get(host+'/services/fixedExpenses/getFixedExpenses?user_id='+user_id)
         .subscribe(data=>{
         resolve(data);      
         console.log(data);

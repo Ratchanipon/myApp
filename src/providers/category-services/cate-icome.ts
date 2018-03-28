@@ -19,7 +19,7 @@ export class CateIncomeProvider {
     let host = sessionStorage.getItem("host");
 
     return new Promise(resolve=>{
-        this.http.get(host+'/AppManagement/services/category/getCateIncomeAll')
+        this.http.get(host+'/services/category/getCateIncomeAll')
         .subscribe(data=>{
         resolve(data);      
         console.log('CateIncome++++++'+data);

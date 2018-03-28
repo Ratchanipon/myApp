@@ -19,7 +19,7 @@ export class CateFixedExpensesProvider {
     let host = sessionStorage.getItem("host");
 
     return new Promise(resolve=>{
-        this.http.get(host+'/AppManagement/services/category/getCateFixedExpensesAll')
+        this.http.get(host+'/services/category/getCateFixedExpensesAll')
         .subscribe(data=>{
         resolve(data);      
         console.log('CateFixedExpenses++++++'+data);

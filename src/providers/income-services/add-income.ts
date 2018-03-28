@@ -22,7 +22,7 @@ export class AddIncomeProvider {
     let host = sessionStorage.getItem("host");
 
     return new Promise<User>(resolve=>{
-      this.http.post(host+'/AppManagement/services/income/addIncome',JSON.stringify({data:income}),
+      this.http.post(host+'/services/income/addIncome',JSON.stringify({data:income}),
       {headers: new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded')}
   )
       .subscribe(income=>{
