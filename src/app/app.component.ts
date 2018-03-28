@@ -20,17 +20,23 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  email: string;     
+  email: string;    
   
+  date = new Date;
+  month = this.date.getMonth().toString();
+  year = this.date.getFullYear().toString();
 
   // host: string = "http://anusit-not.esy.es";
   host: string = "http://localhost/AppManagement";
+  
 
   constructor(public platform: Platform, 
               public statusBar: StatusBar,
               public splashScreen: SplashScreen) {
                 
         sessionStorage.setItem("host",this.host);
+        sessionStorage.setItem("mount",this.month);
+        sessionStorage.setItem("year",this.year);
     // localStorage.setItem("host",this.host);
 
     this.user_id = localStorage.getItem("user_id");

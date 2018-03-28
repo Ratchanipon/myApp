@@ -16,10 +16,12 @@ export class IncomeProvider {
 
   getIncome(){                          // ดึงข้อมูลรายการรายรับ
     let user_id = localStorage.getItem("user_id");   
-    let host = sessionStorage.getItem("host");                          
+    let host = sessionStorage.getItem("host");         
+    
+    let month = sessionStorage.getItem('month');
 
     return new Promise(resolve=>{
-        this.http.get(host+'/services/income/getIncome?user_id='+user_id)
+        this.http.get(host+'/services/income/getIncome?user_id='+user_id+'&month='+month)
         .subscribe(data=>{
         resolve(data);      
         console.log('Income++++++'+data);
