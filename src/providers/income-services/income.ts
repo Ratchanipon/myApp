@@ -19,6 +19,8 @@ export class IncomeProvider {
     let host = sessionStorage.getItem("host");         
     
     let month = sessionStorage.getItem('month');
+    console.log(month);
+    
 
     return new Promise(resolve=>{
         this.http.get(host+'/services/income/getIncome?user_id='+user_id+'&month='+month)

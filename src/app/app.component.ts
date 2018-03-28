@@ -35,7 +35,7 @@ export class MyApp {
               public splashScreen: SplashScreen) {
                 
         sessionStorage.setItem("host",this.host);
-        sessionStorage.setItem("mount",this.month);
+        sessionStorage.setItem("month",this.month);
         sessionStorage.setItem("year",this.year);
     // localStorage.setItem("host",this.host);
 
