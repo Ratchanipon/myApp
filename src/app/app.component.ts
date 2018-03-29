@@ -53,11 +53,8 @@ export class MyApp {
       { title: 'รายรับ', component: 'IncomePage'},
       { title: 'รายจ่ายรายวัน', component: 'DailyExpensesPage'},
       { title: 'รายจ่ายคงที่', component: 'FixedExpensesPage'},
-      { title: 'สรุปรายจ่ายที่ไม่จำเป็น', component: 'DispensableExpensesPage'},
-      { title: 'สรุปรายจ่ายแต่ละช่องทาง', component: 'ChannelExpensesPage'},
-      { title: 'อันดับรายจ่ายสูงสุด', component: 'MaxExpensesPage'},
-      { title: 'สรุปรายจ่ายที่ก่อให้เกิดหนี้สิน', component: 'ExpensesDebtPage'},
-      { title: 'สรุปรายรับที่ก่อให้เกิดหนี้สิน', component: 'IncomeDebtPage'}
+      { title: 'สรุป', component: 'SummaryPage'}
+      
     ];
 
   }
