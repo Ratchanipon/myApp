@@ -1,6 +1,12 @@
 // [tab-1] {}
 
 page-income{
+  [button-action-shit] {
+    z-index: 99999;
+    right: 90px;
+    top: 56px;
+  }
+
   .fade-in-right-item {
     -webkit-animation: fadeInRight 800ms;
     -moz-animation: fadeInRight 800ms;

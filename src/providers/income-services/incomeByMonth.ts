@@ -14,15 +14,12 @@ export class IncomeByMonthProvider {
     console.log('Hello IncomeByMonthProvider Provider');
   }
 
-  getIncome(){                          // ดึงข้อมูลรายการรายรับ
+  getIncomeByMonth(month){                          // ดึงข้อมูลรายการรายรับ
     let user_id = localStorage.getItem("user_id");   
     let host = sessionStorage.getItem("host");         
-    
-
-    
 
     return new Promise(resolve=>{
-        this.http.get(host+'/services/income/getIncome?user_id='+user_id)
+        this.http.get(host+'/services/income/getIncome?user_id='+user_id+'&month='+month)
         .subscribe(data=>{
         resolve(data);      
         console.log('Income++++++'+data);

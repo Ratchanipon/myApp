@@ -10,9 +10,9 @@
       <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
       </button>
-    <ion-title>รายรับ</ion-title>
+    <ion-title>รายรับ</ion-title>      
   </ion-navbar>
-
+  
 </ion-header>
 
 
@@ -24,16 +24,19 @@
           <button ion-button color="danger" style="width:70px; height:30px;" navPush="AddFixedExpensesPage"><font size="1">รายจ่ายคงที่</font></button>
           <button ion-button color="danger" style="width:70px; height:30px;" navPush="AddDailyExpensesPage"><font size="1">รายจ่ายรายวัน</font></button>
           <button ion-button color="secondary" style="width:70px; height:30px;" navPush="AddIncomeMainPage"><font size="1">รายรับ</font></button>
-  
-          <!-- <button  color="danger" >รายจ่ายรายวัน</button>
-          <button color="secondary" >รายรับ</button> -->
-          <!-- <button ion-fab><ion-icon name="remove"></ion-icon></button>
-          <button ion-fab><ion-icon name="remove"></ion-icon></button>
-          <button ion-fab><ion-icon name="add"></ion-icon></button> -->
         </ion-fab-list>
         
     </ion-fab>
 
+    <!-- เลือกเดือน -->
+    <div align="right">
+        <label item-title text-wrap></label>
+      <button  ion-button clear (click)="doMonth()"><b><font size="4">{{month_now}}</font></b>
+        <ion-icon icon-small name="calendar"></ion-icon>
+      </button>
+    </div>
+  
+    <!-- ยอดรวมรายรับ -->
     <ion-card>
         <ion-item *ngFor="let item of sumIncome" color="list">
             <h2>รายรับทั้งหมด:</h2>
@@ -43,39 +46,20 @@
         </ion-item>
     </ion-card>
 
-  <!-- <ion-grid no-padding *ngIf="data != null"> -->
     <ion-row>
       <ion-col col-12>
           <ion-list no-margin>
-                      <!-- Header Top -->
+
                       <ion-list-header color="listHead"><h2><b>รายการรายรับ</b></h2></ion-list-header>
 
-                      <!-- เลือกเดือน -->
-                    <div>
-                      <ion-item>
-                        <ion-label></ion-label>
-                        <ion-select [(ngModel)]="month" multiple="false" interface="popover" >
-                            <!-- <ion-option value="month" selected="true"></ion-option> -->
-                            <ion-option value="1" >มกราคม</ion-option>
-                            <ion-option value="2">กุมภาพันธ์</ion-option>
-                            <ion-option value="3">มีนาคม</ion-option>
-                        </ion-select>
-                      </ion-item>
-                      <button ion-button (click)="doMonth(month)"> </button>
-                    </div>
-                      <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of incomeList; let i = index;">
-                        
+                      <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of incomeList; let i = index;">  
                         <h2 item-title text-wrap>{{item.category}}</h2>
-                        <!-- Subtitle -->
                         <p item-subtitle text-wrap>{{item.created}}</p>
-                        <!-- Badge -->
-                        <div item-content>
-                          <ion-badge class="badge-light">{{item.amount}} ฿</ion-badge>
-                        </div>
-
+                          <div item-content>
+                            <ion-badge class="badge-light">{{item.amount}} ฿</ion-badge>
+                          </div>
                       </ion-item>
           </ion-list>
         </ion-col>
       </ion-row>
-    <!-- </ion-grid> -->
 </ion-content>
