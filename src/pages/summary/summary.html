@@ -16,7 +16,7 @@
 </ion-header>
 
 
-<ion-content >
+<ion-content padding >
     <ion-fab right bottom>
         <button ion-fab><ion-icon name="add"></ion-icon></button>
         <ion-fab-list side="top" border no-lines [ngClass]="animateClass">
@@ -32,35 +32,45 @@
         </ion-fab-list>
         
     </ion-fab>
+    
+    <ion-list border no-lines [ngClass]="animateClass" >
+    <ion-card  color="list">
+    <button ion-button default-button full text-capitalize full color="list" navPush="DispensableExpensesPage">
+       <font color="#000000"> สรุปรายจ่ายที่ไม่จำเป็น</font>
+    </button>
+    </ion-card>
+    </ion-list>
 
-    <ion-card>
-        <ion-item color="list" navPush="DispensableExpensesPage">
-            <h2>สรุปรายจ่ายที่ไม่จำเป็น:</h2>
-        </ion-item>
+    <ion-list border no-lines [ngClass]="animateClass">
+    <ion-card color="list">
+      <button ion-button default-button full text-capitalize full color="list" navPush="ChannelExpensesPage">
+        <font color="#000000"> สรุปรายจ่ายแต่ละช่องทาง</font>
+      </button>
     </ion-card>
-    <br>
-    <ion-card>
-        <ion-item color="list"navPush="ChannelExpensesPage" >
-            <h2>สรุปรายจ่ายแต่ละช่องทาง:</h2>
-        </ion-item>
-    </ion-card>
+    </ion-list>
 
-    <ion-card>
-        <ion-item color="list" navPush="MaxExpensesPage">
-            <h2>อันดับรายจ่ายสูงสุด:</h2>
-        </ion-item>
+    <ion-list border no-lines [ngClass]="animateClass">
+    <ion-card color="list">
+      <button ion-button default-button full text-capitalize full color="list" navPush="MaxExpensesPage">
+        <font color="#000000"> อันดับรายจ่ายสูงสุด</font>
+      </button>
     </ion-card>
+  </ion-list>
 
-    <ion-card>
-        <ion-item color="list" navPush="ExpensesDebtPage" >
-            <h2>สรุปรายจ่ายที่ก่อให้เกิดหนี้สิน:</h2>
-        </ion-item>
-    </ion-card>
+  <ion-list border no-lines [ngClass]="animateClass">
+      <ion-card color="list">
+        <button ion-button default-button full text-capitalize full color="list" navPush="ExpensesDebtPage">
+          <font color="#000000"> สรุปรายจ่ายที่ก่อให้เกิดหนี้สิน</font>
+        </button>
+      </ion-card>
+    </ion-list>
 
-    <ion-card>
-        <ion-item color="list" navPush="IncomeDebtPage">
-            <h2>สรุปรายรับที่ก่อให้เกิดหนี้สิน:</h2>
-        </ion-item>
-    </ion-card>
+    <ion-list border no-lines [ngClass]="animateClass">
+      <ion-card color="list">
+        <button ion-button default-button full text-capitalize full color="list" navPush="IncomeDebtPage">
+          <font color="#000000"> สรุปรายรับที่ก่อให้เกิดหนี้สิน</font>
+        </button>
+      </ion-card>
+    </ion-list>
 
 </ion-content>

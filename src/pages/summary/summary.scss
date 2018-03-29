@@ -1,5 +1,24 @@
 page-summary {
+  .fade-in-right-item {
+    -webkit-animation: fadeInRight 800ms;
+    -moz-animation: fadeInRight 800ms;
+    -o-animation: fadeInRight 800ms;
+    animation: fadeInRight 800ms;
+  }
     ion-card {
+      
+      [ion-affix] {
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        border-top: none !important;
+        color: theme-colors('textColors', 'accentDark');
+      }
+        // box-shadow: none !important;
+        border-radius: $border-radius !important;
+    
+      }
+      ion-button {
         // box-shadow: none !important;
         border-radius: $border-radius !important;
     

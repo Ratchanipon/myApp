@@ -72,7 +72,7 @@ export class AddIncomePage {
     if(income != null){
       this.addIncomeSuccess();
 
-      this.navCtrl.setRoot('AddFixedExpensesPage');   
+      this.navCtrl.setRoot('AddIncomePage');   
       const root = this.app.getRootNav();
       root.popToRoot();
     }

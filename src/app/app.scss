@@ -19,7 +19,8 @@
     height: 160px;
     background-size: cover;
     background-position: center;
-    background-color: #00b9f1;
+    // background-color: #00b9f1;
+    background-image: url('../assets/images/background/120.jpg');
     // @include darkening-blend-mode;
     [header-title] {
         padding-right: 10%;

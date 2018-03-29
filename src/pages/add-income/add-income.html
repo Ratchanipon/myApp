@@ -44,7 +44,9 @@
         </div>
         <br>
         <div no-lines [ngClass]="animateClass">
-          <button ion-button default-button full text-capitalize color="secondary" [disabled]="!income.valid">บันทึก</button>
+          
+            <button ion-button default-button full text-capitalize color="secondary" [disabled]="!income.valid">บันทึก</button>
+            <button ion-button default-button full text-capitalize color="secondary" navPush="AddFixedExpensesPage">ถัดไป</button>
           <!-- <button ion-button full navPush="">ยกเลิก</button> -->
         </div>
     </form>

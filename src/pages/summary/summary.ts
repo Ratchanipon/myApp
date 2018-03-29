@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+
 /**
  * Generated class for the SummaryPage page.
  *
@@ -14,12 +15,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'summary.html',
 })
 export class SummaryPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+ 
+  animateClass: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams  ) {
   }
+  
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SummaryPage');
+    
+      this.animateClass = { 'fade-in-right-item': true };
   }
+  
 
 }
