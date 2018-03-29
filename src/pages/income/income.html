@@ -49,6 +49,20 @@
           <ion-list no-margin>
                       <!-- Header Top -->
                       <ion-list-header color="listHead"><h2><b>รายการรายรับ</b></h2></ion-list-header>
+
+                      <!-- เลือกเดือน -->
+                    <div>
+                      <ion-item>
+                        <ion-label></ion-label>
+                        <ion-select [(ngModel)]="month" multiple="false" interface="popover" >
+                            <!-- <ion-option value="month" selected="true"></ion-option> -->
+                            <ion-option value="1" >มกราคม</ion-option>
+                            <ion-option value="2">กุมภาพันธ์</ion-option>
+                            <ion-option value="3">มีนาคม</ion-option>
+                        </ion-select>
+                      </ion-item>
+                      <button ion-button (click)="doMonth(month)"> </button>
+                    </div>
                       <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of incomeList; let i = index;">
                         
                         <h2 item-title text-wrap>{{item.category}}</h2>

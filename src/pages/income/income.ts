@@ -2,6 +2,8 @@ import { Component, Input, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams ,Content} from 'ionic-angular';
 import { IncomeProvider } from '../../providers/income-services/income';
 import { SumIncomeProvider } from '../../providers/calculate-services/sum-income';
+import { Income } from '../../model/income';
+import { Month } from '../../model/month';
 
 /**
  * Generated class for the IncomePage page.
@@ -16,14 +18,16 @@ import { SumIncomeProvider } from '../../providers/calculate-services/sum-income
   templateUrl: 'income.html',
 })
 export class IncomePage {
-  incomeList:any;
-  sumIncome:any;
-  // @Input() data: any;
   @Input() events: any;
   @ViewChild(Content)
-  content: Content;
 
-  // animateItems = [];
+  content: Content;
+  incomeList:Income;
+  sumIncome:any;
+
+  month_now:string;
+
+
   animateClass: any;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -36,15 +40,26 @@ export class IncomePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad IncomePage');
+    this.animateClass = { 'fade-in-right-item': true };
 
     this.sumIncome_.getSumIncome().then(data => {
       this.sumIncome = data;
     })
 
-    this.income.getIncome().then(data => {
+    this.income.getIncome().then((data:Income) => {
       this.incomeList = data;
-      this.animateClass = { 'fade-in-right-item': true };
+      console.log(this.incomeList.amount);
+      
+      
+      if(this.incomeList.month = '3'){
+        this.month_now = "มีนาคม";
+      }
     })
+  }
+
+  doMonth(m){
+    console.log(m);
+    
   }
 
   // onEvent(event: string, item: any, e: any) {

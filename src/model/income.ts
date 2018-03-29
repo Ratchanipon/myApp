@@ -6,4 +6,5 @@ export interface Income {
     amount: number;
     images: string;
     created: Date;
+    month:string;
 }

@@ -8,23 +8,21 @@ import { Injectable } from '@angular/core';
   and Angular DI.
 */
 @Injectable()
-export class IncomeProvider {
+export class IncomeByMonthProvider {
 
   constructor(public http: HttpClient) {
-    console.log('Hello IncomeProvider Provider');
+    console.log('Hello IncomeByMonthProvider Provider');
   }
 
   getIncome(){                          // ดึงข้อมูลรายการรายรับ
     let user_id = localStorage.getItem("user_id");   
     let host = sessionStorage.getItem("host");         
     
-    //เดือนปัจจุบัน
-    let month_n = parseInt(sessionStorage.getItem("month"));
-    let month = month_n+1;
 
+    
 
     return new Promise(resolve=>{
-        this.http.get(host+'/services/income/getIncome?user_id='+user_id+'&month='+month)
+        this.http.get(host+'/services/income/getIncome?user_id='+user_id)
         .subscribe(data=>{
         resolve(data);      
         console.log('Income++++++'+data);
