@@ -121,7 +121,7 @@ export class HomePage {
     })
 
     this.balanced.getBalanced().then((data:number) => {
-      console.info('balance'+data);
+      console.info(data);
       this.balance = data;
     })
   }
