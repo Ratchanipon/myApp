@@ -23,7 +23,7 @@ export class DailyExpensesProvider {
     let month = month_n+1;
 
     return new Promise(resolve=>{
-        this.http.get(host+'/services/dailyExpenses/getDailyExpenses?user_id='+user_id+'&mont'+month)
+        this.http.get(host+'/services/dailyExpenses/getDailyExpenses?user_id='+user_id+'&month='+month)
         .subscribe(data=>{
         resolve(data);      
         console.log('DailyExpenses++++++'+data);
