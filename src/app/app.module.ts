@@ -40,6 +40,17 @@ import { AddFixedExpensesProvider } from '../providers/fixed-expenses-services/a
 import { AddDailyExpensesProvider } from '../providers/daily-expenses-services/add-daily-expenses';
 import { IncomeByMonthProvider } from '../providers/income-services/incomeByMonth';
 import { SumIncomeByMonthProvider } from '../providers/calculate-services/sum-incomeByMonth';
+import { BalancedByMonthProvider } from '../providers/calculate-services/balanceByMonth';
+import { SumDailyExpensesByMonthProvider } from '../providers/calculate-services/sum-daily-expensesByMonth';
+import { SumFixedExpensesByMonthProvider } from '../providers/calculate-services/sum-fixed-expensesByMonth';
+import { MoneyPerDayByMonthProvider } from '../providers/calculate-services/sum-money-perdayByMonth';
+import { DailyExpensesByMonthProvider } from '../providers/daily-expenses-services/daily-expensesByMonth';
+import { FixedExpensesByMonthProvider } from '../providers/fixed-expenses-services/fixed-expensesByMonth';
+import { ChannelExpensesByMonthProvider } from '../providers/summary-services/channel-expensesByMonth';
+import { DispensableExpensesByMonthProvider } from '../providers/summary-services/dispensable-expensesByMonth';
+import { ExpensesDebtByMonthProvider } from '../providers/summary-services/expenses-debtByMonth';
+import { IncomeDebtByMonthProvider } from '../providers/summary-services/income-debtByMonth';
+import { MaxExpensesByMonthProvider } from '../providers/summary-services/max-expensesByMonth';
 
 
 
@@ -90,7 +101,18 @@ import { SumIncomeByMonthProvider } from '../providers/calculate-services/sum-in
     AddFixedExpensesProvider,
     AddDailyExpensesProvider,
     IncomeByMonthProvider,
-    SumIncomeByMonthProvider
+    SumIncomeByMonthProvider,
+    BalancedByMonthProvider,
+    SumDailyExpensesByMonthProvider,
+    SumFixedExpensesByMonthProvider,
+    MoneyPerDayByMonthProvider,
+    DailyExpensesByMonthProvider,
+    FixedExpensesByMonthProvider,
+    ChannelExpensesByMonthProvider,
+    DispensableExpensesByMonthProvider,
+    ExpensesDebtByMonthProvider,
+    IncomeDebtByMonthProvider,
+    MaxExpensesByMonthProvider
   ]
 })
 export class AppModule {}
