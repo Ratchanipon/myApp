@@ -18,9 +18,13 @@ export class ChannelExpensesProvider {
   getChannelExpenses(){                          // ดึงข้อมูลยอดรวมรายจ่ายแต่ละช่องทาง
     let user_id = localStorage.getItem("user_id"); 
     let host = sessionStorage.getItem("host"); 
+
+    //เดือนปัจจุบัน
+    let month_n = parseInt(sessionStorage.getItem("month"));
+    let month = month_n+1;
     
     return new Promise(resolve=>{
-        this.http.get(host+'/services/summary/getChannelExpenses?user_id='+user_id)
+        this.http.get(host+'/services/summary/getChannelExpenses?user_id='+user_id+'&month='+month)
         .subscribe(data=>{
         resolve(data);      
         console.log('ChannelExpenses++++++'+data);
