@@ -5,6 +5,7 @@ import { SumIncomeProvider } from '../../providers/calculate-services/sum-income
 import { Income } from '../../model/income';
 import { Month } from '../../model/month';
 import { IncomeByMonthProvider } from '../../providers/income-services/incomeByMonth';
+import { SumIncomeByMonthProvider } from '../../providers/calculate-services/sum-incomeByMonth';
 
 /**
  * Generated class for the IncomePage page.
@@ -33,6 +34,7 @@ export class IncomePage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public sumIncome_: SumIncomeProvider,
+              public sumIncomeByMonth: SumIncomeByMonthProvider,
               public income: IncomeProvider,
               public actionSheetCtrl: ActionSheetController,
               public incomeByMonth: IncomeByMonthProvider) {
@@ -45,27 +47,58 @@ export class IncomePage {
     console.log('ionViewDidLoad IncomePage');
     this.animateClass = { 'fade-in-right-item': true };
 
+    //เดือนปัจจุบัน
+    let month_n = parseInt(sessionStorage.getItem("month"));
+    let month = month_n+1;
+    console.info('month='+month);
+    if(month == 1){
+      this.month_now = "มกราคม";
+    }
+    if(month == 2){
+      this.month_now = "กุมภาพันธ์";
+    }
+    if(month == 3){
+      this.month_now = "มีนาคม";
+    }
+    if(month == 4){
+      this.month_now = "เมษายน";
+    }
+    if(month == 5){
+      this.month_now = "พฤษภาคม";
+    }
+    if(month == 6){
+      this.month_now = "มิถุนายน";
+    }
+    if(month == 7){
+      this.month_now = "กรกฎาคม";
+    }
+    if(month == 8){
+      this.month_now = "สิงหาคม";
+    }
+    if(month == 9){
+      this.month_now = "กันยายน";
+    }
+    if(month == 10){
+      this.month_now = "ตุลาคม";
+    }
+    if(month == 11){
+      this.month_now = "พฤศจิกายน";
+    }
+    if(month == 12){
+      this.month_now = "ธันวาคม";
+    }
+
+    //ดึงค่าผลรวมรายรับ
     this.sumIncome_.getSumIncome().then(data => {
       this.sumIncome = data;
     })
 
+    //ดึงรายการรายรับ
     this.income.getIncome().then((data:Income) => {
       this.incomeList = data;
-      console.log(this.incomeList.amount);
-      
-      
-      if(this.incomeList.month = '1'){
-        this.month_now = "มกราคม";
-      }
-      if(this.incomeList.month = '2'){
-        this.month_now = "กุมภาพันธ์";
-      }
-      if(this.incomeList.month = '3'){
-        this.month_now = "มีนาคม";
-      }
+
     })
   }
-
 
   doMonth() {
     let actionSheet = this.actionSheetCtrl.create({
@@ -81,6 +114,9 @@ export class IncomePage {
               this.incomeList = data;
               this.month_now = "มกราคม";
             })
+            this.sumIncomeByMonth.getSumIncomeByMonth(month).then(data => {
+              this.sumIncome = data;
+            })
           }
         },
         {
@@ -92,6 +128,9 @@ export class IncomePage {
             this.incomeByMonth.getIncomeByMonth(month).then((data:Income) => {
               this.incomeList = data;
               this.month_now = "กุมภาพันธ์";
+            })
+            this.sumIncomeByMonth.getSumIncomeByMonth(month).then(data => {
+              this.sumIncome = data;
             })
           }
         },
@@ -105,6 +144,9 @@ export class IncomePage {
               this.incomeList = data;
               this.month_now = "มีนาคม";
             })
+            this.sumIncomeByMonth.getSumIncomeByMonth(month).then(data => {
+              this.sumIncome = data;
+            })
           }
         },
         {
@@ -116,6 +158,9 @@ export class IncomePage {
             this.incomeByMonth.getIncomeByMonth(month).then((data:Income) => {
               this.incomeList = data;
               this.month_now = "เมษายน";
+            })
+            this.sumIncomeByMonth.getSumIncomeByMonth(month).then(data => {
+              this.sumIncome = data;
             })
           }
         },
@@ -129,6 +174,9 @@ export class IncomePage {
               this.incomeList = data;
               this.month_now = "พฤษภาคม";
             })
+            this.sumIncomeByMonth.getSumIncomeByMonth(month).then(data => {
+              this.sumIncome = data;
+            })
           }
         },
         {
@@ -140,6 +188,9 @@ export class IncomePage {
             this.incomeByMonth.getIncomeByMonth(month).then((data:Income) => {
               this.incomeList = data;
               this.month_now = "มิถุนายน";
+            })
+            this.sumIncomeByMonth.getSumIncomeByMonth(month).then(data => {
+              this.sumIncome = data;
             })
           }
         },
@@ -153,6 +204,9 @@ export class IncomePage {
               this.incomeList = data;
               this.month_now = "กรกฎาคม";
             })
+            this.sumIncomeByMonth.getSumIncomeByMonth(month).then(data => {
+              this.sumIncome = data;
+            })
           }
         },
         {
@@ -164,6 +218,9 @@ export class IncomePage {
             this.incomeByMonth.getIncomeByMonth(month).then((data:Income) => {
               this.incomeList = data;
               this.month_now = "สิงหาคม";
+            })
+            this.sumIncomeByMonth.getSumIncomeByMonth(month).then(data => {
+              this.sumIncome = data;
             })
           }
         },
@@ -177,6 +234,9 @@ export class IncomePage {
               this.incomeList = data;
               this.month_now = "กันยายน";
             })
+            this.sumIncomeByMonth.getSumIncomeByMonth(month).then(data => {
+              this.sumIncome = data;
+            })
           }
         },
         {
@@ -188,6 +248,9 @@ export class IncomePage {
             this.incomeByMonth.getIncomeByMonth(month).then((data:Income) => {
               this.incomeList = data;
               this.month_now = "ตุลาคม";
+            })
+            this.sumIncomeByMonth.getSumIncomeByMonth(month).then(data => {
+              this.sumIncome = data;
             })
           }
         },
@@ -201,6 +264,9 @@ export class IncomePage {
               this.incomeList = data;
               this.month_now = "พฤศจิกายน";
             })
+            this.sumIncomeByMonth.getSumIncomeByMonth(month).then(data => {
+              this.sumIncome = data;
+            })
           }
         },
         {
@@ -212,6 +278,9 @@ export class IncomePage {
             this.incomeByMonth.getIncomeByMonth(month).then((data:Income) => {
               this.incomeList = data;
               this.month_now = "ธันวาคม";
+            })
+            this.sumIncomeByMonth.getSumIncomeByMonth(month).then(data => {
+              this.sumIncome = data;
             })
           }
         },
@@ -226,25 +295,5 @@ export class IncomePage {
     });
     actionSheet.present();
   }
-
-
-  // onEvent(event: string, item: any, e: any) {
-  //   if (this.events[event]) {
-  //       this.events[event](item);
-  //   }
-  // }
-//   ngOnChanges(changes: { [propKey: string]: any }) {
-//     let that = this;
-//     that.data = changes['data'].currentValue;
-//     if (that.data && that.data.items) {
-//         that.incomeList = [];
-//         for (let i = 0; i < that.data.items.length; i++) {
-//             setTimeout(function () {
-//                 that.incomeList.push(that.data.items[i]);
-//             }, 200 * i);
-//         }
-
-//     }
-// }
 
 }

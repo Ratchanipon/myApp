@@ -39,6 +39,7 @@ import { AddIncomeProvider } from '../providers/income-services/add-income';
 import { AddFixedExpensesProvider } from '../providers/fixed-expenses-services/add-fixed_expenses';
 import { AddDailyExpensesProvider } from '../providers/daily-expenses-services/add-daily-expenses';
 import { IncomeByMonthProvider } from '../providers/income-services/incomeByMonth';
+import { SumIncomeByMonthProvider } from '../providers/calculate-services/sum-incomeByMonth';
 
 
 
@@ -88,7 +89,8 @@ import { IncomeByMonthProvider } from '../providers/income-services/incomeByMont
     AddIncomeProvider,
     AddFixedExpensesProvider,
     AddDailyExpensesProvider,
-    IncomeByMonthProvider
+    IncomeByMonthProvider,
+    SumIncomeByMonthProvider
   ]
 })
 export class AppModule {}
