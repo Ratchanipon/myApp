@@ -15,7 +15,7 @@ export class SumIncomeByMonthProvider {
     console.log('Hello SumIncomeByMonthProvider Provider');
   }
 
-  getSumIncomeByMonthByMonth(month){                                    // ดึงข้อมูลยอดรวมรายรับจากเดือนที่เลือก
+  getSumIncomeByMonth(month){                                    // ดึงข้อมูลยอดรวมรายรับจากเดือนที่เลือก
     let user_id = localStorage.getItem("user_id"); 
     let host = sessionStorage.getItem("host"); 
     
