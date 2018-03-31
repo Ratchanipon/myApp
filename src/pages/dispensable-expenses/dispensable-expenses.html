@@ -17,15 +17,27 @@
 
 
 <ion-content>
-    <!-- <ion-list>
-        <ion-item *ngFor="let item of dispensableExpList">
-            <h2> {{item.categoryExp}}</h2>
-            <p> {{item.amount}} บาท &nbsp;{{item.create_date}}</p>    
-             
+
+    <!-- เลือกเดือน -->
+    <div align="right">
+        <label item-title text-wrap></label>
+        <button  ion-button clear (click)="doMonth()"><b><font size="4">{{month_now}}</font></b>
+          <ion-icon icon-small name="calendar"></ion-icon>
+        </button>
+    </div>
+
+    <ion-card>
+        <ion-item *ngFor="let item of sumDispensableExp" color="list">
+        <h2>รายจ่ายที่ไม่จำเป็นทั้งหมด:</h2>
+            <div item-content>
+                <ion-badge class="badge-light">{{item.total}} ฿</ion-badge>
+            </div>  
         </ion-item>
-        
-    </ion-list> -->
-        <ion-list>
+    </ion-card>
+
+    <ion-row>
+        <ion-col col-12>
+            <ion-list no-margin>
             <!-- Header Top -->
             <ion-list-header color="listHead"><h2><b>รายการรายจ่ายที่ไม่จำเป็น</b></h2></ion-list-header>
             <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of dispensableExpList let i = index;">
@@ -40,5 +52,7 @@
 
             </ion-item>
         </ion-list>
+    </ion-col>
+</ion-row>
 
 </ion-content>
