@@ -15,12 +15,11 @@
 
 <ion-content padding >
   <form [formGroup]="user" (ngSubmit)="login(user)">
-    <br>
     <div align="center">
-        <img class="" width="170" height="100" [src]="chosenPicture || placeholder" onerror="this.src='assets/images/logo/logoApp.png'"/>
+        <img class=""width="150" height="170" [src]="chosenPicture || placeholder" onerror="this.src='assets/images/logo/logoApp3.png'"/>
     </div>
 
-      <ion-col align-self-start col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+      <ion-col >
         <ion-item no-padding margin-top>
             <ion-label floating>อีเมล (email)</ion-label>
           <ion-input required type="text" formControlName="email" name="email"></ion-input>
@@ -34,8 +33,8 @@
 
       <button ion-button default-button full text-capitalize type="submit" [disabled]="!user.valid">ลงชื่อเข้าใช้</button>
     <div align="center">
-        <button ion-button button-clear text-capitalize clear float-center color="grayy" clear>ลืมรหัสผ่าน?</button><br>
-        <font color="#BEBEBE">________________________________________________</font><br><br>
+        <button ion-button button-clear text-capitalize clear float-center color="grayy" clear>ลืมรหัสผ่าน?</button>
+        <br><font color="#BEBEBE">￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣</font><br>
         <button ion-button default-button full text-capitalize color="secondary" round full navPush="RegisterPage">สร้างบัญชีผู้ใช้ใหม่</button>
     </div>
 
