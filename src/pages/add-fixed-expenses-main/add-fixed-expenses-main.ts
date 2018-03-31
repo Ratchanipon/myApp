@@ -76,7 +76,7 @@ export class AddFixedExpensesMainPage {
     if(fixedExpenses != null){
       this.addFixedExpensesSuccess();
 
-      this.navCtrl.setRoot('AddFixedExpensesMainPage');   
+      this.navCtrl.setRoot('HomePage');   
       const root = this.app.getRootNav();
       root.popToRoot();
     }
