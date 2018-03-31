@@ -24,24 +24,17 @@
                   <button ion-button color="danger" style="width:70px; height:30px;" navPush="AddFixedExpensesMainPage"><font size="1">รายจ่ายคงที่</font></button>
                   <button ion-button color="danger" style="width:70px; height:30px;" navPush="AddDailyExpensesPage"><font size="1">รายจ่ายรายวัน</font></button>
                   <button ion-button color="secondary" style="width:70px; height:30px;" navPush="AddIncomeMainPage"><font size="1">รายรับ</font></button>
-          
-                  <!-- <button  color="danger" >รายจ่ายรายวัน</button>
-                  <button color="secondary" >รายรับ</button> -->
-                  <!-- <button ion-fab><ion-icon name="remove"></ion-icon></button>
-                  <button ion-fab><ion-icon name="remove"></ion-icon></button>
-                  <button ion-fab><ion-icon name="add"></ion-icon></button> -->
-                </ion-fab-list>
-                
+        
+                </ion-fab-list>    
             </ion-fab>
 
-      <ion-card>
-        <ion-item *ngFor = "let item of incomeDebtList" color = "list">
-            <h2>รวมทั้งหมด:</h2>
-            <div item-content>
-                <ion-badge class="badge-light">{{item.total}} ฿</ion-badge>
-            </div> 
-        </ion-item>
-      </ion-card>
+    <!-- เลือกเดือน -->
+    <div align="right">
+        <label item-title text-wrap></label>
+        <button  ion-button clear (click)="doMonth()"><b><font size="4">{{month_now}}</font></b>
+          <ion-icon icon-small name="calendar"></ion-icon>
+        </button>
+    </div>
 
 <ion-row>
     <ion-col col-12>

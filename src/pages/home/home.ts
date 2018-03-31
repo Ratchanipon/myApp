@@ -150,6 +150,14 @@ export class HomePage {
 
             })
 
+            this.moneyPerDayByMonth.getMoneyPerDayByMonth(month).then((data:number) => {
+              this.moneyPerDay = data;
+            })
+
+            this.balancedByMonth.getBalancedByMonth(month).then((data:number) => {
+              this.balance = data; 
+            })
+
           }
         },
         {
@@ -169,6 +177,14 @@ export class HomePage {
   
               this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
                 this.totalDailyExp = data;
+              })
+              
+              this.moneyPerDayByMonth.getMoneyPerDayByMonth(month).then((data:number) => {
+                this.moneyPerDay = data;
+              })
+  
+              this.balancedByMonth.getBalancedByMonth(month).then((data:number) => {
+                this.balance = data; 
               })
           }
         },
@@ -190,6 +206,14 @@ export class HomePage {
               this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
                 this.totalDailyExp = data;
               })
+
+              this.moneyPerDayByMonth.getMoneyPerDayByMonth(month).then((data:number) => {
+                this.moneyPerDay = data;
+              })
+  
+              this.balancedByMonth.getBalancedByMonth(month).then((data:number) => {
+                this.balance = data; 
+              })
           }
         },
         {
@@ -209,6 +233,14 @@ export class HomePage {
   
               this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
                 this.totalDailyExp = data;
+              })
+
+              this.moneyPerDayByMonth.getMoneyPerDayByMonth(month).then((data:number) => {
+                this.moneyPerDay = data;
+              })
+  
+              this.balancedByMonth.getBalancedByMonth(month).then((data:number) => {
+                this.balance = data; 
               })
           }
         },
@@ -230,6 +262,14 @@ export class HomePage {
               this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
                 this.totalDailyExp = data;
               })
+
+              this.moneyPerDayByMonth.getMoneyPerDayByMonth(month).then((data:number) => {
+                this.moneyPerDay = data;
+              })
+  
+              this.balancedByMonth.getBalancedByMonth(month).then((data:number) => {
+                this.balance = data; 
+              })
           }
         },
         {
@@ -249,6 +289,14 @@ export class HomePage {
   
               this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
                 this.totalDailyExp = data;
+              })
+
+              this.moneyPerDayByMonth.getMoneyPerDayByMonth(month).then((data:number) => {
+                this.moneyPerDay = data;
+              })
+  
+              this.balancedByMonth.getBalancedByMonth(month).then((data:number) => {
+                this.balance = data; 
               })
           }
         },
@@ -270,6 +318,14 @@ export class HomePage {
               this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
                 this.totalDailyExp = data;
               })
+
+              this.moneyPerDayByMonth.getMoneyPerDayByMonth(month).then((data:number) => {
+                this.moneyPerDay = data;
+              })
+  
+              this.balancedByMonth.getBalancedByMonth(month).then((data:number) => {
+                this.balance = data; 
+              })
           }
         },
         {
@@ -289,6 +345,14 @@ export class HomePage {
   
               this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
                 this.totalDailyExp = data;
+              })
+
+              this.moneyPerDayByMonth.getMoneyPerDayByMonth(month).then((data:number) => {
+                this.moneyPerDay = data;
+              })
+  
+              this.balancedByMonth.getBalancedByMonth(month).then((data:number) => {
+                this.balance = data; 
               })
           }
         },
@@ -310,6 +374,14 @@ export class HomePage {
               this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
                 this.totalDailyExp = data;
               })
+
+              this.moneyPerDayByMonth.getMoneyPerDayByMonth(month).then((data:number) => {
+                this.moneyPerDay = data;
+              })
+  
+              this.balancedByMonth.getBalancedByMonth(month).then((data:number) => {
+                this.balance = data; 
+              })
           }
         },
         {
@@ -329,6 +401,14 @@ export class HomePage {
   
               this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
                 this.totalDailyExp = data;
+              })
+
+              this.moneyPerDayByMonth.getMoneyPerDayByMonth(month).then((data:number) => {
+                this.moneyPerDay = data;
+              })
+  
+              this.balancedByMonth.getBalancedByMonth(month).then((data:number) => {
+                this.balance = data; 
               })
           }
         },
@@ -350,6 +430,14 @@ export class HomePage {
               this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
                 this.totalDailyExp = data;
               })
+
+              this.moneyPerDayByMonth.getMoneyPerDayByMonth(month).then((data:number) => {
+                this.moneyPerDay = data;
+              })
+  
+              this.balancedByMonth.getBalancedByMonth(month).then((data:number) => {
+                this.balance = data; 
+              })
           }
         },
         {
@@ -369,6 +457,14 @@ export class HomePage {
   
               this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
                 this.totalDailyExp = data;
+              })
+
+              this.moneyPerDayByMonth.getMoneyPerDayByMonth(month).then((data:number) => {
+                this.moneyPerDay = data;
+              })
+  
+              this.balancedByMonth.getBalancedByMonth(month).then((data:number) => {
+                this.balance = data; 
               })
           }
         },

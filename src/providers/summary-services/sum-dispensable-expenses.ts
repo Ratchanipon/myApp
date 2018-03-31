@@ -9,22 +9,25 @@ import { Injectable } from '@angular/core';
   and Angular DI.
 */
 @Injectable()
-export class BalancedByMonthProvider {                
+export class SumDispensableExpensesProvider {
 
   constructor(public http: HttpClient) {
-    console.log('Hello BalancedProvider Provider');
+    console.log('Hello SumDispensableExpensesProvider Provider');
   }
 
-  getBalancedByMonth(month){                        // ดึงข้อมูลยอดคงเหลือ
+  getSumDispensableExpenses(){                          // ดึงข้อมูลรายการรายจ่ายที่ไม่จำเป็น
     let user_id = localStorage.getItem("user_id");  
-    let host = sessionStorage.getItem("host");
-
+    let host = sessionStorage.getItem("host");   
     
+    //เดือนปัจจุบัน
+    let month_n = parseInt(sessionStorage.getItem("month"));
+    let month = month_n+1;
+
     return new Promise(resolve=>{
-        this.http.get(host+'/services/calculate/getBalance?user_id='+user_id+'&month='+month)
+        this.http.get(host+'/services/summary/getSumDispensableExpenses?user_id='+user_id+'&month='+month)
         .subscribe(data=>{
         resolve(data);      
-        console.log('Balance++++++'+data);
+        console.log('SumDispensableExpenses++++++'+data);
         
       }, err =>{
         console.error(err);      
