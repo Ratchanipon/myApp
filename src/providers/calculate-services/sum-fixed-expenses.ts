@@ -24,10 +24,10 @@ export class SumFixedExpensesProvider {
     let month = month_n+1;
 
     return new Promise(resolve=>{
-        this.http.get(host+'/services/calculate/getSumFixedExpenses?user_id='+user_id+'&month='+month)
+      this.http.get(host+'/services/calculate/getSumFixedExpenses?user_id='+user_id+'&month='+month)
         .subscribe(data=>{
         resolve(data);      
-        console.log('SumFixedExpenses++++++'+data);
+        console.info('SumFixedExpenses++++++'+data);
         
       }, err =>{
         console.error(err);      

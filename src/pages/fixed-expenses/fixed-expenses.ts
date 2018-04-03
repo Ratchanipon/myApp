@@ -81,7 +81,9 @@ export class FixedExpensesPage {
     }
 
     this.sumFixedExpenses_.getSumFixedExpenses().then(data => {
+      console.info("sumFixedExp=="+data);
       this.sumFixedExpenses = data;
+      
     })
 
     this.fixedExpenses_.getFixedExpenses().then(data => {
