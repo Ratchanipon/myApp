@@ -75,7 +75,8 @@ export class FhcInstantPage {
 
       this.DTI = (expTotal/incomeTotal)*100;
 
-      this.navCtrl.push('ShowRisk1Page',{'DTI':this.DTI})
+      this.navCtrl.push('ShowRisk1Page',{'DTI':this.DTI});
+      console.info("DTI=="+this.DTI);
 
     }
     if(this.fhcInstant.income11==null){

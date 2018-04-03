@@ -18,7 +18,7 @@ export class Risk1Provider {
     let host = sessionStorage.getItem("host");
 
     return new Promise(resolve=>{
-        this.http.get(host+'/AppManagement/services/risk/getRisk1')
+        this.http.get(host+'/services/risk/getRisk1')
         .subscribe(data=>{
         resolve(data);      
         console.log(data);
@@ -33,7 +33,7 @@ export class Risk1Provider {
     let host = sessionStorage.getItem("host");
 
     return new Promise(resolve=>{
-        this.http.get(host+'/AppManagement/services/risk/getRisk2')
+        this.http.get(host+'/services/risk/getRisk2')
         .subscribe(data=>{
         resolve(data);      
         console.log('getRisk2++++++'+data);
@@ -48,7 +48,7 @@ export class Risk1Provider {
     let host = sessionStorage.getItem("host");
 
     return new Promise(resolve=>{
-        this.http.get(host+'/AppManagement/services/risk/getRisk3')
+        this.http.get(host+'/services/risk/getRisk3')
         .subscribe(data=>{
         resolve(data);      
         console.log('getRisk3++++++'+data);
