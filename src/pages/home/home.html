@@ -32,10 +32,14 @@
   <!-- เลือกเดือน -->
   <div align="right">
     <label item-title text-wrap></label>
-    <button  ion-button clear (click)="doMonth()"><b><font size="4">{{month_now}}  {{year}}</font></b>
+    <button  ion-button clear (click)="doMonth()"><b><font size="4">{{month_now}}</font></b>
       <ion-icon icon-small name="calendar"></ion-icon>
     </button>
   </div>
+
+  <div id="donutchart">
+
+    </div>
 
   <ion-card>
     <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of totalIncome" color="list">
@@ -55,7 +59,7 @@
   </ion-card>
   <ion-card>
     <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of totalDailyExp" color="list">
-      <h2>รายจ่ายรายวัน:</h2>
+      <h2>รายจ่ายรายววัน:</h2>
       <div item-content>
           <ion-badge class="badge-light">{{item.totalDailyExp}} ฿</ion-badge>
       </div>          

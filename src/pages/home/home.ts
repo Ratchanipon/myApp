@@ -21,6 +21,7 @@ import { SumFixedExp } from '../../model/get-sumFixedExp';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+declare var google;
 
 @IonicPage()
 @Component({
@@ -59,6 +60,20 @@ export class HomePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
     this.animateClass = { 'fade-in-right-item': true };
+
+    var data = google.visualization.arrayToDataTable([
+      ['Task', 'Hours per Day'],
+      ['รายรับ',     11],
+      ['รายจ่ายคงที่',      2],
+      ['รายจ่ายรายวัน',  2]
+    ]);
+
+    var options = {
+      title: 'งบการเงินส่วนบุคคล',
+      pieHole: 1.4,
+    };
+    var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+    chart.draw(data, options);
 
     this.year = sessionStorage.getItem("year");
 
