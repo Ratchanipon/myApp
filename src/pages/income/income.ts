@@ -26,6 +26,7 @@ export class IncomePage {
   content: Content;
   incomeList:Income;
   sumIncome:any;
+  year:string;
 
   month_now:string;
   month_select:string
@@ -46,6 +47,7 @@ export class IncomePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad IncomePage');
     this.animateClass = { 'fade-in-right-item': true };
+    this.year = sessionStorage.getItem("year");
 
     //เดือนปัจจุบัน
     let month_n = parseInt(sessionStorage.getItem("month"));

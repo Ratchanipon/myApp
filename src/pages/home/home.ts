@@ -34,7 +34,7 @@ export class HomePage {
   totalDailyExp:SumDaileExp;
   moneyPerDay:number;
   balance:number;
-
+  year:string;
   animateClass:any;
 
   month_now:string;
@@ -59,6 +59,8 @@ export class HomePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
     this.animateClass = { 'fade-in-right-item': true };
+
+    this.year = sessionStorage.getItem("year");
 
     //เดือนปัจจุบัน
     let month_n = parseInt(sessionStorage.getItem("month"));

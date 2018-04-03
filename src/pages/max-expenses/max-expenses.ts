@@ -19,6 +19,8 @@ export class MaxExpensesPage {
   maxExpenses:any;
 
   animateClass:any;
+  year:string;
+
 
   month_now:string;
 
@@ -32,7 +34,7 @@ export class MaxExpensesPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad MaxExpensesPage');
     this.animateClass = { 'fade-in-right-item': true };
-
+    this.year = sessionStorage.getItem("year");
 
     //เดือนปัจจุบัน
     let month_n = parseInt(sessionStorage.getItem("month"));

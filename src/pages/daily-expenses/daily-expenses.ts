@@ -22,6 +22,7 @@ export class DailyExpensesPage {
   dailyExpensesList:any;
 
   animateClass:any;
+  year:string;
 
   month_now:string;
 
@@ -39,6 +40,7 @@ export class DailyExpensesPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad DailyExpensesPage');
     this.animateClass = { 'fade-in-right-item': true };
+    this.year = sessionStorage.getItem("year");
 
     //เดือนปัจจุบัน
     let month_n = parseInt(sessionStorage.getItem("month"));

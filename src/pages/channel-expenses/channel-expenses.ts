@@ -19,6 +19,7 @@ export class ChannelExpensesPage {
   channelExpenses:any;
 
   animateClass:any;
+  year:string;
 
   month_now:string;
 
@@ -34,6 +35,7 @@ export class ChannelExpensesPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChannelExpensesPage');
     this.animateClass = { 'fade-in-right-item': true };
+    this.year = sessionStorage.getItem("year");
 
     //เดือนปัจจุบัน
     let month_n = parseInt(sessionStorage.getItem("month"));

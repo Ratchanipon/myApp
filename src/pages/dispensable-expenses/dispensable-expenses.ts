@@ -24,6 +24,7 @@ export class DispensableExpensesPage {
   dispensableExpList: any;
   sumDispensableExp:any;
   animateClass:any;
+  year:string;
 
   month_now:string
   constructor(public navCtrl: NavController,
@@ -40,6 +41,7 @@ export class DispensableExpensesPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
     this.animateClass = { 'fade-in-right-item': true };
+    this.year = sessionStorage.getItem("year");
 
     //เดือนปัจจุบัน
     let month_n = parseInt(sessionStorage.getItem("month"));

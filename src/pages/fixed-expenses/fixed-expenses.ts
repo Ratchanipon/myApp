@@ -20,6 +20,7 @@ import { FixedExpensesByMonthProvider } from '../../providers/fixed-expenses-ser
 export class FixedExpensesPage {
   sumFixedExpenses:any;
   fixedExpensesList:any;
+  year:string;
 
   animateClass:any;
 
@@ -38,6 +39,7 @@ export class FixedExpensesPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad FixedExpensesPage');
     this.animateClass = { 'fade-in-right-item': true };
+    this.year = sessionStorage.getItem("year");
 
     //เดือนปัจจุบัน
     let month_n = parseInt(sessionStorage.getItem("month"));
