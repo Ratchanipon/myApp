@@ -1,3 +1,22 @@
 page-login {
+          
+            .input_area {
+              display: flex;
+              background-color: #fff;
+              border-radius: 60px;
+            //   height: map_get($height, btnheight);
+              overflow: hidden;
+            //   margin-bottom: map_get($margin, small);
+              ion-icon {
+                margin: auto;
+                padding: 0 16px;
+                color: map_get($colors, lightdark);
+                // font-size: map_get($font, small);
+        }
+
+    }
 
 }
+
+
+

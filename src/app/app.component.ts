@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, ActionSheetController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Observable } from 'rxjs/Observable';
@@ -32,6 +32,7 @@ export class MyApp {
 
   constructor(public platform: Platform, 
               public statusBar: StatusBar,
+              public actionSheetCtrl: ActionSheetController,
               public splashScreen: SplashScreen) {
                 
         sessionStorage.setItem("host",this.host);
@@ -78,9 +79,27 @@ export class MyApp {
     this.rootPage= page.component;
   }
 
-  logOut(){
-    localStorage.clear();
-    this.rootPage = "LoginPage";
+  logOut1() {
+    let actionSheet = this.actionSheetCtrl.create({
+      buttons: [
+        {
+          icon: 'exit',
+          text: 'ออกจากระบบ',
+          handler: () => {
+            localStorage.clear();
+            this.rootPage = "IndexPage";
+          }
+        },
+        {
+          icon: 'close-circle',
+          text: 'ยกเลิก',
+          handler: () => {
+
+          }
+        }
+      ]
+    });
+    actionSheet.present();
   }
 
 }
