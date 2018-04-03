@@ -53,6 +53,7 @@ import { IncomeDebtByMonthProvider } from '../providers/summary-services/income-
 import { MaxExpensesByMonthProvider } from '../providers/summary-services/max-expensesByMonth';
 import { SumDispensableExpensesProvider } from '../providers/summary-services/sum-dispensable-expenses';
 import { SumDispensableExpensesByMonthProvider } from '../providers/summary-services/sum-dispensable-expensesByMonth';
+import { Risk2Provider } from '../providers/risk-services/risk2';
 
 
 
@@ -96,6 +97,7 @@ import { SumDispensableExpensesByMonthProvider } from '../providers/summary-serv
     DailyExpensesProvider,
     FixedExpensesProvider,
     Risk1Provider,
+    Risk2Provider,
     MaxExpensesProvider,
     AddUserProvider,
     AddDueDateProvider,

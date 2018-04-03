@@ -24,7 +24,7 @@ export class FhcInstantPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
-    this.fhcInstant = {income11:null,income12:null,income13:null,income21:null,income22:null,income23:null,income24:null,income25:null,
+    this.fhcInstant = {income11:2000,income12:null,income13:null,income21:null,income22:null,income23:null,income24:null,income25:null,
                        exp11:null,exp12:null,exp13:null,exp14:null,exp15:null,exp16:null,exp17:null,exp18:null,exp21:null,exp22:null,exp23:null,exp24:null,exp25:null,exp26:null,exp27:null,exp28:null}
 
   }

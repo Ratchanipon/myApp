@@ -20,7 +20,8 @@ export class ShowRisk1Page {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public risk_: Risk1Provider) {
+              public risk_: Risk1Provider,
+              ) {
   }
 
   ionViewDidLoad() {
