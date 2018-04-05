@@ -54,27 +54,14 @@ export class HomePage {
               public balancedByMonth: BalancedByMonthProvider,
               private app:App
             ) {
+
+              
          
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
     this.animateClass = { 'fade-in-right-item': true };
-
-    var data = google.visualization.arrayToDataTable([
-      ['Task', 'Hours per Day'],
-      ['รายรับ',     11],
-      ['รายจ่ายคงที่',      2],
-      ['รายจ่ายรายวัน',  2]
-    ]);
-
-    var options = {
-      title: 'งบการเงินส่วนบุคคล',
-      pieHole: 1.4,
-    };
-    var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-    chart.draw(data, options);
-
     this.year = sessionStorage.getItem("year");
 
     //เดือนปัจจุบัน
@@ -123,6 +110,8 @@ export class HomePage {
 
     this.sumIncome.getSumIncome().then((data:SumIncome) => {
       this.totalIncome = data;
+      console.info("xvxcvx===="+this.totalIncome);
+
     })
 
     this.sumFixedExpenses.getSumFixedExpenses().then((data:SumFixedExp) => {
@@ -141,7 +130,30 @@ export class HomePage {
       console.info(data);
       this.balance = data;
     })
+
+    this.showChart();
   }
+
+  showChart(){
+    //chart
+    let inc = this.balance;
+    console.info("xvxcvx==========="+this.balance);
+    var data = google.visualization.arrayToDataTable([
+      ['Task', 'Hours per Day'],
+      ['รายรับ',     2000],
+      ['รายจ่ายคงที่',      600],
+      ['รายจ่ายรายวัน',  100]
+    ]);
+
+    var options = {
+      title: 'งบการเงินส่วนบุคคล',
+      pieHole: 1.4,
+    };
+    var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+    chart.draw(data, options);
+  }
+
+
 
   doMonth() {
     let actionSheet = this.actionSheetCtrl.create({
