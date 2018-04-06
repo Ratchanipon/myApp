@@ -35,7 +35,7 @@
         </div>
       </ion-item> -->
     <ion-list *ngIf="user_id">
-        <button menuClose ion-item navPush="ProfilePage()">
+        <button menuClose ion-item (click)="profile()">
             <ion-icon icon-small name="contact"></ion-icon> 
           ข้อมูล่วนตัว
         </button>

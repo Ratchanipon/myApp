@@ -102,5 +102,7 @@ export class MyApp {
     });
     actionSheet.present();
   }
-
+  profile(){
+    this.rootPage = "ProfilePage";
+  }
 }
