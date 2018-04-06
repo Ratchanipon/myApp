@@ -131,27 +131,27 @@ export class HomePage {
       this.balance = data;
     })
 
-    this.showChart();
+    // this.showChart();
   }
 
-  showChart(){
-    //chart
-    let inc = this.balance;
-    console.info("xvxcvx==========="+this.balance);
-    var data = google.visualization.arrayToDataTable([
-      ['Task', 'Hours per Day'],
-      ['รายรับ',     2000],
-      ['รายจ่ายคงที่',      600],
-      ['รายจ่ายรายวัน',  100]
-    ]);
+  // showChart(){
+  //   //chart
+  //   let inc = this.balance;
+  //   console.info("xvxcvx==========="+this.balance);
+  //   var data = google.visualization.arrayToDataTable([
+  //     ['Task', 'Hours per Day'],
+  //     ['รายรับ',     2000],
+  //     ['รายจ่ายคงที่',      600],
+  //     ['รายจ่ายรายวัน',  100]
+  //   ]);
 
-    var options = {
-      title: 'งบการเงินส่วนบุคคล',
-      pieHole: 1.4,
-    };
-    var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-    chart.draw(data, options);
-  }
+  //   var options = {
+  //     title: 'งบการเงินส่วนบุคคล',
+  //     pieHole: 1.4,
+  //   };
+  //   var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+  //   chart.draw(data, options);
+  // }
 
 
 

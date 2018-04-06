@@ -54,6 +54,7 @@ import { IncomeDebtByMonthProvider } from '../providers/summary-services/income-
 import { MaxExpensesByMonthProvider } from '../providers/summary-services/max-expensesByMonth';
 import { SumDispensableExpensesProvider } from '../providers/summary-services/sum-dispensable-expenses';
 import { SumDispensableExpensesByMonthProvider } from '../providers/summary-services/sum-dispensable-expensesByMonth';
+import { EditIncomeProvider } from '../providers/income-services/edit-income';
 
 
 
@@ -118,7 +119,8 @@ import { SumDispensableExpensesByMonthProvider } from '../providers/summary-serv
     IncomeDebtByMonthProvider,
     MaxExpensesByMonthProvider,
     SumDispensableExpensesProvider,
-    SumDispensableExpensesByMonthProvider
+    SumDispensableExpensesByMonthProvider,
+    EditIncomeProvider
   ]
 })
 export class AppModule {}

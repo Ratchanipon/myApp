@@ -47,6 +47,7 @@ export class IncomePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad IncomePage');
     this.animateClass = { 'fade-in-right-item': true };
+    
     this.year = sessionStorage.getItem("year");
 
     //เดือนปัจจุบัน
@@ -298,4 +299,26 @@ export class IncomePage {
     actionSheet.present();
   }
 
+  editIncome(item) {
+    let actionSheet = this.actionSheetCtrl.create({
+      
+      buttons: [
+        {
+          icon: 'create',
+          text: 'แก้ไข',
+          handler: () => {
+            // console.log(item.income_id);
+            this.navCtrl.push('EditIncomePage',item)
+          }
+        },
+        {
+          icon: 'close-circle',
+          text: 'ยกเลิก',
+          handler: () => {
+          }
+        }
+      ]
+    });
+    actionSheet.present();
+  }
 }
