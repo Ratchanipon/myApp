@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar color="primary">
+  <ion-navbar color="dueDate">
     <ion-title>วันที่ครบกำหนดชำระค่าใช้จ่ายรายเดือน</ion-title>
   </ion-navbar>
 
@@ -57,8 +57,8 @@
     </div>
     <div no-lines [ngClass]="animateClass">
       <br>
-      <button ion-button default-button full text-capitalize color="secondary" [disabled]="!dueDate.valid">บันทึก</button>
-      <button ion-button default-button full text-capitalize color="secondary" navPush="AddIncomePage">ถัดไป</button>
+      <button ion-button default-button full text-capitalize color="dueDate" [disabled]="!dueDate.valid">บันทึก</button>
+      <button ion-button default-button full text-capitalize color="dueDate" navPush="AddIncomePage">ถัดไป</button>
       <!-- <button ion-button full navPush="">ยกเลิก</button> -->
     </div>
   </form>
