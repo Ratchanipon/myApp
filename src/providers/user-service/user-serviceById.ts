@@ -9,15 +9,15 @@ import { User } from '../../model/user';
   and Angular DI.
 */
 @Injectable()
-export class UserServiceProvider {
+export class UserByIdProvider {
 
-  user:User;
+
 
   constructor(public http: HttpClient) {
-    console.log('Hello UserServiceProvider Provider');
+    console.log('Hello UserByIdProvider Provider');
   }
 
-  loginProvider(user:User){
+  getUserById(){
       /* return new Promise(resolve=>{
       this.http.get('http://localhost/AppManagement/services/users/getUserById?username='+user.username+'&password='+user.password)
       .subscribe(data=>{
@@ -26,10 +26,11 @@ export class UserServiceProvider {
         console.error(err);      
         });
       }); */
+      let user_id = localStorage.getItem("user_id");
       let host = sessionStorage.getItem("host");
 
       return new Promise<User>(resolve=>{
-        this.http.get(host+'/services/users/getUser?email='+user.email+'&password='+user.password)
+        this.http.get(host+'/services/users/getUserById?user_id='+user_id)
         .subscribe(user=>{
           
           let data = this.extacObject(user);

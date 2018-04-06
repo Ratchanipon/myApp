@@ -55,6 +55,7 @@ import { MaxExpensesByMonthProvider } from '../providers/summary-services/max-ex
 import { SumDispensableExpensesProvider } from '../providers/summary-services/sum-dispensable-expenses';
 import { SumDispensableExpensesByMonthProvider } from '../providers/summary-services/sum-dispensable-expensesByMonth';
 import { EditIncomeProvider } from '../providers/income-services/edit-income';
+import { UserByIdProvider } from '../providers/user-service/user-serviceById';
 
 
 
@@ -120,7 +121,8 @@ import { EditIncomeProvider } from '../providers/income-services/edit-income';
     MaxExpensesByMonthProvider,
     SumDispensableExpensesProvider,
     SumDispensableExpensesByMonthProvider,
-    EditIncomeProvider
+    EditIncomeProvider,
+    UserByIdProvider
   ]
 })
 export class AppModule {}

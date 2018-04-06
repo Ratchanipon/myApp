@@ -35,6 +35,10 @@
         </div>
       </ion-item> -->
     <ion-list *ngIf="user_id">
+        <button menuClose ion-item navPush="ProfilePage()">
+            <ion-icon icon-small name="contact"></ion-icon> 
+          ข้อมูล่วนตัว
+        </button>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
           <ion-icon icon-small name="list-box"></ion-icon>
               <!-- <i class="icon {{p.icon}}"></i> -->
