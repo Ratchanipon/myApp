@@ -17,7 +17,6 @@
   
       <form [formGroup]="income" (ngSubmit)="editIncome(income)">
           <div border no-lines [ngClass]="animateClass">
-              {{category}}
               <ion-input type="hidden" formControlName="user_id"></ion-input>
               <ion-input type="hidden" formControlName="income_id"></ion-input>
       

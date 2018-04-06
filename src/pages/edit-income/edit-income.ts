@@ -25,6 +25,7 @@ export class EditIncomePage {
 
   animateClass:any;
 
+  data:any;
   cate_id:string;
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -38,7 +39,7 @@ export class EditIncomePage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AddIncomeMainPage');
+    console.log('ionViewDidLoad EditIncomePage');
     this.animateClass = { 'fade-in-item': true };
     this.form();
 
@@ -46,9 +47,6 @@ export class EditIncomePage {
       this.incomeCateList = data;
     })
 
-    this.cate_id = this.data.income_cate_id;
-    console.log(this.cate_id);
-    
 
   }
 
@@ -64,6 +62,7 @@ export class EditIncomePage {
     this.data = this.navParams.data;
     let income_id = this.data.income_id;
     let amount = this.data.amount;
+    this.cate_id = this.data.income_cate_id;
     
     this.income = this.formBuilder.group({
       user_id:[user_id,Validators.compose([Validators.required])],
