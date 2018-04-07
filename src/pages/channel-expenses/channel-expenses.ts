@@ -29,6 +29,12 @@ export class ChannelExpensesPage {
               public channelExp: ChannelExpensesProvider,
               public channelExpByMonth: ChannelExpensesByMonthProvider) {
 
+                this.channelExp.getChannelExpenses().then(data => {
+                  this.channelExpenses = data;
+                  console.log(this.channelExpenses);
+                  
+                })
+
         
   }
 
@@ -79,11 +85,7 @@ export class ChannelExpensesPage {
     }
 
     
-    this.channelExp.getChannelExpenses().then(data => {
-      this.channelExpenses = data;
-      console.log(this.channelExpenses);
-      
-    })
+  
   }
 
   doMonth() {

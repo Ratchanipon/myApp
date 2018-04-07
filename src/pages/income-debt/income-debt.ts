@@ -29,6 +29,9 @@ export class IncomeDebtPage {
               public incomeDebt: IncomeDebtProvider,
               public incomeDebtByMonth: IncomeDebtByMonthProvider,
             ) {
+              this.incomeDebt.getIncomeDebt().then(data => {
+                this.incomeDebtList = data;
+              })
      
   }
 
@@ -79,9 +82,7 @@ export class IncomeDebtPage {
     }
 
 
-    this.incomeDebt.getIncomeDebt().then(data => {
-      this.incomeDebtList = data;
-    })
+    
   }
 
   doMonth() {

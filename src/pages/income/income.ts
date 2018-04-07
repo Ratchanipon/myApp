@@ -40,7 +40,16 @@ export class IncomePage {
               public actionSheetCtrl: ActionSheetController,
               public incomeByMonth: IncomeByMonthProvider) {
 
-                
+                //ดึงค่าผลรวมรายรับ
+    this.sumIncome_.getSumIncome().then(data => {
+      this.sumIncome = data;
+    })
+
+    //ดึงรายการรายรับ
+    this.income.getIncome().then((data:Income) => {
+      this.incomeList = data;
+
+    })
                 
   }
 
@@ -91,16 +100,7 @@ export class IncomePage {
       this.month_now = "ธันวาคม";
     }
 
-    //ดึงค่าผลรวมรายรับ
-    this.sumIncome_.getSumIncome().then(data => {
-      this.sumIncome = data;
-    })
-
-    //ดึงรายการรายรับ
-    this.income.getIncome().then((data:Income) => {
-      this.incomeList = data;
-
-    })
+    
   }
 
   doMonth() {

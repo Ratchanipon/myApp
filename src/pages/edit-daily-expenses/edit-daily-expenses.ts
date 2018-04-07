@@ -85,7 +85,7 @@ export class EditDailyExpensesPage {
     if(dailyExpenses != null){
       this.editDailyExpensesSuccess();
 
-      this.navCtrl.setRoot('HomePage');   
+      this.navCtrl.setRoot('DailyExpensesPage');   
       const root = this.app.getRootNav();
       root.popToRoot();
     }

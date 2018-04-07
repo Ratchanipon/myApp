@@ -85,7 +85,7 @@ export class EditIncomePage {
     if(income != null){
       this.editIncomeSuccess(); 
 
-      this.navCtrl.setRoot('HomePage');   
+      this.navCtrl.setRoot('IncomePage');   
       const root = this.app.getRootNav();
       root.popToRoot();
     }

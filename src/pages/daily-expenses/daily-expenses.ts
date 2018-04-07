@@ -34,6 +34,14 @@ export class DailyExpensesPage {
               public dailyExpenses_: DailyExpensesProvider,
               public dailyExpensesByMonth: DailyExpensesByMonthProvider) {
 
+                this.sumDailyExpenses_.getSumDailyExpenses().then(data => {
+                  this.sumDailyExpenses = data;
+                })
+            
+                this.dailyExpenses_.getDailyExpenses().then(data => {
+                  this.dailyExpensesList = data;
+                })
+
                 
   }
 
@@ -83,13 +91,7 @@ export class DailyExpensesPage {
       this.month_now = "ธันวาคม";
     }
 
-    this.sumDailyExpenses_.getSumDailyExpenses().then(data => {
-      this.sumDailyExpenses = data;
-    })
-
-    this.dailyExpenses_.getDailyExpenses().then(data => {
-      this.dailyExpensesList = data;
-    })
+    
   }
 
   doMonth() {

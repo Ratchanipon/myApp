@@ -87,7 +87,7 @@ export class EditFixedExpensesPage {
     if(fixedExpenses != null){
       this.editFixedExpensesSuccess();
 
-      this.navCtrl.setRoot('HomePage');   
+      this.navCtrl.setRoot('FixedExpensesPage');   
       const root = this.app.getRootNav();
       root.popToRoot();
     }

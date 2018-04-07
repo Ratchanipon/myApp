@@ -34,6 +34,18 @@ export class FixedExpensesPage {
               public fixedExpenses_: FixedExpensesProvider,
               public fixExpByMonth: FixedExpensesByMonthProvider) {
 
+                this.sumFixedExpenses_.getSumFixedExpenses().then(data => {
+                  console.info("sumFixedExp=="+data);
+                  this.sumFixedExpenses = data;
+                  
+                })
+            
+                this.fixedExpenses_.getFixedExpenses().then(data => {
+                  this.fixedExpensesList = data;
+                  console.log(this.fixedExpensesList);
+                  
+                })
+
   }
 
   ionViewDidLoad() {
@@ -82,17 +94,7 @@ export class FixedExpensesPage {
       this.month_now = "ธันวาคม";
     }
 
-    this.sumFixedExpenses_.getSumFixedExpenses().then(data => {
-      console.info("sumFixedExp=="+data);
-      this.sumFixedExpenses = data;
-      
-    })
-
-    this.fixedExpenses_.getFixedExpenses().then(data => {
-      this.fixedExpensesList = data;
-      console.log(this.fixedExpensesList);
-      
-    })
+    
   }
 
   doMonth() {

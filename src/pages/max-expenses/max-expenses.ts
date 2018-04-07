@@ -29,6 +29,12 @@ export class MaxExpensesPage {
               public actionSheetCtrl: ActionSheetController,
               public maxExp: MaxExpensesProvider,
               public maxExpByMonth: MaxExpensesByMonthProvider) {
+
+                this.maxExp.getMaxExpenses().then(data => {
+                  this.maxExpenses = data;
+                  console.log(this.maxExpenses);
+                  
+                })
   }
 
   ionViewDidLoad() {
@@ -78,11 +84,7 @@ export class MaxExpensesPage {
     }
     
     
-    this.maxExp.getMaxExpenses().then(data => {
-      this.maxExpenses = data;
-      console.log(this.maxExpenses);
-      
-    })
+    
   }
 
   doMonth() {

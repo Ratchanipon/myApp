@@ -36,6 +36,17 @@ export class DispensableExpensesPage {
               public sumDispensableExpensesByMonth: SumDispensableExpensesByMonthProvider,
               private storage: Storage) {
 
+                this.dispensableExpenses.getDispensableExpenses()
+                .then((data: any) => {
+                  this.dispensableExpList = data;
+                }).catch(err => {
+                  console.error(err);
+      
+                })
+                this.sumDispensableExpenses.getSumDispensableExpenses().then(data => {
+                this.sumDispensableExp = data;
+    })
+
   }
 
   ionViewDidLoad() {
@@ -84,16 +95,7 @@ export class DispensableExpensesPage {
       this.month_now = "ธันวาคม";
     }
 
-    this.dispensableExpenses.getDispensableExpenses()
-                .then((data: any) => {
-                  this.dispensableExpList = data;
-                }).catch(err => {
-                  console.error(err);
-      
-                })
-    this.sumDispensableExpenses.getSumDispensableExpenses().then(data => {
-      this.sumDispensableExp = data;
-    })
+    
     
    }
    disExpensesDetail(item){
