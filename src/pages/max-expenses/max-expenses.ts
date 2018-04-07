@@ -37,6 +37,20 @@ export class MaxExpensesPage {
                 })
   }
 
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      this.maxExp.getMaxExpenses().then(data => {
+        this.maxExpenses = data;
+        console.log(this.maxExpenses);
+        
+      })
+      refresher.complete();
+    }, 1500);
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad MaxExpensesPage');
     this.animateClass = { 'fade-in-right-item': true };

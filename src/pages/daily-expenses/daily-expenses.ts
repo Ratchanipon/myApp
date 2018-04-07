@@ -45,6 +45,22 @@ export class DailyExpensesPage {
                 
   }
 
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      this.sumDailyExpenses_.getSumDailyExpenses().then(data => {
+        this.sumDailyExpenses = data;
+      })
+  
+      this.dailyExpenses_.getDailyExpenses().then(data => {
+        this.dailyExpensesList = data;
+      })
+      refresher.complete();
+    }, 1500);
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad DailyExpensesPage');
     this.animateClass = { 'fade-in-right-item': true };

@@ -55,8 +55,71 @@ export class HomePage {
               private app:App
             ) {
 
+              this.user = this.navParams.get('user');
+                console.info('user'+this.user);
+
+    this.sumIncome.getSumIncome().then((data:SumIncome) => {
+      this.totalIncome = data;
+      console.info("xvxcvx===="+this.totalIncome);
+
+    })
+
+    this.sumFixedExpenses.getSumFixedExpenses().then((data:SumFixedExp) => {
+      this.totalFixedExp = data;
+    })
+
+    this.sumDailyExpenses.getSumDailyExpenses().then((data:SumDaileExp) => {
+      this.totalDailyExp = data;
+    })
+
+    this.moneyPerDay_.getMoneyPerDay().then((data:number) => {
+      this.moneyPerDay = data;
+    })
+
+    this.balanced.getBalanced().then((data:number) => {
+      console.info(data);
+      this.balance = data;
+    })
+
               
          
+  }
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+
+      this.user = this.navParams.get('user');
+                console.info('user'+this.user);
+
+    this.sumIncome.getSumIncome().then((data:SumIncome) => {
+      this.totalIncome = data;
+      console.info("xvxcvx===="+this.totalIncome);
+
+    })
+
+    this.sumFixedExpenses.getSumFixedExpenses().then((data:SumFixedExp) => {
+      this.totalFixedExp = data;
+    })
+
+    this.sumDailyExpenses.getSumDailyExpenses().then((data:SumDaileExp) => {
+      this.totalDailyExp = data;
+    })
+
+    this.moneyPerDay_.getMoneyPerDay().then((data:number) => {
+      this.moneyPerDay = data;
+    })
+
+    this.balanced.getBalanced().then((data:number) => {
+      console.info(data);
+      this.balance = data;
+    })
+
+      refresher.complete();
+    }, 1500);
+
+    
   }
 
   ionViewDidLoad() {
@@ -105,31 +168,7 @@ export class HomePage {
       this.month_now = "ธันวาคม";
     }
     
-    this.user = this.navParams.get('user');
-                console.info('user'+this.user);
-
-    this.sumIncome.getSumIncome().then((data:SumIncome) => {
-      this.totalIncome = data;
-      console.info("xvxcvx===="+this.totalIncome);
-
-    })
-
-    this.sumFixedExpenses.getSumFixedExpenses().then((data:SumFixedExp) => {
-      this.totalFixedExp = data;
-    })
-
-    this.sumDailyExpenses.getSumDailyExpenses().then((data:SumDaileExp) => {
-      this.totalDailyExp = data;
-    })
-
-    this.moneyPerDay_.getMoneyPerDay().then((data:number) => {
-      this.moneyPerDay = data;
-    })
-
-    this.balanced.getBalanced().then((data:number) => {
-      console.info(data);
-      this.balance = data;
-    })
+    
 
     // this.showChart();
   }

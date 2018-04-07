@@ -49,6 +49,25 @@ export class DispensableExpensesPage {
 
   }
 
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      this.dispensableExpenses.getDispensableExpenses()
+                .then((data: any) => {
+                  this.dispensableExpList = data;
+                }).catch(err => {
+                  console.error(err);
+      
+                })
+                this.sumDispensableExpenses.getSumDispensableExpenses().then(data => {
+                this.sumDispensableExp = data;
+    })
+      refresher.complete();
+    }, 1500);
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
     this.animateClass = { 'fade-in-right-item': true };

@@ -35,6 +35,18 @@ export class IncomeDebtPage {
      
   }
 
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      this.incomeDebt.getIncomeDebt().then(data => {
+        this.incomeDebtList = data;
+      })
+      refresher.complete();
+    }, 1500);
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad IncomeDebtPage');
     this.animateClass = { 'fade-in-right-item': true };

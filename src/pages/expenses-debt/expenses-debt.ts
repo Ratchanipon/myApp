@@ -29,7 +29,23 @@ export class ExpensesDebtPage {
               public expensesDebt: ExpensesDebtProvider,
               public expensesDebtByMonth: ExpensesDebtByMonthProvider) {
 
-                
+                this.expensesDebt.getExpensesDebt().then(data => {
+                  this.expensesDebtList = data;
+                })
+              
+  }
+
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      this.expensesDebt.getExpensesDebt().then(data => {
+        this.expensesDebtList = data;
+      })
+    
+      refresher.complete();
+    }, 1500);
   }
 
   ionViewDidLoad() {
@@ -79,9 +95,6 @@ export class ExpensesDebtPage {
     }
 
 
-    this.expensesDebt.getExpensesDebt().then(data => {
-      this.expensesDebtList = data;
-    })
   }
 
   doMonth() {

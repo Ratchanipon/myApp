@@ -35,7 +35,22 @@ export class ChannelExpensesPage {
                   
                 })
 
+               
         
+  }
+
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      this.channelExp.getChannelExpenses().then(data => {
+        this.channelExpenses = data;
+        console.log(this.channelExpenses);
+        
+      })
+      refresher.complete();
+    }, 1500);
   }
 
   ionViewDidLoad() {
