@@ -1,18 +1,59 @@
 <!--
-  Generated template for the EditFixedExpensesPage page.
+  Generated template for the AddFixedExpensesMainPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>edit-fixed-expenses</ion-title>
-  </ion-navbar>
+  <ion-navbar color="disExpenses">
+  <ion-title>แก้ไขรายจ่ายคงที่</ion-title>
+</ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <form [formGroup]="fixedExpenses" (ngSubmit)="editFixedExpenses(fixedExpenses)">
+      <div border no-lines [ngClass]="animateClass">
+  
+  
+          <ion-input type="hidden" formControlName="user_id"></ion-input>
+  
+          <ion-item>
+              <!-- <ion-label floating></ion-label> -->
+              <ion-label floating >หมวดหมู่</ion-label>
+              <ion-select formControlName="fix_expenses_cate_id" multiple="false" interface="popover" >
+                  <ion-option *ngFor="let item of fixedExpensesCate" [value]="item.id">{{item.name}}</ion-option>
+              </ion-select>
+          </ion-item>
+          <ion-item>
+              <!-- <ion-label floating></ion-label> -->
+              <ion-label floating >จ่ายผ่าน</ion-label>
+              <ion-select formControlName="payment_channel_id" multiple="false" interface="popover" >
+                  <ion-option *ngFor="let item of paymentCate" [value]="item.id">{{item.name}}</ion-option>
+              </ion-select>
+          </ion-item>
+          <ion-item>
+              <ion-label floating >จำนวนเงิน</ion-label>
+            <ion-input type="number" formControlName="amount"></ion-input>
+          </ion-item>
+          <ion-item>
+                  <ion-label floating >วัน/เดือน/ปี</ion-label>
+                  <ion-datetime displayFormat="D/MM/YYYY" pickerFormat="D MM YYYY" formControlName="created"></ion-datetime>
+          </ion-item>
+
+          <!-- <ion-button (click)="upload()" ion-button >รูปภาพ</ion-button> -->
+              <!-- <img name="images"   style="width:60px; height:60px;"/> -->
+
+
+      </div>
+      <br>
+      <div no-lines [ngClass]="animateClass">
+        <button ion-button default-button full text-capitalize color="disExpenses" [disabled]="!fixedExpenses.valid">บันทึก</button>
+        <!-- <button ion-button default-button full text-capitalize color="disExpenses" navPush="HomePage">ถัดไป</button> -->
+        <!-- <button ion-button full navPush="">ยกเลิก</button> -->
+      </div>
+  </form>
 
 </ion-content>

@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, App, ToastController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { CateFixedExpensesProvider } from '../../providers/category-services/cate-fixed-expenses';
+import { CateDailyExpensesProvider } from '../../providers/category-services/cate-daily-expenses';
 import { CatePaymentChannelProvider } from '../../providers/category-services/cate-payment-channel';
-import { EditFixedExpensesProvider } from '../../providers/fixed-expenses-services/edit-fixed_expenses';
-import { FixedExpenses } from '../../model/fixed-expenses';
+import { DailyExpenses } from '../../model/add-daily-expenses';
+import { EditDailyExpensesProvider } from '../../providers/daily-expenses-services/edit-daily-expenses';
 
 /**
- * Generated class for the EditFixedExpensesPage page.
+ * Generated class for the EditDailyExpensesPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -15,45 +15,42 @@ import { FixedExpenses } from '../../model/fixed-expenses';
 
 @IonicPage()
 @Component({
-  selector: 'page-edit-fixed-expenses',
-  templateUrl: 'edit-fixed-expenses.html',
+  selector: 'page-edit-daily-expenses',
+  templateUrl: 'edit-daily-expenses.html',
 })
-export class EditFixedExpensesPage {
+export class EditDailyExpensesPage {
 
   animateClass:any;
-  fixedExpensesCate:any;
+  dailyExpenses:FormGroup;
+  dailyExpensesCate:any;
   paymentCate:any;
-  
-  fixedExpenses:FormGroup;
 
   data:any;
-
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public app: App,
               public formBuilder: FormBuilder,
               public toastCtrl: ToastController,
-              public fixedExpCate: CateFixedExpensesProvider,
+              public dailyExpCate: CateDailyExpensesProvider,
               public paymentCate_: CatePaymentChannelProvider,
-              public editFixedExp_: EditFixedExpensesProvider) {
+              public editDailyExp: EditDailyExpensesProvider) {
 
                 this.form();
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AddFixedExpensesPage');
+    console.log('ionViewDidLoad AddDailyExpensesPage');
     this.animateClass = { 'fade-in-item': true };
     this.form();
 
-    this.fixedExpCate.getCateFixedExpenses().then(data => {
-      this.fixedExpensesCate = data;
+    this.dailyExpCate.getCateDailyExpenses().then(data => {
+      this.dailyExpensesCate = data;
     
     this.paymentCate_.getCatePaymentChannel().then(data => {
       this.paymentCate = data;
     })
     
     })
-
   }
 
   form(){
@@ -61,16 +58,17 @@ export class EditFixedExpensesPage {
     let date = new Date;
 
     this.data = this.navParams.data;
-    let fix_expenses_id = this.data.fix_expenses_id;
-    let amount =this.data.amount;
-    let created =this.data.created;
+    let daily_expenses_id = this.data.daily_expenses_id;
+    let daily_expenses_cate_id = this.data.daily_expenses_cate_id;
     let payment_channel_id = this.data.payment_channel_id;
-    let fix_expenses_cate_id = this.data.fix_expenses_cate_id;
+    let amount = this.data.amount;
+    let created = this.data.created;
 
-    this.fixedExpenses = this.formBuilder.group({
+
+    this.dailyExpenses = this.formBuilder.group({
       user_id:[user_id,Validators.compose([Validators.required])],
-      fix_expenses_id:[fix_expenses_id,Validators.compose([Validators.required])],
-      fix_expenses_cate_id:[fix_expenses_cate_id,Validators.compose([Validators.required])],
+      daily_expenses_id:[daily_expenses_id,Validators.compose([Validators.required])],
+      daily_expenses_cate_id:[daily_expenses_cate_id,Validators.compose([Validators.required])],
       payment_channel_id:[payment_channel_id,Validators.compose([Validators.required])],
       amount:[amount,Validators.compose([Validators.required])],
       created:[created,Validators.compose([Validators.required])],
@@ -79,13 +77,13 @@ export class EditFixedExpensesPage {
 
   }
 
-  editFixedExpenses(fixedExpenses:FixedExpenses){
-    console.log(fixedExpenses);
+  editDailyExpenses(dailyExpenses:DailyExpenses){
+    console.log(dailyExpenses);
     
-    this.editFixedExp_.editFixedExpenses(this.fixedExpenses.value);
+    this.editDailyExp.editDailyExpenses(this.dailyExpenses.value);
 
-    if(fixedExpenses != null){
-      this.editFixedExpensesSuccess();
+    if(dailyExpenses != null){
+      this.editDailyExpensesSuccess();
 
       this.navCtrl.setRoot('HomePage');   
       const root = this.app.getRootNav();
@@ -93,7 +91,7 @@ export class EditFixedExpensesPage {
     }
   }
 
-  editFixedExpensesSuccess() {
+  editDailyExpensesSuccess() {
     let toast = this.toastCtrl.create({
       message: 'บันทึกรายการสำเร็จ',
       duration: 3000,

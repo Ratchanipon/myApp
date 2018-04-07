@@ -291,4 +291,27 @@ export class FixedExpensesPage {
     actionSheet.present();
   }
 
+  editFixedExpenses(item) {
+    let actionSheet = this.actionSheetCtrl.create({
+      
+      buttons: [
+        {
+          icon: 'create',
+          text: 'แก้ไข',
+          handler: () => {
+            console.log(item.category);
+            this.navCtrl.push('EditFixedExpensesPage',item)
+          }
+        },
+        {
+          icon: 'close-circle',
+          text: 'ยกเลิก',
+          handler: () => {
+          }
+        }
+      ]
+    });
+    actionSheet.present();
+  }
+
 }

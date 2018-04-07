@@ -50,7 +50,7 @@
             <ion-list no-margin>
             <!-- Header Top -->
             <ion-list-header color="listHead"><h2><b>รายการรายจ่ายคงที่</b></h2></ion-list-header>
-            <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of fixedExpensesList" border no-lines>
+            <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of fixedExpensesList" (click)="editFixedExpenses(item)">
 
               <h2 item-title text-wrap>{{item.category}}</h2>
               <p item-subtitle text-wrap>{{item.created}}</p>

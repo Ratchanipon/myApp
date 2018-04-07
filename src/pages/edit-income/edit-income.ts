@@ -26,8 +26,7 @@ export class EditIncomePage {
   animateClass:any;
 
   data:any;
-  category:string;
-  cate_id:string;
+
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public app: App,
@@ -65,14 +64,12 @@ export class EditIncomePage {
     let amount = this.data.amount;
     let category = this.data.category;
     let created = this.data.created;
-  
-    this.category = this.data.category;
-    this.cate_id = this.data.income_cate_id;
+    let cate_id = this.data.income_cate_id;
     
     this.income = this.formBuilder.group({
       user_id:[user_id,Validators.compose([Validators.required])],
       income_id:[income_id,Validators.compose([Validators.required])],
-      income_cate_id:[null,Validators.compose([Validators.required])],
+      income_cate_id:[cate_id,Validators.compose([Validators.required])],
       amount:[amount,Validators.compose([Validators.required])],
       created:[created,Validators.compose([Validators.required])],
 

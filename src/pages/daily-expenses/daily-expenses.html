@@ -50,7 +50,7 @@
             <ion-list no-margin>
             <!-- Header Top -->
             <ion-list-header color="listHead"><h2><b>รายการรายจ่ายรายวัน</b></h2></ion-list-header>
-            <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of dailyExpensesList" border no-lines>
+            <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of dailyExpensesList" (click)="editDailyExpenses(item)">
               <!-- Avatar -->
               <!-- <ion-avatar item-start>
                 <img [src]="element.image" alt="{{element.title}}" />

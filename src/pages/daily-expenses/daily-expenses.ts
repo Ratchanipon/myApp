@@ -288,4 +288,26 @@ export class DailyExpensesPage {
     actionSheet.present();
   }
 
+  editDailyExpenses(item) {
+    let actionSheet = this.actionSheetCtrl.create({
+      
+      buttons: [
+        {
+          icon: 'create',
+          text: 'แก้ไข',
+          handler: () => {
+            this.navCtrl.push('EditDailyExpensesPage',item)
+          }
+        },
+        {
+          icon: 'close-circle',
+          text: 'ยกเลิก',
+          handler: () => {
+          }
+        }
+      ]
+    });
+    actionSheet.present();
+  }
+
 }
