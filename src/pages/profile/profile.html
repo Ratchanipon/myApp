@@ -14,26 +14,84 @@
 </ion-header>
 <!-- Content -->
 <ion-content >
-  <div  background-size id="elastic-header" >
+  <div  background-size id="elastic-header">
     <ion-thumbnail >
       <br><br><br>
       <!-- <img [src]="data.avatar" /> -->
       <img width="100" height="100" [src]="chosenPicture || placeholder" onerror="this.src='assets/images/logo/user.png'"/>
     </ion-thumbnail>
     <!-- Parallx Title -->
-    <h3 text-center parallax-title >{{name}} {{surname}}</h3>
+    <h6 text-center parallax-title >{{name}} {{surname}}</h6>
     <!-- Parallx Subtitle -->
     <!-- <h3 text-center parallax-subtitle >{{email}}</h3> -->
-  </div>
-  <ion-list >
-    <ion-item border no-lines  (click)="onEvent('onItemClick', item)">
-      <ion-avatar item-start>
-        <!-- <img [src]="item.avatar" /> -->
-      </ion-avatar>
-      <h2 item-title>3</h2>
-      <h3 item-subtitle text-wrap>4</h3>
-      <button text-capitalize button-clear ion-button item-end clear>5552222</button>
+    <div padding >
+        <ion-segment [(ngModel)]="pet" color="indexB">
+          <ion-segment-button value="personal" >
+            <ion-icon name="contact"></ion-icon>
+            <font size="2">ข้อมูลส่วนตัว</font>
+          </ion-segment-button>
+          <ion-segment-button value="duedate">
+            <ion-icon name="calendar"></ion-icon>
+            <font size="2">วันที่ครบกำหนดชำระ</font>
+          </ion-segment-button>
+        </ion-segment>
+    </div>
+    <div [ngSwitch]="pet">
+        <ion-list *ngSwitchCase="'duedate'">
+          <ion-item *ngFor="let item of duedate">
+              <p>ครบกำหนดชำระค่าน้ำวันที่ &nbsp;&nbsp; <b>{{item.water}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
+          </ion-item>
+          <ion-item *ngFor="let item of duedate">
+              <p>ครบกำหนดชำระค่าไฟฟ้าวันที่ &nbsp;&nbsp; <b>{{item.electricity}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
+          </ion-item>
+          <ion-item *ngFor="let item of duedate">
+              <p>ครบกำหนดชำระค่าอินเทอร์เน็ตวันที่ &nbsp;&nbsp; <b>{{item.internet}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
+          </ion-item>
+          <ion-item *ngFor="let item of duedate">
+              <p>ครบกำหนดชำระค่าโทรศัพท์วันที่ &nbsp;&nbsp; <b>{{item.telephone}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
+          </ion-item>
 
-    </ion-item>
-  </ion-list>
+          <ion-item *ngFor="let item of duedate">
+            <p>ครบกำหนดชำระค่าบัตรเครดิต &nbsp;<b>{{item.credit}}</b>&nbsp;ของวันที่ &nbsp;<b>{{item.credit_card}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
+          </ion-item>
+        </ion-list>
+          
+          <ion-list *ngSwitchCase="'personal'">
+              
+            <ion-item>
+              <p><b>ชื่อ - นามสกุล:</b> {{name}} {{surname}} </p>
+             </ion-item>
+             <ion-item>
+              <P><b>Email:</b> {{email}}</P>
+              </ion-item>
+              <ion-item>
+                <P><b>เพศ:</b> {{sex}}</P>
+              </ion-item>
+              <ion-item>
+                <P><b>อายุ:</b> {{age}}</P>
+              </ion-item>
+              <ion-item>
+                <P><b>อาชีพ:</b> {{career}}</P>
+              </ion-item>
+              <ion-item>
+                  <div >
+                    <ion-segment [(ngModel)]="pet" >
+                        <ion-segment-button value="editpersonal" >
+                          <ion-icon name="create"></ion-icon>
+                          <font size="4" >แก้ไข</font>
+                        </ion-segment-button>
+                    </ion-segment>
+                  </div>
+                </ion-item>
+          </ion-list>
+      </div>
+      <div [ngSwitch]="pet" color="indexB">
+          <ion-list *ngSwitchCase="'editpersonal'">
+            lkmlk;
+            </ion-list>
+      </div>
+
+  </div>
+
+  
 </ion-content>

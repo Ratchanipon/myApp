@@ -58,6 +58,7 @@ import { EditIncomeProvider } from '../providers/income-services/edit-income';
 import { UserByIdProvider } from '../providers/user-service/user-serviceById';
 import { EditFixedExpensesProvider } from '../providers/fixed-expenses-services/edit-fixed_expenses';
 import { EditDailyExpensesProvider } from '../providers/daily-expenses-services/edit-daily-expenses';
+import { DueDateByUserIdProvider } from '../providers/due-date-services/get-dueDateByUserId';
 
 
 
@@ -126,7 +127,8 @@ import { EditDailyExpensesProvider } from '../providers/daily-expenses-services/
     EditIncomeProvider,
     UserByIdProvider,
     EditFixedExpensesProvider,
-    EditDailyExpensesProvider
+    EditDailyExpensesProvider,
+    DueDateByUserIdProvider
   ]
 })
 export class AppModule {}

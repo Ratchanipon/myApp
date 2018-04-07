@@ -7,4 +7,5 @@ export interface DueDate {
     telephone: number;
     credit_card: number;
     credit_card_id: number;
+    credit:string;
 }
