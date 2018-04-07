@@ -18,7 +18,8 @@ export class EditIncomeProvider {
   }
 
   EditIncome(income:Income){
-
+    console.log("EditIncomeProvider++");
+    console.log(income);
     let host = sessionStorage.getItem("host");
 
     return new Promise<User>(resolve=>{

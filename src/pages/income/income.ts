@@ -307,8 +307,7 @@ export class IncomePage {
           icon: 'create',
           text: 'แก้ไข',
           handler: () => {
-            console.log(item.category);
-            alert('fgsdv')
+            console.log(item.income_cate_id);
             this.navCtrl.push('EditIncomePage',item)
           }
         },
