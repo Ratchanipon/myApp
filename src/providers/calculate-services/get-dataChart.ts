@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { DataChart } from '../../model/dataChart';
 
 
 /*
@@ -10,13 +11,13 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 
-export class SumDailyExpensesProvider {
+export class DataChartProvider {
 
   constructor(public http: HttpClient) {
-    console.log('Hello SumDailyExpensesProvider Provider');
+    console.log('Hello DataChartProvider Provider');
   }
 
-  getSumDailyExpenses(){                          // ดึงข้อมูลยอดรวมรายจ่ายคงที่
+  getDataChart(){                   
     let user_id = localStorage.getItem("user_id"); 
     let host = sessionStorage.getItem("host"); 
 
@@ -24,22 +25,30 @@ export class SumDailyExpensesProvider {
     let month_n = parseInt(sessionStorage.getItem("month"));
     let month = month_n+1;
 
-    return new Promise(resolve=>{
-        this.http.get(host+'/services/calculate/getSumDailyExpenses?user_id='+user_id+'&month='+month)
+    return new Promise<DataChart>(resolve=>{
+        this.http.get(host+'/services/calculate/getDataChart?user_id='+user_id+'&month='+month)
         .subscribe(data=>{
-        resolve(data);      
-        console.log('SumDailyExpenses++++++'+data);
+        console.log('DataChartProvider++++++1',data);
+        let objec = this.extacObject(data);
+
+        resolve(objec);      
+        console.log('DataChartProvider++++++2',objec);
         
       }, err =>{
         console.error(err);      
         });
       });
-
-      // return 20;
     
     // return this.http.get('http://localhost/AppManagement/services/category/getCateCraditCard').subscribe(data=>{
     //   console.log(data);      
     
+  }
+  extacObject(data){
+    let json = JSON.stringify(data);
+    //console.log(json);
+    let obj = JSON.parse(json);
+    //console.log(obj);
+    return obj;
   }
 
 }

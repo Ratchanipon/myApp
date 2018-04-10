@@ -24,42 +24,95 @@
 
         <ion-item>
           <ion-label floating >วันที่ครบกำหนดชำระค่าน้ำ</ion-label>
-          <ion-datetime displayFormat="D" pickerFormat="D" formControlName="water"></ion-datetime>
+          <ion-input type="number"  formControlName="water"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label floating >วันที่ครบกำหนดชำระค่าไฟฟ้า</ion-label>
-            <ion-datetime displayFormat="D" pickerFormat="D" formControlName="electricity"></ion-datetime>
+            <ion-input type="number" formControlName="electricity"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label floating >วันที่ครบกำหนดชำระค่าบริการอินเทอร์เน็ต</ion-label>
-            <ion-datetime displayFormat="D" pickerFormat="D" formControlName="internet"></ion-datetime>
+            <ion-input type="number" formControlName="internet"></ion-input>
           </ion-item>
         <ion-item>
             <ion-label floating >วันที่ครบกำหนดชำระค่าบริการโทรศัพท์</ion-label>
-            <ion-datetime displayFormat="D" pickerFormat="D" formControlName="telephone"></ion-datetime>
+            <ion-input type="number" formControlName="telephone"></ion-input>
         </ion-item>
 
-        <ion-item>
-            <!-- <ion-label floating>บัตรเครดิต</ion-label> -->
-            
-            <ion-label floating >เลือกบัตรเครดิต</ion-label>
-            <ion-select  formControlName="credit_card_id" multiple="false" interface="popover" >
-              <!-- <ion-option *ngFor="let item of creditList"> -->
+
+      
+        <ion-item>    
+            <ion-label floating >เลือกบัตรเครดิต 1</ion-label>
+            <ion-select  formControlName="credit_card_id" multiple="false" interface="popover" (click)="clickCredit()">
                 <ion-option *ngFor="let item of creditList" [value]="item.id">{{item.name}}</ion-option>
-              <!-- </ion-option> -->
-              <!-- <ion-option value="2">กรุงเทพ</ion-option> -->
             </ion-select>
         </ion-item>
-        <!-- <ion-list>
-            <ion-item-divider *ngFor="let item of creditList"></ion-item-divider>
-            <select-layout-2 >{{item.name}}</select-layout-2>
-        </ion-list> -->
+
+      <div *ngIf="click!=null">
+        <ion-item>
+          <ion-label floating >วันที่ครบกำหนดชำระค่าบัตรเครดิต 1</ion-label>
+          <ion-input type="number" formControlName="credit_card"></ion-input>
+        </ion-item>
+        <ion-item>    
+          <ion-label floating >เลือกบัตรเครดิต 2</ion-label>
+          <ion-select  formControlName="credit_card_id2" multiple="false" interface="popover" (click)="clickCredit2()">
+              <ion-option *ngFor="let item of creditList" [value]="item.id">{{item.name}}</ion-option>
+          </ion-select>
+        </ion-item>
+      </div>
+
+      <div *ngIf="click2!=null">
+        <ion-item>
+          <ion-label floating >วันที่ครบกำหนดชำระค่าบัตรเครดิต 2</ion-label>
+          <ion-input type="number" formControlName="credit_card2"></ion-input>
+        </ion-item>
+        <ion-item>    
+          <ion-label floating >เลือกบัตรเครดิต 3</ion-label>
+          <ion-select  formControlName="credit_card_id3" multiple="false" interface="popover" (click)="clickCredit3()">
+              <ion-option *ngFor="let item of creditList" [value]="item.id">{{item.name}}</ion-option>
+          </ion-select>
+        </ion-item>
+      </div>
+      
+      <div *ngIf="click3!=null">
+        <ion-item>
+          <ion-label floating >วันที่ครบกำหนดชำระค่าบัตรเครดิต 3</ion-label>
+          <ion-input type="number" formControlName="credit_card3"></ion-input>
+        </ion-item>
+        <ion-item>    
+          <ion-label floating >เลือกบัตรเครดิต 4</ion-label>
+          <ion-select  formControlName="credit_card_id4" multiple="false" interface="popover" (click)="clickCredit4()">
+              <ion-option *ngFor="let item of creditList" [value]="item.id">{{item.name}}</ion-option>
+          </ion-select>
+        </ion-item>
+      </div>
+
+      <div *ngIf="click4!=null">
+        <ion-item>
+          <ion-label floating >วันที่ครบกำหนดชำระค่าบัตรเครดิต 4</ion-label>
+          <ion-input type="number" formControlName="credit_card4"></ion-input>
+        </ion-item>
+        <ion-item>    
+          <ion-label floating >เลือกบัตรเครดิต 5</ion-label>
+          <ion-select  formControlName="credit_card_id5" multiple="false" interface="popover" (click)="clickCredit5()">
+              <ion-option *ngFor="let item of creditList" [value]="item.id">{{item.name}}</ion-option>
+          </ion-select>
+        </ion-item>
+      </div>
+
+      <div *ngIf="click5!=null">
+        <ion-item>
+          <ion-label floating >วันที่ครบกำหนดชำระค่าบัตรเครดิต 5</ion-label>
+          <ion-input type="number" formControlName="credit_card5"></ion-input>
+        </ion-item>
+      </div>
+
+
     </div>
     <div no-lines [ngClass]="animateClass">
       <br>
-      <button ion-button default-button full text-capitalize color="dueDate" [disabled]="!dueDate.valid">บันทึก</button>
+      <button ion-button default-button full text-capitalize color="dueDate" [disabled]="!dueDate.valid" >บันทึก</button>
       <button ion-button default-button full text-capitalize color="dueDate" navPush="AddIncomePage">ถัดไป</button>
-      <!-- <button ion-button full navPush="">ยกเลิก</button> -->
     </div>
   </form>
 

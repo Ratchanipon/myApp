@@ -25,6 +25,12 @@ export class DueDatePage {
   dueDate:FormGroup;
 
   animateClass:any;
+
+  click:string;
+  click2:string;
+  click3:string;
+  click4:string;
+  click5:string;
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public app: App,
@@ -51,16 +57,41 @@ export class DueDatePage {
     })
   }
 
+  clickCredit(){
+    this.click = '1';
+  }
+  clickCredit2(){
+    this.click2 = '1';
+  }
+  clickCredit3(){
+    this.click3 = '1';
+  }
+  clickCredit4(){
+    this.click4 = '1';
+  }
+  clickCredit5(){
+    this.click5 = '1';
+  }
+
   form(){
     let user_id = localStorage.getItem("user_id");
     
     this.dueDate = this.formBuilder.group({
       user_id:[user_id,Validators.compose([])],
-      water:['',Validators.compose([])],
-      electricity:['',Validators.compose([])],
-      internet:['',Validators.compose([])],
-      telephone:['',Validators.compose([])],
-      credit_card_id:['',Validators.compose([])]
+      water:[null,Validators.compose([Validators.max(31)])],
+      electricity:[null,Validators.compose([Validators.max(31)])],
+      internet:[null,Validators.compose([Validators.max(31)])],
+      telephone:[null,Validators.compose([Validators.max(31)])],
+      credit_card_id:[null,Validators.compose([])],
+      credit_card_id2:[null,Validators.compose([])],
+      credit_card_id3:[null,Validators.compose([])],
+      credit_card_id4:[null,Validators.compose([])],
+      credit_card_id5:[null,Validators.compose([])],
+      credit_card:[null,Validators.compose([Validators.max(31)])],
+      credit_card2:[null,Validators.compose([Validators.max(31)])],
+      credit_card3:[null,Validators.compose([Validators.max(31)])],
+      credit_card4:[null,Validators.compose([Validators.max(31)])],
+      credit_card5:[null,Validators.compose([Validators.max(31)])]
     })
 
   }

@@ -17,7 +17,8 @@ export class AddDueDateProvider {
   }
 
   AddDueDate(dueDate:DueDate){
-
+    console.log("dueDate==",dueDate);
+    
     let host = sessionStorage.getItem("host");
 
     return new Promise<User>(resolve=>{
