@@ -17,7 +17,14 @@
 
 
 <ion-content>
-
+        <ion-refresher (ionRefresh)="doRefresh($event)">
+                <ion-refresher-content
+                    pullingIcon="arrow-dropdown"
+                    pullingText="Pull to refresh"
+                    refreshingSpinner="circles"
+                    refreshingText="Refreshing...">
+                </ion-refresher-content>
+            </ion-refresher>
     <!-- เลือกเดือน -->
     <div align="right">
         <label item-title text-wrap></label>

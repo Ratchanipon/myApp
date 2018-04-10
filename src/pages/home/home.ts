@@ -31,8 +31,11 @@ declare var google;
 export class HomePage {
   user:User;
   totalIncome:SumIncome;
+  totalIncome1:number;
   totalFixedExp:SumFixedExp;
+  totalFixedExp1:number;
   totalDailyExp:SumDaileExp;
+  totalDailyExp1:number;
   moneyPerDay:number;
   balance:number;
   year:string;
@@ -60,26 +63,27 @@ export class HomePage {
 
     this.sumIncome.getSumIncome().then((data:SumIncome) => {
       this.totalIncome = data;
-      console.info("xvxcvx===="+this.totalIncome);
-
+      this.totalIncome1 = this.totalIncome.totalIncome;
     })
 
     this.sumFixedExpenses.getSumFixedExpenses().then((data:SumFixedExp) => {
       this.totalFixedExp = data;
+      this.totalFixedExp1 = this.totalFixedExp.totalFixedExp
     })
 
     this.sumDailyExpenses.getSumDailyExpenses().then((data:SumDaileExp) => {
       this.totalDailyExp = data;
+      this.totalDailyExp1 = this.totalDailyExp.totalDailyExp;
     })
 
-    this.moneyPerDay_.getMoneyPerDay().then((data:number) => {
-      this.moneyPerDay = data;
-    })
+    // this.moneyPerDay_.getMoneyPerDay().then((data:number) => {
+    //   this.moneyPerDay = data;
+    // })
 
-    this.balanced.getBalanced().then((data:number) => {
-      console.info(data);
-      this.balance = data;
-    })
+    // this.balanced.getBalanced().then((data:number) => {
+    //   console.info(data);
+    //   this.balance = data;
+    // })
 
               
          
@@ -89,35 +93,64 @@ export class HomePage {
 
     setTimeout(() => {
       console.log('Async operation has ended');
-
       this.user = this.navParams.get('user');
                 console.info('user'+this.user);
 
     this.sumIncome.getSumIncome().then((data:SumIncome) => {
       this.totalIncome = data;
-      console.info("xvxcvx===="+this.totalIncome);
-
+      this.totalIncome1 = this.totalIncome.totalIncome;
     })
 
     this.sumFixedExpenses.getSumFixedExpenses().then((data:SumFixedExp) => {
       this.totalFixedExp = data;
+      this.totalFixedExp1 = this.totalFixedExp.totalFixedExp
     })
 
     this.sumDailyExpenses.getSumDailyExpenses().then((data:SumDaileExp) => {
       this.totalDailyExp = data;
+      this.totalDailyExp1 = this.totalDailyExp.totalDailyExp;
     })
-
-    this.moneyPerDay_.getMoneyPerDay().then((data:number) => {
-      this.moneyPerDay = data;
-    })
-
-    this.balanced.getBalanced().then((data:number) => {
-      console.info(data);
-      this.balance = data;
-    })
-
+    let month_n = parseInt(sessionStorage.getItem("month"));
+    let month = month_n+1;
+    console.info('month='+month);
+    if(month == 1){
+      this.month_now = "มกราคม";
+    }
+    if(month == 2){
+      this.month_now = "กุมภาพันธ์";
+    }
+    if(month == 3){
+      this.month_now = "มีนาคม";
+    }
+    if(month == 4){
+      this.month_now = "เมษายน";
+    }
+    if(month == 5){
+      this.month_now = "พฤษภาคม";
+    }
+    if(month == 6){
+      this.month_now = "มิถุนายน";
+    }
+    if(month == 7){
+      this.month_now = "กรกฎาคม";
+    }
+    if(month == 8){
+      this.month_now = "สิงหาคม";
+    }
+    if(month == 9){
+      this.month_now = "กันยายน";
+    }
+    if(month == 10){
+      this.month_now = "ตุลาคม";
+    }
+    if(month == 11){
+      this.month_now = "พฤศจิกายน";
+    }
+    if(month == 12){
+      this.month_now = "ธันวาคม";
+    }
       refresher.complete();
-    }, 1500);
+    }, 1000);
 
     
   }

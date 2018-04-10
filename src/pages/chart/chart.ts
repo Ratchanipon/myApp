@@ -51,9 +51,10 @@ export class ChartPage {
                 this.sumDaily.getSumDailyExpenses().then((data:number) => {  
                   this.dailyExp = data;
                 })
+
                 this.income = 10
                 this.fixedExp = 2;
-                let dailyExp = 3;
+                this.dailyExp = 3;
                 
                 this.num.push(this.income,this.fixedExp,this.dailyExp);
                 console.log('num==',this.num);

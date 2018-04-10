@@ -4,6 +4,7 @@ import { SumDailyExpensesProvider } from '../../providers/calculate-services/sum
 import { DailyExpensesProvider } from '../../providers/daily-expenses-services/daily-expenses';
 import { SumDailyExpensesByMonthProvider } from '../../providers/calculate-services/sum-daily-expensesByMonth';
 import { DailyExpensesByMonthProvider } from '../../providers/daily-expenses-services/daily-expensesByMonth';
+import { SumDaileExp } from '../../model/get-sumDailyExp';
 
 /**
  * Generated class for the DailyExpensesPage page.
@@ -18,7 +19,8 @@ import { DailyExpensesByMonthProvider } from '../../providers/daily-expenses-ser
   templateUrl: 'daily-expenses.html',
 })
 export class DailyExpensesPage {
-  sumDailyExpenses:any;
+  sumDailyExpenses:SumDaileExp;
+  sumDailyExpenses1:number;
   dailyExpensesList:any;
 
   animateClass:any;
@@ -34,8 +36,9 @@ export class DailyExpensesPage {
               public dailyExpenses_: DailyExpensesProvider,
               public dailyExpensesByMonth: DailyExpensesByMonthProvider) {
 
-                this.sumDailyExpenses_.getSumDailyExpenses().then(data => {
+                this.sumDailyExpenses_.getSumDailyExpenses().then((data:SumDaileExp) => {
                   this.sumDailyExpenses = data;
+                  this.sumDailyExpenses1 = this.sumDailyExpenses.totalDailyExp;
                 })
             
                 this.dailyExpenses_.getDailyExpenses().then(data => {
@@ -50,15 +53,56 @@ export class DailyExpensesPage {
 
     setTimeout(() => {
       console.log('Async operation has ended');
-      this.sumDailyExpenses_.getSumDailyExpenses().then(data => {
+      this.sumDailyExpenses_.getSumDailyExpenses().then((data:SumDaileExp) => {
         this.sumDailyExpenses = data;
+        this.sumDailyExpenses1 = this.sumDailyExpenses.totalDailyExp;
       })
   
       this.dailyExpenses_.getDailyExpenses().then(data => {
         this.dailyExpensesList = data;
       })
+      //เดือนปัจจุบัน
+    let month_n = parseInt(sessionStorage.getItem("month"));
+    let month = month_n+1;
+    console.info('month='+month);
+    if(month == 1){
+      this.month_now = "มกราคม";
+    }
+    if(month == 2){
+      this.month_now = "กุมภาพันธ์";
+    }
+    if(month == 3){
+      this.month_now = "มีนาคม";
+    }
+    if(month == 4){
+      this.month_now = "เมษายน";
+    }
+    if(month == 5){
+      this.month_now = "พฤษภาคม";
+    }
+    if(month == 6){
+      this.month_now = "มิถุนายน";
+    }
+    if(month == 7){
+      this.month_now = "กรกฎาคม";
+    }
+    if(month == 8){
+      this.month_now = "สิงหาคม";
+    }
+    if(month == 9){
+      this.month_now = "กันยายน";
+    }
+    if(month == 10){
+      this.month_now = "ตุลาคม";
+    }
+    if(month == 11){
+      this.month_now = "พฤศจิกายน";
+    }
+    if(month == 12){
+      this.month_now = "ธันวาคม";
+    }
       refresher.complete();
-    }, 1500);
+    }, 1000);
   }
 
   ionViewDidLoad() {
@@ -124,8 +168,9 @@ export class DailyExpensesPage {
               this.dailyExpensesList = data;
               this.month_now = "มกราคม";
             })
-            this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then(data => {
+            this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
               this.sumDailyExpenses = data;
+              this.sumDailyExpenses1 = this.sumDailyExpenses.totalDailyExp;
             })
           }
         },
@@ -139,8 +184,9 @@ export class DailyExpensesPage {
               this.dailyExpensesList = data;
               this.month_now = "กุมภาพันธ์";
             })
-            this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then(data => {
+            this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
               this.sumDailyExpenses = data;
+              this.sumDailyExpenses1 = this.sumDailyExpenses.totalDailyExp;
             })
           }
         },
@@ -154,8 +200,9 @@ export class DailyExpensesPage {
               this.dailyExpensesList = data;
               this.month_now = "มีนาคม";
             })
-            this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then(data => {
+            this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
               this.sumDailyExpenses = data;
+              this.sumDailyExpenses1 = this.sumDailyExpenses.totalDailyExp;
             })
           }
         },
@@ -169,8 +216,9 @@ export class DailyExpensesPage {
               this.dailyExpensesList = data;
               this.month_now = "เมษายน";
             })
-            this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then(data => {
+            this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
               this.sumDailyExpenses = data;
+              this.sumDailyExpenses1 = this.sumDailyExpenses.totalDailyExp;
             })
           }
         },
@@ -184,8 +232,9 @@ export class DailyExpensesPage {
               this.dailyExpensesList = data;
               this.month_now = "พฤษภาคม";
             })
-            this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then(data => {
+            this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
               this.sumDailyExpenses = data;
+              this.sumDailyExpenses1 = this.sumDailyExpenses.totalDailyExp;
             })
           }
         },
@@ -199,8 +248,9 @@ export class DailyExpensesPage {
               this.dailyExpensesList = data;
               this.month_now = "มิถุนายน";
             })
-            this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then(data => {
+            this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
               this.sumDailyExpenses = data;
+              this.sumDailyExpenses1 = this.sumDailyExpenses.totalDailyExp;
             })
           }
         },
@@ -214,8 +264,9 @@ export class DailyExpensesPage {
               this.dailyExpensesList = data;
               this.month_now = "กรกฎาคม";
             })
-            this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then(data => {
+            this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
               this.sumDailyExpenses = data;
+              this.sumDailyExpenses1 = this.sumDailyExpenses.totalDailyExp;
             })
           }
         },
@@ -229,8 +280,9 @@ export class DailyExpensesPage {
               this.dailyExpensesList = data;
               this.month_now = "สิงหาคม";
             })
-            this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then(data => {
+            this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
               this.sumDailyExpenses = data;
+              this.sumDailyExpenses1 = this.sumDailyExpenses.totalDailyExp;
             })
           }
         },
@@ -244,8 +296,9 @@ export class DailyExpensesPage {
               this.dailyExpensesList = data;
               this.month_now = "กันยายน";
             })
-            this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then(data => {
+            this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
               this.sumDailyExpenses = data;
+              this.sumDailyExpenses1 = this.sumDailyExpenses.totalDailyExp;
             })
           }
         },
@@ -259,8 +312,9 @@ export class DailyExpensesPage {
               this.dailyExpensesList = data;
               this.month_now = "ตุลาคม";
             })
-            this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then(data => {
+            this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
               this.sumDailyExpenses = data;
+              this.sumDailyExpenses1 = this.sumDailyExpenses.totalDailyExp;
             })
           }
         },
@@ -274,8 +328,9 @@ export class DailyExpensesPage {
               this.dailyExpensesList = data;
               this.month_now = "พฤศจิกายน";
             })
-            this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then(data => {
+            this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
               this.sumDailyExpenses = data;
+              this.sumDailyExpenses1 = this.sumDailyExpenses.totalDailyExp;
             })
           }
         },
@@ -289,8 +344,9 @@ export class DailyExpensesPage {
               this.dailyExpensesList = data;
               this.month_now = "ธันวาคม";
             })
-            this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then(data => {
+            this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
               this.sumDailyExpenses = data;
+              this.sumDailyExpenses1 = this.sumDailyExpenses.totalDailyExp;
             })
           }
         },

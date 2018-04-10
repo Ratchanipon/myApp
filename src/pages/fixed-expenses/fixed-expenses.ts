@@ -4,6 +4,7 @@ import { SumFixedExpensesProvider } from '../../providers/calculate-services/sum
 import { FixedExpensesProvider } from '../../providers/fixed-expenses-services/fixed-expenses';
 import { SumFixedExpensesByMonthProvider } from '../../providers/calculate-services/sum-fixed-expensesByMonth';
 import { FixedExpensesByMonthProvider } from '../../providers/fixed-expenses-services/fixed-expensesByMonth';
+import { SumFixedExp } from '../../model/get-sumFixedExp';
 
 /**
  * Generated class for the FixedExpensesPage page.
@@ -18,7 +19,8 @@ import { FixedExpensesByMonthProvider } from '../../providers/fixed-expenses-ser
   templateUrl: 'fixed-expenses.html',
 })
 export class FixedExpensesPage {
-  sumFixedExpenses:any;
+  sumFixedExpenses:SumFixedExp;
+  sumFixedExpenses1:number;
   fixedExpensesList:any;
   year:string;
 
@@ -34,9 +36,10 @@ export class FixedExpensesPage {
               public fixedExpenses_: FixedExpensesProvider,
               public fixExpByMonth: FixedExpensesByMonthProvider) {
 
-                this.sumFixedExpenses_.getSumFixedExpenses().then(data => {
+                this.sumFixedExpenses_.getSumFixedExpenses().then((data:SumFixedExp) => {
                   console.info("sumFixedExp=="+data);
                   this.sumFixedExpenses = data;
+                  this.sumFixedExpenses1 = this.sumFixedExpenses.totalFixedExp;
                   
                 })
             
@@ -45,9 +48,69 @@ export class FixedExpensesPage {
                   console.log(this.fixedExpensesList);
                   
                 })
+              }
+                doRefresh(refresher) {
+                  console.log('Begin async operation', refresher);
+              
+                  setTimeout(() => {
+                    console.log('Async operation has ended');
+                    this.sumFixedExpenses_.getSumFixedExpenses().then((data:SumFixedExp) => {
+                      console.info("sumFixedExp=="+data);
+                      this.sumFixedExpenses = data;
+                      this.sumFixedExpenses1 = this.sumFixedExpenses.totalFixedExp;
+                      
+                    })
+                
+                    this.fixedExpenses_.getFixedExpenses().then(data => {
+                      this.fixedExpensesList = data;
+                      console.log(this.fixedExpensesList);
+                      
+                    })
+                    let month_n = parseInt(sessionStorage.getItem("month"));
+    let month = month_n+1;
+    console.info('month='+month);
+    if(month == 1){
+      this.month_now = "มกราคม";
+    }
+    if(month == 2){
+      this.month_now = "กุมภาพันธ์";
+    }
+    if(month == 3){
+      this.month_now = "มีนาคม";
+    }
+    if(month == 4){
+      this.month_now = "เมษายน";
+    }
+    if(month == 5){
+      this.month_now = "พฤษภาคม";
+    }
+    if(month == 6){
+      this.month_now = "มิถุนายน";
+    }
+    if(month == 7){
+      this.month_now = "กรกฎาคม";
+    }
+    if(month == 8){
+      this.month_now = "สิงหาคม";
+    }
+    if(month == 9){
+      this.month_now = "กันยายน";
+    }
+    if(month == 10){
+      this.month_now = "ตุลาคม";
+    }
+    if(month == 11){
+      this.month_now = "พฤศจิกายน";
+    }
+    if(month == 12){
+      this.month_now = "ธันวาคม";
+    }
+                    refresher.complete();
+                  }, 1500);
+                
 
   }
-
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad FixedExpensesPage');
     this.animateClass = { 'fade-in-right-item': true };
@@ -111,8 +174,9 @@ export class FixedExpensesPage {
               this.fixedExpensesList = data;
               this.month_now = "มกราคม";
             })
-            this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then(data => {
+            this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then((data:SumFixedExp) => {
               this.sumFixedExpenses = data;
+              this.sumFixedExpenses1 = this.sumFixedExpenses.totalFixedExp;
             })
           }
         },
@@ -126,8 +190,9 @@ export class FixedExpensesPage {
               this.fixedExpensesList = data;
               this.month_now = "กุมภาพันธ์";
             })
-            this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then(data => {
+            this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then((data:SumFixedExp) => {
               this.sumFixedExpenses = data;
+              this.sumFixedExpenses1 = this.sumFixedExpenses.totalFixedExp;
             })
           }
         },
@@ -141,8 +206,9 @@ export class FixedExpensesPage {
               this.fixedExpensesList = data;
               this.month_now = "มีนาคม";
             })
-            this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then(data => {
+            this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then((data:SumFixedExp) => {
               this.sumFixedExpenses = data;
+              this.sumFixedExpenses1 = this.sumFixedExpenses.totalFixedExp;
             })
           }
         },
@@ -156,8 +222,9 @@ export class FixedExpensesPage {
               this.fixedExpensesList = data;
               this.month_now = "เมษายน";
             })
-            this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then(data => {
+            this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then((data:SumFixedExp) => {
               this.sumFixedExpenses = data;
+              this.sumFixedExpenses1 = this.sumFixedExpenses.totalFixedExp;
             })
           }
         },
@@ -171,8 +238,9 @@ export class FixedExpensesPage {
               this.fixedExpensesList = data;
               this.month_now = "พฤษภาคม";
             })
-            this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then(data => {
+            this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then((data:SumFixedExp) => {
               this.sumFixedExpenses = data;
+              this.sumFixedExpenses1 = this.sumFixedExpenses.totalFixedExp;
             })
           }
         },
@@ -186,8 +254,9 @@ export class FixedExpensesPage {
               this.fixedExpensesList = data;
               this.month_now = "มิถุนายน";
             })
-            this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then(data => {
+            this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then((data:SumFixedExp) => {
               this.sumFixedExpenses = data;
+              this.sumFixedExpenses1 = this.sumFixedExpenses.totalFixedExp;
             })
           }
         },
@@ -201,8 +270,9 @@ export class FixedExpensesPage {
               this.fixedExpensesList = data;
               this.month_now = "กรกฎาคม";
             })
-            this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then(data => {
+            this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then((data:SumFixedExp) => {
               this.sumFixedExpenses = data;
+              this.sumFixedExpenses1 = this.sumFixedExpenses.totalFixedExp;
             })
           }
         },
@@ -216,8 +286,9 @@ export class FixedExpensesPage {
               this.fixedExpensesList = data;
               this.month_now = "สิงหาคม";
             })
-            this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then(data => {
+            this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then((data:SumFixedExp) => {
               this.sumFixedExpenses = data;
+              this.sumFixedExpenses1 = this.sumFixedExpenses.totalFixedExp;
             })
           }
         },
@@ -231,8 +302,9 @@ export class FixedExpensesPage {
               this.fixedExpensesList = data;
               this.month_now = "กันยายน";
             })
-            this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then(data => {
+            this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then((data:SumFixedExp) => {
               this.sumFixedExpenses = data;
+              this.sumFixedExpenses1 = this.sumFixedExpenses.totalFixedExp;
             })
           }
         },
@@ -246,8 +318,9 @@ export class FixedExpensesPage {
               this.fixedExpensesList = data;
               this.month_now = "ตุลาคม";
             })
-            this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then(data => {
+            this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then((data:SumFixedExp) => {
               this.sumFixedExpenses = data;
+              this.sumFixedExpenses1 = this.sumFixedExpenses.totalFixedExp;
             })
           }
         },
@@ -261,8 +334,9 @@ export class FixedExpensesPage {
               this.fixedExpensesList = data;
               this.month_now = "พฤศจิกายน";
             })
-            this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then(data => {
+            this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then((data:SumFixedExp) => {
               this.sumFixedExpenses = data;
+              this.sumFixedExpenses1 = this.sumFixedExpenses.totalFixedExp;
             })
           }
         },
@@ -276,8 +350,9 @@ export class FixedExpensesPage {
               this.fixedExpensesList = data;
               this.month_now = "ธันวาคม";
             })
-            this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then(data => {
+            this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then((data:SumFixedExp) => {
               this.sumFixedExpenses = data;
+              this.sumFixedExpenses1 = this.sumFixedExpenses.totalFixedExp;
             })
           }
         },

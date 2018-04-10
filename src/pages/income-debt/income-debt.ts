@@ -43,8 +43,47 @@ export class IncomeDebtPage {
       this.incomeDebt.getIncomeDebt().then(data => {
         this.incomeDebtList = data;
       })
+      let month_n = parseInt(sessionStorage.getItem("month"));
+    let month = month_n+1;
+    console.info('month='+month);
+    if(month == 1){
+      this.month_now = "มกราคม";
+    }
+    if(month == 2){
+      this.month_now = "กุมภาพันธ์";
+    }
+    if(month == 3){
+      this.month_now = "มีนาคม";
+    }
+    if(month == 4){
+      this.month_now = "เมษายน";
+    }
+    if(month == 5){
+      this.month_now = "พฤษภาคม";
+    }
+    if(month == 6){
+      this.month_now = "มิถุนายน";
+    }
+    if(month == 7){
+      this.month_now = "กรกฎาคม";
+    }
+    if(month == 8){
+      this.month_now = "สิงหาคม";
+    }
+    if(month == 9){
+      this.month_now = "กันยายน";
+    }
+    if(month == 10){
+      this.month_now = "ตุลาคม";
+    }
+    if(month == 11){
+      this.month_now = "พฤศจิกายน";
+    }
+    if(month == 12){
+      this.month_now = "ธันวาคม";
+    }
       refresher.complete();
-    }, 1500);
+    }, 1000);
   }
 
   ionViewDidLoad() {

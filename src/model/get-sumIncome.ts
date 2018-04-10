@@ -1,5 +1,5 @@
 export interface SumIncome {
 
-    totalIncome:string;
+    totalIncome:number;
 
 }
