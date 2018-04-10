@@ -8,9 +8,9 @@
   <ion-navbar  color="primary" >
     <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
-        </button>
+    </button>
     
-  </ion-navbar>
+</ion-navbar>
 </ion-header>
 <!-- Content -->
 <ion-content >
@@ -38,22 +38,37 @@
     </div>
     <div [ngSwitch]="pet">
         <ion-list *ngSwitchCase="'duedate'">
-          <ion-item *ngFor="let item of duedate">
-              <p>ครบกำหนดชำระค่าน้ำวันที่ &nbsp;&nbsp; <b>{{item.water}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
+        <div *ngIf="water!=0">
+          <ion-item>
+              <p>ครบกำหนดชำระค่าน้ำวันที่ &nbsp;&nbsp; <b>{{water}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
           </ion-item>
-          <ion-item *ngFor="let item of duedate">
-              <p>ครบกำหนดชำระค่าไฟฟ้าวันที่ &nbsp;&nbsp; <b>{{item.electricity}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
+        </div>
+        <div *ngIf="electricity!=0">
+          <ion-item>
+              <p>ครบกำหนดชำระค่าไฟฟ้าวันที่ &nbsp;&nbsp; <b>{{electricity}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
           </ion-item>
-          <ion-item *ngFor="let item of duedate">
-              <p>ครบกำหนดชำระค่าอินเทอร์เน็ตวันที่ &nbsp;&nbsp; <b>{{item.internet}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
+        </div>
+        <div *ngIf="internet!=0">
+          <ion-item>
+              <p>ครบกำหนดชำระค่าอินเทอร์เน็ตวันที่ &nbsp;&nbsp; <b>{{internet}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
           </ion-item>
-          <ion-item *ngFor="let item of duedate">
-              <p>ครบกำหนดชำระค่าโทรศัพท์วันที่ &nbsp;&nbsp; <b>{{item.telephone}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
+        </div>
+        <div *ngIf="telephone!=0">
+          <ion-item>
+              <p>ครบกำหนดชำระค่าโทรศัพท์วันที่ &nbsp;&nbsp; <b>{{telephone}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
           </ion-item>
-
-          <ion-item *ngFor="let item of duedate">
-            <p>ครบกำหนดชำระค่าบัตรเครดิต &nbsp;<b>{{item.credit}}</b>&nbsp;ของวันที่ &nbsp;<b>{{item.credit_card}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
+        </div>
+          <ion-item *ngIf="telephone!=''">
+            <p>ครบกำหนดชำระค่าบัตรเครดิต &nbsp;<b>{{credit1}}</b>&nbsp;ของวันที่ &nbsp;<b>{{credit_card}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
           </ion-item>
+          <div >
+            <ion-segment [(ngModel)]="pet" >
+                <ion-segment-button value="editduedate" >
+                  <ion-icon name="create"></ion-icon>
+                  <font size="4" >แก้ไข</font>
+                </ion-segment-button>
+            </ion-segment>
+          </div>
         </ion-list>
           
           <ion-list *ngSwitchCase="'personal'">
@@ -87,9 +102,47 @@
       </div>
       <div [ngSwitch]="pet" color="indexB">
           <ion-list *ngSwitchCase="'editpersonal'">
-            lkmlk;
-            </ion-list>
+            <ion-item>
+              <p><b>ชื่อ - นามสกุล:</b> {{name}} {{surname}} </p>
+             </ion-item>
+             <ion-item>
+              <P><b>Email:</b> {{email}}</P>
+              </ion-item>
+              <ion-item>
+                <P><b>เพศ:</b> {{sex}}</P>
+              </ion-item>
+              <ion-item>
+                <P><b>อายุ:</b> {{age}}</P>
+              </ion-item>
+              <ion-item>
+                <P><b>อาชีพ:</b> {{career}}</P>
+              </ion-item>
+              
+          
+        </ion-list>
+            
       </div>
+      <div [ngSwitch]="pet" color="indexB">
+        <ion-list *ngSwitchCase="'editduedate'">
+            <ion-item *ngFor="let item of duedate">
+              <p>ครบกำหนดชำระค่าน้ำวันที่ &nbsp;&nbsp; <b>{{item.water}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
+            </ion-item>
+            <ion-item *ngFor="let item of duedate">
+              <p>ครบกำหนดชำระค่าไฟฟ้าวันที่ &nbsp;&nbsp; <b>{{item.electricity}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
+            </ion-item>
+            <ion-item *ngFor="let item of duedate">
+              <p>ครบกำหนดชำระค่าอินเทอร์เน็ตวันที่ &nbsp;&nbsp; <b>{{item.internet}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
+            </ion-item>
+            <ion-item *ngFor="let item of duedate">
+              <p>ครบกำหนดชำระค่าโทรศัพท์วันที่ &nbsp;&nbsp; <b>{{item.telephone}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
+            </ion-item>
+          <ion-item *ngFor="let item of duedate">
+          <p>ครบกำหนดชำระค่าบัตรเครดิต &nbsp;<b>{{item.credit}}</b>&nbsp;ของวันที่ &nbsp;<b>{{item.credit_card}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
+        </ion-item>
+      </ion-list>
+      </div>
+
+      
 
   </div>
 
