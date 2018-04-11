@@ -22,7 +22,7 @@ export class DueDateByUserIdProvider {
         this.http.get(host+'/services/duedate/getDueDateByUserId?user_id='+user_id)
         .subscribe(data=>{
         resolve(data);      
-        console.log('DueDateByUserIdProvider++++++'+data);
+        console.log('DueDateByUserIdProvider===',data);
         
       }, err =>{
         console.error(err);      

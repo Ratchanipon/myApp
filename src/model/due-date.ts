@@ -15,5 +15,9 @@ export interface DueDate {
     credit_card_id3: number;
     credit_card_id4: number;
     credit_card_id5: number;
-    credit:string;
+    credit1:string;
+    credit2:string;
+    credit3:string;
+    credit4:string;
+    credit5:string;
 }
