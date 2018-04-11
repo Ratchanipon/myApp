@@ -5,11 +5,9 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar color="primary">
-    <ion-title>ลงชื่อเข้าใช้</ion-title>
+      <ion-title>ลงชื่อเข้าใช้</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
@@ -18,6 +16,7 @@
     <div align="center">
         <img class=""width="150" height="170" [src]="chosenPicture || placeholder" onerror="this.src='assets/images/logo/logoApp3.png'"/>
     </div>
+
 
       <ion-col>
         <ion-item no-padding margin-top>
@@ -33,11 +32,13 @@
         </ion-item>
       </ion-col>
 
-      <button ion-button default-button full text-capitalize type="submit" [disabled]="!user.valid">ลงชื่อเข้าใช้</button>
+
+      <button ion-button default-button full text-capitalize color="secondary" type="submit" [disabled]="!user.valid">ลงชื่อเข้าใช้</button>
     <div align="center">
-        <button ion-button button-clear text-capitalize clear float-center color="grayy" clear>ลืมรหัสผ่าน?</button>
+        <button ion-button button-clear text-capitalize clear float-center full color="grayy" clear><font size="2">ลืมรหัสผ่าน?</font></button>
+        <button ion-button button-clear text-capitalize clear float-center full color="grayy" navPush="RegisterPage"><font size="2">สร้างบัญชีผู้ใช้ใหม่</font></button>
         <br><font color="#BEBEBE">￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣</font><br>
-        <button ion-button default-button full text-capitalize color="secondary" round full navPush="RegisterPage">สร้างบัญชีผู้ใช้ใหม่</button>
+        
     </div>
 
   </form>

@@ -36,6 +36,8 @@
           </ion-segment-button>
         </ion-segment>
     </div>
+
+    <!-- รายการวันที่ครบกำหนด -->
     <div [ngSwitch]="pet">
         <ion-list *ngSwitchCase="'duedate'">
         <div *ngIf="water!=0">
@@ -70,9 +72,9 @@
             </ion-segment>
           </div>
         </ion-list>
-          
+      
+        <!-- ข้อมูลส่วนตัว -->
           <ion-list *ngSwitchCase="'personal'">
-              
             <ion-item>
               <p><b>ชื่อ - นามสกุล:</b> {{name}} {{surname}} </p>
              </ion-item>
@@ -100,6 +102,8 @@
                 </ion-item>
           </ion-list>
       </div>
+
+      <!-- แก้ไขข้อมูลส่วนตัว -->
       <div [ngSwitch]="pet" color="indexB">
           <ion-list *ngSwitchCase="'editpersonal'">
             <ion-item>
@@ -117,34 +121,15 @@
               <ion-item>
                 <P><b>อาชีพ:</b> {{career}}</P>
               </ion-item>
-              
-          
-        </ion-list>
-            
+          </ion-list>  
       </div>
+
+      <!-- แก้ไขวันที่ครบกำหนด -->
       <div [ngSwitch]="pet" color="indexB">
         <ion-list *ngSwitchCase="'editduedate'">
-            <ion-item *ngFor="let item of duedate">
-              <p>ครบกำหนดชำระค่าน้ำวันที่ &nbsp;&nbsp; <b>{{item.water}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
-            </ion-item>
-            <ion-item *ngFor="let item of duedate">
-              <p>ครบกำหนดชำระค่าไฟฟ้าวันที่ &nbsp;&nbsp; <b>{{item.electricity}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
-            </ion-item>
-            <ion-item *ngFor="let item of duedate">
-              <p>ครบกำหนดชำระค่าอินเทอร์เน็ตวันที่ &nbsp;&nbsp; <b>{{item.internet}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
-            </ion-item>
-            <ion-item *ngFor="let item of duedate">
-              <p>ครบกำหนดชำระค่าโทรศัพท์วันที่ &nbsp;&nbsp; <b>{{item.telephone}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
-            </ion-item>
-          <ion-item *ngFor="let item of duedate">
-          <p>ครบกำหนดชำระค่าบัตรเครดิต &nbsp;<b>{{item.credit}}</b>&nbsp;ของวันที่ &nbsp;<b>{{item.credit_card}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
-        </ion-item>
-      </ion-list>
+           edit
+        </ion-list>
       </div>
 
-      
-
   </div>
-
-  
 </ion-content>

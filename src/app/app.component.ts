@@ -50,12 +50,12 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'ภาพรวม', component: 'HomePage' },
+      { title: 'สรุปบัญชีของฉัน', component: 'HomePage' },
       // { title: 'List', component: 'ListPage' },
       { title: 'รายรับ', component: 'IncomePage'},
       { title: 'รายจ่ายรายวัน', component: 'DailyExpensesPage'},
       { title: 'รายจ่ายคงที่', component: 'FixedExpensesPage'},
-      { title: 'สรุป', component: 'SummaryPage'}
+      { title: 'สรุปงบการเงิน', component: 'SummaryPage'}
       
     ];
 

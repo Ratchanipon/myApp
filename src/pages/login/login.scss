@@ -15,6 +15,11 @@ page-login {
         }
 
     }
+    ion-card {
+      box-shadow: none !important;
+      border-radius: $border-radius !important;
+  
+    }
 
 }
 
