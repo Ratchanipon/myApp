@@ -53,35 +53,35 @@
         <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of channelExpenses" color = "list">
             <h2>เงินสด: บาท</h2>   
             <div item-content>
-                <ion-badge class="badge-light">{{item.cash}} ฿</ion-badge>
+                <ion-badge class="badge-light">{{item.cash | number:'.2-2'}} ฿</ion-badge>
             </div>     
         </ion-item>
 
         <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of channelExpenses" color = "list">
             <h2>หักจากบัญชี/บัตรเดบิต:</h2>
             <div item-content>
-                <ion-badge class="badge-light">{{item.account}} ฿</ion-badge>
+                <ion-badge class="badge-light">{{item.account | number:'.2-2'}} ฿</ion-badge>
             </div>         
         </ion-item>
 
         <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of channelExpenses" color = "list">
                 <h2>บัตรเครดิต:</h2>
                 <div item-content>
-                    <ion-badge class="badge-light">{{item.creditCard}} ฿</ion-badge>
+                    <ion-badge class="badge-light">{{item.creditCard | number:'.2-2'}} ฿</ion-badge>
                 </div>         
         </ion-item>
 
         <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of channelExpenses" color = "list">
                 <h2>บัตรผ่อนสินค้า:</h2>
                 <div item-content>
-                    <ion-badge class="badge-light">{{item.paymentCards}} ฿</ion-badge>
+                    <ion-badge class="badge-light">{{item.paymentCards | number:'.2-2'}} ฿</ion-badge>
                 </div>         
         </ion-item>
 
         <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of channelExpenses" color = "list">
                 <h2>พร้อมเพย์:</h2>
                 <div item-content>
-                    <ion-badge class="badge-light">{{item.promtpay}} ฿</ion-badge>
+                    <ion-badge class="badge-light">{{item.promtpay | number:'.2-2'}} ฿</ion-badge>
                 </div>         
         </ion-item>
         </ion-list>
