@@ -37,7 +37,7 @@
         <ion-item *ngFor="let item of sumDispensableExp" color="list">
         <h2>รายจ่ายที่ไม่จำเป็นทั้งหมด:</h2>
             <div item-content>
-                <ion-badge class="badge-light">{{item.total | number:'.2-2'}} ฿</ion-badge>
+                <ion-badge color="disExpenses">{{item.total | number:'.2-2'}} ฿</ion-badge>
             </div>  
         </ion-item>
     </ion-card>

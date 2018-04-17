@@ -109,10 +109,11 @@
 
 
     </div>
-    <div no-lines [ngClass]="animateClass">
+    <div no-lines [ngClass]="animateClass" align="center">
       <br>
-      <button ion-button default-button full text-capitalize color="dueDate" [disabled]="!dueDate.valid" >บันทึก</button>
-      <button ion-button default-button full text-capitalize color="dueDate" navPush="AddIncomePage">ถัดไป</button>
+      <button ion-button default-button full text-capitalize  [disabled]="!dueDate.valid" >บันทึก</button>
+      <button ion-button default-button text-capitalize navPush="AddIncomePage">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ถัดไป&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+      <button ion-button default-button text-capitalize navPush="AddIncomePage">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;กลับ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
     </div>
   </form>
 

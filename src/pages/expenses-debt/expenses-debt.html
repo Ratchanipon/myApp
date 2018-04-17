@@ -52,13 +52,13 @@
             <ion-item border no-lines [ngClass]="animateClass" *ngFor = "let item of expensesDebtList" color = "list">
                 <h2>บัตรเครดิต:</h2>
             <div item-content>
-                <ion-badge class="badge-light">{{item.creditCard | number:'.2-2'}} ฿</ion-badge>
+                <ion-badge color="disExpenses">{{item.creditCard | number:'.2-2'}} ฿</ion-badge>
             </div> 
             </ion-item>
             <ion-item  border no-lines [ngClass]="animateClass" *ngFor = "let item of expensesDebtList" color = "list">
                 <h2>บัตรผ่อนสินค้า:</h2>
             <div item-content>
-                <ion-badge class="badge-light">{{item.paymentCard | number:'.2-2'}} ฿</ion-badge>
+                <ion-badge color="disExpenses">{{item.paymentCard | number:'.2-2'}} ฿</ion-badge>
             </div> 
             </ion-item>
         </ion-list>
