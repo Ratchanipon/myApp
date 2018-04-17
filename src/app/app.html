@@ -36,16 +36,26 @@
       </ion-item> -->
     <ion-list *ngIf="user_id">
         
+      <button menuClose ion-item (click)="HomePage()">
+        <ion-icon icon-small name="home"></ion-icon> 
+        สรุปบัญชีของฉัน
+      </button>
+
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-          <ion-icon icon-small name="list-box"></ion-icon>
+          <ion-icon icon-small name="list"></ion-icon>
               <!-- <i class="icon {{p.icon}}"></i> -->
             
         {{p.title}}
       </button>
 
+      <button menuClose ion-item (click)="SummaryPage()">
+        <ion-icon icon-small name="podium"></ion-icon> 
+        สรุปงบการเงิน
+      </button>
+
       <button menuClose ion-item (click)="setting()">
         <ion-icon icon-small name="settings"></ion-icon> 
-      ตั้งค่า
+        ตั้งค่า
       </button>
 
       <button menuClose ion-item (click)="logOut1()">

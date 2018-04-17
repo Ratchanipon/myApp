@@ -50,12 +50,12 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'สรุปบัญชีของฉัน', component: 'HomePage' },
+      // { title: 'สรุปบัญชีของฉัน', component: 'HomePage' },
       // { title: 'List', component: 'ListPage' },
       { title: 'รายรับ', component: 'IncomePage'},
       { title: 'รายจ่ายรายวัน', component: 'DailyExpensesPage'},
-      { title: 'รายจ่ายคงที่', component: 'FixedExpensesPage'},
-      { title: 'สรุปงบการเงิน', component: 'SummaryPage'}
+      { title: 'รายจ่ายคงที่', component: 'FixedExpensesPage'}
+      // { title: 'สรุปงบการเงิน', component: 'SummaryPage'}
       
     ];
 
@@ -139,5 +139,11 @@ export class MyApp {
       ]
     });
     actionSheet.present();
+  }
+  HomePage(){
+    this.rootPage = "HomePage";
+  }
+  SummaryPage(){
+    this.rootPage = "SummaryPage";
   }
 }

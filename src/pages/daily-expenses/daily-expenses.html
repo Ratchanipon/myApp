@@ -49,7 +49,7 @@
         <ion-item color="list">
         <h2>รายจ่ายรายวันทั้งหมด:</h2>
             <div item-content>
-                <ion-badge class="badge-light">{{sumDailyExpenses1 | number:'.2-2'}} ฿</ion-badge>
+                <ion-badge color="disExpenses">{{sumDailyExpenses1 | number:'.2-2'}} ฿</ion-badge>
             </div>  
         </ion-item>
     </ion-card>
@@ -70,7 +70,7 @@
               <p item-subtitle text-wrap>{{item.created}}</p>
               <!-- Badge -->
               <div item-content>
-                <ion-badge class="badge-light">{{item.amount | number:'.2-2'}} ฿</ion-badge>
+                <ion-badge color="disExpenses">{{item.amount | number:'.2-2'}} ฿</ion-badge>
               </div>
             </ion-item>
           </ion-list>
