@@ -39,11 +39,16 @@ page-profile {
 
       img {
         border-radius: 50% !important;
-        height: 92px;
-        width: 105px;
+        height: 72px;
+        width: 85px;
         margin: 20px auto 0;
       }
+      h2 {
+        font-size: 18px !important;
+        color: theme-colors('textColors', 'secondaryBase');
+    }
     }
   }
+  
 
 }

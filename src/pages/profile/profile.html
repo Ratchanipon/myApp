@@ -18,63 +18,20 @@
     <ion-thumbnail >
       <br><br><br>
       <!-- <img [src]="data.avatar" /> -->
-      <img width="100" height="100" [src]="chosenPicture || placeholder" onerror="this.src='assets/images/logo/user.png'"/>
-    </ion-thumbnail>
+      <img width="60" height="60" [src]="chosenPicture || placeholder" onerror="this.src='assets/images/logo/user.png'"/>
+    
     <!-- Parallx Title -->
-    <h6 text-center parallax-title >{{name}} {{surname}}</h6>
-    <!-- Parallx Subtitle -->
-    <!-- <h3 text-center parallax-subtitle >{{email}}</h3> -->
-    <div padding >
-        <ion-segment [(ngModel)]="pet" color="indexB">
-          <ion-segment-button value="personal" >
-            <ion-icon name="contact"></ion-icon>
-            <font size="2">ข้อมูลส่วนตัว</font>
-          </ion-segment-button>
-          <ion-segment-button value="duedate">
-            <ion-icon name="calendar"></ion-icon>
-            <font size="2">วันที่ครบกำหนดชำระ</font>
-          </ion-segment-button>
-        </ion-segment>
-    </div>
-
-    <!-- รายการวันที่ครบกำหนด -->
-    <div [ngSwitch]="pet">
-        <ion-list *ngSwitchCase="'duedate'">
-        <div *ngIf="water!=0">
-          <ion-item>
-              <p>ครบกำหนดชำระค่าน้ำวันที่ &nbsp;&nbsp; <b>{{water}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
-          </ion-item>
-        </div>
-        <div *ngIf="electricity!=0">
-          <ion-item>
-              <p>ครบกำหนดชำระค่าไฟฟ้าวันที่ &nbsp;&nbsp; <b>{{electricity}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
-          </ion-item>
-        </div>
-        <div *ngIf="internet!=0">
-          <ion-item>
-              <p>ครบกำหนดชำระค่าอินเทอร์เน็ตวันที่ &nbsp;&nbsp; <b>{{internet}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
-          </ion-item>
-        </div>
-        <div *ngIf="telephone!=0">
-          <ion-item>
-              <p>ครบกำหนดชำระค่าโทรศัพท์วันที่ &nbsp;&nbsp; <b>{{telephone}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
-          </ion-item>
-        </div>
-          <ion-item *ngIf="telephone!=''">
-            <p>ครบกำหนดชำระค่าบัตรเครดิต &nbsp;<b>{{credit1}}</b>&nbsp;ของวันที่ &nbsp;<b>{{credit_card}}</b>&nbsp;&nbsp; ของทุกเดือน </p>
-          </ion-item>
-          <div >
-            <ion-segment [(ngModel)]="pet" >
-                <ion-segment-button value="editduedate" >
-                  <ion-icon name="create"></ion-icon>
-                  <font size="4" >แก้ไข</font>
-                </ion-segment-button>
-            </ion-segment>
-          </div>
-        </ion-list>
-      
-        <!-- ข้อมูลส่วนตัว -->
-          <ion-list *ngSwitchCase="'personal'">
+    <!-- <p text-center  >{{name}} {{surname}}</p> -->
+    <h2 align="center" ion-text color="light" header-title>{{name}} {{surname}}</h2>
+  </ion-thumbnail>
+    <br> <br>
+    <div align="right">
+      <button ion-button  clear round>
+        <ion-badge class="badge-light" ><font size="2"> แก้ไขข้อมูลส่วนตัว</font>  </ion-badge>
+      </button>
+    </div>  
+         
+          <ion-list>
             <ion-item>
               <p><b>ชื่อ - นามสกุล:</b> {{name}} {{surname}} </p>
              </ion-item>
@@ -90,46 +47,6 @@
               <ion-item>
                 <P><b>อาชีพ:</b> {{career}}</P>
               </ion-item>
-              <ion-item>
-                  <div >
-                    <ion-segment [(ngModel)]="pet" >
-                        <ion-segment-button value="editpersonal" >
-                          <ion-icon name="create"></ion-icon>
-                          <font size="4" >แก้ไข</font>
-                        </ion-segment-button>
-                    </ion-segment>
-                  </div>
-                </ion-item>
-          </ion-list>
-      </div>
-
-      <!-- แก้ไขข้อมูลส่วนตัว -->
-      <div [ngSwitch]="pet" color="indexB">
-          <ion-list *ngSwitchCase="'editpersonal'">
-            <ion-item>
-              <p><b>ชื่อ - นามสกุล:</b> {{name}} {{surname}} </p>
-             </ion-item>
-             <ion-item>
-              <P><b>Email:</b> {{email}}</P>
-              </ion-item>
-              <ion-item>
-                <P><b>เพศ:</b> {{sex}}</P>
-              </ion-item>
-              <ion-item>
-                <P><b>อายุ:</b> {{age}}</P>
-              </ion-item>
-              <ion-item>
-                <P><b>อาชีพ:</b> {{career}}</P>
-              </ion-item>
-          </ion-list>  
-      </div>
-
-      <!-- แก้ไขวันที่ครบกำหนด -->
-      <div [ngSwitch]="pet" color="indexB">
-        <ion-list *ngSwitchCase="'editduedate'">
-           edit
-        </ion-list>
-      </div>
-
+            </ion-list>
   </div>
 </ion-content>
