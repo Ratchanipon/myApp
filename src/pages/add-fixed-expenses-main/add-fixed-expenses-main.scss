@@ -21,5 +21,14 @@ page-add-fixed-expenses-main {
           border-radius: $border-radius !important;
         }
       }
+      [background-color] {
+        background-color: #f7f7f7;
+      }
+      // Settings Card
+      ion-card {
+        box-shadow: none !important;
+        border-radius: $border-radius !important;
+    
+      }
 
 }

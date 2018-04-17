@@ -5,5 +5,23 @@ page-add-income {
         -o-animation: fadeInDownBig 800ms;
         animation: fadeInDownBig 800ms;
       }
+      [background-color] {
+        background-color: #f7f7f7;
+      }
+      // Settings Card
+      ion-card {
+        box-shadow: none !important;
+        border-radius: $border-radius !important;
+    
+      }
+      [card-color] {
+        background-color: #f6f7f8;
+      }
+      // Settings Card
+      ion-card {
+        box-shadow: none !important;
+        border-radius: $border-radius !important;
+    
+      }
 
 }
