@@ -1,5 +1,10 @@
 page-login {
           
+  [background-color] {
+
+    background-color: #618cd4;
+    
+  }
             .input_area {
               display: flex;
               background-color: #fff;
@@ -12,9 +17,9 @@ page-login {
                 padding: 0 16px;
                 color: map_get($colors, lightdark);
                 // font-size: map_get($font, small);
-        }
+              }
 
-    }
+            }
     ion-card {
       box-shadow: none !important;
       border-radius: $border-radius !important;
