@@ -35,16 +35,19 @@
         </div>
       </ion-item> -->
     <ion-list *ngIf="user_id">
-        <button menuClose ion-item (click)="profile()">
-            <ion-icon icon-small name="contact"></ion-icon> 
-          บัญชีผู้ใช้งาน
-        </button>
+        
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
           <ion-icon icon-small name="list-box"></ion-icon>
               <!-- <i class="icon {{p.icon}}"></i> -->
             
         {{p.title}}
       </button>
+
+      <button menuClose ion-item (click)="setting()">
+        <ion-icon icon-small name="settings"></ion-icon> 
+      ตั้งค่า
+      </button>
+
       <button menuClose ion-item (click)="logOut1()">
           <ion-icon icon-small name="exit"></ion-icon> 
         ออกจากระบบ

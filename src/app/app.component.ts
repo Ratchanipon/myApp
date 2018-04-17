@@ -102,7 +102,42 @@ export class MyApp {
     });
     actionSheet.present();
   }
-  profile(){
-    this.rootPage = "ProfilePage";
+  setting() {
+    let actionSheet = this.actionSheetCtrl.create({
+      buttons: [
+        {
+          icon: 'contact',
+          text: 'ข้อมูลของฉัน',
+          handler: () => {
+            localStorage.clear();
+            this.rootPage = "ProfilePage";
+          }
+        },
+        {
+          icon: 'ios-calendar-outline',
+          text: 'วันที่ครบกำหนดชำระ',
+          handler: () => {
+            localStorage.clear();
+            this.rootPage = "DueDatePage";
+          }
+        },
+        {
+          icon: 'notifications-outline',
+          text: 'การแจ้งเตือน',
+          handler: () => {
+            localStorage.clear();
+            this.rootPage = "ProfilePage";
+          }
+        },
+        {
+          icon: 'close-circle',
+          text: 'ยกเลิก',
+          handler: () => {
+
+          }
+        }
+      ]
+    });
+    actionSheet.present();
   }
 }
