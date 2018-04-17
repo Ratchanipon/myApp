@@ -1,10 +1,10 @@
 page-add-fixed-expenses {
-    .fade-in-right-item {
-        -webkit-animation: fadeInRight 800ms;
-        -moz-animation: fadeInRight 800ms;
-        -o-animation: fadeInRight 800ms;
-        animation: fadeInRight 800ms;
-      }
+  .fade-in-item {
+    -webkit-animation: fadeInDownBig 800ms;
+    -moz-animation: fadeInDownBig 800ms;
+    -o-animation: fadeInDownBig 800ms;
+    animation: fadeInDownBig 800ms;
+  }
       [ion-affix] {
         left: 0 !important;
         right: 0 !important;
@@ -19,6 +19,24 @@ page-add-fixed-expenses {
         img {
           border-radius: $border-radius !important;
         }
+      }
+      [background-color] {
+        background-color: #ffffff;
+      }
+      // Settings Card
+      ion-card {
+        box-shadow: none !important;
+        border-radius: $border-radius !important;
+    
+      }
+      [card-color] {
+        background-color: #f6f7f8;
+      }
+      // Settings Card
+      ion-card {
+        box-shadow: none !important;
+        border-radius: $border-radius !important;
+    
       }
 
 }
