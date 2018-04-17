@@ -109,7 +109,6 @@ export class MyApp {
           icon: 'contact',
           text: 'ข้อมูลของฉัน',
           handler: () => {
-            localStorage.clear();
             this.rootPage = "ProfilePage";
           }
         },
@@ -117,7 +116,6 @@ export class MyApp {
           icon: 'ios-calendar-outline',
           text: 'วันที่ครบกำหนดชำระ',
           handler: () => {
-            localStorage.clear();
             this.rootPage = "DueDatePage";
           }
         },
@@ -125,7 +123,7 @@ export class MyApp {
           icon: 'notifications-outline',
           text: 'การแจ้งเตือน',
           handler: () => {
-            localStorage.clear();
+
             this.rootPage = "ProfilePage";
           }
         },
