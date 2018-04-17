@@ -4,16 +4,16 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<!-- <ion-header [ngClass]="animateClass">
 
   <ion-navbar color="primary">
     <ion-title>สร้างบัญชีผู้ใช่ใหม่</ion-title>
   </ion-navbar>
 
-</ion-header>
+</ion-header> -->
 
 
-<ion-content padding>
+<ion-content padding background-color [ngClass]="animateClass">
   <!-- <from [formGroup]="user" (ngSubmit)="register()">
     
 
@@ -23,31 +23,36 @@
 
 
       <form [formGroup]="user" (ngSubmit)="register(user)">
-          <div border no-lines [ngClass]="animateClass">
+        <!-- <br> -->
+          <div align="right">
+              <img class=""width="50" height="60" [src]="chosenPicture || placeholder" onerror="this.src='assets/images/logo/logoApp2.png'"/>
+          </div>
+          <div [ngClass]="animateClass">
  
-              <ion-item>
-                  <ion-label floating >ชื่อจริง (ภาษาไทย)</ion-label>
-                <ion-input type="text"formControlName="name" ></ion-input>
-              </ion-item>
-              <ion-item>
-                  <ion-label floating >นามสกุล (ภาษาไทย)</ion-label>
-                <ion-input type="text"  formControlName="surname"  ></ion-input>
-              </ion-item>
-              <ion-item>
-                  <ion-label floating >อีเมล (ตัวอย่าง test@excample.com)</ion-label>
-                  <ion-input type="email" formControlName="email"></ion-input>
-              </ion-item>
-              <ion-item>
-                  <ion-label floating >รหัสผ่าน (A-Z,a-z,0-9 ไม่ต่ำ8ตัวอักษร)</ion-label>
-                  <ion-input type="password"  formControlName="password"  ></ion-input>
-                </ion-item>
+            <ion-col>
+              <ion-card>
+                  <!-- <ion-label floating >ชื่อจริง (ภาษาไทย)</ion-label> -->
+                <ion-input type="text"formControlName="name" placeholder="ชื่อจริง (ภาษาไทย)"></ion-input>
+              </ion-card>
+              <ion-card margin-top>
+                  <!-- <ion-label floating >นามสกุล (ภาษาไทย)</ion-label> -->
+                <ion-input type="text"  formControlName="surname" placeholder="นามสกุล (ภาษาไทย)" ></ion-input>
+              </ion-card>
+              <ion-card margin-top>
+                  <!-- <ion-label floating >อีเมล (ตัวอย่าง test@excample.com)</ion-label> -->
+                  <ion-input type="email" formControlName="email" placeholder="อีเมล (ตัวอย่าง test@excample.com)"></ion-input>
+              </ion-card>
+              <ion-card margin-top>
+                  <!-- <ion-label floating >รหัสผ่าน (A-Z,a-z,0-9 ไม่ต่ำ8ตัวอักษร)</ion-label> -->
+                  <ion-input type="password"  formControlName="password" placeholder="รหัสผ่าน (A-Z,a-z,0-9 ไม่ต่ำ8ตัวอักษร)" ></ion-input>
+              </ion-card>
               <!-- <ion-item>
                   <ion-label floating >อายุ</ion-label>
                   <ion-input type="number" formControlName="age" ></ion-input>
               </ion-item> -->
-              <ion-item>
-                <ion-label floating>อายุ</ion-label>
-                <ion-select formControlName="age" multiple="false" interface="popover">
+              <ion-card margin-top>
+                <!-- <ion-label floating>อายุ</ion-label> -->
+                <ion-select formControlName="age" multiple="false" interface="popover" placeholder="อายุ">
                   <ion-option value="18">18</ion-option>
                   <ion-option value="19">19</ion-option>
                   <ion-option value="20">20</ion-option>
@@ -113,17 +118,17 @@
                   <ion-option value="80">80</ion-option>
 
                 </ion-select>
-            </ion-item>
-              <ion-item>
-                  <ion-label floating>เพศ</ion-label>
-                  <ion-select formControlName="sex" multiple="false" interface="popover">
+            </ion-card>
+              <ion-card margin-top>
+                  <!-- <ion-label floating>เพศ</ion-label> -->
+                  <ion-select formControlName="sex" multiple="false" interface="popover" placeholder="เพศ">
                     <ion-option value="ชาย">ชาย</ion-option>
                     <ion-option value="หญิง">หญิง</ion-option>
                   </ion-select>
-              </ion-item>
-              <ion-item>
-                  <ion-label floating>อาชีพ</ion-label>
-                  <ion-select formControlName="career" multiple="false" interface="popover">
+              </ion-card>
+              <ion-card margin-top>
+                  <!-- <ion-label floating>อาชีพ</ion-label> -->
+                  <ion-select formControlName="career" multiple="false" interface="popover" placeholder="อาชีพ">
                     <ion-option value="ข้าราชการ">ข้าราชการ</ion-option>
                     <ion-option value="พนักงานรัฐวิสาหกิจ">พนักงานรัฐวิสาหกิจ</ion-option>
                     <ion-option value="พนักงานบริษัท">พนักงานบริษัท</ion-option>
@@ -134,12 +139,13 @@
                     <ion-option value="เกษียณ/ว่างงาน">เกษียณ/ว่างงาน</ion-option>
                     <ion-option value="อื่นๆ">อื่นๆ</ion-option>
                   </ion-select>
-              </ion-item>
-
+              </ion-card>
+            </ion-col>
           </div>
-          <br>
-          <div border no-lines [ngClass]="animateClass">
-            <button ion-button default-button full text-capitalize type="submit" [disabled]="!user.valid" >สร้างบัญชี</button>
+          <div [ngClass]="animateClass" padding>
+            <button ion-button default-button full text-capitalize color="secondary2" type="submit" [disabled]="!user.valid" >ถัดไป</button>
+            <button ion-button default-button full text-capitalize color="secondary2" navPush="LoginPage">ยกเลิก</button>
+
           </div>
       </form>
 

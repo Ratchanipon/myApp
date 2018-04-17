@@ -1,10 +1,19 @@
 page-register {
+  [background-color] {
+    background-color: #618cd4;
+    
+  }
+  ion-card {
+    box-shadow: none !important;
+    border-radius: $border-radius !important;
+
+  }
 
   .fade-in-item {
-    -webkit-animation: fadeInDownBig 800ms;
-    -moz-animation: fadeInDownBig 800ms;
-    -o-animation: fadeInDownBig 800ms;
-    animation: fadeInDownBig 800ms;
+    -webkit-animation: fadeInRightBig 800ms;
+    -moz-animation: fadeInRightBig 800ms;
+    -o-animation: fadeInRightBig 800ms;
+    animation: fadeInRightBig 800ms;
   }
     ion-grid,
     ion-row {
