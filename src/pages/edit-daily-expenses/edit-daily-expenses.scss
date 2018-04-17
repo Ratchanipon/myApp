@@ -1,3 +1,34 @@
 page-edit-daily-expenses {
+    .fade-in-item {
+        -webkit-animation: fadeInDownBig 800ms;
+        -moz-animation: fadeInDownBig 800ms;
+        -o-animation: fadeInDownBig 800ms;
+        animation: fadeInDownBig 800ms;
+      }
+      
+          [ion-affix] {
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            border-top: none !important;
+            color: theme-colors('textColors', 'accentDark');
+          }
+          // Avatar
+          ion-avatar {
+            filter: none;
+        
+            img {
+              border-radius: $border-radius !important;
+            }
+          }
+          [background-color] {
+            background-color: #f7f7f7;
+          }
+          // Settings Card
+          ion-card {
+            box-shadow: none !important;
+            border-radius: $border-radius !important;
+        
+          }
 
 }
