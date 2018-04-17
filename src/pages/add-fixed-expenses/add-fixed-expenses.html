@@ -17,7 +17,7 @@
     
     <form [formGroup]="fixedExpenses" (ngSubmit)="addFixedExpenses(fixedExpenses)">
         <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4>
-            <ion-card text-left [ngClass]="animateClass" card-color>
+            <ion-card text-left [ngClass]="animateClass">
                 <ion-card >
                     <ion-item color="disExpenses">
                         รายจ่ายคงที่ใหม่
@@ -25,12 +25,11 @@
                         
                     </ion-item>
                 </ion-card>
-                    <div border no-lines [ngClass]="animateClass">
-    
-    
+        <div border no-lines [ngClass]="animateClass">
+
             <ion-input type="hidden" formControlName="user_id"></ion-input>
     
-            <ion-item card-color> 
+            <ion-item> 
                     
                 <!-- <ion-label floating></ion-label> -->
                 <ion-label floating ><i class="material-icons">layers</i>&nbsp;&nbsp;&nbsp; หมวดหมู่</ion-label>
@@ -39,18 +38,18 @@
                     <ion-option *ngFor="let item of fixedExpensesCate" [value]="item.id">{{item.name}}</ion-option>
                 </ion-select>
             </ion-item>
-            <ion-item card-color>
+            <ion-item>
                 <!-- <ion-label floating></ion-label> -->
                 <ion-label floating ><i class="material-icons">payment</i>&nbsp;&nbsp;&nbsp; จ่ายผ่าน</ion-label>
                 <ion-select formControlName="payment_channel_id" multiple="false" interface="popover" >
                     <ion-option *ngFor="let item of paymentCate" [value]="item.id">{{item.name}}</ion-option>
                 </ion-select>
             </ion-item>
-            <ion-item card-color>
+            <ion-item>
                 <ion-label floating ><i class="material-icons">account_balance_wallet</i>&nbsp;&nbsp;&nbsp; จำนวนเงิน</ion-label>
               <ion-input type="number" formControlName="amount"></ion-input>
             </ion-item>
-            <ion-item card-color>
+            <ion-item>
                     <ion-label floating ><i class="material-icons">date_range</i>&nbsp;&nbsp;&nbsp; วัน/เดือน/ปี</ion-label>
                     <ion-datetime displayFormat="D/MM/YYYY" pickerFormat="D MM YYYY" formControlName="created"></ion-datetime>
             </ion-item>
