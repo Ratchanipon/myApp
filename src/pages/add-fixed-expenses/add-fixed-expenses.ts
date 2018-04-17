@@ -21,6 +21,7 @@ import { AddFixedExpensesProvider } from '../../providers/fixed-expenses-service
 export class AddFixedExpensesPage {
 
   animateClass:any;
+  iconClass:any;
   fixedExpensesCate:any;
   paymentCate:any;
   
@@ -41,6 +42,8 @@ export class AddFixedExpensesPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddFixedExpensesPage');
     this.animateClass = { 'fade-in-item': true };
+    // this.iconClass = {'material-icons' : true};
+
     this.form();
 
     this.fixedExpCate.getCateFixedExpenses().then(data => {
