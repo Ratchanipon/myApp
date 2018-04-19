@@ -25,7 +25,14 @@
       <form [formGroup]="user" (ngSubmit)="register(user)">
         <!-- <br> -->
           <div align="right">
-              <img class=""width="50" height="60" [src]="chosenPicture || placeholder" onerror="this.src='assets/images/logo/logoApp2.png'"/>
+            <tr>
+            <td align="center">
+                <p><font color="#FFFFFF"><font size="4"><b>สร้างบัญชีผู้ใช่ใหม่</b></font></font></p> &nbsp;&nbsp;
+            </td>
+            <td width="60">
+                <img class=""width="50" height="60" [src]="chosenPicture || placeholder" onerror="this.src='assets/images/logo/logoApp2.png'"/>
+            </td>
+          </tr>
           </div>
           <div [ngClass]="animateClass">
  
