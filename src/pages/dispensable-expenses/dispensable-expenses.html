@@ -25,6 +25,18 @@
                     refreshingText="Refreshing...">
                 </ion-refresher-content>
             </ion-refresher>
+
+
+            <ion-fab right bottom>
+                <button ion-fab><ion-icon name="add"></ion-icon></button>
+                <ion-fab-list side="top" border no-lines [ngClass]="animateClass">
+                  <button ion-button color="disExpenses" style="width:70px; height:30px;" navPush="AddFixedExpensesMainPage"><font size="1">รายจ่ายคงที่</font></button>
+                  <button ion-button color="disExpenses" style="width:70px; height:30px;" navPush="AddDailyExpensesPage"><font size="1">รายจ่ายรายวัน</font></button>
+                  <button ion-button color="secondary" style="width:70px; height:30px;" navPush="AddIncomeMainPage"><font size="1">รายรับ</font></button>
+        
+                </ion-fab-list>
+            </ion-fab>
+            
     <!-- เลือกเดือน -->
     <div align="right">
         <label item-title text-wrap></label>
@@ -37,7 +49,7 @@
         <ion-item *ngFor="let item of sumDispensableExp" color="list">
         <h2>รายจ่ายที่ไม่จำเป็นทั้งหมด:</h2>
             <div item-content>
-                <ion-badge color="disExpenses">{{item.total | number:'.2-2'}} ฿</ion-badge>
+                <ion-badge color="disExpenses">{{item.total*1 | number:'.2-2'}} ฿</ion-badge>
             </div>  
         </ion-item>
     </ion-card>
@@ -54,7 +66,7 @@
               <p item-subtitle text-wrap>{{item.created}}</p>
               <!-- Badge -->
               <div item-content>
-                <ion-badge class="badge-light">{{item.amount | number:'.2-2'}} ฿</ion-badge>
+                <ion-badge class="badge-light">{{item.amount*1 | number:'.2-2'}} ฿</ion-badge>
               </div>
 
             </ion-item>

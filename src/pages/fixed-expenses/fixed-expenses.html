@@ -29,8 +29,8 @@
     <ion-fab right bottom>
         <button ion-fab><ion-icon name="add"></ion-icon></button>
         <ion-fab-list side="top" border no-lines [ngClass]="animateClass">
-          <button ion-button color="danger" style="width:70px; height:30px;" navPush="AddFixedExpensesMainPage"><font size="1">รายจ่ายคงที่</font></button>
-          <button ion-button color="danger" style="width:70px; height:30px;" navPush="AddDailyExpensesPage"><font size="1">รายจ่ายรายวัน</font></button>
+          <button ion-button color="disExpenses" style="width:70px; height:30px;" navPush="AddFixedExpensesMainPage"><font size="1">รายจ่ายคงที่</font></button>
+          <button ion-button color="disExpenses" style="width:70px; height:30px;" navPush="AddDailyExpensesPage"><font size="1">รายจ่ายรายวัน</font></button>
           <button ion-button color="secondary" style="width:70px; height:30px;" navPush="AddIncomeMainPage"><font size="1">รายรับ</font></button>
 
         </ion-fab-list>
@@ -48,7 +48,7 @@
         <ion-item color="list">
         <h2>รายจ่ายคงที่ทั้งหมด:</h2>
             <div item-content>
-                <ion-badge color="disExpenses">{{sumFixedExpenses1 | number:'.2-2'}} ฿</ion-badge>
+                <ion-badge color="disExpenses">{{sumFixedExpenses1*1 | number:'.2-2'}} ฿</ion-badge>
             </div>  
         </ion-item>
     </ion-card>
@@ -64,7 +64,7 @@
               <p item-subtitle text-wrap>{{item.created}}</p>
   
               <div item-content>
-                <ion-badge color="disExpenses">{{item.amount | number:'.2-2'}} ฿</ion-badge>
+                <ion-badge color="disExpenses">{{item.amount*1 | number:'.2-2'}} ฿</ion-badge>
               </div>
             </ion-item>
           </ion-list>

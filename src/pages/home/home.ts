@@ -110,6 +110,7 @@ export class HomePage {
       this.totalDailyExp = data;
       this.totalDailyExp1 = this.totalDailyExp.totalDailyExp;
     })
+
     let month_n = parseInt(sessionStorage.getItem("month"));
     let month = month_n+1;
     console.info('month='+month);
@@ -159,6 +160,21 @@ export class HomePage {
     console.log('ionViewDidLoad HomePage');
     this.animateClass = { 'fade-in-right-item': true };
     this.year = sessionStorage.getItem("year");
+
+    this.sumIncome.getSumIncome().then((data:SumIncome) => {
+      this.totalIncome = data;
+      this.totalIncome1 = this.totalIncome.totalIncome;
+    })
+
+    this.sumFixedExpenses.getSumFixedExpenses().then((data:SumFixedExp) => {
+      this.totalFixedExp = data;
+      this.totalFixedExp1 = this.totalFixedExp.totalFixedExp
+    })
+
+    this.sumDailyExpenses.getSumDailyExpenses().then((data:SumDaileExp) => {
+      this.totalDailyExp = data;
+      this.totalDailyExp1 = this.totalDailyExp.totalDailyExp;
+    })
 
     //เดือนปัจจุบัน
     let month_n = parseInt(sessionStorage.getItem("month"));
@@ -240,25 +256,19 @@ export class HomePage {
 
             this.sumIncomeByMonth.getSumIncomeByMonth(month).then((data:SumIncome) => {
               this.totalIncome = data;
+              this.totalIncome1 = this.totalIncome.totalIncome;
             })
 
             this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then((data:SumFixedExp) => {
               this.totalFixedExp = data;
+              this.totalFixedExp1 = this.totalFixedExp.totalFixedExp
             })
 
             this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
               this.totalDailyExp = data;
+              this.totalDailyExp1 = this.totalDailyExp.totalDailyExp;
 
             })
-
-            this.moneyPerDayByMonth.getMoneyPerDayByMonth(month).then((data:number) => {
-              this.moneyPerDay = data;
-            })
-
-            this.balancedByMonth.getBalancedByMonth(month).then((data:number) => {
-              this.balance = data; 
-            })
-
           }
         },
         {
@@ -270,22 +280,17 @@ export class HomePage {
 
               this.sumIncomeByMonth.getSumIncomeByMonth(month).then((data:SumIncome) => {
                 this.totalIncome = data;
+                this.totalIncome1 = this.totalIncome.totalIncome;
               })
   
               this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then((data:SumFixedExp) => {
                 this.totalFixedExp = data;
+                this.totalFixedExp1 = this.totalFixedExp.totalFixedExp
               })
   
               this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
                 this.totalDailyExp = data;
-              })
-              
-              this.moneyPerDayByMonth.getMoneyPerDayByMonth(month).then((data:number) => {
-                this.moneyPerDay = data;
-              })
-  
-              this.balancedByMonth.getBalancedByMonth(month).then((data:number) => {
-                this.balance = data; 
+                this.totalDailyExp1 = this.totalDailyExp.totalDailyExp;
               })
           }
         },
@@ -298,22 +303,17 @@ export class HomePage {
 
               this.sumIncomeByMonth.getSumIncomeByMonth(month).then((data:SumIncome) => {
                 this.totalIncome = data;
+                this.totalIncome1 = this.totalIncome.totalIncome;
               })
   
               this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then((data:SumFixedExp) => {
                 this.totalFixedExp = data;
+                this.totalFixedExp1 = this.totalFixedExp.totalFixedExp
               })
   
               this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
                 this.totalDailyExp = data;
-              })
-
-              this.moneyPerDayByMonth.getMoneyPerDayByMonth(month).then((data:number) => {
-                this.moneyPerDay = data;
-              })
-  
-              this.balancedByMonth.getBalancedByMonth(month).then((data:number) => {
-                this.balance = data; 
+                this.totalDailyExp1 = this.totalDailyExp.totalDailyExp;
               })
           }
         },
@@ -326,22 +326,17 @@ export class HomePage {
   
               this.sumIncomeByMonth.getSumIncomeByMonth(month).then((data:SumIncome) => {
                 this.totalIncome = data;
+                this.totalIncome1 = this.totalIncome.totalIncome;
               })
   
               this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then((data:SumFixedExp) => {
                 this.totalFixedExp = data;
+                this.totalFixedExp1 = this.totalFixedExp.totalFixedExp
               })
   
               this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
                 this.totalDailyExp = data;
-              })
-
-              this.moneyPerDayByMonth.getMoneyPerDayByMonth(month).then((data:number) => {
-                this.moneyPerDay = data;
-              })
-  
-              this.balancedByMonth.getBalancedByMonth(month).then((data:number) => {
-                this.balance = data; 
+                this.totalDailyExp1 = this.totalDailyExp.totalDailyExp;
               })
           }
         },
@@ -354,22 +349,17 @@ export class HomePage {
             
               this.sumIncomeByMonth.getSumIncomeByMonth(month).then((data:SumIncome) => {
                 this.totalIncome = data;
+                this.totalIncome1 = this.totalIncome.totalIncome;
               })
   
               this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then((data:SumFixedExp) => {
                 this.totalFixedExp = data;
+                this.totalFixedExp1 = this.totalFixedExp.totalFixedExp
               })
   
               this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
                 this.totalDailyExp = data;
-              })
-
-              this.moneyPerDayByMonth.getMoneyPerDayByMonth(month).then((data:number) => {
-                this.moneyPerDay = data;
-              })
-  
-              this.balancedByMonth.getBalancedByMonth(month).then((data:number) => {
-                this.balance = data; 
+                this.totalDailyExp1 = this.totalDailyExp.totalDailyExp;
               })
           }
         },
@@ -382,22 +372,17 @@ export class HomePage {
             
               this.sumIncomeByMonth.getSumIncomeByMonth(month).then((data:SumIncome) => {
                 this.totalIncome = data;
+                this.totalIncome1 = this.totalIncome.totalIncome;
               })
   
               this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then((data:SumFixedExp) => {
                 this.totalFixedExp = data;
+                this.totalFixedExp1 = this.totalFixedExp.totalFixedExp
               })
   
               this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
                 this.totalDailyExp = data;
-              })
-
-              this.moneyPerDayByMonth.getMoneyPerDayByMonth(month).then((data:number) => {
-                this.moneyPerDay = data;
-              })
-  
-              this.balancedByMonth.getBalancedByMonth(month).then((data:number) => {
-                this.balance = data; 
+                this.totalDailyExp1 = this.totalDailyExp.totalDailyExp;
               })
           }
         },
@@ -410,22 +395,17 @@ export class HomePage {
             
               this.sumIncomeByMonth.getSumIncomeByMonth(month).then((data:SumIncome) => {
                 this.totalIncome = data;
+                this.totalIncome1 = this.totalIncome.totalIncome;
               })
   
               this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then((data:SumFixedExp) => {
                 this.totalFixedExp = data;
+                this.totalFixedExp1 = this.totalFixedExp.totalFixedExp
               })
   
               this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
                 this.totalDailyExp = data;
-              })
-
-              this.moneyPerDayByMonth.getMoneyPerDayByMonth(month).then((data:number) => {
-                this.moneyPerDay = data;
-              })
-  
-              this.balancedByMonth.getBalancedByMonth(month).then((data:number) => {
-                this.balance = data; 
+                this.totalDailyExp1 = this.totalDailyExp.totalDailyExp;
               })
           }
         },
@@ -438,22 +418,17 @@ export class HomePage {
             
               this.sumIncomeByMonth.getSumIncomeByMonth(month).then((data:SumIncome) => {
                 this.totalIncome = data;
+                this.totalIncome1 = this.totalIncome.totalIncome;
               })
   
               this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then((data:SumFixedExp) => {
                 this.totalFixedExp = data;
+                this.totalFixedExp1 = this.totalFixedExp.totalFixedExp
               })
   
               this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
                 this.totalDailyExp = data;
-              })
-
-              this.moneyPerDayByMonth.getMoneyPerDayByMonth(month).then((data:number) => {
-                this.moneyPerDay = data;
-              })
-  
-              this.balancedByMonth.getBalancedByMonth(month).then((data:number) => {
-                this.balance = data; 
+                this.totalDailyExp1 = this.totalDailyExp.totalDailyExp;
               })
           }
         },
@@ -466,22 +441,17 @@ export class HomePage {
             
               this.sumIncomeByMonth.getSumIncomeByMonth(month).then((data:SumIncome) => {
                 this.totalIncome = data;
+                this.totalIncome1 = this.totalIncome.totalIncome;
               })
   
               this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then((data:SumFixedExp) => {
                 this.totalFixedExp = data;
+                this.totalFixedExp1 = this.totalFixedExp.totalFixedExp
               })
   
               this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
                 this.totalDailyExp = data;
-              })
-
-              this.moneyPerDayByMonth.getMoneyPerDayByMonth(month).then((data:number) => {
-                this.moneyPerDay = data;
-              })
-  
-              this.balancedByMonth.getBalancedByMonth(month).then((data:number) => {
-                this.balance = data; 
+                this.totalDailyExp1 = this.totalDailyExp.totalDailyExp;
               })
           }
         },
@@ -494,22 +464,17 @@ export class HomePage {
             
               this.sumIncomeByMonth.getSumIncomeByMonth(month).then((data:SumIncome) => {
                 this.totalIncome = data;
+                this.totalIncome1 = this.totalIncome.totalIncome;
               })
   
               this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then((data:SumFixedExp) => {
                 this.totalFixedExp = data;
+                this.totalFixedExp1 = this.totalFixedExp.totalFixedExp
               })
   
               this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
                 this.totalDailyExp = data;
-              })
-
-              this.moneyPerDayByMonth.getMoneyPerDayByMonth(month).then((data:number) => {
-                this.moneyPerDay = data;
-              })
-  
-              this.balancedByMonth.getBalancedByMonth(month).then((data:number) => {
-                this.balance = data; 
+                this.totalDailyExp1 = this.totalDailyExp.totalDailyExp;
               })
           }
         },
@@ -522,22 +487,17 @@ export class HomePage {
             
               this.sumIncomeByMonth.getSumIncomeByMonth(month).then((data:SumIncome) => {
                 this.totalIncome = data;
+                this.totalIncome1 = this.totalIncome.totalIncome;
               })
   
               this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then((data:SumFixedExp) => {
                 this.totalFixedExp = data;
+                this.totalFixedExp1 = this.totalFixedExp.totalFixedExp
               })
   
               this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
                 this.totalDailyExp = data;
-              })
-
-              this.moneyPerDayByMonth.getMoneyPerDayByMonth(month).then((data:number) => {
-                this.moneyPerDay = data;
-              })
-  
-              this.balancedByMonth.getBalancedByMonth(month).then((data:number) => {
-                this.balance = data; 
+                this.totalDailyExp1 = this.totalDailyExp.totalDailyExp;
               })
           }
         },
@@ -550,22 +510,17 @@ export class HomePage {
             
               this.sumIncomeByMonth.getSumIncomeByMonth(month).then((data:SumIncome) => {
                 this.totalIncome = data;
+                this.totalIncome1 = this.totalIncome.totalIncome;
               })
   
               this.sumFixedExpensesByMonth.getSumFixedExpensesByMonth(month).then((data:SumFixedExp) => {
                 this.totalFixedExp = data;
+                this.totalFixedExp1 = this.totalFixedExp.totalFixedExp
               })
   
               this.sumDailyExpensesByMonth.getSumDailyExpensesByMonth(month).then((data:SumDaileExp) => {
                 this.totalDailyExp = data;
-              })
-
-              this.moneyPerDayByMonth.getMoneyPerDayByMonth(month).then((data:number) => {
-                this.moneyPerDay = data;
-              })
-  
-              this.balancedByMonth.getBalancedByMonth(month).then((data:number) => {
-                this.balance = data; 
+                this.totalDailyExp1 = this.totalDailyExp.totalDailyExp;
               })
           }
         },

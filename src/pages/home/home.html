@@ -30,8 +30,8 @@
   <ion-fab right bottom>
       <button ion-fab><ion-icon name="add"></ion-icon></button>
       <ion-fab-list side="top" border no-lines [ngClass]="animateClass">
-        <button ion-button color="danger" style="width:70px; height:30px;" navPush="AddFixedExpensesMainPage"><font size="1">รายจ่ายคงที่</font></button>
-        <button ion-button color="danger" style="width:70px; height:30px;" navPush="AddDailyExpensesPage"><font size="1">รายจ่ายรายวัน</font></button>
+        <button ion-button color="disExpenses" style="width:70px; height:30px;" navPush="AddFixedExpensesMainPage"><font size="1">รายจ่ายคงที่</font></button>
+        <button ion-button color="disExpenses" style="width:70px; height:30px;" navPush="AddDailyExpensesPage"><font size="1">รายจ่ายรายวัน</font></button>
         <button ion-button color="secondary" style="width:70px; height:30px;" navPush="AddIncomeMainPage"><font size="1">รายรับ</font></button>
 
       </ion-fab-list>   
@@ -51,55 +51,50 @@
 
   <ion-card>
     <ion-item border no-lines [ngClass]="animateClass" color="list">
-        <h2>รายรับ:</h2>
+        <h2><b>รายรับ:</b></h2>
         <div item-content>
-            <ion-badge class="badge-light">{{totalIncome1 | number:'.2-2'}} ฿</ion-badge>
+            <ion-badge>{{totalIncome1*1 | number:'.2-2'}} ฿</ion-badge>
         </div>         
     </ion-item>
   </ion-card>
   <ion-card>
     <ion-item border no-lines [ngClass]="animateClass" color="list">
-      <h2>รายจ่ายคงที่:</h2>
+      <h2><b>รายจ่ายคงที่:</b></h2>
       <div item-content>
-          <ion-badge class="badge-light">{{totalFixedExp1 | number:'.2-2'}} ฿</ion-badge>
+          <ion-badge>{{totalFixedExp1*1 | number:'.2-2'}} ฿</ion-badge>
       </div>         
     </ion-item>
   </ion-card>
   <ion-card>
     <ion-item border no-lines [ngClass]="animateClass" color="list">
-      <h2>รายจ่ายรายววัน:</h2>
+      <h2><b>รายจ่ายรายวัน:</b></h2>
       <div item-content>
-          <ion-badge class="badge-light">{{totalDailyExp1 | number:'.2-2'}} ฿</ion-badge>
+          <ion-badge>{{totalDailyExp1*1 | number:'.2-2'}} ฿</ion-badge>
       </div>          
     </ion-item>
   </ion-card>
-  <!-- <ion-card>
-    <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of balance" color="list">
-      <h2>ยอดคงเหลือ:</h2>
-      <div item-content>
-          <ion-badge class="badge-light">{{item.balance}} ฿</ion-badge>
-      </div>        
-    </ion-item>
-  </ion-card> -->
+
+          <!-- <ion-badge class="badge-light">{{item.balance}} ฿</ion-badge> -->
+
   <ion-card>
     <ion-item border no-lines [ngClass]="animateClass" color="list">
-      <h2>เงินที่ใช้ได้ต่อวัน:</h2> 
+      <h2><b>เงินที่ใช้ได้ต่อวัน:</b></h2> 
       <div item-content>
-          <ion-badge class="badge-light">{{(totalIncome1*1-totalFixedExp1*1-totalDailyExp1*1)/31 | number:'.2-2'}} ฿</ion-badge>
+          <ion-badge>{{(totalIncome1*1-totalFixedExp1*1-totalDailyExp1*1)/31 | number:'.2-2'}} ฿</ion-badge>
       </div>       
     </ion-item>
   </ion-card>
     
   <ion-card>
     <ion-item border no-lines [ngClass]="animateClass" color="list">
-        <h1>ยอดคงเหลือ:</h1>
+        <h2><font size="4"><b>ยอดคงเหลือ:</b></font></h2>
         <div item-content>
-            <ion-badge class="badge-light">{{totalIncome1*1-totalFixedExp1*1-totalDailyExp1*1 | number:'.2-2'}} ฿</ion-badge>
+            <ion-badge>{{totalIncome1*1-totalFixedExp1*1-totalDailyExp1*1 | number:'.2-2'}} ฿</ion-badge>
         </div>         
     </ion-item>
     
   </ion-card>
 
-  <button ion-button navPush="ChartPage">chart</button>
+  <!-- <button ion-button navPush="ChartPage">chart</button> -->
 
 </ion-content>
