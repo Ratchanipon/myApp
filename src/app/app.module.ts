@@ -60,6 +60,7 @@ import { EditFixedExpensesProvider } from '../providers/fixed-expenses-services/
 import { EditDailyExpensesProvider } from '../providers/daily-expenses-services/edit-daily-expenses';
 import { DueDateByUserIdProvider } from '../providers/due-date-services/get-dueDateByUserId';
 import { DataChartProvider } from '../providers/calculate-services/get-dataChart';
+import { EditUserProvider } from '../providers/user-service/edit-users';
 
 
 
@@ -130,7 +131,8 @@ import { DataChartProvider } from '../providers/calculate-services/get-dataChart
     EditFixedExpensesProvider,
     EditDailyExpensesProvider,
     DueDateByUserIdProvider,
-    DataChartProvider
+    DataChartProvider,
+    EditUserProvider
   ]
 })
 export class AppModule {}

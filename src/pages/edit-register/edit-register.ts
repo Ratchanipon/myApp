@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, App } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App, ToastController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { PasswordValidator } from '../../validators/password.validator';
 import { User } from '../../model/user';
-import { UserServiceProvider } from '../../providers/user-service/user-service';
-import { AddUserProvider } from '../../providers/user-service/add-users';
+import { EditUserProvider } from '../../providers/user-service/edit-users';
+import { UserByIdProvider } from '../../providers/user-service/user-serviceById';
+
 
 /**
- * Generated class for the RegisterPage page.
+ * Generated class for the EditRegisterPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -15,21 +15,30 @@ import { AddUserProvider } from '../../providers/user-service/add-users';
 
 @IonicPage()
 @Component({
-  selector: 'page-register',
-  templateUrl: 'register.html',
+  selector: 'page-edit-register',
+  templateUrl: 'edit-register.html',
 })
-export class RegisterPage {
+export class EditRegisterPage {
 
   user:FormGroup;
   // user1:User = {surname:'สิงห์นิกร', password:'anusit1234',id:"" ,name:"อนุศิษฐ์", email:"anusit@hotmail.com", age:"22", career:"นักศึกษา", sex:"ชาย", permission:""};
   user1:User;
   animateClass:any;
+
+  name:string;
+  surname:string;
+  email:string;
+  password:string;
+  age:string;
+  sex:string;
+  career:string;
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public app: App,
               public formBuilder: FormBuilder,
-              public addUser: AddUserProvider,
-              public toastCtrl: ToastController) {
+              public editUser: EditUserProvider,
+              public toastCtrl: ToastController,
+              public userById: UserByIdProvider) {
                 
                 this.form();
                 
@@ -45,47 +54,50 @@ export class RegisterPage {
 
   form(){
 
+    let name = sessionStorage.getItem("name");
+    let surname = sessionStorage.getItem("surname");
+    let password = sessionStorage.getItem("password");
+    let email = sessionStorage.getItem("email");
+    let age = sessionStorage.getItem("age");
+    let sex = sessionStorage.getItem("sex");
+    let career = sessionStorage.getItem("career");
+
+    let user_id = localStorage.getItem("user_id");
+    console.log("user_id=========",user_id);
+    
     this.user = this.formBuilder.group({
-      name:['',Validators.compose([Validators.required,
+      user_id:[user_id,Validators.compose([Validators.required])],
+      name:[name,Validators.compose([Validators.required,
                                          Validators.minLength(3)])],
-      surname:['',Validators.compose([Validators.required,
+      surname:[surname,Validators.compose([Validators.required,
                                             Validators.minLength(3)])],
-      password:['',Validators.compose([Validators.required,
+      password:[password,Validators.compose([Validators.required,
                                                   Validators.minLength(8),
                                                   Validators.pattern("[a-zA-Z0-9.-_*#@$%&!]{1,}")])],
-      email:['',Validators.compose([Validators.required,
+      email:[email,Validators.compose([Validators.required,
                                                   Validators.email])],
-      age:['',Validators.compose([Validators.required])],
-      sex:['',Validators.compose([Validators.required])],
-      career:['',Validators.compose([Validators.required])]
+      age:[age,Validators.compose([Validators.required])],
+      sex:[sex,Validators.compose([Validators.required])],
+      career:[career,Validators.compose([Validators.required])]
     })
 
   }
   register(user:User){
     // ทดสอบดูค่าต่างๆ ที่ส่งมาจากฟอร์ม 
     // console.log(this.user);
-    this.addUser.AddUserProvider(this.user.value).then(user => {
+    this.editUser.EditUserProvider(this.user.value).then(user => {
       console.error(user);
 
       if(user != null){
         this.addUserSuccess();
         // this.navCtrl.push('RegisterPage');
-        localStorage.setItem("user_id",user.id);
-        localStorage.setItem("email",user.email);
-
-        sessionStorage.setItem("name",user.name);
-        sessionStorage.setItem("surname",user.surname);
-        sessionStorage.setItem("password",user.password);
-        sessionStorage.setItem("email",user.email);
-        sessionStorage.setItem("age",user.age);
-        sessionStorage.setItem("sex",user.sex);
-        sessionStorage.setItem("career",user.career);
-
-        this.navCtrl.setRoot('DueDatePage',{'user':user});   
-        const root = this.app.getRootNav();
-        root.popToRoot();
+        // localStorage.setItem("user_id",user.id);
+        // localStorage.setItem("email",user.email);
+        // this.navCtrl.setRoot('DueDatePage',{'user':user});   
+        // const root = this.app.getRootNav();
+        // root.popToRoot();
         
-        // this.navCtrl.push('DueDatePage');
+        this.navCtrl.push('DueDatePage');
 
          
         
@@ -126,4 +138,5 @@ export class RegisterPage {
   
     toast.present();
   }
+
 }

@@ -1,4 +1,5 @@
-import { HttpClient } from '@angular/common/http';
+
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../../model/user';
 
@@ -9,31 +10,25 @@ import { User } from '../../model/user';
   and Angular DI.
 */
 @Injectable()
-export class UserByIdProvider {
+export class EditUserProvider {
 
-
+  // user:User;
 
   constructor(public http: HttpClient) {
-    console.log('Hello UserByIdProvider Provider');
+    console.log('Hello EditUserProvider Provider');
   }
 
-  getUserById(){
-      /* return new Promise(resolve=>{
-      this.http.get('http://localhost/AppManagement/services/users/getUserById?username='+user.username+'&password='+user.password)
-      .subscribe(data=>{
-        resolve(data);      
-      }, err =>{
-        console.error(err);      
-        });
-      }); */
-      let user_id = localStorage.getItem("user_id");
+  EditUserProvider(user:User){
+
       let host = sessionStorage.getItem("host");
 
       return new Promise<User>(resolve=>{
-        this.http.get(host+'/services/users/getUserById?user_id='+user_id)
+        this.http.post(host+'/services/users/editUser',JSON.stringify({data:user}),
+        {headers: new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded')}
+    )
         .subscribe(user=>{
-
-          console.log("userProvider",user);         
+          console.log("user====",user);
+          
           let data = this.extacObject(user);
           resolve(data);
         })
