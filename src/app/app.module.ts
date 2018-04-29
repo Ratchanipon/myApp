@@ -7,6 +7,8 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 // import { ListPage } from '../pages/list/list';
 import { IonicStorageModule } from '@ionic/storage';
+import { AngularFireModule } from 'angularfire2';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -62,6 +64,14 @@ import { DueDateByUserIdProvider } from '../providers/due-date-services/get-dueD
 import { DataChartProvider } from '../providers/calculate-services/get-dataChart';
 import { EditUserProvider } from '../providers/user-service/edit-users';
 
+var config = {
+  apiKey: "AIzaSyBiTQt8D-8MFdhk1m1HJtZaMu4eNf7Ywa0",
+  authDomain: "fchs-526b9.firebaseapp.com",
+  databaseURL: "https://fchs-526b9.firebaseio.com",
+  projectId: "fchs-526b9",
+  storageBucket: "fchs-526b9.appspot.com",
+  messagingSenderId: "405662539355"
+};
 
 
 @NgModule({
@@ -71,6 +81,7 @@ import { EditUserProvider } from '../providers/user-service/edit-users';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    //AngularFireModule.initializeApp(config),
     HttpClientModule,
     ChartsModule,
     // FormsModule,
@@ -86,6 +97,7 @@ import { EditUserProvider } from '../providers/user-service/edit-users';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
 
+    Camera,
     UserServiceProvider,
     CateCreditCardProvider,
     CateDailyExpensesProvider,

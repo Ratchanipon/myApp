@@ -26,9 +26,11 @@ export class MyApp {
   month = this.date.getMonth().toString();
   year = this.date.getFullYear().toString();
 
-  // host: string = "http://anusit-not.esy.es/AppManagement";
-  host: string = "http://localhost/AppManagement";
+  host: string = "http://anusit-not.esy.es/AppManagement";
+  // host: string = "http://localhost/AppManagement";
   // host: string = "http://chinhosting.com/web/AppManagement"
+
+  // host: string = "http://172.19.100.83/AppManagement"
   
 
   constructor(public platform: Platform, 
