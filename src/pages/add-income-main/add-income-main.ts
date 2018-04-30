@@ -62,6 +62,7 @@ export class AddIncomeMainPage {
                   correctOrientation: true,
                   cameraDirection:1
                 };
+                
                 this.form();      
                 this.income_2.getIncome().then((data:Income) => {
                   this.incomeList = data;
