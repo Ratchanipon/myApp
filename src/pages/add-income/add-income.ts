@@ -40,6 +40,8 @@ export class AddIncomePage {
   animateClass:any;
 
   incomeList:Income;
+  
+  images:string='';
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public app: App,
@@ -126,14 +128,29 @@ export class AddIncomePage {
     toast.present();
   }
 
+  presentToast(messages) {
+    let toast = this.toastCtrl.create({
+      message: messages,
+      duration: 3000,
+      position: 'top'
+    });
+  
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+  
+    toast.present();
+  }
+
   async takePicture(){
     //this.loadpictureProfile();
     try {
         let d = new Date().getDate().toString();
+        let m = new Date().getMonth().toString();
         let y = new Date().getFullYear().toString();
         let t = new Date().getTime().toString();
 
-        let name = d+y+t ;
+        let name = d+m+y+t ;
         
         const result = await this.camera.getPicture(this.options);
         const image = 'data:image/jpeg;base64,'+result;

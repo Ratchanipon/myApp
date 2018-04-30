@@ -147,10 +147,11 @@ export class AddIncomeMainPage {
     //this.loadpictureProfile();
     try {
         let d = new Date().getDate().toString();
+        let m = new Date().getMonth().toString();
         let y = new Date().getFullYear().toString();
         let t = new Date().getTime().toString();
 
-        let name = d+y+t ;
+        let name = d+m+y+t ;
         
         const result = await this.camera.getPicture(this.options);
         const image = 'data:image/jpeg;base64,'+result;
