@@ -48,6 +48,11 @@
   
               <!-- <ion-button (click)="upload()" ion-button >รูปภาพ</ion-button> -->
                   <!-- <img name="images"   style="width:60px; height:60px;"/> -->
+                  <img src="http://haras.gov.ly/wp-content/uploads/2017/01/icon-g1allery-1.png" style="width: 20%; height: 20%;" (click)="takePicture()" />  
+                  <br>
+                  <div>
+                      <img *ngIf="images!=''" src="{{images}}|async" style="width: 50%; height: 80%;" />  
+                  </div>
   
   
           </div>

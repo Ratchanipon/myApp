@@ -27,6 +27,7 @@ export class AddDailyExpensesPage {
 
   dailyExpensesList:any;
 
+  moneyPerDay:number;
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public app: App,
@@ -68,9 +69,7 @@ export class AddDailyExpensesPage {
       payment_channel_id:[null,Validators.compose([Validators.required])],
       amount:[null,Validators.compose([Validators.required])],
       created:[null,Validators.compose([Validators.required])],
-
     })
-
   }
 
   addDailyExpenses(dailyExpenses:DailyExpenses){
