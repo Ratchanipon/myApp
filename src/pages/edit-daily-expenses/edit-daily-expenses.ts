@@ -89,6 +89,7 @@ export class EditDailyExpensesPage {
     let amount = this.data.amount;
     let created = this.data.created;
 
+    this.images = this.data.images;
 
     this.dailyExpenses = this.formBuilder.group({
       user_id:[user_id,Validators.compose([Validators.required])],

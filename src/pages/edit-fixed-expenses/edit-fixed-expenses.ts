@@ -92,6 +92,8 @@ export class EditFixedExpensesPage {
     let payment_channel_id = this.data.payment_channel_id;
     let fix_expenses_cate_id = this.data.fix_expenses_cate_id;
 
+    this.images = this.data.images;
+
     this.fixedExpenses = this.formBuilder.group({
       user_id:[user_id,Validators.compose([Validators.required])],
       fix_expenses_id:[fix_expenses_id,Validators.compose([Validators.required])],
@@ -99,7 +101,7 @@ export class EditFixedExpensesPage {
       payment_channel_id:[payment_channel_id,Validators.compose([Validators.required])],
       amount:[amount,Validators.compose([Validators.required])],
       created:[created,Validators.compose([Validators.required])],
-      images:['',Validators.compose([Validators.required])]
+      images:['',Validators.compose([])]
 
     })
 
