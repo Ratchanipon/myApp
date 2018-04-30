@@ -6,7 +6,7 @@ import { AddIncomeProvider } from '../../providers/income-services/add-income';
 import { IncomeProvider } from '../../providers/income-services/income';
 import { CateIncomeProvider } from '../../providers/category-services/cate-icome';
 import { storage ,initializeApp } from 'firebase';
-import { Camera } from '@ionic-native/camera';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 /**
  * Generated class for the AddIncomePage page.
@@ -40,6 +40,8 @@ export class AddIncomePage {
   animateClass:any;
 
   incomeList:Income;
+
+  options:CameraOptions;
   
   images:string='';
   constructor(public navCtrl: NavController, 
