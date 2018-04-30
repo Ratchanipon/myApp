@@ -6,6 +6,12 @@ page-add-fixed-expenses-main {
     -o-animation: fadeInDownBig 800ms;
     animation: fadeInDownBig 800ms;
   }
+  .fade-in-item2 {
+    -webkit-animation: fadeInRight 800ms;
+    -moz-animation: fadeInRight 800ms;
+    -o-animation: fadeInRight 800ms;
+    animation: fadeInRight 800ms;
+  }
   
       [ion-affix] {
         left: 0 !important;

@@ -78,7 +78,7 @@
             <ion-list no-margin>
             <!-- Header Top -->
           
-            <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of dailyExpensesList" (click)="editDailyExpenses(item)">
+            <ion-item border no-lines [ngClass]="animate2Class" *ngFor="let item of dailyExpensesList" (click)="editDailyExpenses(item)">
               <!-- Avatar -->
               <!-- <ion-avatar item-start>
                 <img [src]="element.image" alt="{{element.title}}" />
@@ -96,7 +96,7 @@
         </ion-col>
       </ion-row>
 
-      <div no-lines [ngClass]="animateClass" padding>
+      <div no-lines [ngClass]="animate2Class" padding>
         <button ion-button default-button full text-capitalize  navPush="HomePage">บันทึก</button>
         <!-- <button ion-button full navPush="">ยกเลิก</button> -->
       </div>

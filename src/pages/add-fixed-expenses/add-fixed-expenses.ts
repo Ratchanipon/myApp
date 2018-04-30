@@ -7,6 +7,7 @@ import { FixedExpenses } from '../../model/fixed-expenses';
 import { AddFixedExpensesProvider } from '../../providers/fixed-expenses-services/add-fixed_expenses';
 import { CameraOptions, Camera } from '@ionic-native/camera';
 import { storage ,initializeApp } from 'firebase';
+import { FixedExpensesProvider } from '../../providers/fixed-expenses-services/fixed-expenses';
 
 /**
  * Generated class for the AddFixedExpensesPage page.
@@ -33,11 +34,13 @@ initializeApp(config);
 export class AddFixedExpensesPage {
 
   animateClass:any;
+  animate2Class:any;
   iconClass:any;
   fixedExpensesCate:any;
   paymentCate:any;
   
   fixedExpenses:FormGroup;
+  fixedExpensesList:any;
 
   images:string="";
   options:CameraOptions;
@@ -50,6 +53,7 @@ export class AddFixedExpensesPage {
               public toastCtrl: ToastController,
               public fixedExpCate: CateFixedExpensesProvider,
               public paymentCate_: CatePaymentChannelProvider,
+              public fixedExpenses_: FixedExpensesProvider,
               public addFixedExp: AddFixedExpensesProvider) {
 
                 this.options  = {
@@ -64,11 +68,18 @@ export class AddFixedExpensesPage {
                 };
 
                 this.form();
+                this.fixedExpenses_.getFixedExpenses().then(data => {
+                  this.fixedExpensesList = data;
+                  console.log(this.fixedExpensesList);
+                  
+                })
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddFixedExpensesPage');
     this.animateClass = { 'fade-in-item': true };
+
+    this.animate2Class = { 'fade-in-item2': true };
     // this.iconClass = {'material-icons' : true};
 
     this.form();

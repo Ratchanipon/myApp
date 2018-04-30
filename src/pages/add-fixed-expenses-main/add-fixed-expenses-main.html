@@ -77,7 +77,7 @@
                 <ion-list no-margin>
                 <!-- Header Top -->
                
-                <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of fixedExpensesList" (click)="editFixedExpenses(item)">
+                <ion-item border no-lines [ngClass]="animate2Class" *ngFor="let item of fixedExpensesList" (click)="editFixedExpenses(item)">
     
                   <h2 item-title text-wrap>{{item.category}}</h2>
                   <p item-subtitle text-wrap>{{item.created}}</p>
@@ -89,7 +89,7 @@
               </ion-list>
             </ion-col>
           </ion-row>
-          <div no-lines [ngClass]="animateClass" padding>
+          <div no-lines [ngClass]="animate2Class" padding>
             <button ion-button default-button full text-capitalize  navPush="HomePage">บันทึก</button>
             <!-- <button ion-button full navPush="">ยกเลิก</button> -->
           </div>

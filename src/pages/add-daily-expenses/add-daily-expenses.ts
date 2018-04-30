@@ -33,6 +33,7 @@ initializeApp(config);
 })
 export class AddDailyExpensesPage {
   animateClass:any;
+  animate2Class:any;
   dailyExpenses:FormGroup;
   dailyExpensesCate:any;
   paymentCate:any;
@@ -75,6 +76,8 @@ export class AddDailyExpensesPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddDailyExpensesPage');
     this.animateClass = { 'fade-in-item': true };
+
+    this.animate2Class = { 'fade-in-item2': true };
     this.form();
 
     this.dailyExpCate.getCateDailyExpenses().then(data => {

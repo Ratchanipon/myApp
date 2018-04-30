@@ -38,6 +38,7 @@ export class AddIncomePage {
   income:FormGroup;
 
   animateClass:any;
+  animate2Class:any;
 
   incomeList:Income;
 
@@ -77,6 +78,8 @@ export class AddIncomePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddIncomePage');
     this.animateClass = { 'fade-in-item': true };
+
+    this.animate2Class = { 'fade-in-item2': true };
     this.form();
 
     this.incomeCate.getCateIncome().then(data => {

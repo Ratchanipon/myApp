@@ -5,6 +5,13 @@ page-add-income-main {
         -o-animation: fadeInDownBig 800ms;
         animation: fadeInDownBig 800ms;
       }
+
+      .fade-in-item2 {
+        -webkit-animation: fadeInRight 800ms;
+        -moz-animation: fadeInRight 800ms;
+        -o-animation: fadeInRight 800ms;
+        animation: fadeInRight 800ms;
+      }
       
       [background-color] {
         background-color: #f7f7f7;

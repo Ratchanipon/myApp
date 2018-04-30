@@ -34,6 +34,7 @@ initializeApp(config);
 })
 export class AddFixedExpensesMainPage {
   animateClass:any;
+  animate2Class:any;
   fixedExpensesCate:any;
   paymentCate:any;
   
@@ -77,6 +78,8 @@ export class AddFixedExpensesMainPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddFixedExpensesPage');
     this.animateClass = { 'fade-in-item': true };
+
+    this.animate2Class = { 'fade-in-item2': true };
     this.form();
 
     this.fixedExpCate.getCateFixedExpenses().then(data => {

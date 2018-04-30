@@ -72,7 +72,7 @@
       
                             <!-- <ion-list-header color="listHead"><h2><b>รายการรายรับ</b></h2></ion-list-header> -->
       
-                            <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of incomeList; let i = index;" (click)="editIncome(item)">  
+                            <ion-item border no-lines [ngClass]="animate2Class" *ngFor="let item of incomeList; let i = index;" (click)="editIncome(item)">  
                               <h2 item-title text-wrap>{{item.category}}</h2>
                               <p item-subtitle text-wrap>{{item.created}}</p>
                                 <div item-content>
@@ -82,7 +82,7 @@
                 </ion-list>
               </ion-col>
             </ion-row>
-            <div no-lines [ngClass]="animateClass" padding>
+            <div no-lines [ngClass]="animate2Class" padding>
                 <button ion-button default-button full text-capitalize  navPush="AddFixedExpensesPage">บันทึก</button>
                 </div>
 </ion-col>
