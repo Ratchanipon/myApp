@@ -46,8 +46,15 @@
             </ion-item>
 
             <!-- <button ion-button default-button (click)="takePicture()">รูปภาพ</button> -->
-            <img src="http://haras.gov.ly/wp-content/uploads/2017/01/icon-g1allery-1.png" style="width: 20%; height: 20%;" (click)="takePicture()" />  
-            <br>
+
+            <ion-item>
+                <div align="center">
+                    <!-- <ion-label floating ><i class="material-icons">camera_alt</i>&nbsp;&nbsp;&nbsp; รูปภาพ</ion-label> -->
+                    <img src="assets/images/logo/camera.png"  style="width: 16%; height: 10%;" (click)="takePicture()" />
+                    <!-- <img src="assets/images/logo/camera.png" style="width: 8%; height: 5%;" (click)="takePicture()" /> -->
+                </div>
+            </ion-item>
+                <br>
             <div>
                 <img *ngIf="images!=''" src="{{images}}|async" style="width: 50%; height: 80%;" />  
             </div>
@@ -62,9 +69,28 @@
 
         </ion-card>
         <div no-lines [ngClass]="animateClass" padding>
-                <button ion-button default-button full text-capitalize  [disabled]="!income.valid">บันทึก</button>
+                <button ion-button default-button full text-capitalize  [disabled]="!income.valid">เพิ่ม</button>
                 <!-- <button ion-button full navPush="">ยกเลิก</button> -->
               </div>
+              <ion-row>
+                    <ion-col col-12>
+                        <ion-list no-margin>
+              
+                                    <!-- <ion-list-header color="listHead"><h2><b>รายการรายรับ</b></h2></ion-list-header> -->
+              
+                                    <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of incomeList; let i = index;" (click)="editIncome(item)">  
+                                      <h2 item-title text-wrap>{{item.category}}</h2>
+                                      <p item-subtitle text-wrap>{{item.created}}</p>
+                                        <div item-content>
+                                          <ion-badge color="secondary">{{item.amount*1 | number:'.2-2'}} ฿</ion-badge>
+                                        </div>
+                                    </ion-item>
+                        </ion-list>
+                      </ion-col>
+                    </ion-row>
+                    <div no-lines [ngClass]="animateClass" padding>
+                            <button ion-button default-button full text-capitalize  navPush="AddFixedExpensesPage">บันทึก</button>
+                            </div>
     </ion-col>
 
 </form>

@@ -6,6 +6,7 @@ import { CateIncomeProvider } from '../../providers/category-services/cate-icome
 import { Income } from '../../model/income';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { storage ,initializeApp } from 'firebase';
+import { IncomeProvider } from '../../providers/income-services/income';
 
 /**
  * Generated class for the AddIncomeMainPage page.
@@ -47,6 +48,7 @@ export class AddIncomeMainPage {
               public formBuilder: FormBuilder,
               public addIncom_: AddIncomeProvider,
               public incomeCate: CateIncomeProvider,
+              public income_2: IncomeProvider,
               public camera:Camera,
               public toastCtrl: ToastController) {
 
@@ -60,7 +62,11 @@ export class AddIncomeMainPage {
                   correctOrientation: true,
                   cameraDirection:1
                 };
-                this.form();             
+                this.form();      
+                this.income_2.getIncome().then((data:Income) => {
+                  this.incomeList = data;
+        
+            })       
 
   }
 
