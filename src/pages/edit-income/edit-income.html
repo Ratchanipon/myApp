@@ -19,7 +19,7 @@
           <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4>
               <ion-card text-left [ngClass]="animateClass">
                   <ion-card >
-                      <ion-item color="disExpenses">
+                      <ion-item color="incomeM">
                           แก้ไขรายรับ
                           <!-- <i [ngClass]="iconClass">face</i> -->
                           
@@ -45,11 +45,16 @@
                       <ion-label floating ><i class="material-icons">date_range</i>&nbsp;&nbsp;&nbsp; วัน/เดือน/ปี</ion-label>
                       <ion-datetime displayFormat="D/MM/YYYY" pickerFormat="D MM YYYY" formControlName="created"></ion-datetime>
               </ion-item>
-  
+              
               <!-- <ion-button (click)="upload()" ion-button >รูปภาพ</ion-button> -->
                   <!-- <img name="images"   style="width:60px; height:60px;"/> -->
-                  <img src="http://haras.gov.ly/wp-content/uploads/2017/01/icon-g1allery-1.png" style="width: 20%; height: 20%;" (click)="takePicture()" />  
-                  <br>
+                  <ion-item>
+                      <div align="center">
+                          <!-- <ion-label floating ><i class="material-icons">camera_alt</i>&nbsp;&nbsp;&nbsp; รูปภาพ</ion-label> -->
+                          <img src="assets/images/logo/camera.png"  style="width: 14%; height: 10%;" (click)="takePicture()" />
+                          <!-- <img src="assets/images/logo/camera.png" style="width: 8%; height: 5%;" (click)="takePicture()" /> -->
+                      </div>
+                  </ion-item>
                   <div>
                       <img *ngIf="images!=''" src="{{images}}|async" style="width: 50%; height: 80%;" />  
                   </div>
