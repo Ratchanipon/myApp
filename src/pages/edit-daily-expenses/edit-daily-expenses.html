@@ -52,8 +52,14 @@
                     <ion-datetime displayFormat="D/MM/YYYY" pickerFormat="D MM YYYY" formControlName="created"></ion-datetime>
             </ion-item>
 
-            <!-- <ion-button (click)="upload()" ion-button >รูปภาพ</ion-button> -->
-                <!-- <img name="images"   style="width:60px; height:60px;"/> -->
+            <ion-item>
+                <div align="center">
+                    <img src="assets/images/logo/camera.png"  style="width: 14%; height: 10%;" (click)="takePicture()" />
+                </div>
+              </ion-item>
+              <div align="center">
+                <img *ngIf="images!=''" src="{{images}}|async" style="width: 80%; height: 75%;" />  
+              </div>
 
 
         </div>

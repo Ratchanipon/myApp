@@ -39,6 +39,8 @@ export class EditIncomePage {
 
   data:any;
   dataE:any;
+
+  options:CameraOptions;
   images:string="";
 
   constructor(public navCtrl: NavController, 
@@ -80,9 +82,7 @@ export class EditIncomePage {
     let user_id = localStorage.getItem("user_id");
     let date = new Date;
     let d = date.getDate();
-    // let m = date.getMonth();
-    // let y = date.getFullYear();
-    // console.log(datenow);
+
 
     //รับค่าจาก IncomePage
     this.data = this.navParams.data;
@@ -124,6 +124,20 @@ export class EditIncomePage {
   editIncomeSuccess() {
     let toast = this.toastCtrl.create({
       message: 'บันทึกรายการสำเร็จ',
+      duration: 3000,
+      position: 'top'
+    });
+  
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+  
+    toast.present();
+  }
+
+  presentToast(messages) {
+    let toast = this.toastCtrl.create({
+      message: messages,
       duration: 3000,
       position: 'top'
     });
