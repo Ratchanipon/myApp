@@ -5,6 +5,7 @@ import { CatePaymentChannelProvider } from '../../providers/category-services/ca
 import { AddDailyExpensesProvider } from '../../providers/daily-expenses-services/add-daily-expenses';
 import { CateDailyExpensesProvider } from '../../providers/category-services/cate-daily-expenses';
 import { DailyExpenses } from '../../model/add-daily-expenses';
+import { DailyExpensesProvider } from '../../providers/daily-expenses-services/daily-expenses';
 
 /**
  * Generated class for the AddDailyExpensesPage page.
@@ -24,6 +25,8 @@ export class AddDailyExpensesPage {
   dailyExpensesCate:any;
   paymentCate:any;
 
+  dailyExpensesList:any;
+
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public app: App,
@@ -31,9 +34,13 @@ export class AddDailyExpensesPage {
               public toastCtrl: ToastController,
               public dailyExpCate: CateDailyExpensesProvider,
               public paymentCate_: CatePaymentChannelProvider,
+              public dailyExpenses_: DailyExpensesProvider,
               public addDailyExp: AddDailyExpensesProvider) {
 
                 this.form();
+                this.dailyExpenses_.getDailyExpenses().then(data => {
+                  this.dailyExpensesList = data;
+                })
   }
 
   ionViewDidLoad() {

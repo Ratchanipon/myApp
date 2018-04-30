@@ -5,6 +5,7 @@ import { CateFixedExpensesProvider } from '../../providers/category-services/cat
 import { CatePaymentChannelProvider } from '../../providers/category-services/cate-payment-channel';
 import { FixedExpenses } from '../../model/fixed-expenses';
 import { AddFixedExpensesProvider } from '../../providers/fixed-expenses-services/add-fixed_expenses';
+import { FixedExpensesProvider } from '../../providers/fixed-expenses-services/fixed-expenses';
 
 /**
  * Generated class for the AddFixedExpensesMainPage page.
@@ -25,6 +26,8 @@ export class AddFixedExpensesMainPage {
   
   fixedExpenses:FormGroup;
 
+  fixedExpensesList:any;
+
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public app: App,
@@ -32,9 +35,15 @@ export class AddFixedExpensesMainPage {
               public toastCtrl: ToastController,
               public fixedExpCate: CateFixedExpensesProvider,
               public paymentCate_: CatePaymentChannelProvider,
+              public fixedExpenses_: FixedExpensesProvider,
               public addFixedExp: AddFixedExpensesProvider) {
 
                 this.form();
+                this.fixedExpenses_.getFixedExpenses().then(data => {
+                  this.fixedExpensesList = data;
+                  console.log(this.fixedExpensesList);
+                  
+                })
   }
 
   ionViewDidLoad() {

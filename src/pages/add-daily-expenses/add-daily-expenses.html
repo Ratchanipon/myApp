@@ -63,10 +63,37 @@
         
     </ion-card>
             <div no-lines [ngClass]="animateClass" padding>
-                <button ion-button default-button full text-capitalize  [disabled]="!dailyExpenses.valid">บันทึก</button>
+                <button ion-button default-button full text-capitalize  [disabled]="!dailyExpenses.valid">เพิ่ม</button>
                  <!-- <button ion-button full navPush="">ยกเลิก</button> -->
             </div>
     </ion-col>
+    <ion-row>
+        <ion-col col-12>
+            <ion-list no-margin>
+            <!-- Header Top -->
+          
+            <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of dailyExpensesList" (click)="editDailyExpenses(item)">
+              <!-- Avatar -->
+              <!-- <ion-avatar item-start>
+                <img [src]="element.image" alt="{{element.title}}" />
+              </ion-avatar> -->
+              <!-- Title -->
+              <h2 item-title text-wrap>{{item.category}}</h2>
+              <!-- Subtitle -->
+              <p item-subtitle text-wrap>{{item.created}}</p>
+              <!-- Badge -->
+              <div item-content>
+                <ion-badge color="disExpenses">{{item.amount*1 | number:'.2-2'}} ฿</ion-badge>
+              </div>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <div no-lines [ngClass]="animateClass" padding>
+        <button ion-button default-button full text-capitalize  navPush="HomePage">บันทึก</button>
+        <!-- <button ion-button full navPush="">ยกเลิก</button> -->
+      </div>
 
 </form>
 </ion-content>

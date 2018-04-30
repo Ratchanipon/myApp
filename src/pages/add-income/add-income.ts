@@ -26,15 +26,23 @@ export class AddIncomePage {
 
   animateClass:any;
 
+  incomeList:Income;
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public app: App,
               public formBuilder: FormBuilder,
               public addIncom_: AddIncomeProvider,
               public incomeCate: CateIncomeProvider,
+              public income_: IncomeProvider,
               public toastCtrl: ToastController) {
 
                 this.form();
+
+                //ดึงรายการรายรับ
+          this.income_.getIncome().then((data:Income) => {
+          this.incomeList = data;
+
+    })
   }
 
   ionViewDidLoad() {
