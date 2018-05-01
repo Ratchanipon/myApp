@@ -6,8 +6,9 @@ import { CatePaymentChannelProvider } from '../../providers/category-services/ca
 import { FixedExpenses } from '../../model/fixed-expenses';
 import { AddFixedExpensesProvider } from '../../providers/fixed-expenses-services/add-fixed_expenses';
 import { CameraOptions, Camera } from '@ionic-native/camera';
-import { storage ,initializeApp } from 'firebase';
+import { storage } from 'firebase';
 import { FixedExpensesProvider } from '../../providers/fixed-expenses-services/fixed-expenses';
+import { initializeApp } from 'firebase/app';
 
 /**
  * Generated class for the AddFixedExpensesPage page.

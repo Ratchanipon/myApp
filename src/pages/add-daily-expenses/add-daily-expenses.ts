@@ -7,7 +7,8 @@ import { CateDailyExpensesProvider } from '../../providers/category-services/cat
 import { DailyExpenses } from '../../model/add-daily-expenses';
 import { DailyExpensesProvider } from '../../providers/daily-expenses-services/daily-expenses';
 import { CameraOptions, Camera } from '@ionic-native/camera';
-import { storage ,initializeApp } from 'firebase';
+import { storage } from 'firebase';
+import { initializeApp } from 'firebase/app';
 
 /**
  * Generated class for the AddDailyExpensesPage page.
