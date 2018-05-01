@@ -7,8 +7,9 @@ import { FixedExpenses } from '../../model/fixed-expenses';
 import { AddFixedExpensesProvider } from '../../providers/fixed-expenses-services/add-fixed_expenses';
 import { FixedExpensesProvider } from '../../providers/fixed-expenses-services/fixed-expenses';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-import { storage } from 'firebase';
-import { initializeApp } from 'firebase/app';
+import { storage, initializeApp } from 'firebase';
+import { FirebaseConfig } from '../../app/firebae-Config';
+// import { initializeApp } from 'firebase/app';
 
 /**
  * Generated class for the AddFixedExpensesMainPage page.
@@ -17,16 +18,16 @@ import { initializeApp } from 'firebase/app';
  * Ionic pages and navigation.
  */
 
-var config = {
-  apiKey: "AIzaSyBiTQt8D-8MFdhk1m1HJtZaMu4eNf7Ywa0",
-  authDomain: "fchs-526b9.firebaseapp.com",
-  databaseURL: "https://fchs-526b9.firebaseio.com",
-  projectId: "fchs-526b9",
-  storageBucket: "fchs-526b9.appspot.com",
-  messagingSenderId: "405662539355"
-};
+// var config = {
+//   apiKey: "AIzaSyBiTQt8D-8MFdhk1m1HJtZaMu4eNf7Ywa0",
+//   authDomain: "fchs-526b9.firebaseapp.com",
+//   databaseURL: "https://fchs-526b9.firebaseio.com",
+//   projectId: "fchs-526b9",
+//   storageBucket: "fchs-526b9.appspot.com",
+//   messagingSenderId: "405662539355"
+// };
 
-initializeApp(config);
+// initializeApp(config);
 
 @IonicPage()
 @Component({
@@ -164,7 +165,7 @@ export class AddFixedExpensesMainPage {
         
         const result = await this.camera.getPicture(this.options);
         const image = 'data:image/jpeg;base64,'+result;
-        const picture = storage().ref().child('images/'+name+'.jpg');
+        const picture = storage().ref().child('images2/'+name+'.jpg');
         picture.putString(image,'data_url').then(data=>{
           this.loadpicture(name);
           this.presentToast('up :'+data.state)
@@ -179,7 +180,7 @@ export class AddFixedExpensesMainPage {
 
   async loadpicture(name){
 
-    let file =  storage().ref().child('images/'+name+'.jpg');
+    let file =  storage().ref().child('images2/'+name+'.jpg');
     await file.getDownloadURL().then(url=>{
       this.images = url;
       this.fixedExpenses.controls['images'].setValue(url);

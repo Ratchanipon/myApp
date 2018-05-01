@@ -7,6 +7,7 @@ import { IncomeProvider } from '../../providers/income-services/income';
 import { CateIncomeProvider } from '../../providers/category-services/cate-icome';
 import { storage } from 'firebase';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { FirebaseConfig } from '../../app/firebae-Config';
 import { initializeApp } from 'firebase/app';
 
 /**
@@ -16,16 +17,16 @@ import { initializeApp } from 'firebase/app';
  * Ionic pages and navigation.
  */
 
-var config = {
-  apiKey: "AIzaSyBiTQt8D-8MFdhk1m1HJtZaMu4eNf7Ywa0",
-  authDomain: "fchs-526b9.firebaseapp.com",
-  databaseURL: "https://fchs-526b9.firebaseio.com",
-  projectId: "fchs-526b9",
-  storageBucket: "fchs-526b9.appspot.com",
-  messagingSenderId: "405662539355"
-};
+// var config = {
+//   apiKey: "AIzaSyBiTQt8D-8MFdhk1m1HJtZaMu4eNf7Ywa0",
+//   authDomain: "fchs-526b9.firebaseapp.com",
+//   databaseURL: "https://fchs-526b9.firebaseio.com",
+//   projectId: "fchs-526b9",
+//   storageBucket: "fchs-526b9.appspot.com",
+//   messagingSenderId: "405662539355"
+// };
 
-initializeApp(config);
+initializeApp(FirebaseConfig);
 
 @IonicPage()
 @Component({

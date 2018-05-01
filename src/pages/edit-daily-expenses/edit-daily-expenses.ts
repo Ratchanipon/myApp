@@ -8,6 +8,7 @@ import { EditDailyExpensesProvider } from '../../providers/daily-expenses-servic
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { storage } from 'firebase';
 import { initializeApp } from 'firebase/app';
+import { FirebaseConfig } from '../../app/firebae-Config';
 
 /**
  * Generated class for the EditDailyExpensesPage page.
@@ -15,15 +16,15 @@ import { initializeApp } from 'firebase/app';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var config = {
-  apiKey: "AIzaSyBiTQt8D-8MFdhk1m1HJtZaMu4eNf7Ywa0",
-  authDomain: "fchs-526b9.firebaseapp.com",
-  databaseURL: "https://fchs-526b9.firebaseio.com",
-  projectId: "fchs-526b9",
-  storageBucket: "fchs-526b9.appspot.com",
-  messagingSenderId: "405662539355"
-};
-initializeApp(config);
+// var config = {
+//   apiKey: "AIzaSyBiTQt8D-8MFdhk1m1HJtZaMu4eNf7Ywa0",
+//   authDomain: "fchs-526b9.firebaseapp.com",
+//   databaseURL: "https://fchs-526b9.firebaseio.com",
+//   projectId: "fchs-526b9",
+//   storageBucket: "fchs-526b9.appspot.com",
+//   messagingSenderId: "405662539355"
+// };
+initializeApp(FirebaseConfig);
 
 @IonicPage()
 @Component({
@@ -106,8 +107,8 @@ export class EditDailyExpensesPage {
   }
 
   editDailyExpenses(dailyExpenses:DailyExpenses){
-    console.log(dailyExpenses);
     
+    console.log(dailyExpenses);
     this.editDailyExp.editDailyExpenses(this.dailyExpenses.value);
 
     if(dailyExpenses != null){
@@ -159,7 +160,7 @@ export class EditDailyExpensesPage {
         
         const result = await this.camera.getPicture(this.options);
         const image = 'data:image/jpeg;base64,'+result;
-        const picture = storage().ref().child('images/'+name+'.jpg');
+        const picture = storage().ref().child('images3/'+name+'.jpg');
         picture.putString(image,'data_url').then(data=>{
           this.loadpicture(name);
           this.presentToast('up :'+data.state)
@@ -174,7 +175,7 @@ export class EditDailyExpensesPage {
 
   async loadpicture(name){
 
-    let file =  storage().ref().child('images/'+name+'.jpg');
+    let file =  storage().ref().child('images3/'+name+'.jpg');
     await file.getDownloadURL().then(url=>{
       this.images = url;
       this.dailyExpenses.controls['images'].setValue(url);

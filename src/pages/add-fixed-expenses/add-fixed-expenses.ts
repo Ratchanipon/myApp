@@ -5,10 +5,13 @@ import { CateFixedExpensesProvider } from '../../providers/category-services/cat
 import { CatePaymentChannelProvider } from '../../providers/category-services/cate-payment-channel';
 import { FixedExpenses } from '../../model/fixed-expenses';
 import { AddFixedExpensesProvider } from '../../providers/fixed-expenses-services/add-fixed_expenses';
-import { CameraOptions, Camera } from '@ionic-native/camera';
-import { storage } from 'firebase';
+
 import { FixedExpensesProvider } from '../../providers/fixed-expenses-services/fixed-expenses';
-import { initializeApp } from 'firebase/app';
+import { CameraOptions, Camera } from '@ionic-native/camera';
+import { storage, initializeApp } from 'firebase';
+import { FirebaseConfig } from '../../app/firebae-Config';
+
+// import { initializeApp } from 'firebase/app';
 
 /**
  * Generated class for the AddFixedExpensesPage page.
@@ -16,16 +19,16 @@ import { initializeApp } from 'firebase/app';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var config = {
-  apiKey: "AIzaSyBiTQt8D-8MFdhk1m1HJtZaMu4eNf7Ywa0",
-  authDomain: "fchs-526b9.firebaseapp.com",
-  databaseURL: "https://fchs-526b9.firebaseio.com",
-  projectId: "fchs-526b9",
-  storageBucket: "fchs-526b9.appspot.com",
-  messagingSenderId: "405662539355"
-};
+// var config = {
+//   apiKey: "AIzaSyBiTQt8D-8MFdhk1m1HJtZaMu4eNf7Ywa0",
+//   authDomain: "fchs-526b9.firebaseapp.com",
+//   databaseURL: "https://fchs-526b9.firebaseio.com",
+//   projectId: "fchs-526b9",
+//   storageBucket: "fchs-526b9.appspot.com",
+//   messagingSenderId: "405662539355"
+// };
 
-initializeApp(config);
+initializeApp(FirebaseConfig);
 
 @IonicPage()
 @Component({

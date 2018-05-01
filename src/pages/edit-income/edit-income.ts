@@ -5,8 +5,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CateIncomeProvider } from '../../providers/category-services/cate-icome';
 import { EditIncomeProvider } from '../../providers/income-services/edit-income';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-import { storage } from 'firebase';
-import { initializeApp } from 'firebase/app';
+import { storage, initializeApp } from 'firebase';
+import { FirebaseConfig } from '../../app/firebae-Config';
+
+// import { initializeApp } from 'firebase/app';
 
 
 /**
@@ -16,15 +18,15 @@ import { initializeApp } from 'firebase/app';
  * Ionic pages and navigation.
  */
 
-var config = {
-  apiKey: "AIzaSyBiTQt8D-8MFdhk1m1HJtZaMu4eNf7Ywa0",
-  authDomain: "fchs-526b9.firebaseapp.com",
-  databaseURL: "https://fchs-526b9.firebaseio.com",
-  projectId: "fchs-526b9",
-  storageBucket: "fchs-526b9.appspot.com",
-  messagingSenderId: "405662539355"
-};
-initializeApp(config);
+// var config = {
+//   apiKey: "AIzaSyBiTQt8D-8MFdhk1m1HJtZaMu4eNf7Ywa0",
+//   authDomain: "fchs-526b9.firebaseapp.com",
+//   databaseURL: "https://fchs-526b9.firebaseio.com",
+//   projectId: "fchs-526b9",
+//   storageBucket: "fchs-526b9.appspot.com",
+//   messagingSenderId: "405662539355"
+// };
+initializeApp(FirebaseConfig);
 
 @IonicPage()
 @Component({

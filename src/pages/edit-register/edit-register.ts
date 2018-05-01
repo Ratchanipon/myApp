@@ -83,16 +83,16 @@ export class EditRegisterPage {
 
   }
   register(user:User){
-    // ทดสอบดูค่าต่างๆ ที่ส่งมาจากฟอร์ม 
-    // console.log(this.user);
-    this.editUser.EditUserProvider(this.user.value).then(user => {
-      console.error(user);
+
+    console.log("user======",user);
+    this.editUser.EditUserProvider(this.user.value);
+      console.log("user======",user);
 
       if(user != null){
         this.addUserSuccess();
         // this.navCtrl.push('RegisterPage');
-        // localStorage.setItem("user_id",user.id);
-        // localStorage.setItem("email",user.email);
+        localStorage.setItem("user_id",user.id);
+        localStorage.setItem("email",user.email);
         // this.navCtrl.setRoot('DueDatePage',{'user':user});   
         // const root = this.app.getRootNav();
         // root.popToRoot();
@@ -102,10 +102,6 @@ export class EditRegisterPage {
          
         
       }
-      if(user == null){
-        this.Duplicate();
-      }
-    })
     // console.log(user.value);
     // console.log(user.valid);
   }
@@ -114,20 +110,6 @@ export class EditRegisterPage {
   addUserSuccess() {
     let toast = this.toastCtrl.create({
       message: 'สร้างบัญชีผู้ใช้งานสำเร็จ',
-      duration: 3000,
-      position: 'top'
-    });
-  
-    toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
-    });
-  
-    toast.present();
-  }
-
-  Duplicate() {
-    let toast = this.toastCtrl.create({
-      message: 'มีอีเมลนี้อยู่ในระบบแล้ว กรุณากรอกอีเมลอีกครั้ง',
       duration: 3000,
       position: 'top'
     });
