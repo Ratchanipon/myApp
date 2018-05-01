@@ -1,0 +1,52 @@
+<!--
+  Generated template for the AddIncomeMainPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="primary">
+      <ion-title>จัดการงบการเงินส่วนบุคคล</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content background-color>
+    <!-- {{cate_id}}{{category}} -->
+      
+          <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4>
+              <ion-card text-left [ngClass]="animateClass">
+                  <ion-card >
+                      <ion-item color="incomeM">
+                          รายละเอียดรายรับ
+                          <!-- <i [ngClass]="iconClass">face</i> -->
+                          
+                      </ion-item>
+                  </ion-card>  
+        <div border no-lines [ngClass]="animateClass">
+      
+              <ion-item [ngClass]="animateClass">
+                  <ion-label><i class="material-icons">layers</i>&nbsp;&nbsp;&nbsp; หมวดหมู่ : {{category}}</ion-label>
+              </ion-item>
+              <ion-item [ngClass]="animateClass">
+                  <ion-label><i class="material-icons">layers</i>&nbsp;&nbsp;&nbsp; จำนวนเงิน : {{amount}}</ion-label>
+              </ion-item>
+              <ion-item [ngClass]="animateClass">
+                  <ion-label><i class="material-icons">layers</i>&nbsp;&nbsp;&nbsp; วันที่สร้าง : {{created}}</ion-label>
+              </ion-item >
+
+                  <div align="center" [ngClass]="animateClass">
+                      <img *ngIf="images!=''" src="{{images}}|async" style="width: 80%; height: 75%;" />  
+                  </div>
+  
+  
+          </div>
+          </ion-card>
+
+          </ion-col>
+       
+  
+  </ion-content>
+  

@@ -70,6 +70,9 @@ export class EditIncomePage {
   }
 
   ionViewDidLoad() {
+
+    this.animateClass = { 'fade-in-right-item': true };
+
     console.log('ionViewDidLoad EditIncomePage');
     this.animateClass = { 'fade-in-item': true };
     this.form();
@@ -92,6 +95,8 @@ export class EditIncomePage {
     let income_id = this.data.income_id;
     let amount = this.data.amount;
     let category = this.data.category;
+    console.log("category----",category);
+    
     let created = this.data.created;
     let cate_id = this.data.income_cate_id;  
 
