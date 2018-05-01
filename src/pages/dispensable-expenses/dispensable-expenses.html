@@ -44,21 +44,26 @@
           <ion-icon icon-small name="calendar"></ion-icon>
         </button>
     </div>
+    <div  [ngClass]="animateClass" >
+        
+            <img src="assets/images/summary/1.png"  /> 
+            <ion-card >
+                    <ion-item *ngFor="let item of sumDispensableExp" color="listHead">
+                    <h2>รายจ่ายที่ไม่จำเป็นทั้งหมด:</h2>
+                        <div item-content>
+                            <ion-badge color="disExpenses">{{item.total*1 | number:'.2-2'}} ฿</ion-badge>
+                        </div>  
+                    </ion-item>
+            </ion-card>
+    </div>
 
-    <ion-card>
-        <ion-item *ngFor="let item of sumDispensableExp" color="list">
-        <h2>รายจ่ายที่ไม่จำเป็นทั้งหมด:</h2>
-            <div item-content>
-                <ion-badge color="disExpenses">{{item.total*1 | number:'.2-2'}} ฿</ion-badge>
-            </div>  
-        </ion-item>
-    </ion-card>
+   
 
     <ion-row>
         <ion-col col-12>
             <ion-list no-margin>
             <!-- Header Top -->
-            <ion-list-header color="listHead"><h2><b>รายการรายจ่ายที่ไม่จำเป็น</b></h2></ion-list-header>
+            
             <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of dispensableExpList let i = index;">
               
               <h2 item-title text-wrap>{{item.categoryExp}}</h2>
@@ -66,7 +71,7 @@
               <p item-subtitle text-wrap>{{item.created}}</p>
               <!-- Badge -->
               <div item-content>
-                <ion-badge class="badge-light">{{item.amount*1 | number:'.2-2'}} ฿</ion-badge>
+                <ion-badge color="disExpenses" >{{item.amount*1 | number:'.2-2'}} ฿</ion-badge>
               </div>
 
             </ion-item>

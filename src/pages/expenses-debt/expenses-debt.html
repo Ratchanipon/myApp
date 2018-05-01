@@ -48,15 +48,17 @@
     <ion-col col-12>
         <ion-list no-margin>
 
-        <ion-list-header color="listHead"><h2><b>รายการรายจ่ายที่ก่อให้เกิดหนี้สิน</b></h2></ion-list-header>
+                <div [ngClass]="animateClass">
+                        <img src="assets/images/summary/4.png"  /> 
+                    </div>
             <ion-item border no-lines [ngClass]="animateClass" *ngFor = "let item of expensesDebtList" color = "list">
-                <h2>บัตรเครดิต:</h2>
+                <h2><ion-icon name="card"></ion-icon>&nbsp;บัตรเครดิต:</h2>
             <div item-content>
                 <ion-badge color="disExpenses">{{item.creditCard*1 | number:'.2-2'}} ฿</ion-badge>
             </div> 
             </ion-item>
             <ion-item  border no-lines [ngClass]="animateClass" *ngFor = "let item of expensesDebtList" color = "list">
-                <h2>บัตรผ่อนสินค้า:</h2>
+                <h2><ion-icon name="cash"></ion-icon>&nbsp;บัตรผ่อนสินค้า:</h2>
             <div item-content>
                 <ion-badge color="disExpenses">{{item.paymentCard*1 | number:'.2-2'}} ฿</ion-badge>
             </div> 

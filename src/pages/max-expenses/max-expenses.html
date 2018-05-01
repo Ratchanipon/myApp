@@ -56,7 +56,9 @@
 
   <ion-list>
       <!-- Header Top -->
-      <ion-list-header color="listHead"><h2><b>รายการรายจ่ายสูงสุด</b></h2></ion-list-header>
+      <div border no-lines [ngClass]="animateClass">
+          <img src="assets/images/summary/3.png"  /> 
+      </div>
       <ion-item border no-lines [ngClass]="animateClass" *ngFor="let item of maxExpenses let i = index;">
         
         <h2 item-title text-wrap>{{item.cateName}}</h2>
