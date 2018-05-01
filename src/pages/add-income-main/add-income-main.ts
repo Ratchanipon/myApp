@@ -5,8 +5,9 @@ import { AddIncomeProvider } from '../../providers/income-services/add-income';
 import { CateIncomeProvider } from '../../providers/category-services/cate-icome';
 import { Income } from '../../model/income';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-import { storage ,initializeApp } from 'firebase';
+import { storage } from 'firebase';
 import { IncomeProvider } from '../../providers/income-services/income';
+import { initializeApp } from 'firebase/app';
 
 /**
  * Generated class for the AddIncomeMainPage page.

@@ -5,7 +5,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CateIncomeProvider } from '../../providers/category-services/cate-icome';
 import { EditIncomeProvider } from '../../providers/income-services/edit-income';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-import { storage ,initializeApp } from 'firebase';
+import { storage } from 'firebase';
+import { initializeApp } from 'firebase/app';
 
 
 /**

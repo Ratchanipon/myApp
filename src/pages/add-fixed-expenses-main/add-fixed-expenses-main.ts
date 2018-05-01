@@ -7,7 +7,8 @@ import { FixedExpenses } from '../../model/fixed-expenses';
 import { AddFixedExpensesProvider } from '../../providers/fixed-expenses-services/add-fixed_expenses';
 import { FixedExpensesProvider } from '../../providers/fixed-expenses-services/fixed-expenses';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-import { storage ,initializeApp } from 'firebase';
+import { storage } from 'firebase';
+import { initializeApp } from 'firebase/app';
 
 /**
  * Generated class for the AddFixedExpensesMainPage page.
