@@ -32,30 +32,21 @@
         </ion-fab-list>
         
     </ion-fab>
+    <ion-list  [ngClass]="animateClass">
+        
+            <img src="assets/images/summary/2.png" navPush="ChannelExpensesPage" /> 
+        
+      </ion-list>
     
-    <ion-list border no-lines [ngClass]="animateClass" >
-    <ion-card  color="list">
-    <button ion-button default-button full text-capitalize full color="list" navPush="DispensableExpensesPage">
-       <font color="#000000"> รายจ่ายที่ไม่จำเป็น</font>
-    </button>
-    </ion-card>
+    <ion-list  [ngClass]="animateClass" >
+        
+            <img src="assets/images/summary/1.png" navPush="DispensableExpensesPage" /> 
+        
     </ion-list>
 
-    <ion-list border no-lines [ngClass]="animateClass">
-    <ion-card color="list">
-      <button ion-button default-button full text-capitalize full color="list" navPush="ChannelExpensesPage">
-        <font color="#000000"> รายจ่ายแต่ละช่องทาง</font>
-      </button>
-    </ion-card>
-    </ion-list>
-
-    <ion-list border no-lines [ngClass]="animateClass">
-    <ion-card color="list">
-      <button ion-button default-button full text-capitalize full color="list" navPush="MaxExpensesPage">
-        <font color="#000000"> อันดับรายจ่ายสูงสุด</font>
-      </button>
-    </ion-card>
-  </ion-list>
+      <ion-list border no-lines [ngClass]="animateClass">
+          <img src="assets/images/summary/3.png" navPush="MaxExpensesPage" /> 
+      </ion-list>
 
   <ion-list border no-lines [ngClass]="animateClass">
       <ion-card color="list">
