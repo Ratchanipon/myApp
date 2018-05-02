@@ -377,6 +377,14 @@ export class IncomePage {
       buttons: [
         {
           icon: 'create',
+          text: 'รายละเอียด',
+          handler: () => {
+            console.log(item.income_cate_id);
+            this.navCtrl.push('DetailIncomePage',item)
+          }
+        },
+        {
+          icon: 'create',
           text: 'แก้ไข',
           handler: () => {
             console.log(item.income_cate_id);
