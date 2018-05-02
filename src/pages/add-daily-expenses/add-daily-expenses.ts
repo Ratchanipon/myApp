@@ -9,6 +9,14 @@ import { DailyExpensesProvider } from '../../providers/daily-expenses-services/d
 import { CameraOptions, Camera } from '@ionic-native/camera';
 import { storage, initializeApp } from 'firebase';
 import { FirebaseConfig } from '../../app/firebae-Config';
+import { SumIncomeProvider } from '../../providers/calculate-services/sum-income';
+import { SumDailyExpensesProvider } from '../../providers/calculate-services/sum-daily-expenses';
+import { SumFixedExpensesProvider } from '../../providers/calculate-services/sum-fixed-expenses';
+import { SumIncome } from '../../model/get-sumIncome';
+import { SumFixedExp } from '../../model/get-sumFixedExp';
+import { SumDaileExp } from '../../model/get-sumDailyExp';
+
+import { AlertController } from 'ionic-angular';
 
 
 // import { initializeApp } from 'firebase/app';
@@ -28,7 +36,7 @@ import { FirebaseConfig } from '../../app/firebae-Config';
 //   messagingSenderId: "405662539355"
 // };
 
-initializeApp(FirebaseConfig);
+// initializeApp(FirebaseConfig);
 
 @IonicPage()
 @Component({
@@ -57,6 +65,10 @@ export class AddDailyExpensesPage {
               public paymentCate_: CatePaymentChannelProvider,
               public dailyExpenses_: DailyExpensesProvider,
               public camera:Camera,
+              public sumIncome: SumIncomeProvider,
+              public sumDailyExpenses: SumDailyExpensesProvider,
+              public sumFixedExpenses: SumFixedExpensesProvider,
+              public alertCtrl: AlertController,
               public addDailyExp: AddDailyExpensesProvider) {
 
                 this.options  = {
@@ -74,10 +86,29 @@ export class AddDailyExpensesPage {
                 this.dailyExpenses_.getDailyExpenses().then(data => {
                   this.dailyExpensesList = data;
                 })
+
+                this.sumIncome.getSumIncome().then((data:SumIncome) => {
+                  let income =JSON.stringify(data.totalIncome);
+                  sessionStorage.setItem("income",income);
+                })
+            
+                this.sumFixedExpenses.getSumFixedExpenses().then((data:SumFixedExp) => {
+                  let fixed =JSON.stringify(data.totalFixedExp);
+                  sessionStorage.setItem("fixed",fixed);
+                })
+            
+                this.sumDailyExpenses.getSumDailyExpenses().then((data:SumDaileExp) => {
+                  let daily =JSON.stringify(data.totalDailyExp);
+                  sessionStorage.setItem("daily",daily);
+                })
+
+                this.checkMoney();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddDailyExpensesPage');
+    this.checkMoney();
+
     this.animateClass = { 'fade-in-item': true };
 
     this.animate2Class = { 'fade-in-item2': true };
@@ -91,6 +122,37 @@ export class AddDailyExpensesPage {
     })
     
     })
+  }
+
+  checkMoney(){
+    let income = JSON.parse(sessionStorage.getItem("income"));
+    console.log("income======",income);
+    let fixed = JSON.parse(sessionStorage.getItem("fixed"));
+    console.log("fixed======",fixed);
+    let daily = JSON.parse(sessionStorage.getItem("daily"));
+    console.log("daily======",daily);
+
+    let moneyPerDay = (income - fixed - daily ) /30;
+    console.log("moneyPerDay======",moneyPerDay);
+
+   
+    let amount = this.dailyExpenses.controls['amount'].value;
+    console.log("amount======",amount);
+    
+    if(amount > moneyPerDay){
+      this.alertMoneyPerDay();
+    }
+  }
+
+  alertMoneyPerDay(){
+
+      let alert = this.alertCtrl.create({
+        title: 'ขออภัย!',
+        subTitle: 'คุณใช้เงินเกินวงเงินที่ใช้ได้ต่อวัน อาจส่งผลกระทบต่อแผนการเงินของคุณ',
+        buttons: ['ปิด']
+      });
+      alert.present();
+
   }
 
   form(){

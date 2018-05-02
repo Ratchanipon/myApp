@@ -80,7 +80,7 @@
     <ion-item border no-lines [ngClass]="animateClass" color="list">
       <h2><b>เงินที่ใช้ได้ต่อวัน:</b></h2> 
       <div item-content>
-          <ion-badge>{{(totalIncome1*1-totalFixedExp1*1-totalDailyExp1*1)/31 | number:'.2-2'}} ฿</ion-badge>
+          <ion-badge>{{(totalIncome1*1-totalFixedExp1*1-totalDailyExp1*1)/30 | number:'.2-2'}} ฿</ion-badge>
       </div>       
     </ion-item>
   </ion-card>
@@ -95,6 +95,6 @@
     
   </ion-card>
 
-  <!-- <button ion-button navPush="ChartPage">chart</button> -->
+  <button ion-button navPush="ChartPage">chart</button>
 
 </ion-content>

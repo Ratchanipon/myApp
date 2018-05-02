@@ -26,7 +26,7 @@ import { initializeApp } from 'firebase/app';
 //   messagingSenderId: "405662539355"
 // };
 
-initializeApp(FirebaseConfig);
+// initializeApp(FirebaseConfig);
 
 @IonicPage()
 @Component({

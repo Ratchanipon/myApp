@@ -65,6 +65,7 @@ import { EditDailyExpensesProvider } from '../providers/daily-expenses-services/
 import { DueDateByUserIdProvider } from '../providers/due-date-services/get-dueDateByUserId';
 import { DataChartProvider } from '../providers/calculate-services/get-dataChart';
 import { EditUserProvider } from '../providers/user-service/edit-users';
+import { initializeApp } from 'firebase';
 
 // var config = {
 //   apiKey: "AIzaSyBiTQt8D-8MFdhk1m1HJtZaMu4eNf7Ywa0",
@@ -75,6 +76,7 @@ import { EditUserProvider } from '../providers/user-service/edit-users';
 //   messagingSenderId: "405662539355"
 // };
 
+initializeApp(FirebaseConfig);
 
 @NgModule({
   declarations: [
@@ -83,7 +85,7 @@ import { EditUserProvider } from '../providers/user-service/edit-users';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(FirebaseConfig),
+    // AngularFireModule.initializeApp(FirebaseConfig),
     HttpClientModule,
     ChartsModule,
     // FormsModule,

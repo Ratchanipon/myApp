@@ -61,6 +61,8 @@ export class MyApp {
       
     ];
 
+    
+
   }
 
   initializeApp() {
@@ -71,8 +73,9 @@ export class MyApp {
       this.splashScreen.hide();
       this.email = localStorage.getItem("email");
 
-      
     });
+
+    
   }
 
   openPage(page) {
