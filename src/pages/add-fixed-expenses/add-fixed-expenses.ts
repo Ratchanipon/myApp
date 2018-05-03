@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, App, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, App, LoadingController, ActionSheetController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CateFixedExpensesProvider } from '../../providers/category-services/cate-fixed-expenses';
 import { CatePaymentChannelProvider } from '../../providers/category-services/cate-payment-channel';
@@ -60,6 +60,7 @@ export class AddFixedExpensesPage {
               public paymentCate_: CatePaymentChannelProvider,
               public fixedExpenses_: FixedExpensesProvider,
               public addFixedExp: AddFixedExpensesProvider,
+              public actionSheetCtrl: ActionSheetController,
               public loading: LoadingProvider
 ) {
 
@@ -194,5 +195,34 @@ export class AddFixedExpensesPage {
       // this.presentToast('Url :'+url);
       
     });
+  }
+  editFixedExpenses(item) {
+    let actionSheet = this.actionSheetCtrl.create({
+      
+      buttons: [
+        {
+          icon: 'eye',
+          text: 'รายละเอียด',
+          handler: () => {
+            this.navCtrl.push('DetailFixedExpensesPage',item)
+          }
+        },
+        {
+          icon: 'create',
+          text: 'แก้ไข',
+          handler: () => {
+            console.log(item.category);
+            this.navCtrl.push('EditFixedExpensesPage',item)
+          }
+        },
+        {
+          icon: 'close-circle',
+          text: 'ยกเลิก',
+          handler: () => {
+          }
+        }
+      ]
+    });
+    actionSheet.present();
   }
 }

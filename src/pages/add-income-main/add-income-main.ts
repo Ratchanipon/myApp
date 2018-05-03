@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, App, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App, ToastController, ActionSheetController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AddIncomeProvider } from '../../providers/income-services/add-income';
 import { CateIncomeProvider } from '../../providers/category-services/cate-icome';
@@ -55,6 +55,7 @@ export class AddIncomeMainPage {
               public income_2: IncomeProvider,
               public camera:Camera,
               public toastCtrl: ToastController,
+              public actionSheetCtrl: ActionSheetController,
               public loading: LoadingProvider) {
 
                 this.options  = {
@@ -185,6 +186,36 @@ export class AddIncomeMainPage {
       // this.presentToast('Url :'+url);
       
     });
+  }
+  editIncome(item) {
+    let actionSheet = this.actionSheetCtrl.create({
+      
+      buttons: [
+        {
+          icon: 'eye',
+          text: 'รายละเอียด',
+          handler: () => {
+            console.log(item.income_cate_id);
+            this.navCtrl.push('DetailIncomePage',item)
+          }
+        },
+        {
+          icon: 'create',
+          text: 'แก้ไข',
+          handler: () => {
+            console.log(item.income_cate_id);
+            this.navCtrl.push('EditIncomePage',item)
+          }
+        },
+        {
+          icon: 'close-circle',
+          text: 'ยกเลิก',
+          handler: () => {
+          }
+        }
+      ]
+    });
+    actionSheet.present();
   }
 
 

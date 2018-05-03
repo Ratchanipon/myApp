@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, App, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App, ToastController, ActionSheetController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CatePaymentChannelProvider } from '../../providers/category-services/cate-payment-channel';
 import { AddDailyExpensesProvider } from '../../providers/daily-expenses-services/add-daily-expenses';
@@ -71,6 +71,7 @@ export class AddDailyExpensesPage {
               public sumFixedExpenses: SumFixedExpensesProvider,
               public alertCtrl: AlertController,
               public addDailyExp: AddDailyExpensesProvider,
+              public actionSheetCtrl: ActionSheetController,
               public loading: LoadingProvider
             ) {
 
@@ -249,6 +250,34 @@ export class AddDailyExpensesPage {
       // this.presentToast('Url :'+url);
       
     });
+  }
+  editDailyExpenses(item) {
+    let actionSheet = this.actionSheetCtrl.create({
+      
+      buttons: [
+        {
+          icon: 'eye',
+          text: 'รายละเอียด',
+          handler: () => {
+            this.navCtrl.push('DetailDailyExpensesPage',item)
+          }
+        },
+        {
+          icon: 'create',
+          text: 'แก้ไข',
+          handler: () => {
+            this.navCtrl.push('EditDailyExpensesPage',item)
+          }
+        },
+        {
+          icon: 'close-circle',
+          text: 'ยกเลิก',
+          handler: () => {
+          }
+        }
+      ]
+    });
+    actionSheet.present();
   }
 
 }
