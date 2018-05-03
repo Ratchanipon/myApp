@@ -163,7 +163,7 @@ export class EditFixedExpensesPage {
         
         const result = await this.camera.getPicture(this.options);
         const image = 'data:image/jpeg;base64,'+result;
-        const picture = storage().ref().child('images/'+name+'.jpg');
+        const picture = storage().ref().child('images2/'+name+'.jpg');
         picture.putString(image,'data_url').then(data=>{
           this.loadpicture(name);
           this.presentToast('up :'+data.state)
@@ -178,7 +178,7 @@ export class EditFixedExpensesPage {
 
   async loadpicture(name){
 
-    let file =  storage().ref().child('images/'+name+'.jpg');
+    let file =  storage().ref().child('images2/'+name+'.jpg');
     await file.getDownloadURL().then(url=>{
       this.images = url;
       this.fixedExpenses.controls['images'].setValue(url);

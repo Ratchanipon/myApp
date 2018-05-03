@@ -111,7 +111,7 @@ export class DueDatePage {
 
   addDueDateSuccess() {
     let toast = this.toastCtrl.create({
-      message: 'บันทึกรายการสำเร็จ',
+      message: 'สร้างบัญชีผู้ใช้งานสำเร็จ',
       duration: 3000,
       position: 'top'
     });

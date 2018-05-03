@@ -5,6 +5,7 @@ export interface User {
     surname:string
     email:string
     password:string
+    con_password:string
     age:string
     sex:string
     career:string

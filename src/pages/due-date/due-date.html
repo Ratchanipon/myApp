@@ -16,15 +16,25 @@
 <ion-content padding background-color [ngClass]="animateClass">
   
   <form [formGroup]="dueDate" (ngSubmit)="addDueDate(dueDate)">
-      <div align="right">
+    <div align="right">
+      <tr>
+      <td align="center">
+          <p><font color="#FFFFFF"><font size="4"><b>วันที่ครบกำหนดชำระรายจ่ายคงที่</b></font></font></p> &nbsp;&nbsp;
+      </td>
+      <td width="60">
           <img class=""width="50" height="60" [src]="chosenPicture || placeholder" onerror="this.src='assets/images/logo/logoApp2.png'"/>
-      </div>
+      </td>
+    </tr>
+    </div>
+
     <div border no-lines [ngClass]="animateClass">
 
 
             <ion-input type="hidden" formControlName="user_id"></ion-input>
 
         <ion-col>
+          
+            <p align="right"><font color="#FFFFFF"><font size="2">วันที่ครบกำหนดของทุกๆ เดือน &nbsp;&nbsp;</font></font></p>
         <ion-card margin-top>
           <ion-input type="number"formControlName="water" placeholder="วันที่ครบกำหนดชำระค่าน้ำ"></ion-input>
         </ion-card>
@@ -110,7 +120,7 @@
     <div no-lines [ngClass]="animateClass" align="center">
       <br>
       <button ion-button default-button full text-capitalize color="secondary2" [disabled]="!dueDate.valid" >สร้างบัญชีผู้ใช้</button>
-      <button ion-button default-button full text-capitalize color="secondary2" navPush="EditRegisterPage">กลับ</button>
+      <button ion-button default-button full text-capitalize color="grayy" navPush="EditRegisterPage">กลับ</button>
       <!-- <button ion-button default-button text-capitalize color="secondary2" navPush="AddIncomePage">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ถัดไป&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button> -->
     </div>
   </form>

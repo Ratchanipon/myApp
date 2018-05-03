@@ -24,6 +24,9 @@ export class RegisterPage {
   // user1:User = {surname:'สิงห์นิกร', password:'anusit1234',id:"" ,name:"อนุศิษฐ์", email:"anusit@hotmail.com", age:"22", career:"นักศึกษา", sex:"ชาย", permission:""};
   user1:User;
   animateClass:any;
+
+  t_password:string="";
+  f_password:string="";
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public app: App,
@@ -43,6 +46,25 @@ export class RegisterPage {
     
   }
 
+  confirmPassowrd(){
+    let password:string = this.user.controls['password'].value;
+
+    let con_password:string = this.user.controls['con_password'].value;
+
+    if(con_password == ""){
+      this.f_password = "";
+      this.t_password = "";
+    }
+    else if(con_password == password){
+      this.t_password = "555";
+      this.f_password = "";
+    }
+    else{
+      this.t_password = "";
+      this.f_password = "555";
+    }
+  }
+
   form(){
 
     this.user = this.formBuilder.group({
@@ -53,6 +75,9 @@ export class RegisterPage {
       password:['',Validators.compose([Validators.required,
                                                   Validators.minLength(8),
                                                   Validators.pattern("[a-zA-Z0-9.-_*#@$%&!]{1,}")])],
+      con_password:['',Validators.compose([Validators.required,
+                                                    Validators.minLength(8),
+                                                    Validators.pattern("[a-zA-Z0-9.-_*#@$%&!]{1,}")])],
       email:['',Validators.compose([Validators.required,
                                                   Validators.email])],
       age:['',Validators.compose([Validators.required])],
@@ -63,12 +88,12 @@ export class RegisterPage {
   }
   register(user:User){
     // ทดสอบดูค่าต่างๆ ที่ส่งมาจากฟอร์ม 
-    // console.log(this.user);
+    console.log("user===",user);
     this.addUser.AddUserProvider(this.user.value).then(user => {
       console.error(user);
 
       if(user != null){
-        this.addUserSuccess();
+        // this.addUserSuccess();
         // this.navCtrl.push('RegisterPage');
         localStorage.setItem("user_id",user.id);
         localStorage.setItem("email",user.email);
@@ -76,6 +101,7 @@ export class RegisterPage {
         sessionStorage.setItem("name",user.name);
         sessionStorage.setItem("surname",user.surname);
         sessionStorage.setItem("password",user.password);
+        sessionStorage.setItem("con_password",user.con_password);
         sessionStorage.setItem("email",user.email);
         sessionStorage.setItem("age",user.age);
         sessionStorage.setItem("sex",user.sex);

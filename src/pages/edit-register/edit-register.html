@@ -33,7 +33,41 @@
             </ion-card>
             <ion-card margin-top>
                 <!-- <ion-label floating >รหัสผ่าน (A-Z,a-z,0-9 ไม่ต่ำ8ตัวอักษร)</ion-label> -->
-                <ion-input type="password"  formControlName="password" placeholder="รหัสผ่าน (A-Z,a-z,0-9 ไม่ต่ำ8ตัวอักษร)" ></ion-input>
+                <table width="100%">
+                    <tr>
+                      <td>
+                        <ion-input type="password"  formControlName="password" placeholder="รหัสผ่าน (A-Z,a-z,0-9 ไม่ต่ำ8ตัวอักษร)" (keyup)="confirmPassowrd()"></ion-input>
+                      </td>
+                      <td align="right">
+                        <div *ngIf="t_password!=''">
+                            <font color="#00FF00"><ion-icon name="checkmark-circle"></ion-icon></font>
+                        </div>
+                        <div *ngIf="f_password!=''">
+                            <font color="#FF3333"><ion-icon name="close-circle"></ion-icon></font>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+
+            </ion-card>
+
+            <ion-card margin-top>
+                <!-- <ion-label floating >รหัสผ่าน (A-Z,a-z,0-9 ไม่ต่ำ8ตัวอักษร)</ion-label> -->
+                <table width="100%">
+                  <tr>
+                    <td>
+                      <ion-input type="password"  formControlName="con_password" placeholder="ยืนยันรหัสผ่าน" (keyup)="confirmPassowrd()"></ion-input>
+                    </td>
+                    <td align="right">
+                      <div *ngIf="t_password!=''">
+                          <font color="#00FF00"><ion-icon name="checkmark-circle"></ion-icon></font>
+                      </div>
+                      <div *ngIf="f_password!=''">
+                          <font color="#FF3333"><ion-icon name="close-circle"></ion-icon></font>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
             </ion-card>
             <!-- <ion-item>
                 <ion-label floating >อายุ</ion-label>
@@ -133,7 +167,7 @@
         </div>
         <div [ngClass]="animateClass" padding>
           <button ion-button default-button full text-capitalize color="secondary2" type="submit" [disabled]="!user.valid" >ถัดไป</button>
-          <button ion-button default-button full text-capitalize color="secondary2" navPush="LoginPage">ยกเลิก</button>
+          <button ion-button default-button full text-capitalize color="grayy" navPush="LoginPage">ยกเลิก</button>
 
         </div>
     </form>

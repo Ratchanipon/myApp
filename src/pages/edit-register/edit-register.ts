@@ -32,6 +32,9 @@ export class EditRegisterPage {
   age:string;
   sex:string;
   career:string;
+
+  t_password:string="";
+  f_password:string="";
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public app: App,
@@ -39,9 +42,9 @@ export class EditRegisterPage {
               public editUser: EditUserProvider,
               public toastCtrl: ToastController,
               public userById: UserByIdProvider) {
-                
+
                 this.form();
-                
+           
   }
 
   ionViewDidLoad() {
@@ -52,11 +55,31 @@ export class EditRegisterPage {
     
   }
 
+  confirmPassowrd(){
+    let password:string = this.user.controls['password'].value;
+
+    let con_password:string = this.user.controls['con_password'].value;
+
+    if(con_password == ""){
+      this.f_password = "";
+      this.t_password = "";
+    }
+    else if(con_password == password){
+      this.t_password = "555";
+      this.f_password = "";
+    }
+    else{
+      this.t_password = "";
+      this.f_password = "555";
+    }
+  }
+
   form(){
 
     let name = sessionStorage.getItem("name");
     let surname = sessionStorage.getItem("surname");
     let password = sessionStorage.getItem("password");
+    let con_password = sessionStorage.getItem("con_password");
     let email = sessionStorage.getItem("email");
     let age = sessionStorage.getItem("age");
     let sex = sessionStorage.getItem("sex");
@@ -74,6 +97,9 @@ export class EditRegisterPage {
       password:[password,Validators.compose([Validators.required,
                                                   Validators.minLength(8),
                                                   Validators.pattern("[a-zA-Z0-9.-_*#@$%&!]{1,}")])],
+      con_password:[con_password,Validators.compose([Validators.required,
+                                                    Validators.minLength(8),
+                                                    Validators.pattern("[a-zA-Z0-9.-_*#@$%&!]{1,}")])],
       email:[email,Validators.compose([Validators.required,
                                                   Validators.email])],
       age:[age,Validators.compose([Validators.required])],
@@ -85,23 +111,34 @@ export class EditRegisterPage {
   register(user:User){
 
     console.log("user======",user);
-    this.editUser.EditUserProvider(this.user.value);
+    this.editUser.EditUserProvider(this.user.value).then(user => {
       console.log("user======",user);
 
       if(user != null){
-        this.addUserSuccess();
+        // this.addUserSuccess();
         // this.navCtrl.push('RegisterPage');
+        // localStorage.setItem("user_id",user.id);
         localStorage.setItem("user_id",user.id);
         localStorage.setItem("email",user.email);
+
+        // sessionStorage.clear();
+
+        sessionStorage.setItem("name",user.name);
+        sessionStorage.setItem("surname",user.surname);
+        sessionStorage.setItem("password",user.password);
+        sessionStorage.setItem("email",user.email);
+        sessionStorage.setItem("age",user.age);
+        sessionStorage.setItem("sex",user.sex);
+        sessionStorage.setItem("career",user.career);
+
         // this.navCtrl.setRoot('DueDatePage',{'user':user});   
         // const root = this.app.getRootNav();
         // root.popToRoot();
         
         this.navCtrl.push('DueDatePage');
 
-         
-        
       }
+    })
     // console.log(user.value);
     // console.log(user.valid);
   }
