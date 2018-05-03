@@ -18,6 +18,8 @@ export class ShowRisk1Page {
   DTI:number;
   risk:any;
 
+  risk2:string;
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public risk_: Risk1Provider,
@@ -34,28 +36,28 @@ export class ShowRisk1Page {
       this.risk_.getRisk1().then(data => {
         this.risk = data;
         console.log(this.risk);
-        
+        this.risk2 = "ไม่เสี่ยง"
       })
     }
     else if(this.DTI <= 50){
       this.risk_.getRisk2().then(data => {
         this.risk = data;
         console.log(this.risk);
-        
+        this.risk2 = "ปานกลาง"
       })
     }
     else if(this.DTI <= 70){
       this.risk_.getRisk3().then(data => {
         this.risk = data;
         console.log(this.risk);
-        
+        this.risk2 = "เสี่ยง"
       })
     }
     else{
       this.risk_.getRisk4().then(data => {
         this.risk = data;
         console.log(this.risk);
-        
+        this.risk2 = "เสี่ยงมาก"
       })
     }
     
