@@ -171,7 +171,7 @@ export class AddFixedExpensesPage {
         const picture = storage().ref().child('images2/'+name+'.jpg');
         picture.putString(image,'data_url').then(data=>{
           this.loadpicture(name);
-          this.presentToast('up :'+data.state)
+          // this.presentToast('up :'+data.state)
         }).catch(e=>{
           this.presentToast('e :'+e);
         });
@@ -188,7 +188,7 @@ export class AddFixedExpensesPage {
       this.images = url;
       this.fixedExpenses.controls['images'].setValue(url);
       console.log('Url :',url);
-      this.presentToast('Url :'+url);
+      // this.presentToast('Url :'+url);
       
     });
   }

@@ -164,7 +164,7 @@ export class AddIncomePage {
         const picture = storage().ref().child('images/'+name+'.jpg');
         picture.putString(image,'data_url').then(data=>{
           this.loadpicture(name);
-          this.presentToast('up :'+data.state)
+          // this.presentToast('up :'+data.state)
         }).catch(e=>{
           this.presentToast('e :'+e);
         });
@@ -181,7 +181,7 @@ export class AddIncomePage {
       this.images = url;
       this.income.controls['images'].setValue(url);
       console.log('Url :',url);
-      this.presentToast('Url :'+url);
+      // this.presentToast('Url :'+url);
       
     });
   }
