@@ -376,7 +376,7 @@ export class IncomePage {
       
       buttons: [
         {
-          icon: 'create',
+          icon: 'eye',
           text: 'รายละเอียด',
           handler: () => {
             console.log(item.income_cate_id);

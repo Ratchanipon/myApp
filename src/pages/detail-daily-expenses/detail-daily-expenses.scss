@@ -1,0 +1,18 @@
+page-detail-daily-expenses {
+    .fade-in-item {
+        -webkit-animation: fadeInDownBig 800ms;
+        -moz-animation: fadeInDownBig 800ms;
+        -o-animation: fadeInDownBig 800ms;
+        animation: fadeInDownBig 800ms;
+      }
+      [background-color] {
+        background-color: #f7f7f7;
+      }
+      // Settings Card
+      ion-card {
+        box-shadow: none !important;
+        border-radius: $border-radius !important;
+    
+      }
+
+}

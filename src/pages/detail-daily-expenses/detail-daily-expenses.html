@@ -19,8 +19,8 @@
           <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4>
               <ion-card text-left [ngClass]="animateClass">
                   <ion-card >
-                      <ion-item color="incomeM">
-                          รายละเอียดรายรับ
+                      <ion-item color="disExpenses">
+                          รายละเอียดรายจ่ายรายวัน
                           <!-- <i [ngClass]="iconClass">face</i> -->
                           
                       </ion-item>
@@ -29,6 +29,9 @@
       
               <ion-item [ngClass]="animateClass">
                   <ion-label><i class="material-icons">layers</i>&nbsp;&nbsp;&nbsp; หมวดหมู่ : {{category}}</ion-label>
+              </ion-item>
+              <ion-item [ngClass]="animateClass">
+                  <ion-label><i class="material-icons">payment</i>&nbsp;&nbsp;&nbsp; จ่ายผ่าน : {{channel}}</ion-label>
               </ion-item>
               <ion-item [ngClass]="animateClass">
                   <ion-label><i class="material-icons">account_balance_wallet</i>&nbsp;&nbsp;&nbsp; จำนวนเงิน : {{amount}}</ion-label>

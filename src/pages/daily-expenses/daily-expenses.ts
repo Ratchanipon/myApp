@@ -367,6 +367,13 @@ export class DailyExpensesPage {
       
       buttons: [
         {
+          icon: 'eye',
+          text: 'รายละเอียด',
+          handler: () => {
+            this.navCtrl.push('DetailDailyExpensesPage',item)
+          }
+        },
+        {
           icon: 'create',
           text: 'แก้ไข',
           handler: () => {

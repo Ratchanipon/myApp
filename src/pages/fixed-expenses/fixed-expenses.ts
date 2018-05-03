@@ -373,6 +373,13 @@ export class FixedExpensesPage {
       
       buttons: [
         {
+          icon: 'eye',
+          text: 'รายละเอียด',
+          handler: () => {
+            this.navCtrl.push('DetailFixedExpensesPage',item)
+          }
+        },
+        {
           icon: 'create',
           text: 'แก้ไข',
           handler: () => {
