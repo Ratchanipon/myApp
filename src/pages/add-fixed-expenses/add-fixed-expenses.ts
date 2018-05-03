@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, App } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, App, LoadingController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CateFixedExpensesProvider } from '../../providers/category-services/cate-fixed-expenses';
 import { CatePaymentChannelProvider } from '../../providers/category-services/cate-payment-channel';
@@ -10,6 +10,7 @@ import { FixedExpensesProvider } from '../../providers/fixed-expenses-services/f
 import { CameraOptions, Camera } from '@ionic-native/camera';
 import { storage, initializeApp } from 'firebase';
 import { FirebaseConfig } from '../../app/firebae-Config';
+import { LoadingProvider } from '../../providers/loading/loading';
 
 // import { initializeApp } from 'firebase/app';
 
@@ -58,7 +59,9 @@ export class AddFixedExpensesPage {
               public fixedExpCate: CateFixedExpensesProvider,
               public paymentCate_: CatePaymentChannelProvider,
               public fixedExpenses_: FixedExpensesProvider,
-              public addFixedExp: AddFixedExpensesProvider) {
+              public addFixedExp: AddFixedExpensesProvider,
+              public loading: LoadingProvider
+) {
 
                 this.options  = {
                   quality:100,
@@ -182,7 +185,7 @@ export class AddFixedExpensesPage {
   }
 
   async loadpicture(name){
-
+    this.loading.Loading();
     let file =  storage().ref().child('images2/'+name+'.jpg');
     await file.getDownloadURL().then(url=>{
       this.images = url;
@@ -192,5 +195,4 @@ export class AddFixedExpensesPage {
       
     });
   }
-
 }

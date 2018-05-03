@@ -66,6 +66,7 @@ import { DueDateByUserIdProvider } from '../providers/due-date-services/get-dueD
 import { DataChartProvider } from '../providers/calculate-services/get-dataChart';
 import { EditUserProvider } from '../providers/user-service/edit-users';
 import { initializeApp } from 'firebase';
+import { LoadingProvider } from '../providers/loading/loading';
 
 // var config = {
 //   apiKey: "AIzaSyBiTQt8D-8MFdhk1m1HJtZaMu4eNf7Ywa0",
@@ -148,7 +149,8 @@ initializeApp(FirebaseConfig);
     EditDailyExpensesProvider,
     DueDateByUserIdProvider,
     DataChartProvider,
-    EditUserProvider
+    EditUserProvider,
+    LoadingProvider
   ]
 })
 export class AppModule {}

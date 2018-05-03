@@ -9,6 +9,7 @@ import { FixedExpensesProvider } from '../../providers/fixed-expenses-services/f
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { storage, initializeApp } from 'firebase';
 import { FirebaseConfig } from '../../app/firebae-Config';
+import { LoadingProvider } from '../../providers/loading/loading';
 // import { initializeApp } from 'firebase/app';
 
 /**
@@ -56,7 +57,8 @@ export class AddFixedExpensesMainPage {
               public fixedExpCate: CateFixedExpensesProvider,
               public paymentCate_: CatePaymentChannelProvider,
               public fixedExpenses_: FixedExpensesProvider,
-              public addFixedExp: AddFixedExpensesProvider) {
+              public addFixedExp: AddFixedExpensesProvider,
+              public loading: LoadingProvider) {
                 
                 this.options  = {
                   quality:100,
@@ -179,7 +181,7 @@ export class AddFixedExpensesMainPage {
   }
 
   async loadpicture(name){
-
+    this.loading.Loading();
     let file =  storage().ref().child('images2/'+name+'.jpg');
     await file.getDownloadURL().then(url=>{
       this.images = url;

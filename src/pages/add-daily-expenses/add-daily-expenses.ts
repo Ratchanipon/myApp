@@ -17,6 +17,7 @@ import { SumFixedExp } from '../../model/get-sumFixedExp';
 import { SumDaileExp } from '../../model/get-sumDailyExp';
 
 import { AlertController } from 'ionic-angular';
+import { LoadingProvider } from '../../providers/loading/loading';
 
 
 // import { initializeApp } from 'firebase/app';
@@ -69,7 +70,9 @@ export class AddDailyExpensesPage {
               public sumDailyExpenses: SumDailyExpensesProvider,
               public sumFixedExpenses: SumFixedExpensesProvider,
               public alertCtrl: AlertController,
-              public addDailyExp: AddDailyExpensesProvider) {
+              public addDailyExp: AddDailyExpensesProvider,
+              public loading: LoadingProvider
+            ) {
 
                 this.options  = {
                   quality:100,
@@ -237,7 +240,7 @@ export class AddDailyExpensesPage {
   }
 
   async loadpicture(name){
-
+    this.loading.Loading();
     let file =  storage().ref().child('images3/'+name+'.jpg');
     await file.getDownloadURL().then(url=>{
       this.images = url;

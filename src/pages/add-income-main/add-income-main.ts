@@ -9,6 +9,7 @@ import { storage } from 'firebase';
 import { IncomeProvider } from '../../providers/income-services/income';
 import { initializeApp } from 'firebase/app';
 import { FirebaseConfig } from '../../app/firebae-Config';
+import { LoadingProvider } from '../../providers/loading/loading';
 // import { config } from '../../app/app.module';
 /**
  * Generated class for the AddIncomeMainPage page.
@@ -53,7 +54,8 @@ export class AddIncomeMainPage {
               public incomeCate: CateIncomeProvider,
               public income_2: IncomeProvider,
               public camera:Camera,
-              public toastCtrl: ToastController) {
+              public toastCtrl: ToastController,
+              public loading: LoadingProvider) {
 
                 this.options  = {
                   quality:100,
@@ -174,7 +176,7 @@ export class AddIncomeMainPage {
   }
 
   async loadpicture(name){
-
+    this.loading.Loading();
     let file =  storage().ref().child('images/'+name+'.jpg');
     await file.getDownloadURL().then(url=>{
       this.images = url;

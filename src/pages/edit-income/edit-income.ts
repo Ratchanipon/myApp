@@ -7,6 +7,7 @@ import { EditIncomeProvider } from '../../providers/income-services/edit-income'
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { storage, initializeApp } from 'firebase';
 import { FirebaseConfig } from '../../app/firebae-Config';
+import { LoadingProvider } from '../../providers/loading/loading';
 
 // import { initializeApp } from 'firebase/app';
 
@@ -53,7 +54,8 @@ export class EditIncomePage {
               public editIncom_: EditIncomeProvider,
               public incomeCate: CateIncomeProvider,
               public camera:Camera,
-              public toastCtrl: ToastController) {
+              public toastCtrl: ToastController,
+              public loading: LoadingProvider) {
 
                 this.options  = {
                   quality:100,
@@ -183,7 +185,7 @@ export class EditIncomePage {
   }
 
   async loadpicture(name){
-
+    this.loading.Loading();
     let file =  storage().ref().child('images/'+name+'.jpg');
     await file.getDownloadURL().then(url=>{
       this.images = url;

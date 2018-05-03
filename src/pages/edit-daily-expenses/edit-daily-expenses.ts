@@ -9,6 +9,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import { storage } from 'firebase';
 import { initializeApp } from 'firebase/app';
 import { FirebaseConfig } from '../../app/firebae-Config';
+import { LoadingProvider } from '../../providers/loading/loading';
 
 /**
  * Generated class for the EditDailyExpensesPage page.
@@ -50,7 +51,8 @@ export class EditDailyExpensesPage {
               public dailyExpCate: CateDailyExpensesProvider,
               public paymentCate_: CatePaymentChannelProvider,
               public camera:Camera,
-              public editDailyExp: EditDailyExpensesProvider) {
+              public editDailyExp: EditDailyExpensesProvider,
+              public loading: LoadingProvider) {
 
                 this.options  = {
                   quality:100,
@@ -174,7 +176,7 @@ export class EditDailyExpensesPage {
   }
 
   async loadpicture(name){
-
+    this.loading.Loading();
     let file =  storage().ref().child('images3/'+name+'.jpg');
     await file.getDownloadURL().then(url=>{
       this.images = url;
