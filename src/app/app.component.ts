@@ -120,6 +120,9 @@ export class MyApp {
   ShowRisk2Page(){
     this.rootPage = "ShowRisk2Page";
   }
+  ChartPage(){
+    this.rootPage = "ChartPage";
+  }
 
   setting() {
     let actionSheet = this.actionSheetCtrl.create({
