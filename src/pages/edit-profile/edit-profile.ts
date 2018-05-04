@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, App } from 'ionic-angular';
 import { UserByIdProvider } from '../../providers/user-service/user-serviceById';
 import { User } from '../../model/user';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
@@ -35,6 +35,8 @@ export class EditProfilePage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
+              public app: App,
+              public toastCtrl: ToastController,
               public formBuilder: FormBuilder,
               public userById: UserByIdProvider,
               public editUser: EditUserProvider,) {
@@ -53,7 +55,7 @@ export class EditProfilePage {
                   sessionStorage.setItem("name",this.name);
                   sessionStorage.setItem("surname",this.surname);
                   sessionStorage.setItem("email",this.email);
-                  sessionStorage.setItem("email",this.password);
+                  sessionStorage.setItem("password",this.password);
                   sessionStorage.setItem("age",this.age);
                   sessionStorage.setItem("sex",this.sex);
                   sessionStorage.setItem("career",this.career);
@@ -65,6 +67,7 @@ export class EditProfilePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditProfilePage');
+    this.animateClass = { 'fade-in-item': true };
 
     this.form();
   }
@@ -81,7 +84,6 @@ export class EditProfilePage {
 
     let user_id = localStorage.getItem("user_id");
     console.log("user_id=========",user_id);
-    console.log("name==========",this.name);
     
     this.user = this.formBuilder.group({
       user_id:[user_id,Validators.compose([Validators.required])],
@@ -108,22 +110,39 @@ export class EditProfilePage {
       console.log("user======",user);
 
       if(user != null){
-        // this.addUserSuccess();
-        // this.navCtrl.push('RegisterPage');
-        // localStorage.setItem("user_id",user.id);
+        this.editUserSuccess();
+
         localStorage.setItem("email",user.email);
 
-
-
-        // this.navCtrl.setRoot('DueDatePage',{'user':user});   
-        // const root = this.app.getRootNav();
-        // root.popToRoot();
+        this.navCtrl.setRoot('ProfilePage',{'user':user});   
+        const root = this.app.getRootNav();
+        root.popToRoot();
         
-        this.navCtrl.push('ProfilePage');
+        // this.navCtrl.push('ProfilePage');
 
       }
     })
 
+  }
+  editUserSuccess() {
+    let toast = this.toastCtrl.create({
+      message: 'บันทึกรายการสำเร็จ',
+      duration: 3000,
+      position: 'top'
+    });
+  
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+  
+    toast.present();
+  }
+
+  ProfilePage(){
+    // this.navCtrl.push("ProfilePage");
+    this.navCtrl.setRoot('ProfilePage');   
+        const root = this.app.getRootNav();
+        root.popToRoot();
   }
 
 }

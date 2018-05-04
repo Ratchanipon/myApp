@@ -1,5 +1,27 @@
 page-edit-profile {
+    ion-card {
+      box-shadow: none !important;
+      border-radius: $border-radius !important;
 
+    }
+    .fade-in-item {
+      -webkit-animation: fadeInRightBig 800ms;
+      -moz-animation: fadeInRightBig 800ms;
+      -o-animation: fadeInRightBig 800ms;
+      animation: fadeInRightBig 800ms;
+    }
+     
+      // Title
+      [title] {
+        margin-right: 20%;
+        font-size: font-size-text('h1') !important;
+        font-weight: bold;
+        line-height: 34px;
+      }
+    
+      [stacked] {
+        font-size: 10px !important;
+      }
     @include settingAnimationHeader;
     @-webkit-keyframes color-change {
     0% {
@@ -30,7 +52,7 @@ page-edit-profile {
   [background-size] {
     // @include darkening-blend-mode;
     background-color: #618cd4;
-    height: 250px;
+    height: 200px;
     position: relative;
     // background-image: url('../assets/images/background/O5MCDL0.jpg');
 
@@ -48,6 +70,15 @@ page-edit-profile {
         color: theme-colors('textColors', 'secondaryBase');
     }
     }
+    
   }
+  [background-content] {
+    // @include darkening-blend-mode;
+    background-color:#f7f7f7;
+    // height: 200px;
+    position: relative;
+  
+  }
+  
 
 }

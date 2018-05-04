@@ -13,39 +13,42 @@
 </ion-navbar>
 </ion-header>
 <!-- Content -->
-<ion-content >
+<ion-content background-content>
   <div  background-size id="elastic-header">
-    <ion-thumbnail >
+    <ion-thumbnail>
       <br><br><br>
       <img width="60" height="60" [src]="chosenPicture || placeholder" onerror="this.src='assets/images/logo/user.png'"/>
 
-    <div align="center" >
-      <h2 align="center" ion-text color="light" header-title>{{name}} {{surname}}</h2>
-      <button ion-button  clear round navPush="EditProfilePage">
-        <font color="#D3D3D3"><font size="2"><ion-icon name="create"></ion-icon>แก้ไข</font></font>
-      </button>
-    </div>
-  </ion-thumbnail>
+      <div align="center" >
+        <h2 align="center" ion-text color="light" header-title>{{name}} {{surname}}</h2>
+        <button ion-button  clear round navPush="EditProfilePage">
+          <font color="#D3D3D3"><font size="2"><ion-icon name="create"></ion-icon>แก้ไข</font></font>
+        </button>
+      </div>
+    </ion-thumbnail>
+  </div>
+  
+  <div>
 
-          <ion-list>
-              <ion-item>
+          <ion-list >
+              <ion-item background-content>
               </ion-item>
-            <ion-item>
+            <ion-item background-content>
               <p><b>ชื่อ - นามสกุล:</b> {{name}} {{surname}} </p>
              </ion-item>
-             <ion-item>
+             <ion-item background-content>
               <P><b>Email:</b> {{email}}</P>
               </ion-item>
-              <ion-item>
+              <ion-item background-content>
                 <P><b>เพศ:</b> {{sex}}</P>
               </ion-item>
-              <ion-item>
+              <ion-item background-content>
                 <P><b>อายุ:</b> {{age}}</P>
               </ion-item>
-              <ion-item>
+              <ion-item background-content>
                 <P><b>อาชีพ:</b> {{career}}</P>
               </ion-item>
-              <ion-item>
+              <ion-item background-content>
               </ion-item>
             </ion-list>
   </div>

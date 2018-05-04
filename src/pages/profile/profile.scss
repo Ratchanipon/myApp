@@ -49,6 +49,13 @@ page-profile {
     }
     }
   }
+  [background-content] {
+    // @include darkening-blend-mode;
+    background-color: #f7f7f7;
+    // height: 200px;
+    position: relative;
+  
+  }
   
 
 }

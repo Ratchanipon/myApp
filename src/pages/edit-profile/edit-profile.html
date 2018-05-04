@@ -4,19 +4,13 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header >
-  <ion-navbar  color="primary" >
-    <button ion-button menuToggle>
-            <ion-icon name="menu"></ion-icon>
-    </button>
-    
-</ion-navbar>
-</ion-header>
+
 <!-- Content -->
-<ion-content >
+<ion-content background-content>
+  <br><br><br>
   <div  background-size id="elastic-header">
     <ion-thumbnail >
-      <br><br><br>
+      <br>
       <img width="60" height="60" [src]="chosenPicture || placeholder" onerror="this.src='assets/images/logo/user.png'"/>
 
     <div align="center" >
@@ -27,125 +21,122 @@
     </div>
   </ion-thumbnail>
   </div>
-  
-<br><br>
+
   <form [formGroup]="user" (ngSubmit)="editProfile(user)">
-    <div [ngClass]="animateClass">
 
-      <!-- <ion-col> -->
+    <div [ngClass]="animateClass" >
 
-          <ion-input type="hidden" formControlName="user_id"></ion-input>
-          <ion-input type="hidden" formControlName="password"></ion-input>
-        <ion-item>
-            <!-- <ion-label floating >ชื่อจริง (ภาษาไทย)</ion-label> -->
-          <ion-input type="text"formControlName="name" placeholder="ชื่อจริง (ภาษาไทย)"></ion-input>
-        </ion-item>
-        <ion-item margin-top>
-            <!-- <ion-label floating >นามสกุล (ภาษาไทย)</ion-label> -->
-          <ion-input type="text"  formControlName="surname" placeholder="นามสกุล (ภาษาไทย)" ></ion-input>
-        </ion-item>
-        <ion-item margin-top>
-            <!-- <ion-label floating >อีเมล (ตัวอย่าง test@excample.com)</ion-label> -->
-            <ion-input type="email" formControlName="email" placeholder="อีเมล (ตัวอย่าง test@excample.com)"></ion-input>
-        </ion-item>
+          <ion-col>
+              <ion-input type="hidden" formControlName="user_id"></ion-input>
+              <ion-input type="hidden" formControlName="password"></ion-input>
+            <ion-card>
+                <!-- <ion-label floating >ชื่อจริง (ภาษาไทย)</ion-label> -->
+              <ion-input type="text"formControlName="name" placeholder="ชื่อจริง (ภาษาไทย)"></ion-input>
+            </ion-card>
+            <ion-card margin-top>
+                <!-- <ion-label floating >นามสกุล (ภาษาไทย)</ion-label> -->
+              <ion-input type="text"  formControlName="surname" placeholder="นามสกุล (ภาษาไทย)" ></ion-input>
+            </ion-card>
+            <ion-card margin-top>
+                <!-- <ion-label floating >อีเมล (ตัวอย่าง test@excample.com)</ion-label> -->
+                <ion-input type="email" formControlName="email" placeholder="อีเมล (ตัวอย่าง test@excample.com)"></ion-input>
+            </ion-card>
 
-        <ion-item margin-top>
-          <!-- <ion-label floating>อายุ</ion-label> -->
-          <ion-select formControlName="age" multiple="false" interface="popover" placeholder="อายุ">
-            <ion-option value="18">18</ion-option>
-            <ion-option value="19">19</ion-option>
-            <ion-option value="20">20</ion-option>
-            <ion-option value="21">21</ion-option>
-            <ion-option value="22">22</ion-option>
-            <ion-option value="23">23</ion-option>
-            <ion-option value="24">24</ion-option>
-            <ion-option value="25">25</ion-option>
-            <ion-option value="26">26</ion-option>
-            <ion-option value="27">27</ion-option>
-            <ion-option value="28">28</ion-option>
-            <ion-option value="29">29</ion-option>
-            <ion-option value="30">30</ion-option>
-            <ion-option value="31">31</ion-option>
-            <ion-option value="32">32</ion-option>
-            <ion-option value="33">33</ion-option>
-            <ion-option value="34">34</ion-option>
-            <ion-option value="35">35</ion-option>
-            <ion-option value="36">36</ion-option>
-            <ion-option value="37">37</ion-option>
-            <ion-option value="38">38</ion-option>
-            <ion-option value="39">39</ion-option>
-            <ion-option value="40">40</ion-option>
-            <ion-option value="41">41</ion-option>
-            <ion-option value="42">42</ion-option>
-            <ion-option value="43">43</ion-option>
-            <ion-option value="44">44</ion-option>
-            <ion-option value="45">45</ion-option>
-            <ion-option value="46">46</ion-option>
-            <ion-option value="47">47</ion-option>
-            <ion-option value="48">48</ion-option>
-            <ion-option value="49">49</ion-option>
-            <ion-option value="50">50</ion-option>
-            <ion-option value="51">51</ion-option>
-            <ion-option value="52">52</ion-option>
-            <ion-option value="53">53</ion-option>
-            <ion-option value="54">54</ion-option>
-            <ion-option value="55">55</ion-option>
-            <ion-option value="56">56</ion-option>
-            <ion-option value="57">57</ion-option>
-            <ion-option value="58">58</ion-option>
-            <ion-option value="59">59</ion-option>
-            <ion-option value="60">60</ion-option>
-            <ion-option value="61">61</ion-option>
-            <ion-option value="62">62</ion-option>
-            <ion-option value="63">63</ion-option>
-            <ion-option value="64">64</ion-option>
-            <ion-option value="65">65</ion-option>
-            <ion-option value="66">66</ion-option>
-            <ion-option value="67">67</ion-option>
-            <ion-option value="68">68</ion-option>
-            <ion-option value="69">69</ion-option>
-            <ion-option value="70">70</ion-option>
-            <ion-option value="71">71</ion-option>
-            <ion-option value="72">72</ion-option>
-            <ion-option value="73">73</ion-option>
-            <ion-option value="74">74</ion-option>
-            <ion-option value="75">75</ion-option>
-            <ion-option value="76">76</ion-option>
-            <ion-option value="77">77</ion-option>
-            <ion-option value="78">78</ion-option>
-            <ion-option value="79">79</ion-option>
-            <ion-option value="80">80</ion-option>
+            <ion-card margin-top>
+              <!-- <ion-label floating>อายุ</ion-label> -->
+              <ion-select formControlName="age" multiple="false" interface="popover" placeholder="อายุ">
+                <ion-option value="18">18</ion-option>
+                <ion-option value="19">19</ion-option>
+                <ion-option value="20">20</ion-option>
+                <ion-option value="21">21</ion-option>
+                <ion-option value="22">22</ion-option>
+                <ion-option value="23">23</ion-option>
+                <ion-option value="24">24</ion-option>
+                <ion-option value="25">25</ion-option>
+                <ion-option value="26">26</ion-option>
+                <ion-option value="27">27</ion-option>
+                <ion-option value="28">28</ion-option>
+                <ion-option value="29">29</ion-option>
+                <ion-option value="30">30</ion-option>
+                <ion-option value="31">31</ion-option>
+                <ion-option value="32">32</ion-option>
+                <ion-option value="33">33</ion-option>
+                <ion-option value="34">34</ion-option>
+                <ion-option value="35">35</ion-option>
+                <ion-option value="36">36</ion-option>
+                <ion-option value="37">37</ion-option>
+                <ion-option value="38">38</ion-option>
+                <ion-option value="39">39</ion-option>
+                <ion-option value="40">40</ion-option>
+                <ion-option value="41">41</ion-option>
+                <ion-option value="42">42</ion-option>
+                <ion-option value="43">43</ion-option>
+                <ion-option value="44">44</ion-option>
+                <ion-option value="45">45</ion-option>
+                <ion-option value="46">46</ion-option>
+                <ion-option value="47">47</ion-option>
+                <ion-option value="48">48</ion-option>
+                <ion-option value="49">49</ion-option>
+                <ion-option value="50">50</ion-option>
+                <ion-option value="51">51</ion-option>
+                <ion-option value="52">52</ion-option>
+                <ion-option value="53">53</ion-option>
+                <ion-option value="54">54</ion-option>
+                <ion-option value="55">55</ion-option>
+                <ion-option value="56">56</ion-option>
+                <ion-option value="57">57</ion-option>
+                <ion-option value="58">58</ion-option>
+                <ion-option value="59">59</ion-option>
+                <ion-option value="60">60</ion-option>
+                <ion-option value="61">61</ion-option>
+                <ion-option value="62">62</ion-option>
+                <ion-option value="63">63</ion-option>
+                <ion-option value="64">64</ion-option>
+                <ion-option value="65">65</ion-option>
+                <ion-option value="66">66</ion-option>
+                <ion-option value="67">67</ion-option>
+                <ion-option value="68">68</ion-option>
+                <ion-option value="69">69</ion-option>
+                <ion-option value="70">70</ion-option>
+                <ion-option value="71">71</ion-option>
+                <ion-option value="72">72</ion-option>
+                <ion-option value="73">73</ion-option>
+                <ion-option value="74">74</ion-option>
+                <ion-option value="75">75</ion-option>
+                <ion-option value="76">76</ion-option>
+                <ion-option value="77">77</ion-option>
+                <ion-option value="78">78</ion-option>
+                <ion-option value="79">79</ion-option>
+                <ion-option value="80">80</ion-option>
 
-          </ion-select>
-      </ion-item>
-        <ion-item margin-top>
-            <!-- <ion-label floating>เพศ</ion-label> -->
-            <ion-select formControlName="sex" multiple="false" interface="popover" placeholder="เพศ">
-              <ion-option value="ชาย">ชาย</ion-option>
-              <ion-option value="หญิง">หญิง</ion-option>
-            </ion-select>
-        </ion-item>
-        <ion-item margin-top>
-            <!-- <ion-label floating>อาชีพ</ion-label> -->
-            <ion-select formControlName="career" multiple="false" interface="popover" placeholder="อาชีพ">
-              <ion-option value="ข้าราชการ">ข้าราชการ</ion-option>
-              <ion-option value="พนักงานรัฐวิสาหกิจ">พนักงานรัฐวิสาหกิจ</ion-option>
-              <ion-option value="พนักงานบริษัท">พนักงานบริษัท</ion-option>
-              <ion-option value="ธุรกิจส่วนตัว">ธุรกิจส่วนตัว</ion-option>
-              <ion-option value="รับจ้าง/ลูกจ้าง">รับจ้าง/ลูกจ้าง</ion-option>
-              <ion-option value="นิสิต/นักศึกษา">นิสิต/นักศึกษา</ion-option>
-              <ion-option value="เกษตรกรรม/ปศุสัตว์/ประมง">เกษตรกรรม/ปศุสัตว์/ประมง</ion-option>
-              <ion-option value="เกษียณ/ว่างงาน">เกษียณ/ว่างงาน</ion-option>
-              <ion-option value="อื่นๆ">อื่นๆ</ion-option>
-            </ion-select>
-        </ion-item>
-      <!-- </ion-col> -->
+              </ion-select>
+            </ion-card>
+            <ion-card margin-top>
+                <!-- <ion-label floating>เพศ</ion-label> -->
+                <ion-select formControlName="sex" multiple="false" interface="popover" placeholder="เพศ">
+                  <ion-option value="ชาย">ชาย</ion-option>
+                  <ion-option value="หญิง">หญิง</ion-option>
+                </ion-select>
+            </ion-card>
+            <ion-card margin-top>
+                <!-- <ion-label floating>อาชีพ</ion-label> -->
+                <ion-select formControlName="career" multiple="false" interface="popover" placeholder="อาชีพ">
+                  <ion-option value="ข้าราชการ">ข้าราชการ</ion-option>
+                  <ion-option value="พนักงานรัฐวิสาหกิจ">พนักงานรัฐวิสาหกิจ</ion-option>
+                  <ion-option value="พนักงานบริษัท">พนักงานบริษัท</ion-option>
+                  <ion-option value="ธุรกิจส่วนตัว">ธุรกิจส่วนตัว</ion-option>
+                  <ion-option value="รับจ้าง/ลูกจ้าง">รับจ้าง/ลูกจ้าง</ion-option>
+                  <ion-option value="นิสิต/นักศึกษา">นิสิต/นักศึกษา</ion-option>
+                  <ion-option value="เกษตรกรรม/ปศุสัตว์/ประมง">เกษตรกรรม/ปศุสัตว์/ประมง</ion-option>
+                  <ion-option value="เกษียณ/ว่างงาน">เกษียณ/ว่างงาน</ion-option>
+                  <ion-option value="อื่นๆ">อื่นๆ</ion-option>
+                </ion-select>
+            </ion-card>
+          </ion-col>
+        <div [ngClass]="animateClass" padding>
+          <button ion-button default-button full text-capitalize color="secondary2" type="submit" [disabled]="!user.valid" >บันทึก</button>
+          <button padding ion-button default-button full text-capitalize color="grayy" (click)="ProfilePage()">ยกเลิก</button>
+        </div>
     </div>
-    <div [ngClass]="animateClass" padding>
-      <button ion-button default-button full text-capitalize color="secondary2" type="submit" [disabled]="!user.valid" >บันทึก</button>
-      <button ion-button default-button full text-capitalize color="grayy" navPush="LoginPage">ยกเลิก</button>
-
-    </div>
-    </form>
-  
+  </form>
 </ion-content>

@@ -1,18 +1,45 @@
 <!--
-  Generated template for the ShowRisk2Page page.
+  Generated template for the ShowRisk1Page page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>show-risk2</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
-</ion-content>
+    <ion-navbar color="primary">
+      <ion-title>สุขภาพทางการเงินของคุณ</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content>
+  
+    <ion-row background-color>
+        <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4>
+          <ion-card text-left>
+  
+            <div card-image>
+                <img class="" height="170" [src]="chosenPicture || placeholder" onerror="this.src='assets/images/background/119.jpg'"/>
+            </div>
+  
+            <ion-card-content *ngFor = "let item of risk">
+              <ion-card-title>
+                <h2 card-title><font color="#ee8e34">ผลการคำนวณ</font></h2>
+                <h1 card-subtitle>สุขภาพทางการเงินอยู่ในระดับ <b><font color="#5e8bd5">{{item.name}}</font></b><br>
+                <!-- <br>มีอัตราส่วนหนี้สินต่อรายได้ = <ion-badge class="badge-light">{{DTI | number:'.1-2'}} %</ion-badge> -->
+                <br>ความเสี่ยงทางการเงินอยู่ในระดับ <b><font color="#5e8bd5">{{risk2}}</font></b><br></h1>
+                <p card-body-text>{{item.direction}}</p>
+              </ion-card-title>
+            </ion-card-content>
+          </ion-card>
+        
+  
+      <div padding>
+      <button ion-button default-button full text-capitalize color="secondary2" navPush="FhcInstantPage">วิเคราะห์อีกครั้ง</button>
+      <button ion-button default-button full text-capitalize  color="grayy" navPush="IndexPage">กลับหน้าหลัก</button>
+      </div>
+    </ion-col>
+    </ion-row>
+  </ion-content>
+  
