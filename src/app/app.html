@@ -41,6 +41,21 @@
         งบการเงินของฉัน
       </button>
 
+      <button menuClose ion-item (click)="IncomePage()">
+        <ion-icon icon-small name="list-box"></ion-icon> 
+        รายรับ
+      </button>
+
+      <button menuClose ion-item (click)="DailyExpensesPage()">
+        <ion-icon icon-small name="list-box"></ion-icon> 
+        รายจ่ายรายวัน
+      </button>
+
+      <button menuClose ion-item (click)="FixedExpensesPage()">
+        <ion-icon icon-small name="list-box"></ion-icon> 
+        รายจ่ายคงที่
+      </button>
+
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
           <ion-icon icon-small name="list"></ion-icon>
               <!-- <i class="icon {{p.icon}}"></i> -->
@@ -51,6 +66,11 @@
       <button menuClose ion-item (click)="SummaryPage()">
         <ion-icon icon-small name="podium"></ion-icon> 
         สรุปงบการเงิน
+      </button>
+
+      <button menuClose ion-item (click)="ShowRisk2Page()">
+        <ion-icon icon-small name="calculator"></ion-icon> 
+        วิเคราะห์ความเสี่ยง
       </button>
 
       <button menuClose ion-item (click)="setting()">

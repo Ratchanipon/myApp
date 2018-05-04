@@ -41,7 +41,6 @@ export class MyApp {
         sessionStorage.setItem("host",this.host);
         sessionStorage.setItem("month",this.month);
         sessionStorage.setItem("year",this.year);
-    // localStorage.setItem("host",this.host);
 
     this.user_id = localStorage.getItem("user_id");
     this.user_id != null?this.rootPage = "HomePage":this.rootPage = "IndexPage";
@@ -51,17 +50,11 @@ export class MyApp {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
-    this.pages = [
-      // { title: 'สรุปบัญชีของฉัน', component: 'HomePage' },
-      // { title: 'List', component: 'ListPage' },
-      { title: 'รายรับ', component: 'IncomePage'},
-      { title: 'รายจ่ายรายวัน', component: 'DailyExpensesPage'},
-      { title: 'รายจ่ายคงที่', component: 'FixedExpensesPage'}
-      // { title: 'สรุปงบการเงิน', component: 'SummaryPage'}
-      
-    ];
-
-    
+    // this.pages = [
+    //   { title: 'รายรับ', component: 'IncomePage'},
+    //   { title: 'รายจ่ายรายวัน', component: 'DailyExpensesPage'},
+    //   { title: 'รายจ่ายคงที่', component: 'FixedExpensesPage'}
+    // ];
 
   }
 
@@ -107,6 +100,27 @@ export class MyApp {
     });
     actionSheet.present();
   }
+  
+  HomePage(){
+    this.rootPage = "HomePage";
+  }
+  IncomePage(){
+    this.rootPage = "IncomePage";
+  }
+  DailyExpensesPage(){
+    this.rootPage = "DailyExpensesPage";
+  }
+  FixedExpensesPage(){
+    this.rootPage = "FixedExpensesPage";
+  }
+
+  SummaryPage(){
+    this.rootPage = "SummaryPage";
+  }
+  ShowRisk2Page(){
+    this.rootPage = "ShowRisk2Page";
+  }
+
   setting() {
     let actionSheet = this.actionSheetCtrl.create({
       buttons: [
@@ -142,11 +156,5 @@ export class MyApp {
       ]
     });
     actionSheet.present();
-  }
-  HomePage(){
-    this.rootPage = "HomePage";
-  }
-  SummaryPage(){
-    this.rootPage = "SummaryPage";
   }
 }
