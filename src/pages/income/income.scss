@@ -28,13 +28,23 @@ page-income{
       border-radius: $border-radius !important;
     }
   }
-  // Badge
-  // ion-badge {
-  //   margin-top: 42px;
-  // }
-
+  .fab {
+    contain: layout;
 }
+button[ion-fab] {
+  overflow: visible;
+  position: relative;
 
-sticky-list-header-layout-1 {
-    
+  ion-label {
+      position: absolute;
+      top: -9px;
+      right: 40px;
+
+      color: white;
+      background-color:rgb(114, 114, 114);
+      line-height: 21px;
+      padding: 4px 8px;
+      border-radius: 4px;
+   }
   }
+}

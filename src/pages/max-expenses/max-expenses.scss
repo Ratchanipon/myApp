@@ -20,5 +20,24 @@ page-max-expenses {
           border-radius: $border-radius !important;
         }
       }
+      .fab {
+        contain: layout;
+    }
+    button[ion-fab] {
+      overflow: visible;
+      position: relative;
+  
+      ion-label {
+          position: absolute;
+          top: -9px;
+          right: 40px;
+  
+          color: white;
+          background-color:rgb(114, 114, 114);
+          line-height: 21px;
+          padding: 4px 8px;
+          border-radius: 4px;
+      }
+  }
 
 }
