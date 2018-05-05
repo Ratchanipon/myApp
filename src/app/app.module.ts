@@ -67,6 +67,10 @@ import { DataChartProvider } from '../providers/calculate-services/get-dataChart
 import { EditUserProvider } from '../providers/user-service/edit-users';
 import { initializeApp } from 'firebase';
 import { LoadingProvider } from '../providers/loading/loading';
+import { SumNecessaryExpensesProvider } from '../providers/summary-services/sum-necessary-expenses';
+import { SumNecessaryExpensesByMonthProvider } from '../providers/summary-services/sum-necessary-expensesByMonth';
+import { SumDispensableExpensesLastMonthProvider } from '../providers/summary-services/sum-dispensable-expensesLastMonth';
+import { SumNecessaryExpensesLastMonthProvider } from '../providers/summary-services/sum-necessary-expensesLastMonth';
 
 // var config = {
 //   apiKey: "AIzaSyBiTQt8D-8MFdhk1m1HJtZaMu4eNf7Ywa0",
@@ -143,6 +147,7 @@ initializeApp(FirebaseConfig);
     MaxExpensesByMonthProvider,
     SumDispensableExpensesProvider,
     SumDispensableExpensesByMonthProvider,
+    SumDispensableExpensesLastMonthProvider,
     EditIncomeProvider,
     UserByIdProvider,
     EditFixedExpensesProvider,
@@ -150,7 +155,10 @@ initializeApp(FirebaseConfig);
     DueDateByUserIdProvider,
     DataChartProvider,
     EditUserProvider,
-    LoadingProvider
+    LoadingProvider,
+    SumNecessaryExpensesProvider,
+    SumNecessaryExpensesByMonthProvider,
+    SumNecessaryExpensesLastMonthProvider,
   ]
 })
 export class AppModule {}

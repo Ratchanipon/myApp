@@ -10,13 +10,31 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
           </button>
-      <ion-title>จัดการงบการเงินส่วนบุคคล</ion-title>
+      <ion-title>ชาร์ท</ion-title>
     </ion-navbar>
   
   </ion-header>
 
 
 <ion-content background-color>
+
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+            pullingIcon="arrow-dropdown"
+            pullingText="Pull to refresh"
+            refreshingSpinner="circles"
+            refreshingText="Refreshing...">
+        </ion-refresher-content>
+    </ion-refresher>
+
+    <!-- เลือกเดือน -->
+    <!-- <div align="right">
+        <label item-title text-wrap></label>
+        <button  ion-button clear (click)="doMonth()"><b><font size="4">{{month_now}} {{year}}</font></b>
+          <ion-icon icon-small name="calendar"></ion-icon>
+        </button>
+    </div> -->
+
   <ion-card>
     <div style="display: block">
         <canvas baseChart width="1000" height="600"

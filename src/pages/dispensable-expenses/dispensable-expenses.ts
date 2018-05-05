@@ -22,7 +22,7 @@ import { SumDispensableExpensesProvider } from '../../providers/summary-services
 export class DispensableExpensesPage {
 
   dispensableExpList: any;
-  sumDispensableExp:any;
+  sumDispensableExp:number;
   animateClass:any;
   year:string;
 
@@ -43,8 +43,9 @@ export class DispensableExpensesPage {
                   console.error(err);
       
                 })
-                this.sumDispensableExpenses.getSumDispensableExpenses().then(data => {
-                this.sumDispensableExp = data;
+                this.sumDispensableExpenses.getSumDispensableExpenses().then((data:any) => {
+                this.sumDispensableExp = data.total;
+                
     })
 
   }
@@ -54,16 +55,15 @@ export class DispensableExpensesPage {
 
     setTimeout(() => {
       console.log('Async operation has ended');
-      this.dispensableExpenses.getDispensableExpenses()
-                .then((data: any) => {
-                  this.dispensableExpList = data;
-                }).catch(err => {
-                  console.error(err);
       
+      this.dispensableExpenses.getDispensableExpenses().then((data: any) => {
+          this.dispensableExpList = data;
+      }).catch(err => {
+                  console.error(err);
                 })
-                this.sumDispensableExpenses.getSumDispensableExpenses().then(data => {
-                this.sumDispensableExp = data;
-    })
+      this.sumDispensableExpenses.getSumDispensableExpenses().then((data:any) => {
+          this.sumDispensableExp = data.total;
+      })
     let month_n = parseInt(sessionStorage.getItem("month"));
     let month = month_n+1;
     console.info('month='+month);
@@ -175,8 +175,8 @@ export class DispensableExpensesPage {
               this.dispensableExpList = data;
               this.month_now = "มกราคม";
             })
-            this.sumDispensableExpensesByMonth.getSumDispensableExpensesByMonth(month).then(data => {
-              this.sumDispensableExp = data;
+            this.sumDispensableExpensesByMonth.getSumDispensableExpensesByMonth(month).then((data:any) => {
+              this.sumDispensableExp = data.total;
             })
           }
         },
@@ -190,8 +190,8 @@ export class DispensableExpensesPage {
               this.dispensableExpList = data;
               this.month_now = "กุมภาพันธ์";
             })
-            this.sumDispensableExpensesByMonth.getSumDispensableExpensesByMonth(month).then(data => {
-              this.sumDispensableExp = data;
+            this.sumDispensableExpensesByMonth.getSumDispensableExpensesByMonth(month).then((data:any) => {
+              this.sumDispensableExp = data.total;
             })
           }
         },
@@ -205,8 +205,8 @@ export class DispensableExpensesPage {
               this.dispensableExpList = data;
               this.month_now = "มีนาคม";
             })
-            this.sumDispensableExpensesByMonth.getSumDispensableExpensesByMonth(month).then(data => {
-              this.sumDispensableExp = data;
+            this.sumDispensableExpensesByMonth.getSumDispensableExpensesByMonth(month).then((data:any) => {
+              this.sumDispensableExp = data.total;
             })
           }
         },
@@ -220,8 +220,8 @@ export class DispensableExpensesPage {
               this.dispensableExpList = data;
               this.month_now = "เมษายน";
             })
-            this.sumDispensableExpensesByMonth.getSumDispensableExpensesByMonth(month).then(data => {
-              this.sumDispensableExp = data;
+            this.sumDispensableExpensesByMonth.getSumDispensableExpensesByMonth(month).then((data:any) => {
+              this.sumDispensableExp = data.total;
             })
           }
         },
@@ -235,8 +235,8 @@ export class DispensableExpensesPage {
               this.dispensableExpList = data;
               this.month_now = "พฤษภาคม";
             })
-            this.sumDispensableExpensesByMonth.getSumDispensableExpensesByMonth(month).then(data => {
-              this.sumDispensableExp = data;
+            this.sumDispensableExpensesByMonth.getSumDispensableExpensesByMonth(month).then((data:any) => {
+              this.sumDispensableExp = data.total;
             })
           }
         },
@@ -250,8 +250,8 @@ export class DispensableExpensesPage {
               this.dispensableExpList = data;
               this.month_now = "มิถุนายน";
             })
-            this.sumDispensableExpensesByMonth.getSumDispensableExpensesByMonth(month).then(data => {
-              this.sumDispensableExp = data;
+            this.sumDispensableExpensesByMonth.getSumDispensableExpensesByMonth(month).then((data:any) => {
+              this.sumDispensableExp = data.total;
             })
           }
         },
@@ -265,8 +265,8 @@ export class DispensableExpensesPage {
               this.dispensableExpList = data;
               this.month_now = "กรกฎาคม";
             })
-            this.sumDispensableExpensesByMonth.getSumDispensableExpensesByMonth(month).then(data => {
-              this.sumDispensableExp = data;
+            this.sumDispensableExpensesByMonth.getSumDispensableExpensesByMonth(month).then((data:any) => {
+              this.sumDispensableExp = data.total;
             })
           }
         },
@@ -280,8 +280,8 @@ export class DispensableExpensesPage {
               this.dispensableExpList = data;
               this.month_now = "สิงหาคม";
             })
-            this.sumDispensableExpensesByMonth.getSumDispensableExpensesByMonth(month).then(data => {
-              this.sumDispensableExp = data;
+            this.sumDispensableExpensesByMonth.getSumDispensableExpensesByMonth(month).then((data:any) => {
+              this.sumDispensableExp = data.total;
             })
           }
         },
@@ -295,8 +295,8 @@ export class DispensableExpensesPage {
               this.dispensableExpList = data;
               this.month_now = "กันยายน";
             })
-            this.sumDispensableExpensesByMonth.getSumDispensableExpensesByMonth(month).then(data => {
-              this.sumDispensableExp = data;
+            this.sumDispensableExpensesByMonth.getSumDispensableExpensesByMonth(month).then((data:any) => {
+              this.sumDispensableExp = data.total;
             })
           }
         },
@@ -310,8 +310,8 @@ export class DispensableExpensesPage {
               this.dispensableExpList = data;
               this.month_now = "ตุลาคม";
             })
-            this.sumDispensableExpensesByMonth.getSumDispensableExpensesByMonth(month).then(data => {
-              this.sumDispensableExp = data;
+            this.sumDispensableExpensesByMonth.getSumDispensableExpensesByMonth(month).then((data:any) => {
+              this.sumDispensableExp = data.total;
             })
           }
         },
@@ -325,8 +325,8 @@ export class DispensableExpensesPage {
               this.dispensableExpList = data;
               this.month_now = "พฤศจิกายน";
             })
-            this.sumDispensableExpensesByMonth.getSumDispensableExpensesByMonth(month).then(data => {
-              this.sumDispensableExp = data;
+            this.sumDispensableExpensesByMonth.getSumDispensableExpensesByMonth(month).then((data:any) => {
+              this.sumDispensableExp = data.total;
             })
           }
         },
@@ -340,8 +340,8 @@ export class DispensableExpensesPage {
               this.dispensableExpList = data;
               this.month_now = "ธันวาคม";
             })
-            this.sumDispensableExpensesByMonth.getSumDispensableExpensesByMonth(month).then(data => {
-              this.sumDispensableExp = data;
+            this.sumDispensableExpensesByMonth.getSumDispensableExpensesByMonth(month).then((data:any) => {
+              this.sumDispensableExp = data.total;
             })
           }
         },
