@@ -217,6 +217,11 @@ export class AddIncomeMainPage {
     });
     actionSheet.present();
   }
+  HomePage(){
+    this.navCtrl.setRoot('HomePage');   
+      const root = this.app.getRootNav();
+      root.popToRoot();
+  }
 
 
 }

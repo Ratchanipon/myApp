@@ -279,5 +279,10 @@ export class AddDailyExpensesPage {
     });
     actionSheet.present();
   }
+  HomePage(){
+    this.navCtrl.setRoot('HomePage');   
+      const root = this.app.getRootNav();
+      root.popToRoot();
+  }
 
 }

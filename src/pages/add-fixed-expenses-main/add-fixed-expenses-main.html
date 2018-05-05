@@ -90,8 +90,8 @@
             </ion-col>
           </ion-row>
           <div no-lines [ngClass]="animate2Class" padding>
-            <button ion-button default-button full text-capitalize  navPush="HomePage">บันทึก</button>
-            <!-- <button ion-button full navPush="">ยกเลิก</button> -->
+            <button ion-button default-button full text-capitalize  (click)="HomePage()">บันทึก</button>
+            
           </div>
     </form>
 
