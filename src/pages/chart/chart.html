@@ -6,21 +6,40 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>chart</ion-title>
-  </ion-navbar>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+      <ion-title>จัดการงบการเงินส่วนบุคคล</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
 
-</ion-header>
 
-
-<ion-content padding>
+<ion-content background-color>
+  <ion-card>
     <div style="display: block">
-        <canvas baseChart
+        <canvas baseChart width="1000" height="600"
                     [data]="num"
                     [labels]="doughnutChartLabels"
+
                     [chartType]="doughnutChartType"
                     (chartHover)="chartHovered($event)"
                     (chartClick)="chartClicked($event)"></canvas>
       </div>
+    </ion-card>
+
+    <ion-card margin-top>
+      <div style="display: block">
+          <canvas baseChart
+                  [datasets]="barChartData"
+                  [labels]="barChartLabels" 
+                  [options]="barChartOptions"
+                  [legend]="barChartLegend"
+                  [chartType]="barChartType"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+        </div>
+      </ion-card>
 
 </ion-content>

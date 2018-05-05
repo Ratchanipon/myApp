@@ -26,13 +26,27 @@ import { SumDaileExp } from '../../model/get-sumDailyExp';
 })
 export class ChartPage {
 
+  // pieChart
   public num:number[]=[];
-  // Doughnut
-  public doughnutChartLabels:string[]=[];
+  public doughnutChartLabels = ['รายรับ', 'รายจ่ายคงที่', 'รายจ่างรายวัน'];
+  // public colorChart:string[] = ['#5cdd78','#5cdd78','#5cdd78'];
   public doughnutChartData:number[]=[];
-  public doughnutChartType:string = 'doughnut';
-
+  public doughnutChartType:string = 'pie';
   dataChart:DataChart;
+
+  //barChart
+  public barChartOptions:any = {
+    scaleShowVerticalLines: false,
+    responsive: true
+  };
+  public barChartLabels:string[] = ['', ''];
+  public barChartType:string = 'bar';
+  public barChartLegend:boolean = true;
+ 
+  public barChartData:any[] = [
+    {data: [2000, 300], label: 'รายจ่ายที่จำเป็น'},
+    {data: [2200, 4000], label: 'รายจ่ายที่ไม่จำเป็น'}
+  ];
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -42,17 +56,17 @@ export class ChartPage {
               public dataChart_: DataChartProvider) {
                 
                 
-                this.donutChart();
+                this.pieChart();
                 
   }
 
 ionViewDidLoad() {
   console.log('ionViewDidLoad ChartPage');
-  this.donutChart();
+  this.pieChart();
 
 }
 
-donutChart(){
+pieChart(){
 
   this.sumIncom.getSumIncome().then((data:SumIncome) => {          
     let income =JSON.stringify(data.totalIncome);
@@ -81,7 +95,6 @@ donutChart(){
     console.log("num====",this.num);
     
     this.doughnutChartData = this.num ;
-    this.doughnutChartLabels = ['รายรับ', 'รายจ่ายคงที่', 'รายจ่างรายวัน'];
 
     sessionStorage.removeItem('income');
     sessionStorage.removeItem('fixed');

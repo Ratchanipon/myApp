@@ -180,7 +180,7 @@ export class AddDailyExpensesPage {
     if(dailyExpenses != null){
       this.addDailyExpensesSuccess();
 
-      this.navCtrl.setRoot('HomePage');   
+      this.navCtrl.setRoot('AddDailyExpensesPage');   
       const root = this.app.getRootNav();
       root.popToRoot();
     }
