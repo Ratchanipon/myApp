@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { FhcInstant } from '../../model/Fhc-instant';
 
 /**
@@ -22,9 +22,11 @@ export class FhcInstantPage {
   expTotal:number;
   DTI:number;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams,
+              public alertCtrl: AlertController,) {
 
-    this.fhcInstant = {income11:2000,income12:null,income13:null,income21:null,income22:null,income23:null,income24:null,income25:null,
+    this.fhcInstant = {income11:null,income12:null,income13:null,income21:null,income22:null,income23:null,income24:null,income25:null,
                        exp11:null,exp12:null,exp13:null,exp14:null,exp15:null,exp16:null,exp17:null,exp18:null,exp21:null,exp22:null,exp23:null,exp24:null,exp25:null,exp26:null,exp27:null,exp28:null}
 
   }
@@ -80,11 +82,19 @@ export class FhcInstantPage {
 
     }
     if(this.fhcInstant.income11==null){
-      this.doError();
+      this.navCtrl.push('FhcInstantPage');
+      this.alert();
     }
   }
-  doError(){
-    this.check = "กรุณากรอกข้อมูล"
+  alert(){
+
+    let alert = this.alertCtrl.create({
+      title: 'ขออภัย!',
+      subTitle: 'กรุณากรอกข้อมูลเงินเดือน',
+      buttons: ['ปิด']
+    });
+    alert.present();
+
   }
 
 }
