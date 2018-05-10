@@ -62,7 +62,7 @@ import { EditIncomeProvider } from '../providers/income-services/edit-income';
 import { UserByIdProvider } from '../providers/user-service/user-serviceById';
 import { EditFixedExpensesProvider } from '../providers/fixed-expenses-services/edit-fixed_expenses';
 import { EditDailyExpensesProvider } from '../providers/daily-expenses-services/edit-daily-expenses';
-import { DueDateByUserIdProvider } from '../providers/due-date-services/get-dueDateByUserId';
+import { DueDateByUserIdProvider } from '../providers/due-date-services/get-duedate';
 import { DataChartProvider } from '../providers/calculate-services/get-dataChart';
 import { EditUserProvider } from '../providers/user-service/edit-users';
 import { initializeApp } from 'firebase';
@@ -71,7 +71,8 @@ import { SumNecessaryExpensesProvider } from '../providers/summary-services/sum-
 import { SumNecessaryExpensesByMonthProvider } from '../providers/summary-services/sum-necessary-expensesByMonth';
 import { SumDispensableExpensesLastMonthProvider } from '../providers/summary-services/sum-dispensable-expensesLastMonth';
 import { SumNecessaryExpensesLastMonthProvider } from '../providers/summary-services/sum-necessary-expensesLastMonth';
-
+import { LocalNotifications } from '@ionic-native/local-notifications';
+import { NotificationProvider } from '../providers/notification/notification';
 // var config = {
 //   apiKey: "AIzaSyBiTQt8D-8MFdhk1m1HJtZaMu4eNf7Ywa0",
 //   authDomain: "fchs-526b9.firebaseapp.com",
@@ -105,7 +106,7 @@ initializeApp(FirebaseConfig);
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-
+    LocalNotifications,
     Camera,
     UserServiceProvider,
     CateCreditCardProvider,
@@ -159,6 +160,7 @@ initializeApp(FirebaseConfig);
     SumNecessaryExpensesProvider,
     SumNecessaryExpensesByMonthProvider,
     SumNecessaryExpensesLastMonthProvider,
+    NotificationProvider,
   ]
 })
 export class AppModule {}

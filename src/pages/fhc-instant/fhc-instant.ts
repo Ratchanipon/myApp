@@ -85,6 +85,7 @@ export class FhcInstantPage {
       this.navCtrl.push('FhcInstantPage');
       this.alert();
     }
+
   }
   alert(){
 
@@ -97,4 +98,24 @@ export class FhcInstantPage {
 
   }
 
+  alert2(){
+
+    let alert = this.alertCtrl.create({
+      title: 'ขออภัย!',
+      subTitle: 'ห้ามกรอกจำนวนติดลบ',
+      buttons: ['ปิด']
+    });
+    alert.present();
+
+  }
+
+  test(ev: any) {
+
+    let val = ev.target.value;
+
+    if(val < 0){
+      this.alert2();
+    }
+
+  }
 }

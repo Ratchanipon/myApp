@@ -1,6 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform, ActionSheetController } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Observable } from 'rxjs/Observable';
 
@@ -8,6 +7,10 @@ import { HomePage } from '../pages/home/home';
 // import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { DispensableExpensesPage } from '../pages/dispensable-expenses/dispensable-expenses';
+import { StatusBar } from '@ionic-native/status-bar';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+import { NotificationProvider } from '../providers/notification/notification';
+import { DueDateByUserIdProvider } from '../providers/due-date-services/get-duedate';
 
 @Component({
   templateUrl: 'app.html'
@@ -36,8 +39,14 @@ export class MyApp {
   constructor(public platform: Platform, 
               public statusBar: StatusBar,
               public actionSheetCtrl: ActionSheetController,
-              public splashScreen: SplashScreen) {
-                
+              private localNotifications: LocalNotifications,
+              public splashScreen: SplashScreen,
+              public noti: NotificationProvider,
+              public dueDate: DueDateByUserIdProvider) {
+
+
+        this.notification();
+        
         sessionStorage.setItem("host",this.host);
         sessionStorage.setItem("month",this.month);
         sessionStorage.setItem("year",this.year);
@@ -59,17 +68,38 @@ export class MyApp {
   }
 
   initializeApp() {
-    this.platform.ready().then(() => {
+     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.email = localStorage.getItem("email");
-
+      
     });
 
-    
+    this.dueDate.getCreditCard1().then(data => {
+      console.log("water===");
+    })
+
   }
+
+  notification(){
+
+      let day = this.date.getDate();
+      let hours = this.date.getHours();
+
+      console.log(hours);
+    
+      if((day = 10) && (hours = 7)){
+        this.noti.notificationService('ครบกำหนดชำระค่าน้ำ','คุณมีกำนดชำระค่าน้ำวันนี้');
+      }
+      if((day = 10) && (hours = 7)){
+        this.noti.notificationService('ค่าน้ำ','กดทหดหกดหดหด');
+      }
+
+  }
+
+
 
   openPage(page) {
     // Reset the content nav to have just this page

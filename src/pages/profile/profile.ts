@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UserByIdProvider } from '../../providers/user-service/user-serviceById';
 import { User } from '../../model/user';
-import { DueDateByUserIdProvider } from '../../providers/due-date-services/get-dueDateByUserId';
 import { DueDate } from '../../model/due-date';
+import { DueDateByUserIdProvider } from '../../providers/due-date-services/get-duedate';
 
 /**
  * Generated class for the ProfilePage page.
@@ -54,7 +54,8 @@ export class ProfilePage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public userById: UserByIdProvider,
-              public dueDateByUserId: DueDateByUserIdProvider) {
+              public duedate_:DueDateByUserIdProvider
+            ) {
 
                 this.userById.getUserById().then((data:User) => {
                   this.user = data;
@@ -68,34 +69,39 @@ export class ProfilePage {
                   this.career = this.user.career;
                   
                 });
-            
-                this.dueDateByUserId.getDueDateById().then((data:DueDate) =>{
-                  this.duedate = data;
-                  console.log('duedate===',this.duedate);
-            
-                  this.water = this.duedate.water;
-                  console.log("water===",this.water);
+
+                this.duedate_.getCreditCard1().then(data => {
+                  console.log("data==",data);
                   
-                  this.electricity = this.duedate.electricity;
-                  this.telephone = this.duedate.telephone;
-                  this.internet = this.duedate.internet;
-                  this.credit_card = this.duedate.credit_card;
-                  this.credit_card2 = this.duedate.credit_card2;
-                  this.credit_card3 = this.duedate.credit_card3;
-                  this.credit_card4 = this.duedate.credit_card4;
-                  this.credit_card5 = this.duedate.credit_card5;
-                  this.credit_card_id = this.duedate.credit_card_id;
-                  this.credit_card_id2 = this.duedate.credit_card_id2;
-                  this.credit_card_id3 = this.duedate.credit_card_id3;
-                  this.credit_card_id4 = this.duedate.credit_card_id4;
-                  this.credit_card_id5 = this.duedate.credit_card_id5;
-                  this.credit1 = this.duedate.credit1;
-                  this.credit2 = this.duedate.credit2;
-                  this.credit3 = this.duedate.credit3;
-                  this.credit4 = this.duedate.credit4;
-                  this.credit5 = this.duedate.credit5;
+                })
+            
+                // this.dueDateByUserId.getDueDateById().then((data:DueDate) =>{
+                //   this.duedate = data;
+                //   console.log('duedate===',this.duedate);
+            
+                //   this.water = this.duedate.water;
+                //   console.log("water===",this.water);
                   
-                });
+                //   this.electricity = this.duedate.electricity;
+                //   this.telephone = this.duedate.telephone;
+                //   this.internet = this.duedate.internet;
+                //   this.credit_card = this.duedate.credit_card;
+                //   this.credit_card2 = this.duedate.credit_card2;
+                //   this.credit_card3 = this.duedate.credit_card3;
+                //   this.credit_card4 = this.duedate.credit_card4;
+                //   this.credit_card5 = this.duedate.credit_card5;
+                //   this.credit_card_id = this.duedate.credit_card_id;
+                //   this.credit_card_id2 = this.duedate.credit_card_id2;
+                //   this.credit_card_id3 = this.duedate.credit_card_id3;
+                //   this.credit_card_id4 = this.duedate.credit_card_id4;
+                //   this.credit_card_id5 = this.duedate.credit_card_id5;
+                //   this.credit1 = this.duedate.credit1;
+                //   this.credit2 = this.duedate.credit2;
+                //   this.credit3 = this.duedate.credit3;
+                //   this.credit4 = this.duedate.credit4;
+                //   this.credit5 = this.duedate.credit5;
+                  
+                // });
 
   }
 
