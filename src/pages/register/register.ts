@@ -141,7 +141,7 @@ export class RegisterPage {
 
   Duplicate() {
     let toast = this.toastCtrl.create({
-      message: 'มีอีเมลนี้อยู่ในระบบแล้ว กรุณากรอกอีเมลอีกครั้ง',
+      message: 'มีอีเมล์นี้อยู่ในระบบแล้ว กรุณากรอกอีเมล์อีกครั้ง',
       duration: 3000,
       position: 'top'
     });
