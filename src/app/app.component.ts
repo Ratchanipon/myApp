@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, ActionSheetController } from 'ionic-angular';
+import { Nav, Platform, ActionSheetController, AlertController } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Observable } from 'rxjs/Observable';
 
@@ -12,6 +12,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 import { NotificationProvider } from '../providers/notification/notification';
 import { DueDateByUserIdProvider } from '../providers/due-date-services/get-duedate';
 import { NotificationPage } from '../pages/notification/notification';
+import { DeleteUserProvider } from '../providers/user-service/delete-users';
 
 @Component({
   templateUrl: 'app.html'
@@ -38,12 +39,14 @@ export class MyApp {
   
 
   constructor(public platform: Platform, 
+              public alertCtrl: AlertController,
               public statusBar: StatusBar,
               public actionSheetCtrl: ActionSheetController,
               private localNotifications: LocalNotifications,
               public splashScreen: SplashScreen,
               public noti: NotificationProvider,
               public dueDate: DueDateByUserIdProvider,
+              public deleteUser: DeleteUserProvider
               ) {
 
 
@@ -243,6 +246,13 @@ export class MyApp {
           }
         },
         {
+          icon: 'trash',
+          text: 'ลบบัญชีผู้ใช้',
+          handler: () => {
+            this.DeleteUserConfirm();
+          }
+        },
+        {
           icon: 'close-circle',
           text: 'ยกเลิก',
           handler: () => {
@@ -252,5 +262,29 @@ export class MyApp {
       ]
     });
     actionSheet.present();
+  }
+
+  DeleteUserConfirm() {
+    let confirm = this.alertCtrl.create({
+      title: 'คุณต้องการจะลบบัญชีใช่หรือไม่',
+      // message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
+      buttons: [
+        {
+          text: 'ไม่ใช่',
+          handler: () => {
+          
+          }
+        },
+        {
+          text: 'ใช่',
+          handler: () => {
+            this.deleteUser.deleteUser();
+            localStorage.clear();
+            this.rootPage = "IndexPage";
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
 }

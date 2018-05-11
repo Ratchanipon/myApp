@@ -74,6 +74,7 @@ import { SumNecessaryExpensesLastMonthProvider } from '../providers/summary-serv
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { NotificationProvider } from '../providers/notification/notification';
 import { EditDueDateProvider } from '../providers/due-date-services/edit-due-date-services';
+import { DeleteUserProvider } from '../providers/user-service/delete-users';
 // var config = {
 //   apiKey: "AIzaSyBiTQt8D-8MFdhk1m1HJtZaMu4eNf7Ywa0",
 //   authDomain: "fchs-526b9.firebaseapp.com",
@@ -162,7 +163,8 @@ initializeApp(FirebaseConfig);
     SumNecessaryExpensesByMonthProvider,
     SumNecessaryExpensesLastMonthProvider,
     NotificationProvider,
-    EditDueDateProvider
+    EditDueDateProvider,
+    DeleteUserProvider
   ]
 })
 export class AppModule {}
