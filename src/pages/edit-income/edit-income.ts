@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, App, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App, ToastController, AlertController } from 'ionic-angular';
 import { Income } from '../../model/income';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CateIncomeProvider } from '../../providers/category-services/cate-icome';
@@ -51,6 +51,7 @@ export class EditIncomePage {
               public navParams: NavParams,
               public app: App,
               public formBuilder: FormBuilder,
+              public alertCtrl: AlertController,
               public editIncom_: EditIncomeProvider,
               public incomeCate: CateIncomeProvider,
               public camera:Camera,
@@ -82,7 +83,25 @@ export class EditIncomePage {
     this.incomeCate.getCateIncome().then(data => {
       this.incomeCateList = data;
     })
+  }
 
+  checkMoney(){
+    let amount = this.income.controls['amount'].value;
+    console.log("amount======",amount);
+
+    if(amount < 0){
+      this.alert2();
+    }
+  }
+
+  alert2(){
+
+    let alert = this.alertCtrl.create({
+      title: 'ขออภัย!',
+      subTitle: 'ห้ามกรอกจำนวนติดลบ',
+      buttons: ['ปิด']
+    });
+    alert.present();
 
   }
 

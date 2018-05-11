@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, App, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App, ToastController, AlertController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CateDailyExpensesProvider } from '../../providers/category-services/cate-daily-expenses';
 import { CatePaymentChannelProvider } from '../../providers/category-services/cate-payment-channel';
@@ -47,6 +47,7 @@ export class EditDailyExpensesPage {
               public navParams: NavParams,
               public app: App,
               public formBuilder: FormBuilder,
+              public alertCtrl: AlertController,
               public toastCtrl: ToastController,
               public dailyExpCate: CateDailyExpensesProvider,
               public paymentCate_: CatePaymentChannelProvider,
@@ -80,6 +81,49 @@ export class EditDailyExpensesPage {
     })
     
     })
+  }
+
+  checkMoney(){
+    let income = JSON.parse(sessionStorage.getItem("income"));
+    console.log("income======",income);
+    let fixed = JSON.parse(sessionStorage.getItem("fixed"));
+    console.log("fixed======",fixed);
+    let daily = JSON.parse(sessionStorage.getItem("daily"));
+    console.log("daily======",daily);
+
+    let moneyPerDay = (income - fixed - daily ) /30;
+    console.log("moneyPerDay======",moneyPerDay);
+
+   
+    let amount = this.dailyExpenses.controls['amount'].value;
+    console.log("amount======",amount);
+    
+    if(amount > moneyPerDay){
+      this.alertMoneyPerDay();
+    }
+    if(amount < 0){
+      this.alert2();
+    }
+  }
+
+  alertMoneyPerDay(){
+
+      let alert = this.alertCtrl.create({
+        title: 'ขออภัย!',
+        subTitle: 'คุณใช้เงินเกินวงเงินที่ใช้ได้ต่อวัน อาจส่งผลกระทบต่อแผนการเงินของคุณ',
+        buttons: ['ปิด']
+      });
+      alert.present();
+  }
+  alert2(){
+
+    let alert = this.alertCtrl.create({
+      title: 'ขออภัย!',
+      subTitle: 'ห้ามกรอกจำนวนติดลบ',
+      buttons: ['ปิด']
+    });
+    alert.present();
+
   }
 
   form(){

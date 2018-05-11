@@ -121,7 +121,6 @@ export class AddFixedExpensesPage {
       buttons: ['ปิด']
     });
     alert.present();
-
   }
 
   form(){
