@@ -19,12 +19,12 @@
 <ion-content background-content>
   <div  background-size id="elastic-header">
     <ion-thumbnail>
-      <br><br><br>
-      <img width="60" height="60" [src]="chosenPicture || placeholder" onerror="this.src='assets/images/logo/user.png'"/>
+      <br><br><br><br><br>
+      <img [src]="chosenPicture || placeholder" onerror="this.src='assets/images/logo/duedate.png'"/>
 
       <div align="center" >
-        <h2 align="center" ion-text color="light" header-title>{{name}} {{surname}}</h2>
-        <button ion-button  clear round navPush="EditProfilePage">
+        <!-- <h2 align="center" ion-text color="light" header-title>{{name}} {{surname}}</h2> -->
+        <button ion-button  clear round navPush="EditDueDatePage">
           <font color="#D3D3D3"><font size="2"><ion-icon name="create"></ion-icon>แก้ไข</font></font>
         </button>
       </div>
@@ -33,26 +33,58 @@
   
   <div>
 
-          <ion-list >
-              <ion-item background-content>
-              </ion-item>
-            <ion-item background-content>
-              <p><b>ชื่อ - นามสกุล:</b> {{name}} {{surname}} </p>
-             </ion-item>
-             <ion-item background-content>
-              <P><b>Email:</b> {{email}}</P>
-              </ion-item>
-              <ion-item background-content>
-                <P><b>เพศ:</b> {{sex}}</P>
-              </ion-item>
-              <ion-item background-content>
-                <P><b>อายุ:</b> {{age}}</P>
-              </ion-item>
-              <ion-item background-content>
-                <P><b>อาชีพ:</b> {{career}}</P>
-              </ion-item>
-              <ion-item background-content>
-              </ion-item>
-            </ion-list>
+    <ion-list >
+      <ion-item background-content>
+      </ion-item>
+    <ion-item background-content>
+      <h2>ครบกำหนดชำระค่าน้ำ</h2>
+      <p>วันที่ <b><font color="#FF6633">{{water}}</font></b> ของทุกเดือน</p>
+     </ion-item>
+     <ion-item background-content>
+        <h2>ครบกำหนดชำระค่าไฟฟ้า</h2>
+        <p>วันที่ <b><font color="#FF6633">{{electricity}}</font></b> ของทุกเดือน</p>
+      </ion-item>
+      <ion-item background-content>
+        <h2>ครบกำหนดชำระค่าบริการอินเทอร์เน็ต</h2>
+        <p>วันที่ <b><font color="#FF6633">{{internet}}</font></b> ของทุกเดือน</p>
+      </ion-item>
+      <ion-item background-content>
+        <h2>ครบกำหนดชำระค่าบริการโทรศัพท์มือถือ/โทรศัพท์บ้าน</h2>
+        <p>วันที่ <b><font color="#FF6633">{{telephone}}</font></b> ของทุกเดือน</p>
+      </ion-item>
+
+      <ion-item background-content>
+          <h2>ครบกำหนดชำระค่าบัตรเครดิต</h2>
+          <p><i>{{credit_name1}}</i></p>
+          <p>วันที่ <b><font color="#FF6633">{{credit_card1}}</font></b> ของทุกเดือน</p>
+      </ion-item>
+
+      <ion-item background-content>
+          <h2>ครบกำหนดชำระค่าบัตรเครดิต</h2>
+          <p><i>{{credit_name2}}</i></p>
+          <p>วันที่ <b><font color="#FF6633">{{credit_card2}}</font></b> ของทุกเดือน</p>
+      </ion-item>
+
+      <ion-item background-content>
+          <h2>ครบกำหนดชำระค่าบัตรเครดิต</h2>
+          <p><i>{{credit_name3}}</i></p>
+          <p>วันที่ <b><font color="#FF6633">{{credit_card3}}</font></b> ของทุกเดือน</p>
+      </ion-item>
+
+      <ion-item background-content>
+          <h2>ครบกำหนดชำระค่าบัตรเครดิต</h2>
+          <p><i>{{credit_name4}}</i></p>
+          <p>วันที่ <b><font color="#FF6633">{{credit_card4}}</font></b> ของทุกเดือน</p>
+      </ion-item>
+
+      <ion-item background-content>
+          <h2>ครบกำหนดชำระค่าบัตรเครดิต</h2>
+          <p><i>{{credit_name5}}</i></p>
+          <p>วันที่ <b><font color="#FF6633">{{credit_card5}}</font></b> ของทุกเดือน</p>
+      </ion-item>
+
+      <ion-item background-content>
+      </ion-item>
+    </ion-list>
   </div>
 </ion-content>

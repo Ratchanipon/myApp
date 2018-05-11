@@ -19,7 +19,20 @@ export class ShowDueDatePage {
 
 
   water:number;
+  electricity: number;
+  internet: number;
+  telephone: number;
 
+  credit_card1: number;
+  credit_card2: number;
+  credit_card3: number;
+  credit_card4: number;
+  credit_card5: number;
+  credit_name1: string;
+  credit_name2: string;
+  credit_name3: string;
+  credit_name4: string;
+  credit_name5: string;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -27,8 +40,32 @@ export class ShowDueDatePage {
               ) {
 
                 this.dueDate.getDueDate().then((data:any) => {
-                  
-                })
+                  this.water = data.water;
+                  this.electricity = data.electricity;
+                  this.internet = data.internet;
+                  this.telephone = data.telephone;
+                });
+
+                this.dueDate.getCreditCard1().then((data:any) => {
+                  this.credit_card1 = data.credit_card;
+                  this.credit_name1 = data.credit;       
+                });
+                this.dueDate.getCreditCard2().then((data:any) => {
+                  this.credit_card2 = data.credit_card;
+                  this.credit_name2 = data.credit;       
+                });
+                this.dueDate.getCreditCard3().then((data:any) => {
+                  this.credit_card3 = data.credit_card;
+                  this.credit_name3 = data.credit;       
+                });
+                this.dueDate.getCreditCard4().then((data:any) => {
+                  this.credit_card4 = data.credit_card;
+                  this.credit_name4 = data.credit;       
+                });
+                this.dueDate.getCreditCard5().then((data:any) => {
+                  this.credit_card5 = data.credit_card;
+                  this.credit_name5 = data.credit;       
+                });
   }
 
   ionViewDidLoad() {
