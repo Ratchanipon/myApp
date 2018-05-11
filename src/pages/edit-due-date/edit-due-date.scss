@@ -1,60 +1,84 @@
 page-edit-due-date {
 
-    @include settingAnimationHeader;
-    @-webkit-keyframes color-change {
-    0% {
-      color: theme-colors('mainColors', 'primary');
-    }
-
-    100% {
-      color: theme-colors('textColors', 'accent') !important;
-    }
-  }
-
-  .active .back-button,
-  .active .toolbar-title {
-    color: theme-colors('textColors', 'accent') !important;
-    animation-name: color-change;
-    animation-duration: 400ms;
-  }
-
-  .back-button,
-  .toolbar-title {
-    color: theme-colors('textColors', 'secondaryBase') !important;
-  }
-
-  .scroll-content {
-    top: -56px;
-  }
-
-  [background-size] {
-    // @include darkening-blend-mode;
-    // background-color: #618cd4;
-    height: 230px;
-    position: relative;
-    // background-image: url('../assets/images/background/O5MCDL0.jpg');
-
-    ion-thumbnail {
-      opacity: 1 !important;
-
-      img {
-        border-radius: 50% !important;
-        height: 85px;
-        width: 85px;
-        margin: 20px auto 0;
-      }
-      h2 {
-        font-size: 18px !important;
-        color: theme-colors('textColors', 'secondaryBase');
-    }
-    }
-  }
-  [background-content] {
-    // @include darkening-blend-mode;
-    background-color: #f7f7f7;
-    // height: 200px;
-    position: relative;
+    ion-card {
+        box-shadow: none !important;
+        border-radius: $border-radius !important;
   
-  }
+      }
+      .fade-in-item {
+        -webkit-animation: fadeInRightBig 800ms;
+        -moz-animation: fadeInRightBig 800ms;
+        -o-animation: fadeInRightBig 800ms;
+        animation: fadeInRightBig 800ms;
+      }
+       
+        // Title
+        [title] {
+          margin-right: 20%;
+          font-size: font-size-text('h1') !important;
+          font-weight: bold;
+          line-height: 34px;
+        }
+      
+        [stacked] {
+          font-size: 10px !important;
+        }
+      @include settingAnimationHeader;
+      @-webkit-keyframes color-change {
+      0% {
+        color: theme-colors('mainColors', 'primary');
+      }
+  
+      100% {
+        color: theme-colors('textColors', 'accent') !important;
+      }
+    }
+  
+    .active .back-button,
+    .active .toolbar-title {
+      color: theme-colors('textColors', 'accent') !important;
+      animation-name: color-change;
+      animation-duration: 400ms;
+    }
+  
+    .back-button,
+    .toolbar-title {
+      color: theme-colors('textColors', 'secondaryBase') !important;
+    }
+  
+    .scroll-content {
+      top: -56px;
+    }
+  
+    [background-size] {
+      // @include darkening-blend-mode;
+      background-color: #618cd4;
+      height: 200px;
+      position: relative;
+      // background-image: url('../assets/images/background/O5MCDL0.jpg');
+  
+      ion-thumbnail {
+        opacity: 1 !important;
+  
+        img {
+          border-radius: 50% !important;
+          height: 75px;
+          width: 85px;
+          margin: 20px auto 0;
+        }
+        h2 {
+          font-size: 18px !important;
+          color: theme-colors('textColors', 'secondaryBase');
+      }
+      }
+      
+    }
+    [background-content] {
+      // @include darkening-blend-mode;
+      background-color:#f7f7f7;
+      // height: 200px;
+      position: relative;
+    
+    }
 
 }

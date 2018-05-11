@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, App, ToastController } from 'ionic
 import { DueDateByUserIdProvider } from '../../providers/due-date-services/get-duedate';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DueDate } from '../../model/due-date';
+import { EditDueDateProvider } from '../../providers/due-date-services/edit-due-date-services';
 
 /**
  * Generated class for the EditDueDatePage page.
@@ -25,6 +26,7 @@ export class EditDueDatePage {
               public app: App,
               public formBuilder: FormBuilder,
               public dueDate_: DueDateByUserIdProvider,
+              public editDuedate: EditDueDateProvider,
               public toastCtrl: ToastController) {
 
                 this.dueDate_.getDueDate().then((data:any) => {
@@ -86,19 +88,19 @@ export class EditDueDatePage {
 
   }
 
-  // addDueDate(dueDate:DueDate){
-  //   console.log(dueDate);
-  //   this.addDueDate_.AddDueDate(this.dueDate.value);
+  editDueDate(dueDate:DueDate){
+    console.log(dueDate);
+    this.editDuedate.AddDueDate(this.dueDate.value);
 
-  //   if(dueDate != null){
-  //     this.addDueDateSuccess();
-  //     this.navCtrl.setRoot('AddIncomePage');   
-  //     const root = this.app.getRootNav();
-  //     root.popToRoot();
-  //   }
-  // }
+    if(dueDate != null){
+      this.editDueDateSuccess();
+      this.navCtrl.setRoot('ShowDueDatePage');   
+      const root = this.app.getRootNav();
+      root.popToRoot();
+    }
+  }
 
-  addDueDateSuccess() {
+  editDueDateSuccess() {
     let toast = this.toastCtrl.create({
       message: 'บันทึกรายการสำเร็จ',
       duration: 3000,
