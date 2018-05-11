@@ -52,13 +52,13 @@ export class EditProfilePage {
                   this.sex = this.userData.sex;
                   this.career = this.userData.career;
 
-                  sessionStorage.setItem("name",this.name);
-                  sessionStorage.setItem("surname",this.surname);
-                  sessionStorage.setItem("email",this.email);
-                  sessionStorage.setItem("password",this.password);
-                  sessionStorage.setItem("age",this.age);
-                  sessionStorage.setItem("sex",this.sex);
-                  sessionStorage.setItem("career",this.career);
+                  this.user.controls['name'].setValue(this.name);
+                  this.user.controls['surname'].setValue(this.surname);
+                  this.user.controls['email'].setValue(this.email);
+                  this.user.controls['password'].setValue(this.password);
+                  this.user.controls['age'].setValue(this.age);
+                  this.user.controls['sex'].setValue(this.sex);
+                  this.user.controls['career'].setValue(this.career);
                   
                 });
 
@@ -74,31 +74,23 @@ export class EditProfilePage {
 
   form(){
 
-    let name = sessionStorage.getItem("name");
-    let surname = sessionStorage.getItem("surname");
-    let email = sessionStorage.getItem("email");
-    let password = sessionStorage.getItem("password");
-    let age = sessionStorage.getItem("age");
-    let sex = sessionStorage.getItem("sex");
-    let career = sessionStorage.getItem("career");
-
     let user_id = localStorage.getItem("user_id");
     console.log("user_id=========",user_id);
     
     this.user = this.formBuilder.group({
       user_id:[user_id,Validators.compose([Validators.required])],
-      name:[name,Validators.compose([Validators.required,
+      name:['',Validators.compose([Validators.required,
                                     Validators.minLength(3)])],
-      surname:[surname,Validators.compose([Validators.required,
+      surname:['',Validators.compose([Validators.required,
                                            Validators.minLength(3)])],
-      email:[email,Validators.compose([Validators.required,
+      email:['',Validators.compose([Validators.required,
                                        Validators.email])],
-      password:[password,Validators.compose([Validators.required,
+      password:['',Validators.compose([Validators.required,
                                              Validators.minLength(8),
                                              Validators.pattern("[a-zA-Z0-9.-_*#@$%&!]{1,}")])],
-      age:[age,Validators.compose([Validators.required])],
-      sex:[sex,Validators.compose([Validators.required])],
-      career:[career,Validators.compose([Validators.required])]
+      age:['',Validators.compose([Validators.required])],
+      sex:['',Validators.compose([Validators.required])],
+      career:['',Validators.compose([Validators.required])]
     })
 
   }
