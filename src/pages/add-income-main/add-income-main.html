@@ -16,7 +16,7 @@
 <ion-content background-color>
 <form [formGroup]="income" (ngSubmit)="addIncome(income)">
 
-    <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4>
+    <!-- <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4> -->
         <ion-card text-left [ngClass]="animateClass">
 
             <ion-card >
@@ -59,8 +59,8 @@
 
 
         </div>
- 
         </ion-card>
+    </form>
         <div no-lines [ngClass]="animateClass" padding>
                 <button ion-button default-button full text-capitalize  [disabled]="!income.valid">เพิ่ม</button>
                 <!-- <button ion-button full navPush="">ยกเลิก</button> -->
@@ -86,7 +86,7 @@
                     <div no-lines [ngClass]="animateClass2" padding>
                             <button ion-button default-button full text-capitalize  (click)="HomePage()">บันทึก</button>
                             </div>
-    </ion-col>
+    <!-- </ion-col> -->
 
-</form>
+
 </ion-content>

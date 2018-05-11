@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DueDateByUserIdProvider } from '../../providers/due-date-services/get-duedate';
+import { DueDate } from '../../model/due-date';
 
 /**
  * Generated class for the ShowDueDatePage page.
@@ -15,7 +17,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ShowDueDatePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  water:number;
+
+
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams,
+              public dueDate: DueDateByUserIdProvider,
+              ) {
+
+                this.dueDate.getDueDate().then((data:any) => {
+                  
+                })
   }
 
   ionViewDidLoad() {

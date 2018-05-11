@@ -16,7 +16,7 @@
 <ion-content background-color>
 
     <form [formGroup]="income" (ngSubmit)="addIncome(income)">
-            <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4>
+            <!-- <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4> -->
                 <ion-card text-left [ngClass]="animateClass">
                     <ion-card >
                         <ion-item color="secondary2">
@@ -65,7 +65,7 @@
             
           <!-- <button ion-button full navPush="">ยกเลิก</button> -->
         </div>
-
+    </form>
         <ion-row>
             <ion-col col-12>
                 <ion-list no-margin>
@@ -84,8 +84,8 @@
             </ion-row>
             <div no-lines [ngClass]="animate2Class" padding>
                 <button ion-button default-button full text-capitalize  navPush="AddFixedExpensesPage">บันทึก</button>
-                </div>
-</ion-col>
+            </div>
+<!-- </ion-col> -->
 
-</form>
+
 </ion-content>
