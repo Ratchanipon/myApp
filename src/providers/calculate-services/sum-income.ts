@@ -27,7 +27,7 @@ export class SumIncomeProvider {
         this.http.get(host+'/services/calculate/getSumIncome?user_id='+user_id+'&month='+month)
         .subscribe(data=>{
         resolve(data);      
-        console.log('Balance++++++'+data);
+        console.log('income++++++'+data);
         
       }, err =>{
         console.error(err);      

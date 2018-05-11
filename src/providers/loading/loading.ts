@@ -19,7 +19,15 @@ export class LoadingProvider {
   Loading() {
     let loader = this.loadingCtrl.create({
       content: "กำลังโหลด...",
-      duration: 2300
+      duration: 2000
+    });
+    loader.present();
+  }
+
+  cal() {
+    let loader = this.loadingCtrl.create({
+      content: "กำลังคำนวณ...",
+      duration: 800
     });
     loader.present();
   }

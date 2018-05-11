@@ -28,8 +28,10 @@
             <ion-card-title>
               <h2 card-title><font color="#ee8e34">ผลการคำนวณ</font></h2>
               <h1 card-subtitle>สุขภาพทางการเงินอยู่ในระดับ <b><font color="#5e8bd5">{{item.name}}</font></b><br>
-              <!-- <br>มีอัตราส่วนหนี้สินต่อรายได้ = <ion-badge class="badge-light">{{DTI | number:'.1-2'}} %</ion-badge> -->
-              <br>ความเสี่ยงทางการเงินอยู่ในระดับ <b><font color="#5e8bd5">{{risk2}}</font></b><br></h1>
+              
+                <br>ความเสี่ยงทางการเงินอยู่ในระดับ <b><font color="#5e8bd5">{{risk2}}</font></b>
+                <br>มีอัตราส่วนหนี้สินต่อรายได้ = <ion-badge color="DTI">{{DTI | number:'.1-2'}} %</ion-badge>
+              </h1><br>
               <p card-body-text>{{item.direction}}</p>
             </ion-card-title>
           </ion-card-content>
