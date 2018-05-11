@@ -115,6 +115,7 @@ export class FhcInstantPage {
 
     if(val < 0){
       this.alert2();
+      this.navCtrl.push('FhcInstantPage');
     }
 
   }
