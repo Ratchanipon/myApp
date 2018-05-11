@@ -113,52 +113,52 @@ export class MyApp {
     console.log(hoursFix);
     
 
-    // let water:number = JSON.parse(duedate.water);
-    // let electricity:number = JSON.parse(duedate.electricity);
-    // let internet:number = JSON.parse(duedate.internet);
-    // let telephone:number = JSON.parse(duedate.telephone);
+    let water:number = JSON.parse(duedate.water);
+    let electricity:number = JSON.parse(duedate.electricity);
+    let internet:number = JSON.parse(duedate.internet);
+    let telephone:number = JSON.parse(duedate.telephone);
 
-    // let credit1 = credit_card1.credit_card;
-    // let creditName1 = credit_card1.credit;
-    // let credit2 = credit_card2.credit_card;
-    // let creditName2 = credit_card2.credit;
-    // let credit3 = credit_card3.credit_card;
-    // let creditName3 = credit_card3.credit;
-    // let credit4 = credit_card4.credit_card;
-    // let creditName4 = credit_card4.credit;
-    // let credit5 = credit_card5.credit_card;
-    // let creditName5 = credit_card5.credit;
+    let credit1 = credit_card1.credit_card;
+    let creditName1 = credit_card1.credit;
+    let credit2 = credit_card2.credit_card;
+    let creditName2 = credit_card2.credit;
+    let credit3 = credit_card3.credit_card;
+    let creditName3 = credit_card3.credit;
+    let credit4 = credit_card4.credit_card;
+    let creditName4 = credit_card4.credit;
+    let credit5 = credit_card5.credit_card;
+    let creditName5 = credit_card5.credit;
   
-    // if((day = water) && (hours = hoursFix)){
-    //   this.noti.notification('ครบกำหนดชำระค่าน้ำ','คุณมีกำนดชำระค่าน้ำวันนี้');
-    // }
+    if((day = water) && (hours = hoursFix)){
+      this.noti.notification('ครบกำหนดชำระค่าน้ำ','คุณมีกำนดชำระค่าน้ำวันนี้');
+    }
 
-    // if((day = electricity) && (hours = hoursFix)){
-    //   this.noti.notification('ครบกำหนดชำระค่าไฟฟ้า','คุณมีกำนดชำระค่าไฟฟ้าวันนี้');
-    // }
+    if((day = electricity) && (hours = hoursFix)){
+      this.noti.notification('ครบกำหนดชำระค่าไฟฟ้า','คุณมีกำนดชำระค่าไฟฟ้าวันนี้');
+    }
 
-    // if((day = internet) && (hours = hoursFix)){
-    //   this.noti.notification('ครบกำหนดชำระค่าบริการอินเทอร์เน็ต','คุณมีกำนดชำระค่าบริการอินเทอร์เน็ตวันนี้');
-    // }
-    // if((day = telephone) && (hours = hoursFix)){
-    //   this.noti.notification('ครบกำหนดชำระค่าบริการโทรศัพท์มือถือ/โทรศัพท์บ้าน','คุณมีกำนดชำระค่าบริการโทรศัพท์มือถือ/โทรศัพท์บ้านวันนี้');
-    // }
+    if((day = internet) && (hours = hoursFix)){
+      this.noti.notification('ครบกำหนดชำระค่าบริการอินเทอร์เน็ต','คุณมีกำนดชำระค่าบริการอินเทอร์เน็ตวันนี้');
+    }
+    if((day = telephone) && (hours = hoursFix)){
+      this.noti.notification('ครบกำหนดชำระค่าบริการโทรศัพท์มือถือ/โทรศัพท์บ้าน','คุณมีกำนดชำระค่าบริการโทรศัพท์มือถือ/โทรศัพท์บ้านวันนี้');
+    }
 
-    // if((day = credit1) && (hours = hoursFix)){
-    //   this.noti.notification('ครบกำหนดชำระค่าบัตรเครดิต','คุณมีกำนดชำระค่าบัตรเครดิต '+creditName1+'วันนี้');
-    // }
-    // if((day = credit2) && (hours = hoursFix)){
-    //   this.noti.notification('ครบกำหนดชำระค่าบัตรเครดิต','คุณมีกำนดชำระค่าบัตรเครดิต '+creditName2+'วันนี้');
-    // }
-    // if((day = credit3) && (hours = hoursFix)){
-    //   this.noti.notification('ครบกำหนดชำระค่าบัตรเครดิต','คุณมีกำนดชำระค่าบัตรเครดิต '+creditName3+'วันนี้');
-    // }
-    // if((day = credit4) && (hours = hoursFix)){
-    //   this.noti.notification('ครบกำหนดชำระค่าบัตรเครดิต','คุณมีกำนดชำระค่าบัตรเครดิต '+creditName4+'วันนี้');
-    // }
-    // if((day = credit5) && (hours = hoursFix)){
-    //   this.noti.notification('ครบกำหนดชำระค่าบัตรเครดิต','คุณมีกำนดชำระค่าบัตรเครดิต '+creditName5+'วันนี้');
-    // }
+    if((day = credit1) && (hours = hoursFix)){
+      this.noti.notification('ครบกำหนดชำระค่าบัตรเครดิต','คุณมีกำนดชำระค่าบัตรเครดิต '+creditName1+'วันนี้');
+    }
+    if((day = credit2) && (hours = hoursFix)){
+      this.noti.notification('ครบกำหนดชำระค่าบัตรเครดิต','คุณมีกำนดชำระค่าบัตรเครดิต '+creditName2+'วันนี้');
+    }
+    if((day = credit3) && (hours = hoursFix)){
+      this.noti.notification('ครบกำหนดชำระค่าบัตรเครดิต','คุณมีกำนดชำระค่าบัตรเครดิต '+creditName3+'วันนี้');
+    }
+    if((day = credit4) && (hours = hoursFix)){
+      this.noti.notification('ครบกำหนดชำระค่าบัตรเครดิต','คุณมีกำนดชำระค่าบัตรเครดิต '+creditName4+'วันนี้');
+    }
+    if((day = credit5) && (hours = hoursFix)){
+      this.noti.notification('ครบกำหนดชำระค่าบัตรเครดิต','คุณมีกำนดชำระค่าบัตรเครดิต '+creditName5+'วันนี้');
+    }
 
   }
 

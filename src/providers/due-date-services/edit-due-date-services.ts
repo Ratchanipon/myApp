@@ -16,7 +16,7 @@ export class EditDueDateProvider {
     console.log('Hello EditDueDateProvider Provider');
   }
 
-  AddDueDate(dueDate:DueDate){
+  EditDueDate(dueDate:DueDate){
     console.log("dueDate==",dueDate);
     
     let host = sessionStorage.getItem("host");
