@@ -18,7 +18,7 @@ export class NotificationProvider {
     console.log('Hello NotificationProvider Provider');
   }
 
-  notificationService(title,text){
+  notification(title,text){
     if(this.platform.is('android')){
       this.platform.ready().then(() => {
         this.localNotifications.schedule({
@@ -35,4 +35,5 @@ export class NotificationProvider {
           
         }
   }
+
 }

@@ -146,6 +146,9 @@ export class AddDailyExpensesPage {
     if(amount > moneyPerDay){
       this.alertMoneyPerDay();
     }
+    if(amount < 0){
+      this.alert2();
+    }
   }
 
   alertMoneyPerDay(){
@@ -156,6 +159,15 @@ export class AddDailyExpensesPage {
         buttons: ['ปิด']
       });
       alert.present();
+  }
+  alert2(){
+
+    let alert = this.alertCtrl.create({
+      title: 'ขออภัย!',
+      subTitle: 'ห้ามกรอกจำนวนติดลบ',
+      buttons: ['ปิด']
+    });
+    alert.present();
 
   }
 
@@ -284,5 +296,7 @@ export class AddDailyExpensesPage {
       const root = this.app.getRootNav();
       root.popToRoot();
   }
+
+  
 
 }

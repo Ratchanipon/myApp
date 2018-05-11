@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, App, LoadingController, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, App, LoadingController, ActionSheetController, AlertController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CateFixedExpensesProvider } from '../../providers/category-services/cate-fixed-expenses';
 import { CatePaymentChannelProvider } from '../../providers/category-services/cate-payment-channel';
@@ -54,6 +54,7 @@ export class AddFixedExpensesPage {
               public navParams: NavParams,
               public app: App,
               public formBuilder: FormBuilder,
+              public alertCtrl: AlertController,
               public camera:Camera,
               public toastCtrl: ToastController,
               public fixedExpCate: CateFixedExpensesProvider,
@@ -100,6 +101,26 @@ export class AddFixedExpensesPage {
     })
     
     })
+
+  }
+
+  checkMoney(){
+
+    let amount = this.fixedExpenses.controls['amount'].value;
+    console.log("amount======",amount);
+    
+    if(amount < 0){
+      this.alert2();
+    }
+  }
+  alert2(){
+
+    let alert = this.alertCtrl.create({
+      title: 'ขออภัย!',
+      subTitle: 'ห้ามกรอกจำนวนติดลบ',
+      buttons: ['ปิด']
+    });
+    alert.present();
 
   }
 
@@ -230,4 +251,6 @@ export class AddFixedExpensesPage {
       const root = this.app.getRootNav();
       root.popToRoot();
   }
+
+  
 }

@@ -38,7 +38,7 @@
             </ion-item>
             <ion-item>
                 <ion-label floating ><i class="material-icons">account_balance_wallet</i>&nbsp;&nbsp;&nbsp; จำนวนเงิน</ion-label>
-              <ion-input type="number" formControlName="amount"></ion-input>
+              <ion-input type="number" formControlName="amount" (keyup)="checkMoney()"></ion-input>
             </ion-item>
             <ion-item>
                     <ion-label floating ><i class="material-icons">date_range</i>&nbsp;&nbsp;&nbsp; วัน/เดือน/ปี</ion-label>

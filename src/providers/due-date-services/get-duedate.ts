@@ -19,10 +19,10 @@ export class DueDateByUserIdProvider {
     let host = sessionStorage.getItem("host");         
 
     return new Promise(resolve=>{
-        this.http.get(host+'/services/duedate/getDuedate?user_id='+user_id)
+        this.http.get(host+'/services/dueDate/getDuedate?user_id='+user_id)
         .subscribe(data=>{
         resolve(data);      
-        console.log('DueDateByUserIdProvider===',data);
+        console.log('getDueDate===',data);
         
       }, err =>{
         console.error(err);      
@@ -35,7 +35,7 @@ export class DueDateByUserIdProvider {
     let host = sessionStorage.getItem("host");         
 
     return new Promise(resolve=>{
-        this.http.get(host+'/services/duedate/getCreditCard1?user_id='+user_id)
+        this.http.get(host+'/services/dueDate/getCreditCard1?user_id='+user_id)
         .subscribe(data=>{
         resolve(data);      
         console.log('getCreditCard1===',data);
@@ -51,7 +51,7 @@ export class DueDateByUserIdProvider {
     let host = sessionStorage.getItem("host");         
 
     return new Promise(resolve=>{
-        this.http.get(host+'/services/duedate/getCreditCard2?user_id='+user_id)
+        this.http.get(host+'/services/dueDate/getCreditCard2?user_id='+user_id)
         .subscribe(data=>{
         resolve(data);      
         console.log('getCreditCard2===',data);
@@ -67,7 +67,7 @@ export class DueDateByUserIdProvider {
     let host = sessionStorage.getItem("host");         
 
     return new Promise(resolve=>{
-        this.http.get(host+'/services/duedate/getCreditCard3?user_id='+user_id)
+        this.http.get(host+'/services/dueDate/getCreditCard3?user_id='+user_id)
         .subscribe(data=>{
         resolve(data);      
         console.log('getCreditCard3===',data);
@@ -83,7 +83,7 @@ export class DueDateByUserIdProvider {
     let host = sessionStorage.getItem("host");         
 
     return new Promise(resolve=>{
-        this.http.get(host+'/services/duedate/getCreditCard4?user_id='+user_id)
+        this.http.get(host+'/services/dueDate/getCreditCard4?user_id='+user_id)
         .subscribe(data=>{
         resolve(data);      
         console.log('getCreditCard4===',data);
@@ -99,7 +99,7 @@ export class DueDateByUserIdProvider {
     let host = sessionStorage.getItem("host");         
 
     return new Promise(resolve=>{
-        this.http.get(host+'/services/duedate/getCreditCard5?user_id='+user_id)
+        this.http.get(host+'/services/dueDate/getCreditCard5?user_id='+user_id)
         .subscribe(data=>{
         resolve(data);      
         console.log('getCreditCard5===',data);
