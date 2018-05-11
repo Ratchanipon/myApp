@@ -69,14 +69,18 @@ export class RegisterPage {
 
     this.user = this.formBuilder.group({
       name:['',Validators.compose([Validators.required,
-                                         Validators.minLength(3)])],
+                                  Validators.minLength(2),
+                                  Validators.maxLength(30)])],
       surname:['',Validators.compose([Validators.required,
-                                            Validators.minLength(3)])],
+                                      Validators.minLength(3),
+                                      Validators.maxLength(30)])],
       password:['',Validators.compose([Validators.required,
-                                                  Validators.minLength(8),
-                                                  Validators.pattern("[a-zA-Z0-9.-_*#@$%&!]{1,}")])],
+                                       Validators.minLength(8),
+                                       Validators.maxLength(20),
+                                       Validators.pattern("[a-zA-Z0-9.-_*#@$%&!]{1,}")])],
       con_password:['',Validators.compose([Validators.required,
                                                     Validators.minLength(8),
+                                                    Validators.maxLength(20),
                                                     Validators.pattern("[a-zA-Z0-9.-_*#@$%&!]{1,}")])],
       email:['',Validators.compose([Validators.required,
                                                   Validators.email])],
@@ -97,15 +101,6 @@ export class RegisterPage {
         // this.navCtrl.push('RegisterPage');
         localStorage.setItem("user_id",user.id);
         localStorage.setItem("email",user.email);
-
-        sessionStorage.setItem("name",user.name);
-        sessionStorage.setItem("surname",user.surname);
-        sessionStorage.setItem("password",user.password);
-        sessionStorage.setItem("con_password",user.con_password);
-        sessionStorage.setItem("email",user.email);
-        sessionStorage.setItem("age",user.age);
-        sessionStorage.setItem("sex",user.sex);
-        sessionStorage.setItem("career",user.career);
 
         this.navCtrl.setRoot('DueDatePage',{'user':user});   
         const root = this.app.getRootNav();
