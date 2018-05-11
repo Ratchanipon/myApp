@@ -97,6 +97,7 @@ export class AddIncomeMainPage {
     
     if(amount < 0){
       this.alert2();
+      this.navCtrl.push('AddIncomeMainPage');
     }
   }
   alert2(){

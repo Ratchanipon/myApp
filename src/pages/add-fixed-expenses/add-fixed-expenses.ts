@@ -111,6 +111,7 @@ export class AddFixedExpensesPage {
     
     if(amount < 0){
       this.alert2();
+      this.navCtrl.push('AddFixedExpensesPage');
     }
   }
   alert2(){
