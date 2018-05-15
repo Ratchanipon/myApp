@@ -69,6 +69,7 @@ export class MyApp {
     //   { title: 'รายจ่ายรายวัน', component: 'DailyExpensesPage'},
     //   { title: 'รายจ่ายคงที่', component: 'FixedExpensesPage'}
     // ];
+    if(this.user_id != ''){
     this.dueDate.getDueDate().then((data:any) => {
       let duedate = data;
       
@@ -93,6 +94,7 @@ export class MyApp {
         });
       });
     });
+    }
   }
 
   initializeApp() {
@@ -116,10 +118,10 @@ export class MyApp {
     console.log(hoursFix);
     
 
-    let water:number = JSON.parse(duedate.water);
-    let electricity:number = JSON.parse(duedate.electricity);
-    let internet:number = JSON.parse(duedate.internet);
-    let telephone:number = JSON.parse(duedate.telephone);
+    let water:number = duedate.water;
+    let electricity:number = duedate.electricity;
+    let internet:number = duedate.internet;
+    let telephone:number = duedate.telephone;
 
     let credit1 = credit_card1.credit_card;
     let creditName1 = credit_card1.credit;
@@ -132,34 +134,34 @@ export class MyApp {
     let credit5 = credit_card5.credit_card;
     let creditName5 = credit_card5.credit;
   
-    if((day = water) && (hours = hoursFix)){
+    if((day = water*1) && (hours = hoursFix)){
       this.noti.notification('ครบกำหนดชำระค่าน้ำ','คุณมีกำนดชำระค่าน้ำวันนี้');
     }
 
-    if((day = electricity) && (hours = hoursFix)){
+    if((day = electricity*1) && (hours = hoursFix)){
       this.noti.notification('ครบกำหนดชำระค่าไฟฟ้า','คุณมีกำนดชำระค่าไฟฟ้าวันนี้');
     }
 
-    if((day = internet) && (hours = hoursFix)){
+    if((day = internet*1) && (hours = hoursFix)){
       this.noti.notification('ครบกำหนดชำระค่าบริการอินเทอร์เน็ต','คุณมีกำนดชำระค่าบริการอินเทอร์เน็ตวันนี้');
     }
-    if((day = telephone) && (hours = hoursFix)){
+    if((day = telephone*1) && (hours = hoursFix)){
       this.noti.notification('ครบกำหนดชำระค่าบริการโทรศัพท์มือถือ/โทรศัพท์บ้าน','คุณมีกำนดชำระค่าบริการโทรศัพท์มือถือ/โทรศัพท์บ้านวันนี้');
     }
 
-    if((day = credit1) && (hours = hoursFix)){
+    if((day = credit1*1) && (hours = hoursFix)){
       this.noti.notification('ครบกำหนดชำระค่าบัตรเครดิต','คุณมีกำนดชำระค่าบัตรเครดิต '+creditName1+'วันนี้');
     }
-    if((day = credit2) && (hours = hoursFix)){
+    if((day = credit2*1) && (hours = hoursFix)){
       this.noti.notification('ครบกำหนดชำระค่าบัตรเครดิต','คุณมีกำนดชำระค่าบัตรเครดิต '+creditName2+'วันนี้');
     }
-    if((day = credit3) && (hours = hoursFix)){
+    if((day = credit3*1) && (hours = hoursFix)){
       this.noti.notification('ครบกำหนดชำระค่าบัตรเครดิต','คุณมีกำนดชำระค่าบัตรเครดิต '+creditName3+'วันนี้');
     }
-    if((day = credit4) && (hours = hoursFix)){
+    if((day = credit4*1) && (hours = hoursFix)){
       this.noti.notification('ครบกำหนดชำระค่าบัตรเครดิต','คุณมีกำนดชำระค่าบัตรเครดิต '+creditName4+'วันนี้');
     }
-    if((day = credit5) && (hours = hoursFix)){
+    if((day = credit5*1) && (hours = hoursFix)){
       this.noti.notification('ครบกำหนดชำระค่าบัตรเครดิต','คุณมีกำนดชำระค่าบัตรเครดิต '+creditName5+'วันนี้');
     }
 

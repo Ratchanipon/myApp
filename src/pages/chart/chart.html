@@ -10,7 +10,7 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
           </button>
-      <ion-title>ชาร์ท</ion-title>
+      <ion-title>กราฟสรุปงบการเงินส่วนบุคคล</ion-title>
     </ion-navbar>
   
   </ion-header>
@@ -34,30 +34,42 @@
           <ion-icon icon-small name="calendar"></ion-icon>
         </button>
     </div> -->
-
-  <ion-card>
-    <div style="display: block">
-        <canvas baseChart width="1000" height="600"
-                    [data]="num"
-                    [labels]="doughnutChartLabels"
-
-                    [chartType]="doughnutChartType"
-                    (chartHover)="chartHovered($event)"
-                    (chartClick)="chartClicked($event)"></canvas>
-      </div>
-    </ion-card>
-
-    <ion-card margin-top>
+  <!-- <ion-card> -->
+        
+    <ion-card>
+        <ion-card>
+            <ion-item color="listHead">
+                งบการเงินประจำเดือน {{month_now}}
+            </ion-item>
+          </ion-card>
       <div style="display: block">
-          <canvas baseChart
-                  [datasets]="barChartData"
-                  [labels]="barChartLabels" 
-                  [options]="barChartOptions"
-                  [legend]="barChartLegend"
-                  [chartType]="barChartType"
-                  (chartHover)="chartHovered($event)"
-                  (chartClick)="chartClicked($event)"></canvas>
+          <canvas baseChart width="1000" height="600"
+                      [data]="num"
+                      [labels]="doughnutChartLabels"
+
+                      [chartType]="doughnutChartType"
+                      (chartHover)="chartHovered($event)"
+                      (chartClick)="chartClicked($event)"></canvas>
         </div>
       </ion-card>
+
+      <ion-card margin-top>
+          <ion-card>
+              <ion-item color="listHead">
+                  รายจ่ายที่จำเป็นและไม่จำเป็น
+              </ion-item>
+            </ion-card>
+        <div style="display: block">
+            <canvas baseChart
+                    [datasets]="barChartData"
+                    [labels]="barChartLabels" 
+                    [options]="barChartOptions"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
+          </div>
+        </ion-card>
+      <!-- </ion-card> -->
 
 </ion-content>
