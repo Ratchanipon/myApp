@@ -75,6 +75,11 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 import { NotificationProvider } from '../providers/notification/notification';
 import { EditDueDateProvider } from '../providers/due-date-services/edit-due-date-services';
 import { DeleteUserProvider } from '../providers/user-service/delete-users';
+import { DeleteIncomeProvider } from '../providers/income-services/delete-income';
+import { ToastProvider } from '../providers/toast/toast';
+import { AlertProvider } from '../providers/alert/alert';
+import { DeleteFixedExpensesProvider } from '../providers/fixed-expenses-services/delete-fixed_expenses';
+import { DeleteDailyExpensesProvider } from '../providers/daily-expenses-services/delete-daily_expenses';
 // var config = {
 //   apiKey: "AIzaSyBiTQt8D-8MFdhk1m1HJtZaMu4eNf7Ywa0",
 //   authDomain: "fchs-526b9.firebaseapp.com",
@@ -164,7 +169,13 @@ initializeApp(FirebaseConfig);
     SumNecessaryExpensesLastMonthProvider,
     NotificationProvider,
     EditDueDateProvider,
-    DeleteUserProvider
+    DeleteUserProvider,
+    DeleteIncomeProvider,
+    DeleteFixedExpensesProvider,
+    DeleteDailyExpensesProvider,
+    
+    ToastProvider,
+    AlertProvider
   ]
 })
 export class AppModule {}

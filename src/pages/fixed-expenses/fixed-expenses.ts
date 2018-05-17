@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ActionSheetController, AlertController, App } from 'ionic-angular';
 import { SumFixedExpensesProvider } from '../../providers/calculate-services/sum-fixed-expenses';
 import { FixedExpensesProvider } from '../../providers/fixed-expenses-services/fixed-expenses';
 import { SumFixedExpensesByMonthProvider } from '../../providers/calculate-services/sum-fixed-expensesByMonth';
 import { FixedExpensesByMonthProvider } from '../../providers/fixed-expenses-services/fixed-expensesByMonth';
 import { SumFixedExp } from '../../model/get-sumFixedExp';
+import { ToastProvider } from '../../providers/toast/toast';
+import { DeleteFixedExpensesProvider } from '../../providers/fixed-expenses-services/delete-fixed_expenses';
 
 /**
  * Generated class for the FixedExpensesPage page.
@@ -30,11 +32,16 @@ export class FixedExpensesPage {
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
+              public app: App,
               public actionSheetCtrl: ActionSheetController,
               public sumFixedExpenses_: SumFixedExpensesProvider,
               public sumFixedExpensesByMonth: SumFixedExpensesByMonthProvider,
               public fixedExpenses_: FixedExpensesProvider,
-              public fixExpByMonth: FixedExpensesByMonthProvider) {
+              public fixExpByMonth: FixedExpensesByMonthProvider,
+              public toast: ToastProvider,
+              public alertCtrl: AlertController,
+              public deleteFixExp: DeleteFixedExpensesProvider
+            ) {
 
                 this.sumFixedExpenses_.getSumFixedExpenses().then((data:SumFixedExp) => {
                   console.info("sumFixedExp=="+data);
@@ -388,6 +395,14 @@ export class FixedExpensesPage {
           }
         },
         {
+          icon: 'trash',
+          text: 'ลบ',
+          handler: () => {
+            let fix_expenses_id = item.fix_expenses_id;
+            this.DeleteConfirm(fix_expenses_id);
+          }
+        },
+        {
           icon: 'close-circle',
           text: 'ยกเลิก',
           handler: () => {
@@ -396,6 +411,31 @@ export class FixedExpensesPage {
       ]
     });
     actionSheet.present();
+  }
+
+  DeleteConfirm(fix_expenses_id) {
+    let confirm = this.alertCtrl.create({
+      title: 'คุณต้องการจะลบรายจ่ายคงที่นี้ใช่หรือไม่',
+      buttons: [
+        {
+          text: 'ไม่ใช่',
+          handler: () => {
+          
+          }
+        },
+        {
+          text: 'ใช่',
+          handler: () => {
+            this.deleteFixExp.DeleteFixedExpenses(fix_expenses_id);
+            this.toast.ToastService('ลบรายการสำเร็จ');
+            this.navCtrl.setRoot('FixedExpensesPage');   
+            const root = this.app.getRootNav();
+            root.popToRoot();
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
 
 }

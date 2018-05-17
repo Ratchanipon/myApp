@@ -10,6 +10,8 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import { storage, initializeApp } from 'firebase';
 import { FirebaseConfig } from '../../app/firebae-Config';
 import { LoadingProvider } from '../../providers/loading/loading';
+import { DeleteFixedExpensesProvider } from '../../providers/fixed-expenses-services/delete-fixed_expenses';
+import { ToastProvider } from '../../providers/toast/toast';
 // import { initializeApp } from 'firebase/app';
 
 /**
@@ -60,7 +62,10 @@ export class AddFixedExpensesMainPage {
               public fixedExpenses_: FixedExpensesProvider,
               public addFixedExp: AddFixedExpensesProvider,
               public actionSheetCtrl: ActionSheetController,
-              public loading: LoadingProvider) {
+              public loading: LoadingProvider,
+              public deleteFixExp: DeleteFixedExpensesProvider,
+              public toast: ToastProvider
+              ) {
                 
                 this.options  = {
                   quality:100,
@@ -142,7 +147,7 @@ export class AddFixedExpensesMainPage {
     if(fixedExpenses != null){
       this.addFixedExpensesSuccess();
 
-      this.navCtrl.setRoot('HomePage');   
+      this.navCtrl.setRoot('AddFixedExpensesMainPage');   
       const root = this.app.getRootNav();
       root.popToRoot();
     }
@@ -232,6 +237,14 @@ export class AddFixedExpensesMainPage {
           }
         },
         {
+          icon: 'trash',
+          text: 'ลบ',
+          handler: () => {
+            let fix_expenses_id = item.fix_expenses_id;
+            this.DeleteConfirm(fix_expenses_id);
+          }
+        },
+        {
           icon: 'close-circle',
           text: 'ยกเลิก',
           handler: () => {
@@ -241,6 +254,32 @@ export class AddFixedExpensesMainPage {
     });
     actionSheet.present();
   }
+
+  DeleteConfirm(fix_expenses_id) {
+    let confirm = this.alertCtrl.create({
+      title: 'คุณต้องการจะลบรายจ่ายคงที่นี้ใช่หรือไม่',
+      buttons: [
+        {
+          text: 'ไม่ใช่',
+          handler: () => {
+          
+          }
+        },
+        {
+          text: 'ใช่',
+          handler: () => {
+            this.deleteFixExp.DeleteFixedExpenses(fix_expenses_id);
+            this.toast.ToastService('ลบรายการสำเร็จ');
+            this.navCtrl.setRoot('AddFixedExpensesMainPage');   
+            const root = this.app.getRootNav();
+            root.popToRoot();
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
   HomePage(){
     this.navCtrl.setRoot('HomePage');   
       const root = this.app.getRootNav();

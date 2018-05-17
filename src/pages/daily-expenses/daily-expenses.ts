@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ActionSheetController, AlertController, App } from 'ionic-angular';
 import { SumDailyExpensesProvider } from '../../providers/calculate-services/sum-daily-expenses';
 import { DailyExpensesProvider } from '../../providers/daily-expenses-services/daily-expenses';
 import { SumDailyExpensesByMonthProvider } from '../../providers/calculate-services/sum-daily-expensesByMonth';
 import { DailyExpensesByMonthProvider } from '../../providers/daily-expenses-services/daily-expensesByMonth';
 import { SumDaileExp } from '../../model/get-sumDailyExp';
+import { ToastProvider } from '../../providers/toast/toast';
+import { DeleteDailyExpensesProvider } from '../../providers/daily-expenses-services/delete-daily_expenses';
 
 /**
  * Generated class for the DailyExpensesPage page.
@@ -30,11 +32,15 @@ export class DailyExpensesPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
+              public alertCtrl: AlertController,
+              public toast: ToastProvider,
+              public app: App,
               public actionSheetCtrl: ActionSheetController,
               public sumDailyExpenses_: SumDailyExpensesProvider,
               public sumDailyExpensesByMonth: SumDailyExpensesByMonthProvider,
               public dailyExpenses_: DailyExpensesProvider,
-              public dailyExpensesByMonth: DailyExpensesByMonthProvider) {
+              public dailyExpensesByMonth: DailyExpensesByMonthProvider,
+              public deleteDailyExp: DeleteDailyExpensesProvider) {
 
                 this.sumDailyExpenses_.getSumDailyExpenses().then((data:SumDaileExp) => {
                   this.sumDailyExpenses = data;
@@ -381,6 +387,14 @@ export class DailyExpensesPage {
           }
         },
         {
+          icon: 'trash',
+          text: 'ลบ',
+          handler: () => {
+            let daily_expenses_id = item.daily_expenses_id;
+            this.DeleteConfirm(daily_expenses_id);
+          }
+        },
+        {
           icon: 'close-circle',
           text: 'ยกเลิก',
           handler: () => {
@@ -389,6 +403,31 @@ export class DailyExpensesPage {
       ]
     });
     actionSheet.present();
+  }
+
+  DeleteConfirm(daily_expenses_id) {
+    let confirm = this.alertCtrl.create({
+      title: 'คุณต้องการจะลบรายจ่ายรายวันนี้ใช่หรือไม่',
+      buttons: [
+        {
+          text: 'ไม่ใช่',
+          handler: () => {
+          
+          }
+        },
+        {
+          text: 'ใช่',
+          handler: () => {
+            this.deleteDailyExp.DeleteDailyExpenses(daily_expenses_id);
+            this.toast.ToastService('ลบรายการสำเร็จ');
+            this.navCtrl.setRoot('DailyExpensesPage');   
+            const root = this.app.getRootNav();
+            root.popToRoot();
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
 
 }

@@ -1,5 +1,5 @@
 import { Component, Input, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams ,Content, ActionSheet, ActionSheetController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams ,Content, ActionSheet, ActionSheetController, AlertController, App} from 'ionic-angular';
 import { IncomeProvider } from '../../providers/income-services/income';
 import { SumIncomeProvider } from '../../providers/calculate-services/sum-income';
 import { Income } from '../../model/income';
@@ -7,6 +7,8 @@ import { Month } from '../../model/month';
 import { IncomeByMonthProvider } from '../../providers/income-services/incomeByMonth';
 import { SumIncomeByMonthProvider } from '../../providers/calculate-services/sum-incomeByMonth';
 import { SumIncome } from '../../model/get-sumIncome';
+import { DeleteIncomeProvider } from '../../providers/income-services/delete-income';
+import { ToastProvider } from '../../providers/toast/toast';
 
 /**
  * Generated class for the IncomePage page.
@@ -36,10 +38,14 @@ export class IncomePage {
   animateClass: any;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
+              public app: App,
+              public alertCtrl: AlertController,
               public sumIncome_: SumIncomeProvider,
               public sumIncomeByMonth: SumIncomeByMonthProvider,
               public income: IncomeProvider,
+              public deleteIncome: DeleteIncomeProvider,
               public actionSheetCtrl: ActionSheetController,
+              public toast: ToastProvider,
               public incomeByMonth: IncomeByMonthProvider) {
 
                 //ดึงค่าผลรวมรายรับ
@@ -388,7 +394,15 @@ export class IncomePage {
           text: 'แก้ไข',
           handler: () => {
             console.log(item.income_cate_id);
-            this.navCtrl.push('EditIncomePage',item)
+            this.navCtrl.push('EditIncomePage',item);
+          }
+        },
+        {
+          icon: 'trash',
+          text: 'ลบ',
+          handler: () => {
+            let income_id = item.income_id;
+            this.DeleteConfirm(income_id);
           }
         },
         {
@@ -400,5 +414,30 @@ export class IncomePage {
       ]
     });
     actionSheet.present();
+  }
+
+  DeleteConfirm(income_id) {
+    let confirm = this.alertCtrl.create({
+      title: 'คุณต้องการจะลบรายรับนี้ใช่หรือไม่',
+      buttons: [
+        {
+          text: 'ไม่ใช่',
+          handler: () => {
+          
+          }
+        },
+        {
+          text: 'ใช่',
+          handler: () => {
+            this.deleteIncome.DeleteIncome(income_id);
+            this.toast.ToastService('ลบรายการสำเร็จ');
+            this.navCtrl.setRoot('IncomePage');   
+            const root = this.app.getRootNav();
+            root.popToRoot();
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
 }

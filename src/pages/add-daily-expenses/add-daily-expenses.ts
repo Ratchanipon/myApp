@@ -18,6 +18,8 @@ import { SumDaileExp } from '../../model/get-sumDailyExp';
 
 import { AlertController } from 'ionic-angular';
 import { LoadingProvider } from '../../providers/loading/loading';
+import { DeleteDailyExpensesProvider } from '../../providers/daily-expenses-services/delete-daily_expenses';
+import { ToastProvider } from '../../providers/toast/toast';
 
 
 // import { initializeApp } from 'firebase/app';
@@ -72,7 +74,9 @@ export class AddDailyExpensesPage {
               public alertCtrl: AlertController,
               public addDailyExp: AddDailyExpensesProvider,
               public actionSheetCtrl: ActionSheetController,
-              public loading: LoadingProvider
+              public loading: LoadingProvider,
+              public deleteDailyExp: DeleteDailyExpensesProvider,
+              public toast: ToastProvider
             ) {
 
                 this.options  = {
@@ -283,6 +287,14 @@ export class AddDailyExpensesPage {
           }
         },
         {
+          icon: 'trash',
+          text: 'ลบ',
+          handler: () => {
+            let daily_expenses_id = item.daily_expenses_id;
+            this.DeleteConfirm(daily_expenses_id);
+          }
+        },
+        {
           icon: 'close-circle',
           text: 'ยกเลิก',
           handler: () => {
@@ -292,6 +304,32 @@ export class AddDailyExpensesPage {
     });
     actionSheet.present();
   }
+
+  DeleteConfirm(daily_expenses_id) {
+    let confirm = this.alertCtrl.create({
+      title: 'คุณต้องการจะลบรายจ่ายรายวันนี้ใช่หรือไม่',
+      buttons: [
+        {
+          text: 'ไม่ใช่',
+          handler: () => {
+          
+          }
+        },
+        {
+          text: 'ใช่',
+          handler: () => {
+            this.deleteDailyExp.DeleteDailyExpenses(daily_expenses_id);
+            this.toast.ToastService('ลบรายการสำเร็จ');
+            this.navCtrl.setRoot('AddDailyExpensesPage');   
+            const root = this.app.getRootNav();
+            root.popToRoot();
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
   HomePage(){
     this.navCtrl.setRoot('HomePage');   
       const root = this.app.getRootNav();

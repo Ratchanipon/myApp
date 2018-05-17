@@ -10,6 +10,8 @@ import { IncomeProvider } from '../../providers/income-services/income';
 import { initializeApp } from 'firebase/app';
 import { FirebaseConfig } from '../../app/firebae-Config';
 import { LoadingProvider } from '../../providers/loading/loading';
+import { DeleteIncomeProvider } from '../../providers/income-services/delete-income';
+import { ToastProvider } from '../../providers/toast/toast';
 // import { config } from '../../app/app.module';
 /**
  * Generated class for the AddIncomeMainPage page.
@@ -57,7 +59,10 @@ export class AddIncomeMainPage {
               public camera:Camera,
               public toastCtrl: ToastController,
               public actionSheetCtrl: ActionSheetController,
-              public loading: LoadingProvider) {
+              public loading: LoadingProvider,
+              public deleteIncome: DeleteIncomeProvider,
+              public toast: ToastProvider
+            ) {
 
                 this.options  = {
                   quality:100,
@@ -229,6 +234,14 @@ export class AddIncomeMainPage {
           }
         },
         {
+          icon: 'trash',
+          text: 'ลบ',
+          handler: () => {
+            let income_id = item.income_id;
+            this.DeleteConfirm(income_id);
+          }
+        },
+        {
           icon: 'close-circle',
           text: 'ยกเลิก',
           handler: () => {
@@ -238,6 +251,32 @@ export class AddIncomeMainPage {
     });
     actionSheet.present();
   }
+
+  DeleteConfirm(income_id) {
+    let confirm = this.alertCtrl.create({
+      title: 'คุณต้องการจะลบรายรับนี้ใช่หรือไม่',
+      buttons: [
+        {
+          text: 'ไม่ใช่',
+          handler: () => {
+          
+          }
+        },
+        {
+          text: 'ใช่',
+          handler: () => {
+            this.deleteIncome.DeleteIncome(income_id);
+            this.toast.ToastService('ลบรายการสำเร็จ');
+            this.navCtrl.setRoot('AddIncomeMainPage');   
+            const root = this.app.getRootNav();
+            root.popToRoot();
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
   HomePage(){
     this.navCtrl.setRoot('HomePage');   
       const root = this.app.getRootNav();

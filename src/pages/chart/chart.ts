@@ -42,7 +42,7 @@ export class ChartPage {
 
   // pieChart
   public num:number[]=[];
-  public doughnutChartLabels = ['รายรับ', 'รายจ่ายคงที่', 'รายจ่างรายวัน'];
+  public doughnutChartLabels = ['รายรับ', 'รายจ่ายคงที่', 'รายจ่ายรายวัน'];
   // public colorChart:string[] = ['#5cdd78','#5cdd78','#5cdd78'];
   public doughnutChartData:number[]=[];
   public doughnutChartType:string = 'pie';
