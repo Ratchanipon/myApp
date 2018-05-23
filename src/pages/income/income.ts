@@ -122,6 +122,17 @@ export class IncomePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad IncomePage');
     this.animateClass = { 'fade-in-right-item': true };
+
+    this.sumIncome_.getSumIncome().then((data:SumIncome) => {
+      this.sumIncome = data;
+      this.sumIncom1 = this.sumIncome.totalIncome;
+    })
+
+    //ดึงรายการรายรับ
+    this.income.getIncome().then((data:Income) => {
+      this.incomeList = data;
+
+    })
     
     this.year = sessionStorage.getItem("year");
 

@@ -121,6 +121,20 @@ export class FixedExpensesPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad FixedExpensesPage');
     this.animateClass = { 'fade-in-right-item': true };
+
+    this.sumFixedExpenses_.getSumFixedExpenses().then((data:SumFixedExp) => {
+      console.info("sumFixedExp=="+data);
+      this.sumFixedExpenses = data;
+      this.sumFixedExpenses1 = this.sumFixedExpenses.totalFixedExp;
+      
+    })
+
+    this.fixedExpenses_.getFixedExpenses().then(data => {
+      this.fixedExpensesList = data;
+      console.log(this.fixedExpensesList);
+      
+    })
+
     this.year = sessionStorage.getItem("year");
 
     //เดือนปัจจุบัน

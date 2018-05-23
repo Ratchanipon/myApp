@@ -85,7 +85,7 @@ export class AddIncomeMainPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddIncomeMainPage');
-    this.animateClass = { 'fade-in-item': true };
+    // this.animateClass = { 'fade-in-item': true };
 
     this.animate2Class = { 'fade-in-item2': true };
     this.form();
@@ -267,9 +267,10 @@ export class AddIncomeMainPage {
           handler: () => {
             this.deleteIncome.DeleteIncome(income_id);
             this.toast.ToastService('ลบรายการสำเร็จ');
-            this.navCtrl.setRoot('AddIncomeMainPage');   
-            const root = this.app.getRootNav();
-            root.popToRoot();
+            this.navCtrl.push('AddIncomeMainPage');
+            // this.navCtrl.setRoot('AddIncomeMainPage');   
+            // const root = this.app.getRootNav();
+            // root.popToRoot();
           }
         }
       ]

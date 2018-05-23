@@ -117,7 +117,7 @@ export class AddDailyExpensesPage {
     console.log('ionViewDidLoad AddDailyExpensesPage');
     this.checkMoney();
 
-    this.animateClass = { 'fade-in-item': true };
+    // this.animateClass = { 'fade-in-item': true };
 
     this.animate2Class = { 'fade-in-item2': true };
     this.form();
@@ -320,9 +320,10 @@ export class AddDailyExpensesPage {
           handler: () => {
             this.deleteDailyExp.DeleteDailyExpenses(daily_expenses_id);
             this.toast.ToastService('ลบรายการสำเร็จ');
-            this.navCtrl.setRoot('AddDailyExpensesPage');   
-            const root = this.app.getRootNav();
-            root.popToRoot();
+            this.navCtrl.push('AddDailyExpensesPage');
+            // this.navCtrl.setRoot('AddDailyExpensesPage');   
+            // const root = this.app.getRootNav();
+            // root.popToRoot();
           }
         }
       ]

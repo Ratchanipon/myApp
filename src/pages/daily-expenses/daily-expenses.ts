@@ -114,6 +114,16 @@ export class DailyExpensesPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad DailyExpensesPage');
     this.animateClass = { 'fade-in-right-item': true };
+
+    this.sumDailyExpenses_.getSumDailyExpenses().then((data:SumDaileExp) => {
+      this.sumDailyExpenses = data;
+      this.sumDailyExpenses1 = this.sumDailyExpenses.totalDailyExp;
+    })
+
+    this.dailyExpenses_.getDailyExpenses().then(data => {
+      this.dailyExpensesList = data;
+    })
+
     this.year = sessionStorage.getItem("year");
 
     //เดือนปัจจุบัน

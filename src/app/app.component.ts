@@ -57,7 +57,7 @@ export class MyApp {
         sessionStorage.setItem("year",this.year);
 
     this.user_id = localStorage.getItem("user_id");
-    this.user_id != null?this.rootPage = "IndexPage":this.rootPage = "IndexPage";
+    this.user_id != null?this.rootPage = "HomePage":this.rootPage = "IndexPage";
 
     this.email = localStorage.getItem("email");
 

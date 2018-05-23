@@ -88,7 +88,7 @@ export class AddFixedExpensesMainPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddFixedExpensesPage');
-    this.animateClass = { 'fade-in-item': true };
+    // this.animateClass = { 'fade-in-item': true };
 
     this.animate2Class = { 'fade-in-item2': true };
     this.form();
@@ -270,9 +270,10 @@ export class AddFixedExpensesMainPage {
           handler: () => {
             this.deleteFixExp.DeleteFixedExpenses(fix_expenses_id);
             this.toast.ToastService('ลบรายการสำเร็จ');
-            this.navCtrl.setRoot('AddFixedExpensesMainPage');   
-            const root = this.app.getRootNav();
-            root.popToRoot();
+            this.navCtrl.push('AddFixedExpensesMainPage');
+            // this.navCtrl.setRoot('AddFixedExpensesMainPage');   
+            // const root = this.app.getRootNav();
+            // root.popToRoot();
           }
         }
       ]
