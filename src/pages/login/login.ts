@@ -51,10 +51,10 @@ export class LoginPage {
 
     this.user = this.formBuilder.group({
 
-      password:['anusit1234',Validators.compose([Validators.required,
+      password:['',Validators.compose([Validators.required,
                                                   Validators.minLength(8),
                                                   Validators.pattern("[a-zA-Z0-9.-_*#@$%&!]{1,}")])],
-      email:['anusit@hotmail.com',Validators.compose([Validators.required,
+      email:['',Validators.compose([Validators.required,
                                                   Validators.email])]
     })
 
